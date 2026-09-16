@@ -1,3587 +1,3665 @@
-### Which of the following are good use cases for how Amazon ElastiCache can help an application? (Select TWO)
+### An Amazon EC2 instance needs to be reachable from the internet. The EC2 instance is in a subnet with the following route table. Which entry must a CloudOps Engineer add to the route table to meet this requirement?
 
-- [ ] Improve the performance of S3 PUT operations.
-- [ ] Improve the latency of deployments performed by AWS CodeDeploy.
-- [x] Improve latency and throughput for read-heavy application workloads.
-- [ ] Reduce the time required to merge AWS CodeCommit branches.
-- [x] Improve performance of compute-intensive applications.
+![Question 1](images/question1.jpg)
 
-**[⬆ Back to Top](#table-of-contents)**
-
-### Which of the following services are key/value stores? (Choose 3 answers)
-
-- [x] Amazon ElastiCache.
-- [ ] Simple Notification Service.
-- [x] DynamoDB.
-- [ ] Simple Workflow Service.
-- [x] Simple Storage Service.
+- [ ] A route for `0.0.0.0/0` that points to a `NAT` gateway.
+- [ ] A route for `0.0.0.0/0` that points to an egress-only internet gateway.
+- [x] A route for `0.0.0.0/0` that points to an internet gateway.
+- [ ] A route for `0.0.0.0/0` that points to an elastic network interface.
 
 **[⬆ Back to Top](#table-of-contents)**
 
-### A developer wants to send multi-value headers to an AWS Lambda function that is registered as a target with an Application Load Balancer (ALB). What should the developer do to achieve this?
+### A CloudOps Engineer launches an Amazon EC2 instance in a private subnet of a `VPC`. When the CloudOps Engineer attempts a `curl` command from the command line of the EC2 instance, the CloudOps Engineer cannot connect to `https:www.example.com`. What should the CloudOps Engineer do to resolve this issue?
 
-- [ ] Place the Lambda function and target group in the same account.
-- [ ] Send the request body to the Lambda function with a size less than 1 MB 0.
-- [ ] Include the Base64 encoding status status code, status description, and headers in the Lambda function.
-- [x] Enable the multi-value headers on the ALB.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### A company's ecommerce website is experiencing massive traffic spikes, which are causing performance problems in the company database. Users are reporting that accessing the website takes a long time. A developer wants to implement a caching layer using Amazon ElastiCache. The website is required to be responsive no matter which product a user views, and the updates to product information and prices must be strongly consistent. Which cache writing policy will satisfy these requirements?
-
-- [ ] Write to the cache directly and sync the backend at a later time.
-- [ ] Write to the backend first and wait for the cache to expire.
-- [ ] Write to the cache and the backend at the same time.
-- [x] Write to the backend first and invalidate the cache.
+- [x] Ensure that there is an outbound security group for port `443` to `0.0.0.0/0`.
+- [ ] Ensure that there is an inbound security group for port `443` from `0.0.0.0/0`.
+- [ ] Ensure that there is an outbound network `ACL` for ephemeral ports `1024-66535` to `0.0.0.0/0`.
+- [ ] Ensure that there is an outbound network `ACL` for port `80` to `0.0.0.0/0`.
 
 **[⬆ Back to Top](#table-of-contents)**
 
-### A Developer wants to upload data to Amazon S3 and must encrypt the data in transit. Which of the following solutions will accomplish this task? (Choose TWO)
+### A company's public website is hosted in an Amazon S3 bucket in the `us-east-1` Region behind an Amazon CloudFront distribution. The company wants to ensure that the website is protected from DDoS attacks. A CloudOps Engineer needs to deploy a solution that gives the company the ability to maintain control over the rate limit at which DDoS protections are applied. Which solution will meet these requirements?
 
-- [ ] Set up hardware VPN tunnels to a VPC and access S3 through a VPC endpoint.
-- [x] Set up Client-Side Encryption with an AWS KMS-Managed Customer Master Key.
-- [ ] Set up Server-Side Encryption with AWS KMS-Managed Keys.
-- [x] Transfer the data over an SSL connection.
-- [ ] Set up Server-Side Encryption with S3-Managed Keys.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### A Developer wants to encrypt new objects that are being uploaded to an Amazon S3 bucket by an application. There must be an audit trail of who has used the key during this process. There should be no change to the performance of the application. Which type of encryption meets these requirements?
-
-- [ ] Server-side encryption using S3-managed keys.
-- [x] Server-side encryption with AWS KMS-managed keys.
-- [ ] Client-side encryption with a client-side symmetric master key.
-- [ ] Client-side encryption with AWS KMS-managed keys.
+- [x] Deploy a global-scoped AWS WAF web `ACL` with an allow default action. Configure an AWS WAF rate-based rule to block matching traffic. Associate the web `ACL` with the CloudFront distribution.
+- [ ] Deploy an AWS WAF web `ACL` with an allow default action in `us-east-1`. Configure an AWS WAF rate-based rule to block matching traffic. Associate the web `ACL` with the S3 bucket.
+- [ ] Deploy a global-scoped AWS WAF web `ACL` with a block default action. Configure an AWS WAF rate-based rule to allow matching traffic. Associate the web `ACL` with the CloudFront distribution.
+- [ ] Deploy an AWS WAF web `ACL` with a block default action in `us-east-1`. Configure an AWS WAF rate-based rule to allow matching traffic. Associate the web `ACL` with the S3 bucket.
 
 **[⬆ Back to Top](#table-of-contents)**
 
-### An application is being developed to audit several AWS accounts. The application will run in Account A and must access AWS services in Accounts B and C. What is the MOST secure way to allow the application to call AWS services in each audited account?
+### A company hosts an online shopping portal in the AWS Cloud. The portal provides `HTTPS` security by using a TLS certificate on an Elastic Load Balancer (ELB). Recently, the portal suffered an outage because the TLS certificate expired. A CloudOps Engineer must create a solution to automatically renew certificates to avoid this issue in the future. What is the MOST operationally efficient solution that meets these requirements?
 
-- [x] Configure cross-account roles in each audited account. Write code in Account A that assumes those roles.
-- [ ] Use S3 cross-region replication to communicate among accounts, with Amazon S3 event notifications to trigger Lambda functions.
-- [ ] Deploy an application in each audited account with its own role. Have Account A authenticate with the application.
-- [ ] Create an IAM user with an access key in each audited account. Write code in Account A that uses those access keys.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### A company uses a third-party tool to build, bundle, and package rts applications on-premises and store them locally. The company uses Amazon EC2 instances to run its front-end applications. How can an application be deployed from the source control system onto the EC2 instances?
-
-- [ ] Use AWS CodeDeploy and point it to the local storage to directly deploy a bundle m a zip. tar. or tar.gz format.
-- [x] Upload the bundle to an Amazon S3 bucket and specify the S3 location when doing a deployment using AWS CodeDeploy.
-- [ ] Create a repository using AWS CodeCommit to automatically trigger a deployment to the EC2 instances.
-- [ ] Use AWS CodeBuild to automatically deploy the latest build to the latest EC2 instances.
+- [ ] Request a public certificate by using AWS Certificate Manager (ACM). Associate the certificate from ACM with the ELB. Write a scheduled AWS Lambda function to renew the certificate every 18 months.
+- [x] Request a public certificate by using AWS Certificate Manager (ACM). Associate the certificate from ACM with the ELB. ACM will automatically manage the renewal of the certificate.
+- [ ] Register a certificate with a third-party certificate authority (CA). Import this certificate into AWS Certificate Manager (ACM). Associate the certificate from ACM with the ELB. ACM will automatically manage the renewal of the certificate.
+- [ ] Register a certificate with a third-party certificate authority (CA). Configure the ELB to import the certificate directly from the CA. Set the certificate refresh cycle on the ELB to refresh when the certificate is within 3 months of the expiration date.
 
 **[⬆ Back to Top](#table-of-contents)**
 
-### A company is building a compute-intensive application that will run on a fleet of Amazon EC2 instances. The application uses attached Amazon EBS disks for storing data. The application will process sensitive information and all the data must be encrypted. What should a developer do to ensure the data is encrypted on disk without impacting performance?
+### With the threat of ransomware viruses encrypting and holding company data hostage, which action should be taken to protect an Amazon S3 bucket?
 
-- [x] Configure the Amazon EC2 instance fleet to use encrypted EBS volumes for storing data.
-- [ ] Add logic to write all data to an encrypted Amazon S3 bucket.
-- [ ] Add a custom encryption algorithm to the application that will encrypt and decrypt all data.
-- [ ] Create a new Amazon Machine Image (AMI) with an encrypted root volume and store the data to ephemeral disks.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### A global company has an application running on Amazon EC2 instances that serves image files from Amazon S3. User requests from the browser are causing high traffic, which results in degraded performance. Which optimization solution should a Developer implement to increase application performance?
-
-- [ ] Create multiple prefix in the S3 bucket to increase the request rate.
-- [ ] Create an Amazon ElastiCache cluster to cache and serve frequently accessed items.
-- [x] Use Amazon CloudFront to serve the content of images stored in Amazon S3.
-- [ ] Submit a ticket to AWS support to request a rate limit increase for the S3 bucket.
+- [ ] Deny Post, Put, and Delete on the bucket.
+- [x] Enable server-side encryption on the bucket.
+- [ ] Enable Amazon S3 versioning on the bucket.
+- [ ] Enable snapshots on the bucket.
 
 **[⬆ Back to Top](#table-of-contents)**
 
-### An AWS Lambda function generates a 3MB JSON file and then uploads it to an Amazon S3 bucket daily. The file contains sensitive information, so the Developer must ensure that it is encrypted before uploading to the bucket. Which of the following modifications should the Developer make to ensure that the data is encrypted before uploading it to the bucket?
+### A company is partnering with an external vendor to provide data processing services. For this integration, the vendor must host the company's data in an Amazon S3 bucket in the vendor's AWS account. The vendor is allowing the company to provide an AWS Key Management Service (AWS KMS) key to encrypt the company's data. The vendor has provided an IAM role Amazon Resources Name (ARN) to the company for this integration. What should a CloudOps Engineer do to configure this integration?
 
-- [ ] Use the default AWS KMS customer master key for S3 in the Lambda function code.
-- [ ] Use the S3 managed key and call the `GenerateDataKey` API to encrypt the file.
-- [x] Use the `GenerateDataKey` API, then use that data key to encrypt the file in the Lambda function code.
-- [ ] Use a custom KMS customer master key created for S3 in the Lambda function code.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### Company D is running their corporate website on Amazon S3 accessed from `http://www.companyd.com`. Their marketing team has published new web fonts to a separate S3 bucket accessed by the S3 endpoint `https://s3-us-west-1.amazonaws.com/cdfonts`. While testing the new web fonts, Company D recognized the web fonts are being blocked by the browser. What should Company D do to prevent the web fonts from being blocked by the browser?
-
-- [ ] Enable versioning on the cdfonts bucket for each web font.
-- [ ] Create a policy on the cdfonts bucket to enable access to everyone.
-- [ ] Add the `Content-MD5` header to the request for webfonts in the cdfonts bucket from the website.
-- [x] Configure the cdfonts bucket to allow cross-origin requests by creating a CORS configuration.
+- [x] Create a new KMS key. Add the vendor's IAM role ARN to the KMS key policy. Provide the new KMS key ARN to the vendor.
+- [ ] Create a new KMS key. Create a new IAM user. Add the vendor's IAM role ARN to an inline policy that is attached to the IAM user. Provide the new IAM user ARN to the vendor.
+- [ ] Configure encryption using the KMS managed S3 key. Add the vendor's IAM role ARN to the KMS managed S3 key policy. Provide the KMS managed S3 key ARN to the vendor.
+- [ ] Configure encryption using the KMS managed S3 key. Create a S3 bucket. Add the vendor's IAM role ARN to the S3 bucket policy. Provide the S3 bucket ARN to the vendor.
 
 **[⬆ Back to Top](#table-of-contents)**
 
-### A developer must extend an existing application that is based on the AWS Serverless Application Model (AWS SAM). The developer has used the AWS SAM CLI to create the project. The project contains different AWS Lambda functions. Which combination of commands must the developer use to redeploy the AWS SAM application? (Select TWO)
+### A database is running on an Amazon RDS Multi-AZ DB instance. A recent security audit found the database to be out of compliance because it was not encrypted. Which approach will resolve the encryption requirement?
 
-- [ ] `sam init`.
-- [ ] `sam validate`.
-- [x] `sam build`.
-- [x] `sam deploy`.
-- [ ] `sam publish`.
+- [ ] Log in to the RDS console and select the encryption box to encrypt the database.
+- [ ] Create a new encrypted Amazon EBS volume and attach it to the instance.
+- [ ] Encrypt the standby replica in the secondary Availability Zone and promote it to the primary instance.
+- [x] Take a snapshot of the RDS instance, copy and encrypt the snapshot, and then restore to the new RDS instance.
 
 **[⬆ Back to Top](#table-of-contents)**
 
-### An application deployed on AWS Elastic Beanstalk experiences increased error rates during deployments of new application versions, resulting in service degradation for users. The Development team believes that this is because of the reduction in capacity during the deployment steps. The team would like to change the deployment policy configuration of the environment to an option that maintains full capacity during deployment while using the existing instances. Which deployment policy will meet these requirements while using the existing instances?
+### A CloudOps Engineer receives an alert from Amazon GuardDuty about suspicious network activity on an Amazon EC2 instance. The GuardDuty finding lists a new external IP address as a traffic destination. The CloudOps Engineer does not recognize the external IP address. The CloudOps Engineer must block traffic to the external IP address that GuardDuty identified Which solution will meet this requirement?
+
+- [ ] Create a new security group to block traffic to the external IP address. Assign the new security group to the EC2 instance.
+- [ ] Use `VPC` flow logs with Amazon Athena to block traffic to the external IP address.
+- [x] Create a network `ACL`. Add an outbound deny rule for traffic to the external IP address.
+- [ ] Create a new security group to block traffic to the external IP address. Assign the new security group to the entire `VPC`.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A web application runs on Amazon EC2 instances behind an Application Load Balancer (ALB). The instances run in an Auto Scaling group across multiple Availability Zones. A CloudOps Engineer notices that some of these EC2 instances show up as healthy in the Auto Scaling group but show up as unhealthy in the `ALB` target group. What is a possible reason for this issue?
+
+- [ ] Security groups are not allowing traffic between the `ALB` and the failing EC2 instances.
+- [ ] The Auto Scaling group health check is configured for EC2 status checks.
+- [ ] The EC2 instances are failing to launch and failing EC2 status checks.
+- [x] The target group health check is configured with an incorrect port or path.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A CloudOps Engineer has enabled AWS CloudTrail in an AWS account. If CloudTrail is disabled, it must be re-enabled immediately. What should the CloudOps Engineer do to meet these requirements WITHOUT writing custom code?
+
+- [ ] Add the AWS account to AWS Organizations. Enable CloudTrail in the management account.
+- [x] Create an AWS Config rule that is invoked when CloudTrail configuration changes.
+Apply the `AWS-ConfigureCloudTrailLogging` automatic remediation action.
+- [ ] Create an AWS Config rule that is invoked when CloudTrail configuration changes.
+Configure the rule to invoke an AWS Lambda function to enable CloudTrail.
+- [ ] Create an Amazon EventBridge (Amazon CloudWatch Events) hourly rule with a schedule pattern to run an AWS Systems Manager Automation document to enable CloudTrail.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A CloudOps Engineer needs to give users the ability to upload objects to an Amazon S3 bucket. The CloudOps Engineer creates a presigned URL and provides the URL to a user, but the user cannot upload an object to the S3 bucket. The presigned URL has not expired, and no bucket policy is applied to the S3 bucket. Which of the following could be the cause of this problem?
+
+- [ ] The user has not properly configured the AWS CLI with their access key and secret access key.
+- [x] The CloudOps Engineer does not have the necessary permissions to upload the object to the S3 bucket.
+- [ ] The CloudOps Engineer must apply a bucket policy to the S3 bucket to allow the user to upload the object.
+- [ ] The object already has been uploaded through the use of the presigned URL, so the presigned URL is no longer valid.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A company runs a web application on three Amazon EC2 instances behind an Application Load Balancer (ALB). The company notices that random periods of increased traffic cause a degradation in the application's performance. A CloudOps Engineer must scale the application to meet the increased traffic. Which solution meets these requirements?
+
+- [ ] Create an Amazon CloudWatch alarm to monitor application latency and increase the size of each EC2 instance if the desired threshold is reached.
+- [ ] Create an Amazon EventBridge (Amazon CloudWatch Events) rule to monitor application latency and add an EC2 instance to the `ALB` if the desired threshold is reached.
+- [x] Deploy the application to an Auto Scaling group of EC2 instances with a target tracking scaling policy. Attach the `ALB` to the Auto Scaling group.
+- [ ] Deploy the application to an Auto Scaling group of EC2 instances with a scheduled scaling policy. Attach the `ALB` to the Auto Scaling group.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A company uses an Amazon Elastic File System (Amazon EFS) file system to share files across many Linux Amazon EC2 instances. A CloudOps Engineer notices that the file system's `PercentIOLimit` metric is consistently at `100%` for 15 minutes or longer. The CloudOps Engineer also notices that the application that reads and writes to that file system is performing poorly. They application requires high throughput and IOPS while accessing the file system. What should the CloudOps Engineer do to remediate the consistently high `PercentIOLimit` metric?
+
+- [ ] Create a new EFS file system that uses Max I/O performance mode. Use AWS DataSync to migrate data to the new EFS file system.
+- [ ] Create an EFS lifecycle policy to transition future files to the Infrequent Access (IA) storage class to improve performance. Use AWS DataSync to migrate existing data to IA storage.
+- [ ] Modify the existing EFS file system and activate Max I/O performance mode.
+- [x] Modify the existing EFS file system and activate `Provisioned Throughput` mode.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A company needs to restrict access to an Amazon S3 bucket to Amazon EC2 instances in a `VPC` only. All traffic must be over the AWS private network. What actions should the CloudOps Engineer take to meet these requirements?
+
+- [ ] Create a `VPC` endpoint for the S3 bucket, and create an IAM policy that conditionally limits all S3 actions on the bucket to the `VPC` endpoint as the source.
+- [x] Create a `VPC` endpoint for the S3 bucket, and create a S3 bucket policy that conditionally limits all S3 actions on the bucket to the `VPC` endpoint as the source.
+- [ ] Create a service-linked role for Amazon EC2 that allows the EC2 instances to interact directly with Amazon S3, and attach an IAM policy to the role that allows the EC2 instances full access to the S3 bucket.
+- [ ] Create a `NAT` gateway in the `VPC`, and modify the `VPC` route table to route all traffic destined for Amazon S3 through the `NAT` gateway.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A company is managing multiple AWS accounts in AWS Organizations. The company is reviewing internal security of its AWS environment. The company's security engineer has their own AWS account and wants to review the `VPC` configuration of developer AWS accounts. Which solution will meet these requirements in the MOST secure manner?
+
+- [ ] Create an IAM policy in each developer account that has read-only access related to `VPC` resources Assign the policy to an IAM user. Share the user credentials with the security engineer.
+- [ ] Create an IAM policy in each developer account that has administrator access to all Amazon EC2 actions, including `VPC` actions. Assign the policy to an IAM user. Share the user credentials with the security engineer.
+- [ ] Create an IAM policy in each developer account that has administrator access related to `VPC` resources. Assign the policy to a cross-account IAM role. Ask the security engineer to assume the role from their account.
+- [x] Create an IAM policy in each developer account that has read-only access related to `VPC` resources. Assign the policy to a cross-account IAM role. Ask the security engineer to assume the role from their account.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A company migrated an I/O intensive application to an Amazon EC2 general purpose instance. The EC2 instance has a single General Purpose SSD Amazon Elastic Block Store (Amazon EBS) volume attached. Application users report that certain actions that require intensive reading and writing to the disk are taking much longer than normal or are failing completely. After reviewing the performance metrics of the EBS volume, a CloudOps Engineer notices that the `VolumeQueueLength` metric is consistently high during the same times in which the users are reporting issues. The CloudOps Engineer needs to resolve this problem to restore full performance to the application. Which action will meet these requirements?
+
+- [ ] Modify the instance type to be storage optimized.
+- [ ] Modify the volume properties by deselecting Auto-Enable Volume 10.
+- [x] Modify the volume properties to increase the IOPS.
+- [ ] Modify the instance to enable enhanced networking.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A company has multiple AWS Site-to-Site `VPN` connections between a `VPC` and its branch offices. The company manages an Amazon Elasticsearch Service (Amazon ES) domain that is configured with public access. The Amazon ES domain has an open domain access policy. A CloudOps Engineer needs to ensure that Amazon ES can be accessed only from the branch offices while preserving existing data. Which solution will meet these requirements?
+
+- [ ] Configure an identity-based access policy on Amazon ES. Add an allow statement to the policy that includes the Amazon Resource Name (ARN) for each branch office `VPN` connection.
+- [x] Configure an IP-based domain access policy on Amazon ES. Add an allow statement to the policy that includes the private IP `CIDR` blocks from each branch office network.
+- [ ] Deploy a new Amazon ES domain in private subnets in a `VPC`, and import a snapshot from the old domain. Create a security group that allows inbound traffic from the branch office `CIDR` blocks.
+- [ ] Reconfigure the Amazon ES domain in private subnets in a `VPC`. Create a security group that allows inbound traffic from the branch office `CIDR` blocks.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A company is managing many accounts by using a single organization in AWS Organizations. The organization has all features enabled. The company wants to turn on AWS Config in all the accounts of the organization and in all AWS Regions. What should a CloudOps Engineer do to meet these requirements in the MOST operationally efficient way?
+
+- [x] Use AWS CloudFormation `StackSets` to deploy stack instances that turn on AWS Config in all accounts and in all Regions.
+- [ ] Use AWS CloudFormation `StackSets` to deploy stack policies that turn on AWS Config in all accounts and in all Regions.
+- [ ] Use Service Control Policies (SCPs) to configure AWS Config in all accounts and in all Regions.
+- [ ] Create a script that uses the AWS CLI to turn on AWS Config in all accounts in the organization. Run the script from the organization's management account.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A company's CloudOps Engineer deploys four new Amazon EC2 instances by using the standard Amazon Linux 2 Amazon Machine Image (AMI). The company needs to be able to use AWS Systems Manager to manage the instances The CloudOps Engineer notices that the instances do not appear in the Systems Manager console. What must the CloudOps Engineer do to resolve this issue?
+
+- [ ] Connect to each instance by using `SSH`. Install Systems Manager Agent on each instance. Configure Systems Manager Agent to start automatically when the instances start up.
+- [ ] Use AWS Certificate Manager (ACM) to create a TLS certificate. Import the certificate into each instance. Configure Systems Manager Agent to use the TLS certificate for secure communications.
+- [ ] Connect to each instance by using `SSH`. Create an `ssm-user` account. Add the `ssm-user` account to the `/etcsudoers` directory.
+- [x] Attach an IAM instance profile to the instances. Ensure that the instance profile contains the `AmazonSSMManagedinstanceCore` policy.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A development team recently deployed a new version of a web application to production. After the release, penetration testing revealed a cross-site scripting vulnerability that could expose user data. Which AWS service will mitigate this issue?
+
+- [ ] AWS Shield Standard.
+- [x] AWS WAF.
+- [ ] Elastic Load Balancing.
+- [ ] Amazon Cognito.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### An Amazon EC2 instance is running an application that uses Amazon Simple Queue Service (Amazon SQS) queues. A CloudOps Engineer must ensure that the application can read, write, and delete messages from the SQS queues. Which solution will meet these requirements in the MOST secure manner?
+
+- [ ] Create an IAM user with an IAM policy that allows the `sqs:SendMessage` permission, the `sqs:ReceiveMessage` permission, and the `sqs:DeleteMessage` permission to the appropriate queues Embed the IAM user's credentials in the application's configuration.
+- [ ] Create an IAM user with an IAM policy that allows the `sqs:SendMessage` permission, the `sqs:ReceiveMessage` permission, and the `sqs:DeleteMessage` permission to the appropriate queues Export the IAM user's access key and secret access key as environment variables on the EC2 instance.
+- [ ] Create and associate an IAM role that allows EC2 instances to call AWS services. Attach an IAM policy to the role that allows `sqs:*` permissions to the appropriate queues.
+- [x] Create and associate an IAM role that allows EC2 instances to call AWS services. Attach an IAM policy to the role that allows the `sqs:SendMessage` permission, the `sqs:ReceiveMessage` permission, and the `sqs:DeleteMessage` permission to the appropriate queues.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A company has a policy that requires all Amazon EC2 instances to have a specific set of tags. If an EC2 instance does not have the required tags, the noncompliant instance should be terminated. What is the MOST operationally efficient solution that meets these requirements?
+
+- [ ] Create an Amazon EventBridge (Amazon CloudWatch Events) rule to send all EC2 instance state changes to an AWS Lambda function to determine if each instance is compliant. Terminate any noncompliant instances.
+- [ ] Create an IAM policy that enforces all EC2 instance tag requirements. If the required tags are not in place for an instance, the policy will terminate noncompliant instance.
+- [ ] Create an AWS Lambda function to determine if each EC2 instance is compliant and terminate an instance if it is noncompliant. Schedule the Lambda function to invoke every 5 minutes.
+- [x] Create an AWS Config rule to check if the required tags are present. If an EC2 instance is noncompliant, invoke an AWS Systems Manager Automation document to terminate the instance.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A CloudOps Engineer wants to upload a file that is 1 TB in size from on-premises to an Amazon S3 bucket using multipart uploads. What should the CloudOps Engineer do to meet this requirement?
+
+- [ ] Upload the file using the S3 console.
+- [ ] Use the `s3api copy-object` command.
+- [ ] Use the `s3api put-object` command.
+- [x] Use the `s3 cp` command.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A CloudOps Engineer launches an Amazon EC2 Linux instance in a public subnet. When the instance is running, the CloudOps Engineer obtains the public IP address and attempts to remotely connect to the instance multiple times. However, the CloudOps Engineer always receives a timeout error. Which action will allow the CloudOps Engineer to remotely connect to the instance?
+
+- [ ] Add a route table entry in the public subnet for the CloudOps Engineer's IP address.
+- [ ] Add an outbound network `ACL` rule to allow `TCP` port `22` for the CloudOps Engineer's IP address.
+- [x] Modify the instance security group to allow inbound `SSH` traffic from the CloudOps Engineer's IP address.
+- [ ] Modify the instance security group to allow outbound `SSH` traffic to the CloudOps Engineer's IP address.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A company wants to use only IPv6 for all its Amazon EC2 instances. The EC2 instances must not be accessible from the internet, but the EC2 instances must be able to access the internet. The company creates a dual-stack `VPC` and IPv6-only subnets. How should a CloudOps Engineer configure the `VPC` to meet these requirements?
+
+- [ ] Create and attach a `NAT` gateway. Create a custom route table that includes an entry to point all IPv6 traffic to the `NAT` gateway. Attach the custom route table to the IPv6-only subnets.
+- [ ] Create and attach an internet gateway. Create a custom route table that includes an entry to point all IPv6 traffic to the internet gateway. Attach the custom route table to the IPv6-only subnets.
+- [x] Create and attach an egress-only internet gateway. Create a custom route table that includes an entry to point all IPv6 traffic to the egress-only internet gateway. Attach the custom route table to the IPv6-only subnets.
+- [ ] Create and attach an internet gateway and a `NAT` gateway. Create a custom route table that includes an entry to point all IPv6 traffic to the internet gateway and all IPv4 traffic to the `NAT` gateway. Attach the custom route table to the IPv6-only subnets.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A CloudOps Engineer wants to manage a web server application with AWS Elastic Beanstalk. The Elastic Beanstalk service must maintain full capacity for new deployments at all times. Which deployment policies satisfy this requirement? (Select TWO.)
 
 - [ ] All at once.
+- [x] Immutable.
+- [ ] Rebuild.
 - [ ] Rolling.
 - [x] Rolling with additional batch.
-- [ ] Immutable.
 
 **[⬆ Back to Top](#table-of-contents)**
 
-### A Developer is creating an application that needs to locate the public IPv4 address of the Amazon EC2 instance on which it runs. How can the application locate this information?
+### A company asks a CloudOps Engineer to ensure that AWS CloudTrail files are not tampered with after they are created. Currently, the company uses AWS Identity and Access Management (IAM) to restrict access to specific trails. The company's security team needs the ability to trace the integrity of each file. What is the MOST operationally efficient solution that meets these requirements?
 
-- [x] Get the instance metadata by retrieving `http://169.254.169.254/latest/metadata/`.
-- [ ] Get the instance user data by retrieving `http://169.254.169.254/latest/userdata/`.
-- [ ] Get the application to run `IFCONFIG` to get the public IP address.
-- [ ] Get the application to run `IPCONFIG` to get the public IP address.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### The development team is working on an API that will be served from Amazon API gateway. The API will be served from three environments: development, test, and production. The API Gateway is configured to use 237 GB of cache in all three stages. Which is the MOST cost-efficient deployment strategy?
-
-- [ ] Create a single API Gateway with all three stages.
-- [ ] Create three API Gateways, one for each stage in a single AWS account.
-- [ ] Create an API Gateway in three separate AWS accounts.
-- [x] Enable the cache for development and test environments only when needed.
+- [ ] Create an Amazon EventBridge (Amazon CloudWatch Events) rule that invokes an AWS Lambda function when a new file is delivered. Configure the Lambda function to compute an MD5 hash check on the file and store the result in an Amazon DynamoDB table. The security team can use the values that are stored in DynamoDB to verify the integrity of the delivered files.
+- [ ] Create an AWS Lambda function that is invoked each time a new file is delivered to the CloudTrail bucket. Configure the Lambda function to compute an MD5 hash check on the file and store the result as a tag in an Amazon S3 object. The security team can use the information in the tag to verify the integrity of the delivered files.
+- [ ] Enable the CloudTrail file integrity feature on an Amazon S3 bucket. Create an IAM policy that grants the security team access to the file integrity logs that are stored in the S3 bucket.
+- [x] Enable the CloudTrail file integrity feature on the trail. The security team can use the digest file that is created by CloudTrail to verify the integrity of the delivered files.
 
 **[⬆ Back to Top](#table-of-contents)**
 
-### A company is migrating its on-premises database to Amazon RDS for MySQL. The company has read-heavy workloads, and wants to make sure it re-factors its code to achieve optimum read performance for its queries. How can this objective be met?
+### A company has multiple Amazon EC2 instances that run a resource-intensive application in a development environment. A CloudOps Engineer is implementing a solution to stop these EC2 instances when they are not in use. Which solution will meet this requirement?
 
-- [ ] Add database retries to effectively use RDS with vertical scaling.
-- [ ] Use RDS with multi-AZ deployment.
-- [x] Add a connection string to use an RDS read replica for read queries.
-- [ ] Add a connection string to use a read replica on an EC2 instance.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### A developer needs to modify an application architecture to meet new functional requirements. Application data is stored in Amazon DynamoDB and processed for analysis in a nightly batch. The system analysts do not want to wait unit the next day to view the processed data and have asked to have it available in near-real time. Which application architect pattern would enables the data to be processed as it is received?
-
-- [x] Event driven.
-- [ ] Client served driven.
-- [ ] Fan-out driven.
-- [ ] Schedule driven.
+- [ ] Assess AWS CloudTrail logs to verify that there is no EC2 API activity. Invoke an AWS Lambda function to stop the EC2 instances.
+- [x] Create an Amazon CloudWatch alarm to stop the EC2 instances when the average CPU utilization is lower than `5%` for a 30-minute period.
+- [ ] Create an Amazon CloudWatch metric to stop the EC2 instances when the `VolumeReadBytes` metric is lower than `500` for a 30-minute period.
+- [ ] Use AWS Config to invoke an AWS Lambda function to stop the EC2 instances based on resource configuration changes.
 
 **[⬆ Back to Top](#table-of-contents)**
 
-### A developer has built an application that inserts data into an Amazon DynamoDB table. The table is configured to use provisioned capacity. The application is deployed on a burstable nano Amazon EC2 Instance. The application logs show that the application has been failing because of a `ProvisionedThroughputExceedException` error. Which actions should the developer take to resolve this issue? (Choose two.)
+### A company creates custom AMI images by launching new Amazon EC2 instances from an AWS CloudFormation template it installs and configure necessary software through AWS OpsWorks and takes images of each EC2 instance. The process of installing and configuring software can take between 2 to 3 hours but at times the process stalls due to installation errors. The CloudOps Engineer must modify the CloudFormation template so if the process stalls, the entire stack will fail and roll back. Based on these requirements what should be added to the template?
 
-- [ ] Move the application to a larger EC instance.
-- [ ] Increase the number or read capacity units (RCUs) that are provisioned for the DynamoDB table.
-- [x] Reduce the frequency of requests to DynamoDB by implement ng exponential backoff.
-- [ ] Increase the frequency of requests to DynamoDB by decreasing the retry delay.
-- [x] Change the capacity mode of the DynamoDB table from provisioned to on-demand.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### A software company needs to make sure user-uploaded documents are securely stored in Amazon S3. The documents must be encrypted at rest in Amazon S3. The company does not want to manage the security infrastructure in-house, but the company still needs extra protection to ensure it has control over its encryption keys due to industry regulations. Which encryption strategy should a developer use to meet these requirements?
-
-- [ ] Server-side encryption with Amazon S3 managed keys (SSE-S3).
-- [ ] Server-side encryption with customer-provided encryption keys (SSE-C).
-- [x] Server-side encryption with AWS KMS managed keys (SSE-KMS).
-- [ ] Client-side encryption.
+- [ ] `Conditions` with a timeout set to 4 hours.
+- [x] `CreationPolicy` with timeout set to 4 hours.
+- [ ] `DependsOn` a timeout set to 4 hours.
+- [ ] `Metadata` with a timeout set to 4 hours.
 
 **[⬆ Back to Top](#table-of-contents)**
 
-### An application uses Amazon Kinesis Data Streams to ingest and process large streams of data records in real time. Amazon EC2 instances consume and process the data from the shards of the Kinesis data stream by using Amazon Kinesis Client Library (KCL). The application handles the failure scenarios and does not require standby workers. The application reports that a specific shard is receiving more data than expected. To adapt to the changes in the rate of data flow, the `hot` shard is resharded. Assuming that the initial number of shards in the Kinesis data stream is 4, and after resharding the number of shards increased to 6, what is the maximum number of EC2 instances that can be deployed to process data from all the shards?
+### A company plans to run a public web application on Amazon EC2 instances behind an Elastic Load Balancer (ELB). The company's security team wants to protect the website by using AWS Certificate Manager (ACM) certificates. The ELB must automatically redirect any `HTTP` requests to `HTTPS`. Which solution will meet these requirements?
 
-- [ ] 12.
-- [x] 6.
-- [ ] 4.
-- [ ] 1.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### A gaming company is developing a mobile game application for iOS® and Android® platforms. This mobile game securely stores user data locally on the device. The company wants to allow users to use multiple device for the game, which requires user data synchronization across device.Which service should be used to synchronize user data across devices without the need to create a backend application?
-
-- [ ] AWS Lambda.
-- [ ] Amazon S3.
-- [ ] Amazon DynamoDB.
-- [x] Amazon Cognito.
+- [ ] Create an Application Load Balancer that has one `HTTPS` listener on port `80`. Attach an SSL/TLS certificate to listener port `80`. Create a rule to redirect requests from `HTTP` to `HTTPS`.
+- [x] Create an Application Load Balancer that has one `HTTP` listener on port `80` and one `HTTPS` protocol listener on port `443`. Attach an SSL/TLS certificate to listener port `443`. Create a rule to redirect requests from port `80` to port `443`.
+- [ ] Create an Application Load Balancer that has two `TCP` listeners on port `80` and port `443`. Attach an SSL/TLS certificate to listener port `443`. Create a rule to redirect requests from port `80` to port `443`.
+- [ ] Create a Network Load Balancer that has two `TCP` listeners on port `80` and port `443`. Attach an SSL/TLS certificate to listener port `443`. Create a rule to redirect requests from port `80` to port `443`.
 
 **[⬆ Back to Top](#table-of-contents)**
 
-### A Developer is making changes to a custom application that is currently using AWS Elastic Beanstalk. After the Developer completes the changes, what solutions will update the Elastic Beanstalk environment with the new application version? (Choose TWO)
+### A CloudOps Engineer is responsible for a legacy CPU-heavy application. The application can only be scaled vertically. Currently, the application is deployed on a single t2 large Amazon EC2 instance. The system is showing `90%` CPU usage and significant performance latency after a few minutes. What change should be made to alleviate the performance problem?
 
-- [x] Package the application code into a `.zip` file, and upload, then deploy the packaged application from the AWS Management Console.
-- [ ] Package the application code into a `.tar` file, create a new application version from the AWS Management Console, then update the environment by using AWS CLI.
-- [ ] Package the application code into a `.tar` file, and upload and deploy the packaged application from the AWS Management Console.
-- [x] Package the application code into a `.zip` file, create a new application version from the packaged application by using AWS CLI, then update the environment by using AWS CLI.
-- [ ] Package the application code into a `.zip` file, create a new application version from the AWS Management Console, then rebuild the environment by using AWS CLI.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### A company is running an application built on AWS Lambda functions. One Lambda function has performance issues when it has to download a 50MB file from the Internet in every execution. This function is called multiple times a second. What solution would give the BEST performance increase?
-
-- [x] Cache the file in the `/tmp` directory.
-- [ ] Increase the Lambda maximum execution time.
-- [ ] Put an Elastic Load Balancer in front of the Lambda function.
-- [ ] Cache the file in Amazon S3.
+- [ ] Change the Amazon EBS volume to Provisioned IOPS.
+- [x] Upgrade to a compute-optimized instance.
+- [ ] Add additional `t2.large` instances to the application.
+- [ ] Purchase Reserved Instances.
 
 **[⬆ Back to Top](#table-of-contents)**
 
-### Queries to an Amazon DynamoDB table are consuming a large amount of read capacity. The table has a significant number of large attributes. The application does not need all of the attribute data. How can DynamoDB costs be minimized while maximizing application performance?
+### A company recently migrated its application to a `VPC` on AWS. An AWS Site-to-Site `VPN` connection connects the company's on-premises network to the `VPC`. The application retrieves customer data from another system that resides on premises. The application uses an on-premises `DNS` server to resolve domain records. After the migration, the application is not able to connect to the customer data because of name resolution errors. Which solution will give the application the ability to resolve the internal domain names?
 
-- [ ] Batch all the writes, and perform the write operations when no or few reads are being performed.
-- [x] Create a global secondary index with a minimum set of projected attributes.
-- [ ] Implement exponential backoffs in the application.
-- [ ] Load balance the reads to the table using an Application Load Balancer.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### A Developer is writing a REST service that will add items to a shopping list. The service is built on Amazon API Gateway with AWS Lambda integrations. The shopping list items are send as query string parameters in the method request. How should the Developer convert the query string parameters to arguments for the Lambda function?
-
-- [ ] Enable request validation.
-- [ ] Include the Amazon Resource Name (ARN) of the Lambda function.
-- [ ] Change the integration type.
-- [x] Create a mapping template.
+- [ ] Launch EC2 instances in the `VPC`. On the EC2 instances, deploy a custom `DNS` forwarder that forwards all `DNS` requests to the on-premises `DNS` server. Create an Amazon Route 53 private hosted zone that uses the EC2 instances for name servers.
+- [x] Create an Amazon Route 53 Resolver outbound endpoint. Configure the outbound endpoint to forward `DNS` queries against the on-premises domain to the on-premises `DNS` server.
+- [ ] Set up two AWS Direct Connect connections between the AWS environment and the on-premises network. Set up a link aggregation group (LAG) that includes the two connections. Change the `VPC` resolver address to point to the on-premises `DNS` server.
+- [ ] Create an Amazon Route 53 public hosted zone for the on-premises domain. Configure the network `ACL`s to forward `DNS` requests against the on-premises domain to the Route 53 public hosted zone.
 
 **[⬆ Back to Top](#table-of-contents)**
 
-### A development team is creating a new application designed to run on AWS. While the test and production environments will run on Amazon EC2 instances, developers will each run their own environment on their laptops. Which of the following is the simplest and MOST secure way to access AWS services from the local development machines?
+### A CloudOps Engineer creates a new `VPC` that includes a public subnet and a private subnet. The CloudOps Engineer successfully launches 11 Amazon EC2 instances in the private subnet. The CloudOps Engineer attempts to launch one more EC2 instance in the same subnet. However, the CloudOps Engineer receives an error message that states that not enough free IP addresses are available. What must the CloudOps Engineer do to deploy more EC2 instances?
 
-- [ ] Use an IAM role to assume a role and execute API calls using the role.
-- [ ] Create an IAM user to be shared with the entire development team, provide the development team with the access key.
-- [x] Create an IAM user for each developer on the team: provide each developer with a unique access key.
-- [ ] Set up a federation through an Amazon Cognito user pool.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### How is provisioned throughput affected by the chosen consistency model when reading data from a DynamoDB table?
-
-- [ ] Strongly consistent reads use the same amount of throughput as eventually consistent reads.
-- [x] Strongly consistent reads use more throughput than eventually consistent reads.
-- [ ] Strongly consistent reads use less throughput than eventually consistent reads.
-- [ ] Strongly consistent reads use variable throughput depending on read activity.
+- [ ] Edit the private subnet to change the `CIDR` block to `/27`.
+- [ ] Edit the private subnet to extend across a second Availability Zone.
+- [ ] Assign additional Elastic IP addresses to the private subnet.
+- [x] Create a new private subnet to hold the required EC2 instances.
 
 **[⬆ Back to Top](#table-of-contents)**
 
-### A developer needs to deploy a new version to an AWS Elastic Beanstalk application. How can the developer accomplish this task?
+### A company has a critical serverless application that uses multiple AWS Lambda functions. Each Lambda function generates `1 GB` of log data daily in its own Amazon CloudWatch Logs log group. The company's security team asks for a count of application errors, grouped by type, across all of the log groups. What should a CloudOps Engineer do to meet this requirement?
 
-- [x] Upload and deploy the new application version in the Elastic Beanstalk console.
-- [ ] Use the eb init CLI command to deploy a new version.
-- [ ] Terminate the current Elastic Beanstalk environment and create a new one.
-- [ ] Modify the ebextensions folder to add a source option to services.
+- [x] Perform a CloudWatch Logs Insights query that uses the stats command and count function.
+- [ ] Perform a CloudWatch Logs search that uses the groupby keyword and count function.
+- [ ] Perform an Amazon Athena query that uses the `SELECT` and `GROUP BY` keywords.
+- [ ] Perform an Amazon RDS query that uses the `SELECT` and `GROUP BY` keywords.
 
 **[⬆ Back to Top](#table-of-contents)**
 
-### A gaming application stores scores for players in an Amazon DynamoDB table that has four attributes: `user_id`, `user_name`, `user_score`, and `user_rank`. The users are allowed to update their names only if a user is authenticated by web identity federation. Which set of conditions should be added in the policy attached to the role for the `dynamodb:PutItem` API call?
+### A CloudOps Engineer applies the following policy to an AWS CloudFormation stack. What is the result of this policy?
+
+![Question 35](images/question35.jpg)
+
+- [ ] Users that assume an IAM role with a logical ID that begins with `Production` are prevented from running the `update-stack` command.
+- [x] Users can update all resources in the stack except for resources that have a logical ID that begins with `Production`.
+- [ ] Users can update all resources in the stack except for resources that have an attribute that begins with `Production`.
+- [ ] Users in an IAM group with a logical ID that begins with `Production` are prevented from running the `update-stack` command.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A CloudOps Engineer is deploying an application on 10 Amazon EC2 instances. The application must be highly available. The instances must be placed on distinct underlying hardware. What should the CloudOps Engineer do to meet these requirements?
+
+- [ ] Launch the instances into a cluster placement group in a single AWS Region.
+- [ ] Launch the instances into a partition placement group in multiple AWS Regions.
+- [ ] Launch the instances into a spread placement group in multiple AWS Regions.
+- [x] Launch the instances into a spread placement group in single AWS Region.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A company is running a website on Amazon EC2 instances that are in an Auto Scaling group. When the website traffic increases, additional instances take several minutes to become available because of a long-running user data script that installs software. A CloudOps Engineer must decrease the time that is required for new instances to become available. Which action should the CloudOps Engineer take to meet this requirement?
+
+- [ ] Reduce the scaling thresholds so that instances are added before traffic increases.
+- [ ] Purchase Reserved Instances to cover `100%`of the maximum capacity of the Auto Scaling group.
+- [ ] Update the Auto Scaling group to launch instances that have a storage optimized instance type.
+- [x] Use EC2 Image Builder to prepare an Amazon Machine Image (AMI) that has pre-installed software.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A CloudOps Engineer has launched a large general purpose Amazon EC2 instance to regularly process large data files. The instance has an attached 1 TB `General Purpose SSD (gp2)` Amazon Elastic Block Store (Amazon EBS) volume. The instance also is EBS-optimized. To save costs, the CloudOps Engineer stops the instance each evening and restarts the instance each morning. When data processing is active, Amazon CloudWatch metrics on the instance show a consistent 3.000 `VolumeReadOps`. The CloudOps Engineer must improve the I/O performance while ensuring data integrity. Which action will meet these requirements?
+
+- [ ] Change the instance type to a large, burstable, general purpose instance.
+- [ ] Change the instance type to an extra large general purpose instance.
+- [ ] Increase the EBS volume to a 2 TB `General Purpose SSD (gp2)` volume.
+- [x] Move the data that resides on the EBS volume to the instance store.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A company runs workloads on 90 Amazon EC2 instances in the `eu-west-1` Region in an AWS account. In 2 months, the company will migrate the workloads from `eu-west-1` to the `eu-west-3` Region. The company needs to reduce the cost of the EC2 instances. The company is willing to make a 1-year commitment that will begin next week. The company must choose an EC2 Instance purchasing option that will provide discounts for the 90 EC2 Instances regardless of Region during the 1-year period. Which solution will meet these requirements?
+
+- [ ] Purchase EC2 Standard Reserved Instances.
+- [ ] Purchase an EC2 Instance Savings Plan.
+- [ ] Purchase EC2 Convertible Reserved Instances.
+- [x] Purchase a Compute Savings Plan.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A company uses Amazon Elasticsearch Service (Amazon ES) to analyze sales and customer usage data. Members of the company's geographically dispersed sales team are traveling. They need to log in to Kibana by using their existing corporate credentials that are stored in Active Directory. The company has deployed Active Directory Federation Services (AD FS) to enable authentication to cloud services. Which solution will meet these requirements?
+
+- [ ] Configure Active Directory as an authentication provider in Amazon ES. Add the Active Directory server's domain name to Amazon ES. Configure Kibana to use Amazon ES authentication.
+- [x] Deploy an Amazon Cognito user pool. Configure Active Directory as an external identity provider for the user pool. Enable Amazon Cognito authentication for Kibana on Amazon ES.
+- [ ] Enable Active Directory user authentication in Kibana. Create an IP-based custom domain access policy in Amazon ES that includes the Active Directory server's IP address.
+- [ ] Establish a trust relationship with Kibana on the Active Directory server. Enable Active Directory user authentication in Kibana. Add the Active Directory server's IP address to Kibana.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A company uses AWS Organizations. A CloudOps Engineer wants to use AWS Compute Optimizer and AWS tag policies in the management account to govern all member accounts in the billing family. The CloudOps Engineer navigates to the AWS Organizations console but cannot activate tag policies through the management account. What could be the reason for this issue?
+
+- [x] All features have not been enabled in the organization.
+- [ ] Consolidated billing has not been enabled.
+- [ ] The member accounts do not have tags enabled for cost allocation.
+- [ ] The member accounts have not manually enabled trusted access for Compute Optimizer.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A CloudOps Engineer is attempting to download patches from the internet into an instance in a private subnet. An internet gateway exists for the `VPC`, and a `NAT` gateway has been deployed on the public subnet; however, the instance has no internet connectivity. The resources deployed into the private subnet must be inaccessible directly from the public internet. What should be added to the private subnet's route table in order to address this issue, given the information provided?
+
+![Question 42](images/question42.png)
+
+- [ ] `0.0.0.0/0` `IGW`.
+- [x] `0.0.0.0/0` `NAT`.
+- [ ] `10.0.1.0/24` `IGW`.
+- [ ] `10.0.1.0/24` `NAT`.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A company has a stateless application that is hosted on a fleet of 10 Amazon EC2 On-Demand Instances in an Auto Scaling group. A minimum of 6 instances are needed to meet service requirements. Which action will maintain uptime for the application MOST cost-effectively?
+
+- [x] Use a Spot Fleet with an On-Demand capacity of 6 instances.
+- [ ] Update the Auto Scaling group with a minimum of 6 On-Demand Instances and a maximum of 10 On-Demand Instances.
+- [ ] Update the Auto Scaling group with a minimum of 1 On-Demand Instance and a maximum of 6 On-Demand Instances.
+- [ ] Use a Spot Fleet with a target capacity of 6 instances.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A large company is using AWS Organizations to manage its multi-account AWS environment. According to company policy, all users should have read-level access to a particular Amazon S3 bucket in a central account. The S3 bucket data should not be available outside the organization. A CloudOps Engineer must set up the permissions and add a bucket policy to the S3 bucket. Which parameters should be specified to accomplish this in the MOST efficient manner?
+
+- [x] Specify `"*"` as the principal and `PrincipalOrgld` as a condition.
+- [ ] Specify all account numbers as the principal.
+- [ ] Specify `PrincipalOrgld` as the principal.
+- [ ] Specify the organization's management account as the principal.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### CloudOps Engineer needs to create alerts that are based on the read and write metrics of Amazon Elastic Block Store (Amazon EBS) volumes that are attached to an Amazon EC2 instance. The CloudOps Engineer creates and enables Amazon CloudWatch alarms for the `DiskReadBytes` metric and the `DiskWriteBytes` metric. A custom monitoring tool that is installed on the EC2 instance with the same alarm configuration indicates that the volume metrics have exceeded the threshold. However, the CloudWatch alarms were not in `ALARM` state. Which action will ensure that the CloudWatch alarms function correctly?
+
+- [ ] Install and configure the CloudWatch agent on the EC2 instance to capture the desired metrics.
+- [ ] Install and configure AWS Systems Manager Agent on the EC2 instance to capture the desired metrics.
+- [x] Reconfigure the CloudWatch alarms to use the `VolumeReadBytes` metric and the `VolumeWriteBytes` metric for the EBS volumes.
+- [ ] Reconfigure the CloudWatch alarms to use the `VolumeReadBytes` metric and the `VolumeWriteBytes` metric for the EC2 instance.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A company updates its security policy to prohibit the public exposure of any data in Amazon S3 buckets in the company's account. What should a CloudOps Engineer do to meet this requirement?
+
+- [x] Turn on S3 Block Public Access from the account level.
+- [ ] Create an Amazon Event Bridge (Amazon CloudWatch Events) rule to enforce that all S3 objects are private.
+- [ ] Use Amazon Inspector to search for S3 buckets and to automatically reset S3 `ACL`s if any public S3 buckets are found.
+- [ ] Use S3 Object Lambda to examine S3 `ACL`s and to change any public S3 `ACL`s to private.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### An Amazon S3 Inventory report reveals that more than 1 million objects in a S3 bucket are not encrypted These objects must be encrypted, and all future objects must be encrypted at the time they are written. Which combination of actions should a CloudOps Engineer take to meet these requirements? (Select TWO)
+
+- [ ] Create an AWS Config rule that runs evaluations against configuration changes to the S3 bucket. When an unencrypted object is found run an AWS Systems Manager Automation document to encrypt the object in place.
+- [x] Edit the properties of the S3 bucket to enable default server-side encryption.
+- [x] Filter the S3 Inventory report by using S3 Select to find all objects that are not encrypted. Create a S3 Batch Operations job to copy each object in place with en cryption enabled.
+- [ ] Filter the S3 Inventory report by using S3 Select to find all objects that are not encrypted. Send each object name as a message to an Amazon Simple Queue Service (Amazon SQS) queue. Use the SQS queue to invoke an AWS Lambda function to tag each object with a key of `Encryption` and a value of `SSE-KMS`
+- [ ] Use S3 Event Notifications to invoke an AWS Lambda function on all new object-created events for the S3 bucket. Configure the Lambda function to check whether the object is encrypted and to run an AWS Systems Manager Automation document to encrypt the object in place when an unencrypted object is found.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A web application runs on Amazon EC2 instances behind an Elastic Load Balancing Application Load Balancer (ALB). The instances run in an Auto Scaling group across multiple Availability Zones. A CloudOps Engineer has notice that some EC2 instances show up healthy in the Auto Scaling console but show up as unhealthy in the `ALB` target console. What could be the issue?
+
+- [ ] The health check grace period for the Auto Scaling group is set too low; increase it.
+- [ ] The target group health check is incorrectly configured and needs to be adjusted.
+- [ ] The user data or AMI used for the Auto Scaling group launch configuration is incorrect.
+- [x] The Auto Scaling group health check type is based on EC2 instance health instead of Elastic Load Balancing health checks.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### An application accesses data through a file system interface. The application runs on Amazon EC2 instances in multiple Availability Zones, all of which must share the same data. While the amount of data is currently small, the company anticipates that it will grow to tens of terabytes over the lifetime of the application. What is the MOST scalable storage solution to fulfill this requirement?
+
+- [ ] Connect a large Amazon EBS volume to multiple instances and schedule snapshots.
+- [x] Deploy Amazon EFS in the `VPC` and create mount targets in multiple subnets.
+- [ ] Launch an EC2 instance and share data using SMB/CIFS or NFS.
+- [ ] Deploy an AWS Storage Gateway cached volume on Amazon EC2.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A company is expanding its use of AWS services across its portfolios. The company wants to provision AWS accounts for each team to ensure a separation of business processes for security compliance and billing. Account creation and bootstrapping should be completed in a scalable and efficient way so new accounts are created with a defined baseline and governance guardrails in place. A CloudOps Engineer needs to design a provisioning process that saves time and resources. Which action should be taken to meet these requirements?
+
+- [ ] Automate using AWS Elastic Beanstalk to provision the AWS accounts set up infrastructure and integrate with AWS Organizations.
+- [ ] Create bootstrapping scripts in AWS OpsWorks and combine them with AWS CloudFormation templates to provision accounts and infrastructure.
+- [ ] Use AWS Config to provision accounts and deploy instances using AWS Service Catalog.
+- [x] Use AWS Control Tower to create a template in Account Factory and use the template to provision new accounts.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A company hosts a web portal on Amazon EC2 instances. The web portal uses an Elastic Load Balancer (ELB) and Amazon Route 53 for its public `DNS` service. The ELB and the EC2 instances are deployed by way of a single AWS CloudFormation stack in the `us-east-1` Region. The web portal must be highly available across multiple Regions. Which configuration will meet these requirements?
+
+- [ ] Deploy a copy of the stack in the `us-west-2` Region. Create a single start of authority (`SOA`) record in Route 53 that includes the IP address from each ELB. Configure the `SOA` record with health checks. Use the ELB in `us-east-1` as the primary record and the ELB in `us-west-2` as the secondary record.
+- [x] Deploy a copy of the stack in the `us-west-2` Region. Create an additional `A` record in Route 53 that includes the ELB in `us-west-2` as an alias target. Configure the `A` records with a failover routing policy and health checks. Use the ELB in `us-east-1` as the primary record and the ELB in `us-west-2` as the secondary record.
+- [ ] Deploy a new group of EC2 instances in the `us-west-2` Region. Associate the new EC2 instances with the existing ELB, and configure load balancer health checks on all EC2 instances. Configure the ELB to update Route 53 when EC2 instances in `us-west-2` fail health checks.
+- [ ] Deploy a new group of EC2 instances in the `us-west-2` Region. Configure EC2 health checks on all EC2 instances in each Region. Configure a peering connection between the `VPC`'s. Use the `VPC` in `us-east-1` as the primary record and the `VPC` in `us-west-2` as the secondary record.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A company needs to view a list of security groups that are open to the internet on port `3389`. What should a CloudOps Engineer do to meet this requirement?
+
+- [ ] Configure Amazon GuardDuty to scan security groups and report unrestricted access on port `3389`.
+- [ ] Configure a Service Control Policy (SCP) to identify security groups that allow unrestricted access on port `3389`.
+- [ ] Use AWS Identity and Access Management Access Analyzer to find any instances that have unrestricted access on port `3389`.
+- [x] Use AWS Trusted Advisor to find security groups that allow unrestricted access on port `3389`.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A company has an AWS Site-to-Site `VPN` connection between on-premises resources and resources that are hosted in a `VPC`. A CloudOps Engineer launches an Amazon EC2 instance that has only a private IP address into a private subnet in the `VPC`. The EC2 instance runs Microsoft Windows Server. A security group for the EC2 instance has rules that allow inbound traffic from the on-premises network over the `VPN` connection. The on-premises environment contains a third-party network firewall. Rules in the third-party network firewall allow Remote Desktop Protocol (RDP) traffic to flow between the on-premises users over the `VPN` connection. The on-premises users are unable to connect to the EC2 instance and receive a timeout error. What should the CloudOps Engineer do to troubleshoot this issue?
+
+- [ ] Create Amazon CloudWatch logs for the EC2 instance to check for blocked traffic.
+- [ ] Create Amazon CloudWatch logs for the Site-to-Site `VPN` connection to check for blocked traffic.
+- [x] Create `VPC` flow logs for the EC2 instance's elastic network interface to check for rejected traffic.
+- [ ] Instruct users to use EC2 Instance Connect as a connection method.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A recent organizational audit uncovered an existing Amazon RDS database that is not currently configured for high availability. Given the critical nature of this database, it must be configured for high availability as soon as possible. How can this requirement be met?
+
+- [ ] Switch to an active/passive database pair using the `create-db-instance-read-replica` with the `–availability-zone` flag.
+- [ ] Specify high availability when creating a new RDS instance, and `live-migrate` the data.
+- [x] Modify the RDS instance using the console to include the Multi-AZ option.
+- [ ] Use the `modify-db-instance` command with the `–na` flag.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A CloudOps Engineer is deploying a test site running on Amazon EC2 instances. The application requires both incoming and outgoing connectivity to the internet. Which combination of steps are required to provide internet connectivity to the EC2 instances? (Choose two.)
+
+- [ ] Add a `NAT` gateway to a public subnet.
+- [ ] Attach a private address to the elastic network interface on the EC2 instance.
+- [ ] Attach an Elastic IP address to the internet gateway.
+- [x] Add an entry to the route table for the subnet that points to an internet gateway.
+- [x] Create an internet gateway and attach it to a `VPC`.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A company is testing Amazon Elasticsearch Service (Amazon ES) as a solution for analyzing system logs from a fleet of Amazon EC2 instances. During the test phase, the domain operates on a single-node cluster. A CloudOps Engineer needs to transition the test domain into a highly available production-grade deployment. Which Amazon ES configuration should the CloudOps Engineer use to meet this requirement?
+
+- [ ] Use a cluster of four data nodes across two AWS Regions. Deploy four dedicated master nodes in each Region.
+- [x] Use a cluster of six data nodes across three Availability Zones. Use three dedicated master nodes.
+- [ ] Use a cluster of six data nodes across three Availability Zones. Use six dedicated master nodes.
+- [ ] Use a cluster of eight data nodes across two Availability Zones. Deploy four master nodes in a failover AWS Region.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A CloudOps Engineer is investigating why a user has been unable to use `RDP` to connect over the internet from their home computer to a bastion server running on an Amazon EC2 Windows instance. Which of the following are possible causes of this issue? (Choose two.)
+
+- [x] A network `ACL` associated with the bastion's subnet is blocking the network traffic.
+- [ ] The instance does not have a private IP address.
+- [x] The route table associated with the bastion's subnet does not have a route to the internet gateway.
+- [ ] The security group for the instance does not have an inbound rule on port `22`.
+- [ ] The security group for the instance does not have an outbound rule on port `3389`.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### While securing the connection between a company's `VPC` and its on-premises data center, a security engineer sent a ping command from an on-premises host (IP address `203.0.113.12`) to an Amazon EC2 instance (IP address `172.31.16.139`). The ping command did not return a response. The flow log in the `VPC` showed the following. What action should be performed to allow the ping to work?
+
+![Question 58](images/question58_74_155.png)
+
+- [ ] In the security group of the EC2 instance, allow inbound `ICMP` traffic.
+- [ ] In the security group of the EC2 instance, allow outbound `ICMP` traffic.
+- [ ] In the `VPC`'s `NACL`, allow inbound `ICMP` traffic.
+- [x] In the `VPC`'s `NACL`, allow outbound `ICMP` traffic.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A global company handles a large amount of personally identifiable information (Pll) through an internal web portal. The company's application runs in a corporate data center that is connected to AWS through an AWS Direct Connect connection. The application stores the Pll in Amazon S3. According to a compliance requirement, traffic from the web portal to Amazon S3 must not travel across the internet. What should a CloudOps Engineer do to meet the compliance requirement?
+
+- [x] Provision an interface `VPC` endpoint for Amazon S3. Modify the application to use the interface endpoint.
+- [ ] Configure AWS Network Firewall to redirect traffic to the internal S3 address.
+- [ ] Modify the application to use the S3 path-style endpoint.
+- [ ] Set up a range of `VPC` network `ACL`s to redirect traffic to the Internal S3 address.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### An application runs on multiple Amazon EC2 instances in an Auto Scaling group The Auto Scaling group is configured to use the latest version of a launch template A CloudOps Engineer must devise a solution that centrally manages the application logs and retains the logs for no more than 90 days. Which solution will meet these requirements?
+
+- [ ] Launch an Amazon Machine Image (AMI) that is preconfigured with the Amazon CloudWatch Logs agent to send logs to an Amazon S3 bucket. Apply a 90-day S3 Lifecycle policy on the S3 bucket to expire the application logs.
+- [ ] Launch an Amazon Machine Image (AMI) that is preconfigured with the Amazon CloudWatch Logs agent to send logs to a log group. Create an Amazon EventBridge (Amazon CloudWatch Events) scheduled rule to perform an instance refresh every 90 days.
+- [x] Update the launch template user data to install and configure the Amazon CloudWatch Logs agent to send logs to a log group. Configure the retention period on the log group to be 90 days.
+- [ ] Update the launch template user data to install and configure the Amazon CloudWatch Logs agent to send logs to a log group. Set the log rotation configuration of the EC2 instances to 90 days.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A company is running a flash sale on its website. The website is hosted on burstable performance Amazon EC2 instances in an Auto Scaling group. The Auto Scaling group is configured to launch instances when the CPU utilization is above `70%`. A couple of hours into the sale, users report slow load times and error messages for refused connections. A CloudOps Engineer reviews Amazon CloudWatch metrics and notices that the CPU utilization is at `20%` across the entire fleet of instances. The CloudOps Engineer must restore the website's functionality without making changes to the network infrastructure. Which solution will meet these requirements?
+
+- [x] Activate unlimited mode for the instances in the Auto Scaling group.
+- [ ] Implement an Amazon CloudFront distribution to offload the traffic from the Auto Scaling group.
+- [ ] Move the website to a different AWS Region that is closer to the users.
+- [ ] Reduce the desired size of the Auto Scaling group to artificially increase CPU average utilization.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A company has attached the following policy to an IAM user. Which of the following actions are allowed for the IAM user?
+
+![Question 62](images/question62.png)
+
+- [ ] Amazon RDS `DescribeDBInstances` action in the `us-east-1` Region.
+- [ ] Amazon S3 `Putobject` operation in a bucket named testbucket.
+- [x] Amazon EC2 `DescribeInstances` action in the `us-east-1` Region.
+- [ ] Amazon EC2 `AttachNetworkinterface` action in the `eu-west-1` Region.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A company has launched a social media website that gives users the ability to upload images directly to a centralized Amazon S3 bucket. The website is popular in areas that are geographically distant from the AWS Region where the S3 bucket is located. Users are reporting that uploads are slow. A CloudOps Engineer must improve the upload speed. What should the CloudOps Engineer do to meet these requirements?
+
+- [ ] Create S3 access points in Regions that are closer to the users.
+- [ ] Create an accelerator in AWS Global Accelerator for the S3 bucket.
+- [x] Enable S3 Transfer Acceleration on the S3 bucket.
+- [ ] Enable cross-origin resource sharing (CORS) on the S3 bucket.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A CloudOps Engineer is using AWS Systems Manager Patch Manager to patch a fleet of Amazon EC2 instances. The CloudOps Engineer has configured a patch baseline and a maintenance window. The CloudOps Engineer also has used an instance tag to identify which instances to patch. The CloudOps Engineer must give Systems Manager the ability to access the EC2 instances. Which additional action must the CloudOps Engineer perform to meet this requirement?
+
+- [ ] Add an inbound rule to the instances' security group.
+- [x] Attach an IAM instance profile with access to Systems Manager to the instances.
+- [ ] Create a Systems Manager activation Then activate the fleet of instances.
+- [ ] Manually specify the instances to patch Instead of using tag-based selection.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A company is using Amazon Elastic Container Service (Amazon ECS) to run a containerized application on Amazon EC2 instances. A CloudOps Engineer needs to monitor only traffic flows between the ECS tasks. Which combination of steps should the CloudOps Engineer take to meet this requirement? (Select TWO.)
+
+- [ ] Configure Amazon CloudWatch Logs on the elastic network interface of each task.
+- [x] Configure `VPC` Flow Logs on the elastic network interface of each task.
+- [x] Specify the `awsvpc` network mode in the task definition.
+- [ ] Specify the `bridge` network mode in the task definition.
+- [ ] Specify the `host` network mode in the task definition.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A company has a mobile app that uses Amazon S3 to store images The images are popular for a week, and then the number of access requests decreases over time The images must be highly available and must be immediately accessible upon request A CloudOps Engineer must reduce S3 storage costs for the company. Which solution will meet these requirements MOST cost-effectively?
+
+- [ ] Create a S3 Lifecycle policy to transition the images to S3 Glacier after 7 days.
+- [ ] Create a S3 Lifecycle policy to transition the images to S3 One Zone-Infrequent Access (S3 One Zone-IA) after 7 days.
+- [ ] Create a S3 Lifecycle policy to transition the images to S3 Standard after 7 days.
+- [x] Create a S3 Lifecycle policy to transition the images to S3 Standard-Infrequent Access (S3 Standard-IA) after 7 days.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A CloudOps Engineer is unable to authenticate an AWS CLI call to an AWS service. Which of the following is the cause of this issue?
+
+- [ ] The IAM password is incorrect.
+- [ ] The server certificate is missing.
+- [ ] The `SSH` key pair is incorrect.
+- [x] There is no access key.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A CloudOps Engineer is setting up a fleet of Amazon EC2 instances in an Auto Scaling group for an application. The fleet should have `50%` CPU available at that times to accommodate bursts of traffic. The load will increase significantly between the hours of 09:00 and 17:00, 7 days a week. How should the CloudOps Engineer configure the scaling of the EC2 instances to meet these requirements?
+
+- [ ] Create a target tracking scaling policy that runs when the CPU utilization is higher than `90%`.
+- [x] Create a target tracking scaling policy that runs when the CPU utilization is higher than `50%`. Create a scheduled scaling policy that ensures that the fleet is available at 09:00. Create a second scheduled scaling policy that scales in the fleet at 17:00.
+- [ ] Set the Auto Scaling group to start with 2 instances by setting the desired instances maximum instances, and minimum instances to 2. Create a scheduled scaling policy that ensures that the fleet is available at 09:00.
+- [ ] Create a scheduled scaling policy that ensures that the fleet is available at 09.00. Create a second scheduled scaling policy that scales in the fleet at 17:00.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A CloudOps Engineer has created an AWS Service Catalog portfolio and has shared the portfolio with a second AWS account in the company. The second account is controlled by a different engineer. Which action will the Engineer of the second account be able to perform?
+
+- [x] Add a product from the imported portfolio to a local portfolio.
+- [ ] Add new products to the imported portfolio.
+- [ ] Change the launch role for the products contained in the imported portfolio.
+- [ ] Customize the products in the imported portfolio.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A company uses AWS Organizations to manage multiple AWS accounts with consolidated billing enabled. Organization member account owners want the benefits of Reserved Instances (RIs) but do not want to share RIs with other accounts. Which solution will meet these requirements?
+
+- [x] Purchase RIs in individual member accounts. Disable RI discount sharing in the management account.
+- [ ] Purchase RIs in individual member accounts. Disable RI discount sharing in the member accounts.
+- [ ] Purchase RIs in the management account. Disable RI discount sharing in the management account.
+- [ ] Purchase RIs in the management account. Disable RI discount sharing in the member accounts.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A gaming application is deployed on four Amazon EC2 instances in a default `VPC`. The CloudOps Engineer has noticed consistently high latency in responses as data is transferred among the four instances. There is no way for the Engineer to alter the application code. The MOST effective way to reduce latency is to relaunch the EC2 instances in:
+
+- [ ] Dedicated `VPC`.
+- [ ] Single subnet inside the `VPC`.
+- [x] Placement group.
+- [ ] Single Availability Zone.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A company has a stateful web application that is hosted on Amazon EC2 instances in an Auto Scaling group. The instances run behind an Application Load Balancer (ALB) that has a single target group. The `ALB` is configured as the origin in an Amazon CloudFront distribution. Users are reporting random logouts from the web application. Which combination of actions should a CloudOps Engineer take to resolve this problem? (Select TWO.)
+
+- [ ] Change to the least outstanding requests algorithm on the `ALB` target group.
+- [x] Configure cookie forwarding in the CloudFront distribution cache behavior.
+- [ ] Configure header forwarding in the CloudFront distribution cache behavior.
+- [ ] Enable group-level stickiness on the `ALB` listener rule.
+- [x] Enable sticky sessions on the `ALB` target group.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A CloudOps Engineer is investigating a company's web application for performance problems. The application runs on Amazon EC2 instances that are in an Auto Scaling group. The application receives large traffic increases at random times throughout the day. During periods of rapid traffic increases, the Auto Scaling group is not adding capacity fast enough. As a result, users are experiencing poor performance. The company wants to minimize costs without adversely affecting the user experience when web traffic surges quickly. The company needs a solution that adds more capacity to the Auto Scaling group for larger traffic increases than for smaller traffic increases. How should the CloudOps Engineer configure the Auto Scaling group to meet these requirements?
+
+- [ ] Create a simple scaling policy with settings to make larger adjustments in capacity when the system is under heavy load.
+- [x] Create a step scaling policy with settings to make larger adjustments in capacity when the system is under heavy load.
+- [ ] Create a target tracking scaling policy with settings to make larger adjustments in capacity when the system is under heavy load.
+- [ ] Use Amazon EC2 Auto Scaling lifecycle hooks. Adjust the Auto Scaling group's maximum number of instances after every scaling event.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A `VPC` is connected to a company data center by a `VPN`. An Amazon EC2 instance with the IP address `172.31.16.139` is within a private subnet of the `VPC`. A CloudOps Engineer issued a ping command to the EC2 instance from an on-premises computer with the IP address `203.0.113.12` and did not receive an acknowledgment. `VPC` Flow Logs were enabled and showed the following. What action will resolve the issue?
+
+![Question 74](images/question58_74_155.png)
+
+- [ ] Modify the EC2 security group rules to allow inbound traffic from the on-premises computer.
+- [ ] Modify the EC2 security group rules to allow outbound traffic to the on-premises computer.
+- [ ] Modify the `VPC` network `ACL` rules to allow inbound traffic from the on-premises computer.
+- [x] Modify the `VPC` network `ACL` rules to allow outbound traffic to the on-premises computer.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A company's financial department needs to view the cost details of each project in an AWS account. A CloudOps Engineer must perform the initial configuration that is required to view cost for each project in Cost Explorer. Which solution will meet this requirement?
+
+- [x] Activate cost allocation tags. Add a project tag to the appropriate resources.
+- [ ] Configure consolidated billing. Create AWS Cost and Usage Reports.
+- [ ] Use AWS Budgets. Create AWS Budgets reports.
+- [ ] Use cost categories to define custom groups that are based on AWS cost and usage dimensions.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### CloudOps Engineer needs to secure the credentials for an Amazon RDS database that is created by an AWS CloudFormation template. The solution must encrypt the credentials and must support automatic rotation. Which solution will meet these requirements?
+
+- [x] Create an `AWS::SecretsManager::Secret` resource in the CloudFormation template. Reference the credentials in the `AWS::RDS::DBInstance` resource by using the `resolve:secretsmanager` dynamic reference.
+- [ ] Create an `AWS::SecretsManager::Secret` resource in the CloudFormation template. Reference the credentials in the `AWS::RDS::DBInstance` resource by using the `resolve:ssm-secure` dynamic reference.
+- [ ] Create an `AWS::SSM::Parameter` resource in the CloudFormation template. Reference the credentials in the `AWS::RDS::DBInstance` resource by using the `resolve:ssm` dynamic reference.
+- [ ] Create parameters for the database credentials in the CloudFormation template. Use the Ref intrinsic function to provide the credentials to the `AWS::RDS::DBInstance` resource.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A company is expanding its fleet of Amazon EC2 instances before an expected increase of traffic. When a CloudOps Engineer attempts to add more instances, an `InstanceLimitExceeded` error is returned. What should the CloudOps Engineer do to resolve this error?
+
+- [ ] Add an additional `CIDR` block to the `VPC`.
+- [ ] Launch the EC2 instances in a different Availability Zone.
+- [ ] Launch new EC2 instances in another `VPC`.
+- [x] Use Service Quotas to request an EC2 quota increase.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A CloudOps Engineer maintains several Amazon EC2 instances that do not have access to the public internet. To patch operating systems, the instances require outbound internet connectivity. For security reasons, the instances should not be reachable from the public Internet. The Engineer deploys a `NAT` instance, updates the security groups, and configures the appropriate routes within the route table. However, the instances are still unable to reach the Internet. What should be done to resolve the issue?
+
+- [ ] Assign Elastic IP addresses to the instances and create a route from the private subnets to the internet gateway.
+- [ ] Delete the `NAT` instance and replace it with AWS WAF.
+- [x] Disable source/destination checks on the `NAT` instance.
+- [ ] Start/stop the `NAT` instance so it is launched on a different host.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A CloudOps Engineer must configure a resilient tier of Amazon EC2 instances for a high performance computing (HPC) application. The HPC application requires minimum latency between nodes. Which actions should the CloudOps Engineer take to meet these requirements? (Choose two.)
+
+- [ ] Create an Amazon Elastic File System (Amazon EFS) file system. Mount the file system to the EC2 instances by using user data.
+- [ ] Create a Multi-AZ Network Load Balancer in front of the EC2 instances.
+- [x] Place the EC2 instances in an Auto Scaling group within a single subnet.
+- [x] Launch the EC2 instances into a cluster placement group.
+- [ ] Launch the EC2 instances into a partition placement group.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A company uses an Amazon Simple Queue Service (Amazon SQS) standard queue with its application. The application sends messages to the queue with unique message bodies. The company decides to switch to an SQS FIFO queue. What must the company do to migrate to an SQS FIFO queue?
+
+- [x] Create a new SQS FIFO gueue. Turn on content based deduplication on the new FIFO queue. Update the application to include a message group ID in the messages.
+- [ ] Create a new SQS FIFO queue. Update the application to include the `DelaySeconds` parameter in the messages.
+- [ ] Modify the queue type from SQS standard to SQS FIFO. Turn off content-based deduplication on the queue. Update the application to include a message group ID in the messages.
+- [ ] Modify the queue type from SQS standard to SQS FIFO. Update the application to send messages with identical message bodies and to include the `DelaySeconds` parameter in the messages.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A CloudOps Engineer created an AWS CloudFormation template that provisions Amazon EC2 instances, an Elastic Load Balancer (ELB), and an Amazon RDS DB instance. During stack creation, the creation of the EC2 instances and the creation of the ELB are successful. However, the creation of the DB instance fails. What is the default behavior of CloudFormation in this scenario?
+
+- [ ] CloudFormation will roll back the stack and delete the stack.
+- [x] CloudFormation will roll back the stack but will not delete the stack.
+- [ ] CloudFormation will prompt the user to roll back the stack or continue.
+- [ ] CloudFormation will successfully complete the stack but will report a failed status for the DB instance.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A CloudOps Engineer manages a company's Amazon S3 buckets. The CloudOps Engineer has identified `5 GB` of incomplete multipart uploads in a S3 bucket in the company's AWS account. The CloudOps Engineer needs to reduce the number of incomplete multipart upload objects in the S3 bucket. Which solution will meet this requirement?
+
+- [x] Create a S3 Lifecycle rule on the S3 bucket to delete expired markers or incomplete multipart uploads.
+- [ ] Require users that perform uploads of files into Amazon S3 to use the S3 TransferUtility.
+- [ ] Enable S3 Versioning on the S3 bucket that contains the incomplete multipart uploads.
+- [ ] Create a S3 Object Lambda Access Point to delete incomplete multipart uploads.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A company is using Amazon Elastic File System (Amazon EFS) to share a file system among several Amazon EC2 instances. As usage increases, users report that file retrieval from the EFS file system is slower than normal. Which action should a CloudOps Engineer take to improve the performance of the file system?
+
+- [x] Configure the file system for `Provisioned Throughput`.
+- [ ] Enable encryption in transit on the file system.
+- [ ] Identify any unused files in the file system, and remove the unused files.
+- [ ] Resize the Amazon Elastic Block Store (Amazon EBS) volume of each of the EC2 instances.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A company hosts several write-intensive applications. These applications use a MySQL database that runs on a single Amazon EC2 instance. The company asks a CloudOps Engineer to implement a highly available database solution that is ideal for multi-tenant workloads. Which solution should the CloudOps Engineer implement to meet these requirements?
+
+- [ ] Create a second EC2 instance for MySQL. Configure the second instance to be a read replica.
+- [ ] Migrate the database to an Amazon Aurora DB cluster. Add an Aurora Replica.
+- [x] Migrate the database to an Amazon Aurora multi-master DB cluster.
+- [ ] Migrate the database to an Amazon RDS for MySQL DB instance.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A CloudOps Engineer is evaluating Amazon Route 53 `DNS` options to address concerns about high availability for an on-premises website. The website consists of two servers: a primary active server and a secondary passive server. Route 53 should route traffic to the primary server if the associated health check returns 2xx or 3xx `HTTP` codes. All other traffic should be directed to the secondary passive server. The failover record type, set ID, and routing policy have been set appropriately for both primary and secondary servers. Which next step should be taken to configure Route 53?
+
+- [x] Create an `A` record for each server. Associate the records with the Route 53 `HTTP` health check.
+- [ ] Create an `A` record for each server. Associate the records with the Route 53 `TCP` health check.
+- [ ] Create an alias record for each server with `Evaluate Target Health` set to `Yes`. Associate the records with the Route 53 `HTTP` health check.
+- [ ] Create an alias record for each server with `Evaluate Target Health` set to `Yes`. Associate the records with the Route 53 `TCP` health check.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A company must ensure that any objects uploaded to a S3 bucket are encrypted. Which of the following actions will meet this requirement? (Choose two.)
+
+- [ ] Implement AWS Shield to protect against unencrypted objects stored in S3 buckets.
+- [ ] Implement Object Access Control List (`ACL`) to deny unencrypted objects from being uploaded to the S3 bucket.
+- [x] Implement Amazon S3 default encryption to make sure that any object being uploaded is encrypted before it is stored.
+- [ ] Implement Amazon Inspector to inspect objects uploaded to the S3 bucket to make sure that they are encrypted.
+- [x] Implement S3 bucket policies to deny unencrypted objects from being uploaded to the buckets.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A company needs to deploy a web application on two Amazon EC2 instances behind an Application Load Balancer (ALB). Two EC2 instances will also be deployed to host the database. The infrastructure needs to be designed across Availability Zones for high availability and must limit public access to the instances as much as possible. How should this be achieved within a `VPC`?
+
+- [ ] Create one public subnet for the Application Load Balancer, one public subnet for the web servers, and one private subnet for the database servers.
+- [ ] Create one public subnet for the Application Load Balancer, two public subnets for the web servers, and two private subnets for the database servers.
+- [x] Create two public subnets for the Application Load Balancer, two private subnets for the web servers, and two private subnets for the database servers.
+- [ ] Create two public subnets for the Application Load Balancer, two public subnets for the web servers, and two public subnets for the database servers.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A company wants to collect data from an application to use for analytics. For the first 90 days, the data will be infrequently accessed but must remain highly available. During this time, the company's analytics team requires access to the data in milliseconds. However, after 90 days, the company must retain the data for the long term at a lower cost. The retrieval time after 90 days must be less than 5 hours. Which solution will meet these requirements MOST cost-effectively?
+
+- [x] Store the data in S3 Standard-Infrequent Access (S3 Standard-IA) for the first 90 days. Set up a S3 Lifecycle rule to move the data to S3 Glacier Flexible Retrieval after 90 days.
+- [ ] Store the data in S3 One Zone-Infrequent Access (S3 One Zone-IA) for the first 90 days. Set up a S3 Lifecycle rule to move the data to S3 Glacier Deep Archive after 90 days.
+- [ ] Store the data in S3 Standard for the first 90 days. Set up a S3 Lifecycle rule to move the data to S3 Glacier Flexible Retrieval after 90 days.
+- [ ] Store the data in S3 Standard for the first 90 days. Set up a S3 Lifecycle rule to move the data to S3 Glacier Deep Archive after 90 days.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A manufacturing company uses an Amazon RDS DB instance to store inventory of all stock items. The company maintains several AWS Lambda functions that interact with the database to add, update, and delete items. The Lambda functions use hardcoded credentials to connect to the database. A CloudOps Engineer must ensure that the database credentials are never stored in plaintext and that the password is rotated every 30 days. Which solution will meet these requirements in the MOST operationally efficient manner?
+
+- [ ] Store the database password as an environment variable for each Lambda function. Create a new Lambda function that is named `PasswordRotate`. Use Amazon EventBridge (Amazon CloudWatch Events) to schedule the `PasswordRotate` function every 30 days to change the database password and update the environment variable for each Lambda function.
+- [ ] Use AWS Key Management Service (AWS KMS) to encrypt the database password and to store the encrypted password as an environment variable for each Lambda function. Grant each Lambda function access to the KMS key so that the database password can be decrypted when required. Create a new Lambda function that is named `PasswordRotate` to change the password every 30 days.
+- [x] Use AWS Secrets Manager to store credentials for the database. Create a Secrets Manager secret, and select the database so that Secrets Manager will use a Lambda function to update the database password automatically. Specify an automatic rotation schedule of 30 days. Update each Lambda function to access the database password from Secrets Manager.
+- [ ] Use AWS Systems Manager Parameter Store to create a secure string to store credentials for the database. Create a new Lambda function called `PasswordRotate`. Use Amazon EventBridge (Amazon CloudWatch Events) to schedule the `PasswordRotate` function every 30 days to change the database password and to update the secret within Parameter Store. Update each Lambda function to access the database password from Parameter Store.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A CloudOps Engineer creates an Amazon Elastic Kubernetes Service (Amazon EKS) cluster that uses AWS Fargate. The cluster is deployed successfully. The CloudOps Engineer needs to manage the cluster by using the `kubectl` command line tool. Which of the following must be configured on the CloudOps Engineer's machine so that `kubectl` can communicate with the cluster API server?
+
+- [x] The `kubeconfig` file.
+- [ ] The `kube-proxy` Amazon EKS add-on.
+- [ ] The Fargate profile.
+- [ ] The `eks-connector.yaml` file.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A CloudOps Engineer needs to configure automatic rotation for Amazon RDS database credentials. The credentials must rotate every 30 days. The solution must integrate with Amazon RDS. Which solution will meet these requirements with the LEAST operational overhead?
+
+- [ ] Store the credentials in AWS Systems Manager Parameter Store as a secure string. Configure automatic rotation with a rotation interval of 30 days.
+- [x] Store the credentials in AWS Secrets Manager. Configure automatic rotation with a rotation interval of 30 days.
+- [ ] Store the credentials in a file in an Amazon S3 bucket. Deploy an AWS Lambda function to automatically rotate the credentials every 30 days.
+- [ ] Store the credentials in AWS Secrets Manager. Deploy an AWS Lambda function to automatically rotate the credentials every 30 days.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A company has an application that runs only on Amazon EC2 Spot Instances. The instances run in an Amazon EC2 Auto Scaling group with scheduled scaling actions. However, the capacity does not always increase at the scheduled times, and instances terminate many times a day. A CloudOps Engineer must ensure that the instances launch on time and have fewer interruptions. Which action will meet these requirements?
+
+- [x] Specify the capacity-optimized allocation strategy for Spot Instances. Add more instance types to the Auto Scaling group.
+- [ ] Specify the capacity-optimized allocation strategy for Spot Instances. Increase the size of the instances in the Auto Scaling group.
+- [ ] Specify the lowest-price allocation strategy for Spot Instances. Add more instance types to the Auto Scaling group.
+- [ ] Specify the lowest-price allocation strategy for Spot Instances. Increase the size of the instances in the Auto Scaling group.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A company stores its data in an Amazon S3 bucket. The company is required to classify the data and find any sensitive personal information in its S3 files. Which solution will meet these requirements?
+
+- [ ] Create an AWS Config rule to discover sensitive personal information in the S3 files and mark them as noncompliant.
+- [ ] Create a S3 event-driven artificial intelligence/machine learning (AI/ML) pipeline to classify sensitive personal information by using Amazon Recognition.
+- [ ] Enable Amazon GuardDuty. Configure S3 protection to monitor all data inside Amazon S3.
+- [x] Enable Amazon Macie. Create a discovery job that uses the managed data identifier.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A company has an application that customers use to search for records on a website. The application's data is stored in an Amazon Aurora DB cluster. The application's usage varies by season and by day of the week. The website's popularity is increasing, and the website is experiencing slower performance because of increased load on the DB cluster during periods of peak activity. The application logs show that the performance issues occur when users are searching for information. The same search is rarely performed multiple times. A CloudOps Engineer must improve the performance of the platform by using a solution that maximizes resource efficiency. Which solution will meet these requirements?
+
+- [ ] Deploy an Amazon ElastiCache for Redis cluster in front of the DB cluster. Modify the application to check the cache before the application issues new queries to the database. Add the results of any queries to the cache.
+- [x] Deploy an Aurora Replica for the DB cluster. Modify the application to use the reader endpoint for search operations. Use Aurora Auto Scaling to scale the number of replicas based on load.
+- [ ] Use Provisioned IOPS on the storage volumes that support the DB cluster to improve performance sufficiently to support the peak load on the application.
+- [ ] Increase the instance size in the DB cluster to a size that is sufficient to support the peak load on the application. Use Aurora Auto Scaling to scale the instance size based on load.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### The security team is concerned because the number of AWS Identity and Access Management (IAM) policies being used in the environment is increasing. The team tasked a CloudOps Engineer to report on the current number of IAM policies in use and the total available IAM policies. Which AWS service should the Engineer use to check how current IAM policy usage compares to current service limits?
+
+- [x] AWS Trusted Advisor.
+- [ ] Amazon Inspector.
+- [ ] AWS Config.
+- [ ] AWS Organizations.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A CloudOps Engineer noticed that a large number of Elastic IP addresses are being created on the company's AWS account, but they are not being associated with Amazon EC2 instances, and are incurring Elastic IP address charges in the monthly bill. How can the Engineer identify who is creating the Elastic IP addresses?
+
+- [ ] Attach a `cost-allocation` tag to each requested Elastic IP address with the IAM user name of the developer who creates it.
+- [x] Query AWS CloudTrail logs by using Amazon Athena to search for Elastic IP address events.
+- [ ] Create a CloudWatch alarm on the `EIPCreated` metric and send an Amazon SNS notification when the alarm triggers.
+- [ ] Use Amazon Inspector to get a report of all Elastic IP addresses created in the last 30 days.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A company has an Amazon CloudFront distribution that uses an Amazon S3 bucket as its origin. During a review of the access logs, the company determines that some requests are going directly to the S3 bucket by using the website hosting endpoint. A CloudOps Engineer must secure the S3 bucket to allow requests only from CloudFront. What should the CloudOps Engineer do to meet this requirement?
+
+- [x] Create an Origin Access Identity (OAI) in CloudFront. Associate the OAI with the distribution. Remove access to and from other principals in the S3 bucket policy. Update the S3 bucket policy to allow access only from the OAI.
+- [ ] Create an Origin Access Identity (OAI) in CloudFront. Associate the OAI with the distribution. Update the S3 bucket policy to allow access only from the OAI. Create a new origin, and specify the S3 bucket as the new origin. Update the distribution behavior to use the new origin. Remove the existing origin.
+- [ ] Create an Origin Access Identity (OAI) in CloudFront. Associate the OAI with the distribution. Update the S3 bucket policy to allow access only from the OAI. Disable website hosting. Create a new origin, and specify the S3 bucket as the new origin. Update the distribution behavior to use the new origin. Remove the existing origin.
+- [ ] Update the S3 bucket policy to allow access only from the CloudFront distribution. Remove access to and from other principals in the S3 bucket policy. Disable website hosting. Create a new origin, and specify the S3 bucket as the new origin. Update the distribution behavior to use the new origin. Remove the existing origin.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A CloudOps Engineer must create an IAM policy for a developer who needs access to specific AWS services. Based on the requirements, the CloudOps Engineer creates the following policy. Which actions does this policy allow? (Select TWO.)
+
+![Question 98](images/question98.png)
+
+- [ ] Create an AWS Storage Gateway.
+- [ ] Create an IAM role for an AWS Lambda function.
+- [ ] Delete an Amazon Simple Queue Service (Amazon SQS) queue.
+- [x] Describe AWS load balancers.
+- [x] Invoke an AWS Lambda function.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A company is trying to connect two applications. One application runs in an on-premises data center that has a hostname of hostl .onprem.private. The other application runs on an Amazon EC2 instance that has a hostname of `hostl.awscloud.private`. An AWS Site-to-Site `VPN` connection is in place between the on-premises network and AWS. The application that runs in the data center tries to connect to the application that runs on the EC2 instance, but `DNS` resolution fails. A CloudOps Engineer must implement `DNS` resolution between on-premises and AWS resources. Which solution allows the on-premises application to resolve the EC2 instance hostname?
+
+- [ ] Set up an Amazon Route 53 inbound resolver endpoint with a forwarding rule for the onprem.private hosted zone. Associate the resolver with the `VPC` of the EC2 instance. Configure the on-premises `DNS` resolver to forward onprem.private `DNS` queries to the inbound resolver endpoint.
+- [x] Set up an Amazon Route 53 inbound resolver endpoint. Associate the resolver with the `VPC` of the EC2 instance. Configure the on-premises `DNS` resolver to forward awscloud.private `DNS` queries to the inbound resolver endpoint.
+- [ ] Set up an Amazon Route 53 outbound resolver endpoint with a forwarding rule for the onprem.private hosted zone. Associate the resolver with the AWS Region of the EC2 instance. Configure the on-premises `DNS` resolver to forward onprem.private `DNS` queries to the outbound resolver endpoint.
+- [ ] Set up an Amazon Route 53 outbound resolver endpoint. Associate the resolver with the AWS Region of the EC2 instance. Configure the on-premises `DNS` resolver to forward awscloud.private `DNS` queries to the outbound resolver endpoint.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### While setting up an AWS managed `VPN` connection, a CloudOps Engineer creates a customer gateway resource in AWS. The customer gateway device resides in a data center with a `NAT` gateway in front of it. What address should be used to create the customer gateway resource?
+
+- [ ] The private IP address of the customer gateway device.
+- [ ] The MAC address of the `NAT` device in front of the customer gateway device.
+- [ ] The public IP address of the customer gateway device.
+- [x] The public IP address of the `NAT` device in front of the customer gateway device.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### An application is running on Amazon EC2 instances behind an Application Load Balancer (ALB). The instances are configured in an Amazon EC2 Auto Scaling group. A CloudOps Engineer must configure the application to scale based on the number of incoming requests. Which solution accomplishes this with the LEAST amount of effort?
+
+- [ ] Use a simple scaling policy based on a custom metric that measures the average active requests of all EC2 instances.
+- [ ] Use a simple scaling policy based on the Auto Scaling group `GroupDesiredCapacity` metric.
+- [ ] Use a target tracking scaling policy based on the `ALB`'s `ActiveConnectionCount` metric.
+- [x] Use a target tracking scaling policy based on the `ALB`'s `RequestCountPerTarget` metric.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A company's IT department noticed an increase in the spend of their developer AWS account. There are over 50 developers using the account, and the finance team wants to determine the service costs incurred by each developer. What should a CloudOps Engineer do to collect this information? (Select TWO.)
+
+- [x] Activate the `createdBy` tag in the account.
+- [ ] Analyze the usage with Amazon CloudWatch dashboards.
+- [x] Analyze the usage with Cost Explorer.
+- [ ] Configure AWS Trusted Advisor to track resource usage.
+- [ ] Create a billing alarm in AWS Budgets.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A company website contains a web tier and a database tier on AWS. The web tier consists of Amazon EC2 instances that run in an Auto Scaling group across two Availability Zones. The database tier runs on an Amazon RDS for MySQL Multi-AZ DB instance. The database subnet network `ACL`s are restricted to only the web subnets that need access to the database. The web subnets use the default network `ACL` with the default rules. The company's operations team has added a third subnet to the Auto Scaling group configuration. After an Auto Scaling event occurs, some users report that they intermittently receive an error message. The error message states that the server cannot connect to the database. The operations team has confirmed that the route tables are correct and that the required ports are open on all security groups. Which combination of actions should a CloudOps Engineer take so that the web servers can communicate with the DB instance? (Select TWO.)
+
+- [ ] On the default `ACL`. create inbound. Allow rules of type `TCP` with the ephemeral port range and the source as the database subnets.
+- [ ] On the default `ACL`, create outbound. Allow rules of type `MySQL/Aurora (3306)`. Specify the destinations as the database subnets.
+- [x] On the network `ACL`s for the database subnets, create an inbound. Allow rule of type `MySQL/Aurora (3306)`. Specify the source as the third web subnet.
+- [x] On the network `ACL`s for the database subnets, create an outbound. Allow rule of type `TCP` with the ephemeral port range and the destination as the third web subnet.
+- [ ] On the network `ACL`s for the database subnets, create an outbound. Allow rule of type `MySQL/Aurora (3306)`. Specify the destination as the third web subnet.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A company is running an application on a fleet of Amazon EC2 instances behind an Application Load Balancer (ALB). The EC2 instances are launched by an Auto Scaling group and are automatically registered in a target group. A CloudOps Engineer must set up a notification to alert application owners when targets fail health checks. What should the CloudOps Engineer do to meet these requirements?
+
+- [x] Create an Amazon CloudWatch alarm on the `UnHealthyHostCount` metric. Configure an action to send an Amazon Simple Notification Service (Amazon SNS) notification when the metric is greater than 0.
+- [ ] Configure an Amazon EC2 Auto Scaling custom lifecycle action to send an Amazon Simple Notification Service (Amazon SNS) notification when an instance is in the Pending:Wait state.
+- [ ] Update the Auto Scaling group. Configure an activity notification to send an Amazon Simple Notification Service (Amazon SNS) notification for the Unhealthy event type.
+- [ ] Update the `ALB` health check to send an Amazon Simple Notification Service (Amazon SNS) notification when an instance is unhealthy.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A company wants to build a solution for its business-critical Amazon RDS for MySQL database. The database requires high availability across different geographic locations. A CloudOps Engineer must build a solution to handle a Disaster Recovery (DR) scenario with the lowest Recovery Time Objective (RTO) and Recovery Point Objective (RPO). Which solution meets these requirements?
+
+- [ ] Create automated snapshots of the database on a schedule. Copy the snapshots to the DR Region.
+- [x] Create a Cross-Region read replica for the database.
+- [ ] Create a Multi-AZ read replica for the database.
+- [ ] Schedule AWS Lambda functions to create snapshots of the source database and to copy the snapshots to a DR Region.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A CloudOps Engineer is using Amazon EC2 instances to host an application. The CloudOps Engineer needs to grant permissions for the application to access an Amazon DynamoDB table. Which solution will meet this requirement?
+
+- [ ] Create access keys to access the DynamoDB table. Assign the access keys to the EC2 instance profile.
+- [ ] Create an EC2 key pair to access the DynamoDB table. Assign the key pair to the EC2 instance profile.
+- [ ] Create an IAM user to access the DynamoDB table. Assign the IAM user to the EC2 instance profile.
+- [x] Create an IAM role to access the DynamoDB table. Assign the IAM role to the EC2 instance profile.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A company has a web application with a database tier that consists of an Amazon EC2 instance that runs MySQL. A CloudOps Engineer needs to minimize potential data loss and the time that is required to recover in the event of a database failure. What is the MOST operationally efficient solution that meets these requirements?
+
+- [ ] Create an Amazon CloudWatch alarm for the `StatusCheckFailed_System` metric to invoke an AWS Lambda function that stops and starts the EC2 instance.
+- [x] Create an Amazon RDS for MySQL Multi-AZ DB instance. Use a MySQL native backup that is stored in Amazon S3 to restore the data to the new database. Update the connection string in the web application.
+- [ ] Create an Amazon RDS for MySQL Single-AZ DB instance with a read replica. Use a MySQL native backup that is stored in Amazon S3 to restore the data to the new database. Update the connection string in the web application.
+- [ ] Use Amazon Data Lifecycle Manager (Amazon DLM) to take a snapshot of the Amazon Elastic Block Store (Amazon EBS) volume every hour. In the event of an EC2 instance failure, restore the EBS volume from a snapshot.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A company has an application that runs on a fleet of Amazon EC2 instances behind an Elastic Load Balancer. The instances run in an Auto Scaling group. The application's performance remains consistent throughout most of each day. However, an increase in user traffic slows the performance during the same 4-hour period of time each day. What is the MOST operationally efficient solution that will resolve this issue?
+
+- [ ] Configure a second Elastic Load Balancer in front of the Auto Scaling group with a weighted routing policy.
+- [ ] Configure the fleet of EC2 instances to run on larger instance types to support the increase in user traffic.
+- [x] Create a scheduled scaling action to scale out the number of EC2 instances shortly before the increase in user traffic occurs.
+- [ ] Manually add a few more EC2 instances to the Auto Scaling group to support the increase in user traffic.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A root account owner has given full access of his S3 bucket to one of the IAM users using the bucket `ACL`. When the IAM user logs in to the S3 console, which actions can he perform?
+
+- [ ] He can just view the content of the bucket.
+- [ ] He can do all the operations on the bucket.
+- [x] It is not possible to give access to an IAM user using `ACL`.
+- [ ] The IAM user can perform all operations on the bucket using only API/SDK.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### An Amazon S3 bucket in a CloudOps Engineer's account can be accesses by users in other AWS accounts. How can the Engineer ensure that the bucket is only accessible to members of the Engineer's AWS account?
+
+- [ ] Move the S3 bucket from a public subnet to a private subnet in the Amazon `VPC`.
+- [x] Change the bucket Access Control List (`ACL`) to restrict access to the bucket owner.
+- [ ] Enable server-side encryption for all objects in the bucket.
+- [ ] Use only Amazon S3 presigned URLs for accessing objects in the bucket.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A company has a stateless application that runs on four Amazon EC2 instances. The application requires tour instances at all times to support all traffic. A CloudOps Engineer must design a highly available, fault-tolerant architecture that continually supports all traffic if one Availability Zone becomes unavailable. Which configuration meets these requirements?
+
+- [ ] Deploy two Auto Scaling groups in two Availability Zones with a minimum capacity of two instances in each group.
+- [ ] Deploy an Auto Scaling group across two Availability Zones with a minimum capacity of four instances.
+- [x] Deploy an Auto Scaling group across three Availability Zones with a minimum capacity of four instances.
+- [ ] Deploy an Auto Scaling group across three Availability Zones with a minimum capacity of six instances.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A company's backend infrastructure contains an Amazon EC2 instance in a private subnet. The private subnet has a route to the internet through a `NAT` gateway in a public subnet. The instance must allow connectivity to a secure web server on the internet to retrieve data at regular intervals. The client software times out with an error message that indicates that the client software could not establish the `TCP` connection. What should a CloudOps Engineer do to resolve this error?
+
+- [ ] Add an inbound rule to the security group for the EC2 instance with the following parameters: `Type` – `HTTP`, `Source` – `0.0.0.0/0`.
+- [ ] Add an inbound rule to the security group for the EC2 instance with the following parameters: `Type` – `HTTPS`, `Source` – `0.0.0.0/0`.
+- [ ] Add an outbound rule to the security group for the EC2 instance with the following parameters: `Type` – `HTTP`, `Destination` – `0.0.0.0/0`.
+- [x] Add an outbound rule to the security group for the EC2 instance with the following parameters: `Type` – `HTTPS`. `Destination` – `0.0.0.0/0`.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A software development company has multiple developers who work on the same product. Each developer must have their own development environment, and these development environments must be identical. Each development environment consists of Amazon EC2 instances and an Amazon RDS DB instance. The development environments should be created only when necessary, and they must be terminated each night to minimize costs. What is the MOST operationally efficient solution that meets these requirements?
+
+- [ ] Provide developers with access to the same AWS CloudFormation template so that they can provision their development environment when necessary. Schedule a nightly cron job on each development instance to stop all running processes to reduce CPU utilization to nearly zero.
+- [x] Provide developers with access to the same AWS CloudFormation template so that they can provision their development environment when necessary. Schedule a nightly Amazon EventBridge (Amazon CloudWatch Events) rule to invoke an AWS Lambda function to delete the AWS CloudFormation stacks.
+- [ ] Provide developers with CLI commands so that they can provision their own development environment when necessary. Schedule a nightly Amazon EventBridge (Amazon CloudWatch Events) rule to invoke an AWS Lambda function to terminate all EC2 instances and the DB instance.
+- [ ] Provide developers with CLI commands so that they can provision their own development environment when necessary. Schedule a nightly Amazon EventBridge (Amazon CloudWatch Events) rule to cause AWS CloudFormation to delete all of the development environment resources.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A company runs a stateless application that is hosted on an Amazon EC2 instance. Users are reporting performance issues. A CloudOps Engineer reviews the Amazon CloudWatch metrics for the application and notices that the instance's CPU utilization frequently reaches `90%` during business hours. What is the MOST operationally efficient solution that will improve the application's responsiveness?
+
+- [ ] Configure CloudWatch logging on the EC2 instance. Configure a CloudWatch alarm for CPU utilization to alert the CloudOps Engineer when CPU utilization goes above `90%`.
+- [ ] Configure an AWS Client `VPN` connection to allow the application users to connect directly to the EC2 instance private IP address to reduce latency.
+- [x] Create an Auto Scaling group, and assign it to an Application Load Balancer. Configure a target tracking scaling policy that is based on the average CPU utilization of the Auto Scaling group.
+- [ ] Create a CloudWatch alarm that activates when the EC2 instance's CPU utilization goes above `80%`. Configure the alarm to invoke an AWS Lambda function that vertically scales the instance.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A company recently acquired another corporation and all of that corporation's AWS accounts. A financial analyst needs the cost data from these accounts. A CloudOps Engineer uses Cost Explorer to generate cost and usage reports. The CloudOps Engineer notices that `No Tagkey` represents `20%` of the monthly cost. What should the CloudOps Engineer do to tag the `No Tagkey` resources?
+
+- [ ] Add the accounts to AWS Organizations. Use a Service Control Policy (SCP) to tag all the untagged resources.
+- [ ] Use an AWS Config rule to find the untagged resources. Set the remediation action to terminate the resources.
+- [ ] Use Cost Explorer to find and tag all the untagged resources.
+- [x] Use Tag Editor to find and tag all the untagged resources.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A CloudOps Engineer is helping a development team deploy an application to AWS Trie AWS CloudFormat on temp ate includes an Amazon Linux EC2 Instance an Amazon Aurora DB cluster and a hard coded database password that must be rotated every 90 days. What is the MOST secure way to manage the database password?
+
+- [x] Use the AWS Secrets Manager Secret resource with the `GenerateSecretString` property to automatically generate a password. Use the AWS Secrets Manager `RotationSchedule` resource to define a rotation schedule for the password. Configure the application to retrieve the secret from AWS Secrets Manager to access the database.
+- [ ] Use the AWS Secrets Manager Secret resource with the `SecretString` property. Accept a password as a `CloudFormation` parameter. Use the `AllowedPattern` property of the `CloudFormaton` parameter to require a minimum length, uppercase and lowercase letters and special characters. Configure the application to retrieve the secret from AWS Secrets Manager to access the database.
+- [ ] Use the `AWS::SSM::Parameter` resource. Accept input as a `CloudFormation` parameter to store the parameter as a secure string. Configure the application to retrieve the parameter from AWS Systems Manager Parameter Store to access the database.
+- [ ] Use the `AWS::SSM::Parameter` resource. Accept input as a `CloudFormation` parameter to store the parameter as a string. Configure the application to retrieve the parameter from AWS Systems Manager Parameter Store to access the database.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### An application team uses an Amazon Aurora MySQL DB cluster with one Aurora Replica. The application team notices that the application read performance degrades when user connections exceed `200`. The number of user connections is typically consistent around `180`. with occasional sudden increases above `200` connections. The application team wants the application to automatically scale as user demand increases or decreases. Which solution will meet these requirements?
+
+- [ ] Migrate to a new Aurora multi-master DB cluster. Modify the application database connection string.
+- [ ] Modify the DB cluster by changing to serverless mode whenever user connections exceed `200`.
+- [x] Create an auto scaling policy with a target metric of `195` `DatabaseConnections`.
+- [ ] Modify the DB cluster by increasing the Aurora Replica instance size.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A company's CloudOps Engineer has created an Amazon EC2 instance with custom software that will be used as a template for all new EC2 instances across multiple AWS accounts. The Amazon Elastic Block Store (Amazon EBS) volumes that are attached to the EC2 instance are encrypted with AWS managed keys. The CloudOps Engineer creates an Amazon Machine Image (AMI) of the custom EC2 instance and plans to share the AMI with the company's other AWS accounts. The company requires that all AMIs are encrypted with AWS Key Management Service (AWS KMS) keys and that only authorized AWS accounts can access the shared AMIs. Which solution will securely share the AMI with the other AWS accounts?
+
+- [ ] In the account where the AMI was created, create a customer managed KMS key. Modify the key policy to provide `kms:DescribeKey`, `kms:ReEncrypt*`, `kms:CreateGrant`, and `kms:Decrypt` permissions to the AWS accounts that the AMI will be shared with. Modify the AMI permissions to specify the AWS account numbers that the AMI will be shared with.
+- [x] In the account where the AMI was created, create a customer managed KMS key. Modify the key policy to provide `kms:DescribeKey`, `kms:ReEncrypt*`, `kms:CreateGrant`, and `kms:Decrypt` permissions to the AWS accounts that the AMI will be shared with. Create a copy of the AMI, and specify the KMS key. Modify the permissions on the copied AMI to specify the AWS account numbers that the AMI will be shared with.
+- [ ] In the account where the AMI was created, create a customer managed KMS key. Modify the key policy to provide `kms:DescribeKey`, `kms:ReEncrypt*`, `kms:CreateGrant`, and `kms:Decrypt` permissions to the AWS accounts that the AMI will be shared with. Create a copy of the AMI, and specify the KMS key. Modify the permissions on the copied AMI to make it public.
+- [ ] In the account where the AMI was created, modify the key policy of the AWS managed key to provide `kms:DescribeKey`, `kms:ReEncrypt*`, `kms:CreateGrant`, and `kms:Decrypt` permissions to the AWS accounts that the AMI will be shared with. Modify the AMI permissions to specify the AWS account numbers that the AMI will be shared with.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A company has an application that uses an Amazon Elastic File System (Amazon EFS) file system. A recent incident that involved an application logic error corrupted several files. The company wants to improve its ability to back up and recover the EFS file system. The company must be able to recover individual files rapidly. Which solution meets these requirements MOST cost-effectively?
+
+- [ ] Configure Amazon Data Lifecycle Manager (Amazon DLM) to archive a copy of the data to an Amazon S3 Glacier vault. Use S3 Glacier retrieval requests to retrieve individual files.
+- [ ] Create a second EFS file system in another AWS Region. Configure AWS DataSync to copy the data to the backup file system. Recover files by copying them from the backup EFS file system.
+- [ ] Enable AWS Backup in Amazon EFS to back up the file system to an Amazon S3 Glacier vault. Use S3 Glacier retrieval requests to retrieve individual files.
+- [x] Enable AWS Backup in Amazon EFS to back up the file system to a backup vault. Use a partial restore job to retrieve individual files.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A CloudOps Engineer is troubleshooting an AWS CloudFormation template whereby multiple Amazon EC2 instances are being created. The template is working In `us-east-1`, but it is failing. In `us-west-2` with the error code: `AMI [ami-12345678] does not exist`. How should the Engineer ensure that the AWS CloudFormation template is working in every region?
+
+- [ ] Copy the source region's Amazon Machine Image (AMI) to the destination region and assign it the same ID.
+- [ ] Edit the AWS CloudFormatton template to specify the region code as part of the fully qualified AMI ID.
+- [ ] Edit the AWS CloudFormatton template to offer a drop-down list of all AMIs to the user by using the `AWS::EC2::AMI::ImageID` control.
+- [x] Modify the AWS CloudFormation template by including the AMI IDs in the `Mappings` section. Refer to the proper mapping within the template for the proper AMI ID.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A company runs us Infrastructure on Amazon EC2 Instances that run In an Auto Scaling group. Recently, the company promoted faulty code to the entire EC2 fleet. This faulty code caused the Auto Scaling group to scale the instances before any of the application logs could be retrieved. What should a CloudOps Engineer do to retain the application logs after instances are terminated?
+
+- [ ] Configure an Auto Scaling lifecycle hook to create a snapshot of the ephemeral storage upon termination of the instances.
+- [x] Create a new Amazon Machine Image (AMI) that has the Amazon CloudWatch agent installed and configured to send logs to Amazon CloudWatch Logs. Update the launch template to use the new AMI.
+- [ ] Create a new Amazon Machine Image (AMI) that has a custom script configured to send logs to AWS CloudTrail. Update the launch template to use the new AMI.
+- [ ] Install the Amazon CloudWatch agent on the Amazon Machine Image (AMI) that is defined in the launch template. Configure the CloudWatch agent to back up the logs to ephemeral storage.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A company monitors its account activity using AWS CloudTrail, and is concerned that some log files are being tampered with after the logs have been delivered to the account's Amazon S3 bucket. Moving forward, how can the CloudOps Engineer confirm that the log files have not been modified after being delivered to the S3 bucket?
+
+- [ ] Stream the CloudTrail logs to Amazon CloudWatch Logs to store logs at a secondary location.
+- [x] Enable log file integrity validation and use digest files to verify the hash value of the log file.
+- [ ] Replicate the S3 log bucket across regions, and encrypt log files with S3 managed keys.
+- [ ] Enable S3 server access logging to track requests made to the log bucket for security audits.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A team of On-call engineers frequently needs to connect to Amazon EC2 Instances In a private subnet to troubleshoot and run commands. The Instances use either the latest AWS-provided Windows Amazon Machine Images (AMIs) or Amazon Linux AMIs. The team has an existing IAM role for authorization. A CloudOps Engineer must provide the team with access to the Instances by granting IAM permissions to this role. Which solution will meet this requirement?
+
+- [x] Add a statement to the IAM role policy to allow the `ssm:StartSession` action on the instances. Instruct the team to use AWS Systems Manager Session Manager to connect to the Instances by using the assumed IAM role.
+- [ ] Associate an Elastic IP address and a security group with each instance. Add the engineers' IP addresses to the security group inbound rules. Add a statement to the IAM role policy to allow the `ec2:AuthoflzeSecurityGroupIngress` action so that the team can connect to the Instances.
+- [ ] Create a bastion host with an EC2 Instance, and associate the bastion host with the `VPC`. Add a statement to the IAM role policy to allow the `ec2:CreateVpnConnection` action on the bastion host. Instruct the team to use the bastion host endpoint to connect to the instances.
+- [ ] Create an internet-facing Network Load Balancer. Use two listeners. Forward port `22` to a target group of Linux instances. Forward port `3389` to a target group of Windows Instances. Add a statement to the IAM role policy to allow the `ec2:CreateRoute` action so that the team can connect to the Instances.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A company has an AWS CloudFormation template that creates an Amazon S3 bucket. A user authenticates to the corporate AWS account with their Active Directory credentials and attempts to deploy the CloudFormation template. However, the stack creation fails. Which factors could cause this failure? (Select TWO.)
+
+- [x] The user's IAM policy does not allow the `cloudformation:CreateStack` action.
+- [ ] The user's IAM policy does not allow the `cloudformation:CreateStackSet` action.
+- [x] The user's IAM policy does not allow the `s3:CreateBucket` action.
+- [ ] The user's IAM policy explicitly denies the `s3:ListBucket` action.
+- [ ] The user's IAM policy explicitly denies the `s3:PutObject` action.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A company has a new requirement stating that all resources In AWS must be tagged according to a set policy. Which AWS service should be used to enforce and continually Identify all resources that are not in compliance with the policy?
+
+- [ ] AWS CloudTrail.
+- [ ] Amazon Inspector.
+- [x] AWS Config.
+- [ ] AWS Systems Manager.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A CloudOps Engineer is setting up an automated process to recover an Amazon EC2 instance In the event of an underlying hardware failure. The recovered instance must have the same private IP address and the same Elastic IP address that the original instance had. The SysOps team must receive an email notification when the recovery process is initiated. Which solution will meet these requirements?
+
+- [ ] Create an Amazon CloudWatch alarm for the EC2 instance, and specify the `SiatusCheckFailedjnstance` metric. Add an EC2 action to the alarm to recover the instance. Add an alarm notification to publish a message to an Amazon Simple Notification Service (Amazon SNS) topic. Subscribe the SysOps team email address to the SNS topic.
+- [x] Create an Amazon CloudWatch alarm for the EC2 Instance, and specify the `StatusCheckFailed_System` metric. Add an EC2 action to the alarm to recover the instance. Add an alarm notification to publish a message to an Amazon Simple Notification Service (Amazon SNS) topic. Subscribe the SysOps team email address to the SNS topic.
+- [ ] Create an Auto Scaling group across three different subnets in the same Availability Zone with a minimum, maximum, and desired size of `1`. Configure the Auto Seating group to use a launch template that specifies the private IP address and the Elastic IP address. Add an activity notification for the Auto Scaling group to send an email message to the SysOps team through Amazon Simple Email Service (Amazon SES).
+- [ ] Create an Auto Scaling group across three Availability Zones with a minimum, maximum, and desired size of `1`. Configure the Auto Scaling group to use a launch template that specifies the private IP address and the Elastic IP address. Add an activity notification for the Auto Scaling group to publish a message to an Amazon Simple Notification Service (Amazon SNS) topic. Subscribe the SysOps team email address to the SNS topic.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A CloudOps Engineer must create a solution that immediately notifies software developers if an AWS Lambda function experiences an error. Which solution will meet this requirement?
+
+- [x] Create an Amazon Simple Notification Service (Amazon SNS) topic with an email subscription for each developer. Create an Amazon CloudWatch alarm by using the `Errors` metric and the Lambda function name as a dimension. Configure the alarm to send a notification to the SNS topic when the alarm state reaches `ALARM`.
+- [ ] Create an Amazon Simple Notification Service (Amazon SNS) topic with a mobile subscription for each developer. Create an Amazon EventBridge (Amazon CloudWatch Events) alarm by using `LambdaError` as the event pattern and the SNS topic name as a resource. Configure the alarm to send a notification to the SNS topic when the alarm state reaches `ALARM`.
+- [ ] Verify each developer email address in Amazon Simple Email Service (Amazon SES). Create an Amazon CloudWatch rule by using the `LambdaError` metric and developer email addresses as dimensions. Configure the rule to send an email through Amazon SES when the rule state reaches `ALARM`.
+- [ ] Verify each developer mobile phone in Amazon Simple Email Service (Amazon SES). Create an Amazon EventBridge (Amazon CloudWatch Events) rule by using `Errors` as the event pattern and the Lambda function name as a resource. Configure the rule to send a push notification through Amazon SES when the rule state reaches `ALARM`.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A CloudOps Engineer developed a Python script that uses the AWS SDK to conduct several maintenance tasks. The script needs to run automatically every night. What is the MOST operationally efficient solution that meets this requirement?
+
+- [x] Convert the Python script to an AWS Lambda function. Use an Amazon EventBridge (Amazon CloudWatch Events) rule to invoke the function every night.
+- [ ] Convert the Python script to an AWS Lambda function. Use AWS CloudTrail to invoke the function every night.
+- [ ] Deploy the Python script to an Amazon EC2 Instance. Use Amazon EventBridge (Amazon CloudWatch Events) to schedule the instance to start and stop every night.
+- [ ] Deploy the Python script to an Amazon EC2 instance. Use AWS Systems Manager to schedule the instance to start and stop every night.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A CloudOps Engineer must create a solution that automatically shuts down any Amazon EC2 instances that have less than `10%` average CPU utilization for 60 minutes or more. Which solution will meet this requirement In the MOST operationally efficient manner?
+
+- [ ] Implement a cron job on each EC2 instance to run once every 60 minutes and calculate the current CPU utilization. Initiate an instance shutdown If CPU utilization is less than `10%`.
+- [x] Implement an Amazon CloudWatch alarm for each EC2 instance to monitor average CPU utilization. Set the period at 1 hour, and set the threshold at `10%`. Configure an EC2 action on the alarm to stop the instance.
+- [ ] Install the unified Amazon CloudWatch agent on each EC2 instance, and enable the Basic level predefined metric set. Log CPU utilization every 60 minutes, and initiate an instance shutdown if CPU utilization is less than `10%`.
+- [ ] Use AWS Systems Manager Run Command to get CPU utilization from each EC2 instance every 60 minutes. Initiate an instance shutdown if CPU utilization is less than `10%`.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A company uses AWS CloudFormation templates to deploy cloud infrastructure. An analysis of all the company's templates shows that the company has declared the same components in multiple templates. A CloudOps Engineer needs to create dedicated templates that have their own parameters and conditions for these common components. Which solution will meet this requirement?
+
+- [ ] Develop a CloudFormation change set.
+- [ ] Develop CloudFormation macros.
+- [x] Develop CloudFormation nested stacks.
+- [ ] Develop CloudFormation stack sets.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A company has deployed AWS Security Hub and AWS Config in a newly implemented organization in AWS Organizations. A CloudOps Engineer must implement a solution to restrict all member accounts in the organization from deploying Amazon EC2 resources in the `ap-southeast-2` Region. The solution must be implemented from a single point and must govern an current and future accounts. The use of root credentials also must be restricted in member accounts. Which AWS feature should the CloudOps Engineer use to meet these requirements?
+
+- [ ] AWS Config aggregator.
+- [ ] IAM user permissions boundaries.
+- [x] AWS Organizations Service Control Policies (SCPs).
+- [ ] AWS Security Hub conformance packs.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A company runs a worker process on three Amazon EC2 instances. The instances are in an Auto Scaling group that is configured to use a simple scaling policy. The instances process messages from an Amazon Simple Queue Service (Amazon SQS) queue. Random periods of increased messages are causing a decrease in the performance of the worker process. A CloudOps Engineer must scale the instances to accommodate the increased number of messages. Which solution will meet these requirements?
+
+- [ ] Use CloudWatch to create a metric math expression to calculate the approximate age of the oldest message in the SQS queue. Create a target tracking scaling policy for the metric math expression to modify the Auto Scaling group.
+- [x] Use CloudWatch to create a metric math expression to calculate the approximate number of messages visible in the SQS queue for each instance. Create a target tracking scaling policy for the metric math expression to modify the Auto Scaling group.
+- [ ] Create an Application Load Balancer (ALB). Attach the `ALB` to the Auto Scaling group. Create a target tracking scaling policy for the `ALB`'s `RequestCountPerTarget` metric to modify the Auto Scaling group.
+- [ ] Create an Application Load Balancer (ALB). Attach the `ALB` to the Auto Scaling group. Create a scheduled scaling policy for the Auto Scaling group.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A CloudOps Engineer is notified that an Amazon EC2 instance has stopped responding. The AWS Management Console indicates that the system checks are failing. What should the Engineer do first to resolve this issue?
+
+- [ ] Reboot the EC2 instance so it can be launched on a new host.
+- [x] Stop and then start the EC2 instance so that it can be launched on a new host.
+- [ ] Terminate the EC2 instance and relaunch it.
+- [ ] View the AWS CloudTrail log to investigate what changed on the EC2 instance.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A recent audit found that most resources belonging to the development team were in violation of patch compliance standards The resources were properly tagged. Which service should be used to quickly remediate the issue and bring the resources back into compliance?
+
+- [ ] AWS Config.
+- [ ] Amazon Inspector.
+- [ ] AWS Trusted Advisor.
+- [x] AWS Systems Manager.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A CloudOps Engineer has many Windows Amazon EC2 instances that need to share a file system between nodes. The CloudOps Engineer creates an Amazon Elastic File System (Amazon EFS) file share. After creation of the file share, the CloudOps Engineer is having trouble mounting the file share to the EC2 instances. Which action should the CloudOps Engineer take so that the EC2 instances can share the files?
+
+- [x] Delete the EFS file share. Create an Amazon FSx for Windows File Server file share for the EC2 instances.
+- [ ] Use the correct IAM credentials to mount the EFS file share.
+- [ ] Configure NFSv4 support on the Windows operating system that is running on the EC2 instances.
+- [ ] Allow the correct port for NFS through the security group and network `ACL`.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### An existing, deployed solution uses Amazon EC2 instances with Amazon EBS General Purpose SSD volumes, am Amazon RDS PostgreSQL database, an Amazon EFS file system, and static objects stored in an Amazon S3 bucket. The Security team now mandates that at-rest encryption be turned on immediately for all aspects of the application, without creating new resources and without any downtime. To satisfy the requirements, which one of these services can the CloudOps Engineer enable at-rest encryption on?
+
+- [ ] EBS General Purpose SSD volumes.
+- [ ] RDS PostgreSQL database.
+- [ ] Amazon EFS file systems.
+- [x] S3 objects within a bucket.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A company uses an AWS CloudFormation template to provision an Amazon EC2 instance and an Amazon RDS DB instance. A CloudOps Engineer must update the template to ensure that the DB instance is created before the EC2 instance is launched. What should the CloudOps Engineer do to meet this requirement?
+
+- [ ] Add a wait condition to the template. Update the EC2 instance user data script to send a signal after the EC2 instance is started.
+- [x] Add the `DependsOn` attribute to the EC2 instance resource, and provide the logical name of the RDS resource.
+- [ ] Change the order of the resources in the template so that the RDS resource is listed before the EC2 instance resource.
+- [ ] Create multiple templates. Use AWS CloudFormation `StackSets` to wait for one stack to complete before the second stack is created.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A company has an existing web application that runs on two Amazon EC2 instances behind an Application Load Balancer (ALB) across two Availability Zones. The application uses an Amazon RDS Multi-AZ DB Instance. Amazon Route 53 record sets route requests for dynamic content to the load balancer and requests for static content to an Amazon S3 bucket. Site visitors are reporting extremely long loading times. Which actions should be taken to improve the performance of the website? (Select TWO)
+
+- [x] Add Amazon CloudFront caching for static content.
+- [ ] Change the load balancer listener from `HTTPS` to `TCP`.
+- [ ] Enable Amazon Route 53 latency-based routing.
+- [x] Implement Amazon EC2 Auto Scaling for the web servers.
+- [ ] Move the static content from Amazon S3 to the web servers.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A company is running an application on premises and wants to use AWS for data backup All of the data must be available locally. The backup application can write only to block-based storage that is compatible with the Portable Operating System Interface (POSIX). Which backup solution will meet these requirements?
+
+- [ ] Configure the backup software to use Amazon S3 as the target for the data backups.
+- [ ] Configure the backup software to use Amazon S3 Glacier as the target for the data backups.
+- [ ] Use AWS Storage Gateway, and configure it to use gateway-cached volumes.
+- [x] Use AWS Storage Gateway, and configure it to use gateway-stored volumes.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### An organization created an Amazon Elastic File System (Amazon EFS) volume with a file system ID of fs-85ba41fc, and it is actively used by 10 Amazon EC2 hosts. The organization has become concerned that the file system is not encrypted. How can this be resolved?
+
+- [ ] Enable encryption on each host's connection to the Amazon EFS volume. Each connection must be recreated for encryption to take effect.
+- [ ] Enable encryption on the existing EFS volume by using the AWS Command Line Interface.
+- [ ] Enable encryption on each host's local drive. Restart each host to encrypt the drive.
+- [x] Enable encryption on a newly created volume and copy all data from the original volume. Reconnect each host to the new volume.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A CloudOps Engineer configures an application to run on Amazon EC2 instances behind an Application Load Balancer (ALB) in a simple scaling Auto Scaling group with the default settings. The Auto Scaling group is configured to use the `RequestCountPerTarget` metric for scaling. The CloudOps Engineer notices that the `RequestCountPerTarget` metric exceeded the specified limit twice in `180` seconds. How will the number of EC2 instances in this Auto Scaling group be affected in this scenario?
+
+- [ ] The Auto Scaling group will launch an additional EC2 instance every time the `RequestCountPerTarget` metric exceeds the predefined limit.
+- [x] The Auto Scaling group will launch one EC2 instance and will wait for the default cooldown period before launching another instance.
+- [ ] The Auto Scaling group will send an alert to the `ALB` to rebalance the traffic and not add new EC2 instances until the load is normalized.
+- [ ] The Auto Scaling group will try to distribute the traffic among all EC2 instances before launching another instance.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### An errant process is known to use an entire processor and run at `100%`. A CloudOps Engineer wants to automate restarting the instance once the problem occurs for more than 2 minutes. How can this be accomplished?
+
+- [ ] Create an Amazon CloudWatch alarm for the Amazon EC2 instance with basic monitoring. Enable an action to restart the instance.
+- [x] Create a CloudWatch alarm for the EC2 instance with detailed monitoring. Enable an action to restart the instance.
+- [ ] Create an AWS Lambda function to restart the EC2 instance triggered on a scheduled basis every 2 minutes.
+- [ ] Create a Lambda function to restart the EC2 instance, triggered by EC2 health checks.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A CloudOps Engineer notices a scale-up event for an Amazon EC2 Auto Scaling group Amazon CloudWatch shows a spike in the `RequestCount` metric for the associated Application Load Balancer. The Engineer would like to know the IP addresses for the source of the requests. Where can the Engineer find this information?
+
+- [ ] Auto Scaling logs.
+- [ ] AWS CloudTrail logs.
+- [ ] EC2 instance logs.
+- [x] Elastic Load Balancer access logs.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### An organization with a large IT department has decided to migrate to AWS With different job functions in the IT department it is not desirable to give all users access to all AWS resources Currently the organization handles access via LDAP group membership. What is the BEST method to allow access using current LDAP credentials?
+
+- [ ] Create an AWS Directory Service Simple AD. Replicate the on-premises LDAP directory to Simple AD.
+- [ ] Create a Lambda function to read LDAP groups and automate the creation of IAM users.
+- [ ] Use AWS CloudFormation to create IAM roles. Deploy Direct Connect to allow access to the on-premises LDAP server.
+- [x] Federate the LDAP directory with IAM using SAML. Create different IAM roles to correspond to different LDAP groups to limit permissions.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A company is using an AWS KMS Customer Master Key (CMK) with imported key material. The company references the CMK by its alias in the Java application to encrypt data. The CMK must be rotated every 6 months. What is the process to rotate the key?
+
+- [ ] Enable automatic key rotation for the CMK, and specify a period of 6 months.
+- [x] Create a new CMK with new imported material, and update the key alias to point to the new CMK.
+- [ ] Delete the current key material, and import new material into the existing CMK.
+- [ ] Import a copy of the existing key material into a new CMK as a backup, and set the rotation schedule for 6 months.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A company is running a serverless application on AWS Lambda. The application stores data in an Amazon RDS for MySQL DB instance. Usage has steadily increased, and recently there have been numerous `too many connections` errors when the Lambda function attempts to connect to the database. The company already has configured the database to use the `maximum max_connections` value that is possible. What should a CloudOps Engineer do to resolve these errors?
+
+- [ ] Create a read replica of the database. Use Amazon Route 53 to create a weighted `DNS` record that contains both databases.
+- [x] Use Amazon RDS Proxy to create a proxy. Update the connection string in the Lambda function.
+- [ ] Increase the value in the `max_connect_errors` parameter in the parameter group that the database uses.
+- [ ] Update the Lambda function's reserved concurrency to a higher value.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A company stores files on 50 Amazon S3 buckets in the same AWS Region The company wants to connect to the S3 buckets securely over a private connection from its Amazon EC2 instances. The company needs a solution that produces no additional cost. Which solution will meet these requirements?
+
+- [ ] Create a gateway `VPC` endpoint for each S3 bucket. Attach the gateway `VPC` endpoints to each subnet inside the `VPC`.
+- [ ] Create an interface `VPC` endpoint for each S3 bucket. Attach the interface `VPC` endpoints to each subnet inside the `VPC`.
+- [x] Create one gateway `VPC` endpoint for all the S3 buckets. Add the gateway `VPC` endpoint to the `VPC` route table.
+- [ ] Create one interface `VPC` endpoint for all the S3 buckets. Add the interface `VPC` endpoint to the `VPC` route table.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A company uses AWS CloudFormation to deploy its application infrastructure. Recently, a user accidentally changed a property of a database in a CloudFormation template and performed a stack update that caused an interruption to the application. A CloudOps Engineer must determine how to modify the deployment process to allow the DevOps team to continue to deploy the infrastructure, but prevent against accidental modifications to specific resources. Which solution will meet these requirements?
+
+- [ ] Set up an AWS Config rule to alert based on changes to any CloudFormation stack. An AWS Lambda function can then describe the stack to determine if any protected resources were modified and cancel the operation.
+- [ ] Set up an Amazon CloudWatch Events event with a rule to trigger based on any CloudFormation API call. An AWS Lambda function can then describe the stack to determine if any protected resources were modified and cancel the operation.
+- [x] Launch the CloudFormation templates using a stack policy with an explicit allow for all resources and an explicit deny of the protected resources with an action of `Update:*`.
+- [ ] Attach an IAM policy to the DevOps team role that prevents a CloudFormation stack from updating, with a condition based on the specific Amazon Resource Names (ARNs) of the protected resources.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A CloudOps Engineer receives notification that an application that is running on Amazon EC2 instances has failed to authenticate to an Amazon RDS database. To troubleshoot, the CloudOps Engineer needs to investigate AWS Secrets Manager password rotation. Which Amazon CloudWatch log will provide insight into the password rotation?
+
+- [ ] AWS CloudTrail logs.
+- [ ] EC2 instance application logs.
+- [x] AWS Lambda function logs.
+- [ ] RDS database logs.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### An AWS Lambda function is intermittently failing several times a day. A CloudOps Engineer must find out how often this error has occurred in the last 7 days. Which action will meet this requirement in the MOST operationally efficient manner?
+
+- [ ] Use Amazon Athena to query the Amazon CloudWatch logs that are associated with the Lambda function.
+- [ ] Use Amazon Athena to query the AWS CloudTrail logs that are associated with the Lambda function.
+- [x] Use Amazon CloudWatch Logs Insights to query the associated Lambda function logs.
+- [ ] Use Amazon Elasticsearch Service (Amazon ES) to stream the Amazon CloudWatch logs for the Lambda function.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A CloudOps Engineer is building a process for sharing Amazon RDS database snapshots between different accounts associated with different business units within the same company. All data must be encrypted at rest. How should the Engineer implement this process?
+
+- [ ] Write a script to download the encrypted snapshot, decrypt it using the AWS KMS encryption key used to encrypt the snapshot, then create a new volume in each account.
+- [x] Update the key policy to grant permission to the AWS KMS encryption key used to encrypt the snapshot with all relevant accounts, then share the snapshot with those accounts.
+- [ ] Create an Amazon EC2 instance based on the snapshot, then save the instance's Amazon EBS volume as a snapshot and share it with the other accounts. Require each account owner to create a new volume from that snapshot and encrypt it.
+- [ ] Create a new unencrypted RDS instance from the encrypted snapshot, connect to the instance using `SSH`/`RDP`. export the database contents into a file, then share this file with the other accounts.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A CloudOps Engineer has an AWS CloudFormation template of the company's existing infrastructure in `us-west-2`. The Engineer attempts to use the template to launch a new stack in `eu-west-1`, but the stack only partially deploys, receives an error message, and then rolls back. Why would this template fail to deploy? (Select TWO.)
+
+- [ ] The template referenced an IAM user that is not available in `eu-west-1`.
+- [x] The template referenced an Amazon Machine Image (AMI) that is not available in `eu-west-1`.
+- [ ] The template did not have the proper level of permissions to deploy the resources.
+- [x] The template requested services that do not exist in `eu-west-1`.
+- [ ] CloudFormation templates can be used only to update existing services.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A company is using an Amazon DynamoDB table for data. A CloudOps Engineer must configure replication of the table to another AWS Region for disaster recovery. What should the CloudOps Engineer do to meet this requirement?
+
+- [ ] Enable DynamoDB Accelerator (DAX).
+- [ ] Enable DynamoDB Streams, and add a global secondary index (GSI).
+- [x] Enable DynamoDB Streams, and add a global table Region.
+- [ ] Enable point-in-time recovery.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A CloudOps Engineer must set up notifications for whenever combined billing exceeds a certain threshold for all AWS accounts within a company. The Engineer has set up AWS Organizations and enabled Consolidated Billing. Which additional steps must the Engineer perform to set up the billing alerts?
+
+- [ ] In the payer account: Enable billing alerts in the Billing and Cost Management console; publish an Amazon SNS message when the billing alert triggers.
+- [ ] In each account: Enable billing alerts in the Billing and Cost Management console; set up a billing alarm in Amazon CloudWatch; publish an SNS message when the alarm triggers.
+- [ ] In the payer account: Enable billing alerts in the Billing and Cost Management console; set up a billing alarm in the Billing and Cost Management console to publish an SNS message when the alarm triggers.
+- [x] In the payer account: Enable billing alerts in the Billing and Cost Management console; set up a billing alarm in Amazon CloudWatch; publish an SNS message when the alarm triggers.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A CloudOps Engineer is troubleshooting connection timeouts to an Amazon EC2 instance that has a public IP address. The instance has a private IP address of `172.31.16.139`. When the CloudOps Engineer tries to ping the instance's public IP address from the remote IP address `203.0.113.12`, the response is `request timed out.` The flow logs contain the following information: What is one cause of the problem?
+
+![Question 155](images/question58_74_155.png)
+
+- [ ] Inbound security group deny rule.
+- [ ] Outbound security group deny rule.
+- [ ] Network `ACL` inbound rules.
+- [x] Network `ACL` outbound rules.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A CloudOps Engineer needs to configure a solution that will deliver digital content to a set of authorized users through Amazon CloudFront. Unauthorized users must be restricted from access. Which solution will meet these requirements?
+
+- [ ] Store the digital content in an Amazon S3 bucket that does not have public access blocked. Use signed URLs to access the S3 bucket through CloudFront.
+- [x] Store the digital content in an Amazon S3 bucket that has public access blocked. Use an Origin Access Identity (OAI) to deliver the content through CloudFront. Restrict S3 bucket access with signed URLs in CloudFront.
+- [ ] Store the digital content in an Amazon S3 bucket that has public access blocked. Use an Origin Access Identity (OAI) to deliver the content through CloudFront. Enable field-level encryption.
+- [ ] Store the digital content in an Amazon S3 bucket that does not have public access blocked. Use signed cookies for restricted delivery of the content through CloudFront.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A company has a high-performance Windows workload. The workload requires a storage volume that provides consistent performance of 10,000 IOPS. The company does not want to pay for additional unneeded capacity to achieve this performance. Which solution will meet these requirements with the LEAST cost?
+
+- [ ] Use a `Provisioned IOPS SSD (io1)` Amazon Elastic Block Store (Amazon EBS) volume that is configured with 10,000 provisioned IOPS.
+- [x] Use a `General Purpose SSD (gp3)` Amazon Elastic Block Store (Amazon EBS) volume that is configured with 10,000 provisioned IOPS.
+- [ ] Use an Amazon Elastic File System (Amazon EFS) file system in Max I/O mode.
+- [ ] Use an Amazon FSx for Windows File Server file system that is configured with 10,000 IOPS.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A company hosts an internal application on Amazon EC2 instances. All application data and requests route through an AWS Site-to-Site `VPN` connection between the on-premises network and AWS. The company must monitor the application for changes that allow network access outside of the corporate network. Any change that exposes the application externally must be restricted automatically. Which solution meets these requirements in the MOST operationally efficient manner?
+
+- [ ] Create an AWS Lambda function that updates security groups that are associated with the elastic network interface to remove inbound rules with noncorporate `CIDR` ranges. Turn on `VPC` Flow Logs, and send the logs to Amazon CloudWatch Logs. Create an Amazon CloudWatch alarm that matches traffic from noncorporate `CIDR` ranges, and publish a message to an Amazon Simple Notification Service (Amazon SNS) topic with the Lambda function as a target.
+- [ ] Create a scheduled Amazon EventBridge (Amazon CloudWatch Events) rule that targets an AWS Systems Manager Automation document to check for public IP addresses on the EC2 instances. If public IP addresses are found on the EC2 instances, initiate another Systems Manager Automation document to terminate the instances.
+- [x] Configure AWS Config and a custom rule to monitor whether a security group allows inbound requests from noncorporate `CIDR` ranges. Create an AWS Systems Manager Automation document to remove any noncorporate `CIDR` ranges from the application security groups.
+- [ ] Configure AWS Config and the managed rule for monitoring public IP associations with the EC2 instances by tag. Tag the EC2 instances with an identifier. Create an AWS Systems Manager Automation document to remove the public IP association from the EC2 instances.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A company has deployed an application on Amazon EC2 instances in a single `VPC`. The company has placed the EC2 instances in a private subnet in the `VPC`. The EC2 instances need access to Amazon S3 buckets that are in the same AWS Region as the EC2 instances. A CloudOps Engineer must provide the EC2 instances with access to the S3 buckets without requiring any changes to the EC2 instances or the application. The EC2 instances must not have access to the internet. Which solution will meet these requirements?
+
+- [x] Create a S3 gateway endpoint that uses the default gateway endpoint policy. Associate the private subnet with the gateway endpoint.
+- [ ] Create a S3 interface endpoint. Associate the EC2 instances with the interface endpoint.
+- [ ] Configure a `NAT` gateway. Associate the private subnet with the `NAT` gateway.
+- [ ] Configure a proxy EC2 instance. Update the private subnet route tables to route traffic through the proxy EC2 instance. Configure the proxy to route all S3 requests to the target S3 bucket.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A company runs thousands of Amazon EC2 instances that are based on the Amazon Linux 2 Amazon Machine Image (AMI). A CloudOps Engineer must implement a solution to record commands and output from any user that needs an interactive session on one of the EC2 instances. The solution must log the data to a durable storage location. The solution also must provide automated notifications and alarms that are based on the log data. Which solution will meet these requirements with the MOST operational efficiency?
+
+- [ ] Configure command session logging on each EC2 instance. Configure the unified Amazon CloudWatch agent to send session logs to Amazon CloudWatch Logs. Set up query filters and alerts by using Amazon Athena.
+- [ ] Require all users to use a central bastion host when they need command line access to an EC2 instance. Configure the unified Amazon CloudWatch agent on the bastion host to send session logs to Amazon CloudWatch Logs. Set up a metric filter and a metric alarm for relevant security findings in CloudWatch Logs.
+- [x] Require all users to use AWS Systems Manager Session Manager when they need command line access to an EC2 instance. Configure Session Manager to stream session logs to Amazon CloudWatch Logs. Set up a metric filter and a metric alarm for relevant security findings in CloudWatch Logs.
+- [ ] Configure command session logging on each EC2 instance. Require all users to use AWS Systems Manager Run Command documents when they need command line access to an EC2 instance. Configure the unified Amazon CloudWatch agent to send session logs to Amazon CloudWatch Logs. Set up CloudWatch alarms that are based on Amazon Athena query results.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A company's AWS account users are launching Amazon EC2 instances without required cost allocation tags. A CloudOps Engineer needs to prevent users within an organization in AWS Organizations from launching new EC2 instances that do not have the required tags. The solution must require the least possible operational overhead. Which solution meets these requirements?
+
+- [ ] Set up an AWS Lambda function that will initiate a run instance event and check for the required tags. Configure the function to prevent the launch of EC2 instances if the tags are missing.
+- [ ] Set up an AWS Config rule to monitor for EC2 instances that lack the required tags.
+- [x] Set up a Service Control Policy (SCP) that prevents the launch of EC2 instances that lack the required tags. Attach the SCP to the organization root.
+- [ ] Set up an Amazon CloudWatch alarm to stop any EC2 instances that lack the required tags.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A company has scientists who upload large data objects to an Amazon S3 bucket. The scientists upload the objects as multipart uploads. The multipart uploads often fail because of poor end-client connectivity. The company wants to optimize storage costs that are associated with the data. A CloudOps Engineer must implement a solution that presents metrics for incomplete uploads. The solution also must automatically delete any incomplete uploads after 7 days. Which solution will meet these requirements?
+
+- [x] Review the Incomplete Multipart Upload Bytes metric in the S3 Storage Lens dashboard. Create a S3 Lifecycle policy to automatically delete any incomplete multipart uploads after 7 days.
+- [ ] Implement S3 Intelligent-Tiering to move data into lower-cost storage classes after 7 days. Create a S3 Storage Lens policy to automatically delete any incomplete multipart uploads after 7 days.
+- [ ] Access the S3 console. Review the Metrics tab to check the storage that incomplete multipart uploads are consuming. Create an AWS Lambda function to delete any incomplete multipart uploads after 7 days.
+- [ ] Use the S3 analytics storage class analysis tool to identify and measure incomplete multipart uploads. Configure a S3 bucket policy to enforce restrictions on multipart uploads to delete incomplete multipart uploads after 7 days.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A company is uploading important files as objects to Amazon S3. The company needs to be informed if an object is corrupted during the upload. What should a CloudOps Engineer do to meet this requirement?
+
+- [ ] Pass the `Content-Disposition` value as a request body during the object upload.
+- [x] Pass the `Content-MD5` value as a request header during the object upload.
+- [ ] Pass `x-amz-object-lock-mode` as a request header during the object upload.
+- [ ] Pass `x-amz-server-side-encryption-customer-algorithm` as a request body during the object upload.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A company currently runs its infrastructure within a `VPC` in a single Availability Zone. The `VPC` is connected to the company's on-premises data center through an AWS Site-to-Site `VPN` connection attached to a virtual private gateway. The on-premises route tables route all `VPC` networks to the `VPN` connection. Communication between the two environments is working correctly. A CloudOps Engineer created new `VPC` subnets within a new Availability Zone, and deployed new resources within the subnets. However, communication cannot be established between the new resources and the on-premises environment. Which steps should the CloudOps Engineer take to resolve the issue?
+
+- [x] Add a route to the route tables of the new subnets that send on-premises traffic to the virtual private gateway.
+- [ ] Create a ticket with AWS Support to request adding Availability Zones to the Site-to-Site `VPN` route configuration.
+- [ ] Establish a new Site-to-Site `VPN` connection between a virtual private gateway attached to the new Availability Zone and the on-premises data center.
+- [ ] Replace the Site-to-Site `VPN` connection with an AWS Direct Connect connection.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A company has an internal web application that runs on Amazon EC2 instances behind an Application Load Balancer. The instances run in an Amazon EC2 Auto Scaling group in a single Availability Zone. A CloudOps Engineer must make the application highly available. Which action should the CloudOps Engineer take to meet this requirement?
+
+- [ ] Increase the maximum number of instances in the Auto Scaling group to meet the capacity that is required at peak usage.
+- [ ] Increase the minimum number of instances in the Auto Scaling group to meet the capacity that is required at peak usage.
+- [x] Update the Auto Scaling group to launch new instances in a second Availability Zone in the same AWS Region.
+- [ ] Update the Auto Scaling group to launch new instances in an Availability Zone in a second AWS Region.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A company hosts a website on multiple Amazon EC2 instances that run in an Auto Scaling group. Users are reporting slow responses during peak times between. 6 PM and 11 PM every weekend. A CloudOps Engineer must implement a solution to improve performance during these peak times. What is the MOST operationally efficient solution that meets these requirements?
+
+- [ ] Create a scheduled Amazon EventBridge (Amazon CloudWatch Events) rule to invoke an AWS Lambda function to increase the desired capacity before peak times.
+- [x] Configure a scheduled scaling action with a recurrence option to change the desired capacity before and after peak times.
+- [ ] Create a target tracking scaling policy to add more instances when memory utilization is above `70%`.
+- [ ] Configure the cooldown period for the Auto Scaling group to modify desired capacity before and after peak times.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A company is running a website on Amazon EC2 instances behind an Application Load Balancer (ALB). The company configured an Amazon CloudFront distribution and set the `ALB` as the origin. The company created an Amazon Route 53 `CNAME` record to send all traffic through the CloudFront distribution. As an unintended side effect, mobile users are now being served the desktop version of the website. Which action should a CloudOps Engineer take to resolve this issue?
+
+- [x] Configure the CloudFront distribution behavior to forward the `User-Agent` header.
+- [ ] Configure the CloudFront distribution origin settings. Add a `User-Agent` header to the list of origin custom headers.
+- [ ] Enable IPv6 on the `ALB`. Update the CloudFront distribution origin settings to use the dualstack endpoint.
+- [ ] Enable IPv6 on the CloudFront distribution. Update the Route 53 record to use the dualstack endpoint.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A company hosts its website on Amazon EC2 instances behind an Application Load Balancer. The company manages its `DNS` with Amazon Route 53, and wants to point its domain's zone apex to the website. Which type of record should be used to meet these requirements?
+
+- [ ] An `AAAA` record for the domain's zone apex.
+- [ ] An `A` record for the domain's zone apex.
+- [ ] A `CNAME` record for the domain's zone apex.
+- [x] An alias record for the domain's zone apex.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A CloudOps Engineer has created a `VPC` that contains a public subnet and a private subnet. Amazon EC2 instances that were launched in the private subnet cannot access the internet. The default network `ACL` is active on all subnets in the `VPC`, and all security groups allow all outbound traffic. Which solution will provide the EC2 instances in the private subnet with access to the internet?
+
+- [x] Create a `NAT` gateway in the public subnet. Create a route from the private subnet to the `NAT` gateway.
+- [ ] Create a `NAT` gateway in the public subnet. Create a route from the public subnet to the `NAT` gateway.
+- [ ] Create a `NAT` gateway in the private subnet. Create a route from the public subnet to the `NAT` gateway.
+- [ ] Create a `NAT` gateway in the private subnet. Create a route from the private subnet to the `NAT` gateway.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A company uses AWS CloudFormation to deploy its infrastructure. The company recently retired an application. A cloud operations engineer initiates CloudFormation stack deletion, and the stack gets stuck in `DELETE_FAILED` status. A CloudOps Engineer discovers that the stack had deployed a security group. The security group is referenced by other security groups in the environment. The CloudOps Engineer needs to delete the stack without affecting other applications. Which solution will meet these requirements in the MOST operationally efficient manner?
+
+- [ ] Create a new security group that has a different name. Apply identical rules to the new security group. Replace all other security groups that reference the new security group. Delete the stack.
+- [ ] Create a CloudFormation change set to delete the security group. Deploy the change set.
+- [x] Delete the stack again. Specify that the security group be retained.
+- [ ] Perform CloudFormation drift detection. Delete the stack.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A CloudOps Engineer creates an AWS CloudFormation template to define an application stack that can be deployed in multiple AWS Regions. The CloudOps Engineer also creates an Amazon CloudWatch dashboard by using the AWS Management Console. Each deployment of the application requires its own CloudWatch dashboard. How can the CloudOps Engineer automate the creation of the CloudWatch dashboard each time the application is deployed?
+
+- [ ] Create a script by using the AWS CLI to run the aws cloudformation `put-dashboard` command with the name of the dashboard. Run the command each time a new CloudFormation stack is created.
+- [x] Export the existing CloudWatch dashboard as JSON. Update the CloudFormation template to define an `AWS::CloudWatch::Dashboard` resource. Include the exported JSON in the resource's `DashboardBody` property.
+- [ ] Update the CloudFormation template to define an `AWS::CloudWatch::Dashboard` resource. Use the Intrinsic Ref function to reference the ID of the existing CloudWatch dashboard.
+- [ ] Update the CloudFormation template to define an `AWS::CloudWatch::Dashboard` resource. Specify the name of the existing dashboard in the `DashboardName` property.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A CloudOps Engineer is provisioning an Amazon Elastic File System (Amazon EFS) file system to provide shared storage across multiple Amazon EC2 instances. The instances all exist in the same `VPC` across multiple Availability Zones. There are two instances in each Availability Zone. The CloudOps Engineer must make the file system accessible to each instance with the lowest possible latency. Which solution will meet these requirements?
+
+- [ ] Create a mount target for the EFS file system in the `VPC`. Use the mount target to mount the file system on each of the instances.
+- [ ] Create a mount target for the EFS file system in one Availability Zone of the `VPC`. Use the mount target to mount the file system on the instances in that Availability Zone. Share the directory with the other instances.
+- [ ] Create a mount target for each instance. Use each mount target to mount the EFS file system on each respective instance.
+- [x] Create a mount target in each Availability Zone of the `VPC`. Use the mount target to mount the EFS file system on the instances in the respective Availability Zone.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A CloudOps Engineer has successfully deployed a `VPC` with an AWS CloudFormation template. The CloudOps Engineer wants to deploy the same template across multiple accounts that are managed through AWS Organizations. Which solution will meet this requirement with the LEAST operational overhead?
+
+- [ ] Assume the `OrganizationAccountAccessRole` IAM role from the management account. Deploy the template in each of the accounts.
+- [ ] Create an AWS Lambda function to assume a role in each account. Deploy the template by using the AWS CloudFormation CreateStack API call.
+- [ ] Create an AWS Lambda function to query for a list of accounts. Deploy the template by using the AWS CloudFormation CreateStack API call.
+- [x] Use AWS CloudFormation `StackSets` from the management account to deploy the template in each of the accounts.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A company is running distributed computing software to manage a fleet of 20 Amazon EC2 instances for calculations. The fleet includes 2 control nodes and 18 task nodes to run the calculations. Control nodes can automatically start the task nodes. Currently, all the nodes run on demand. The control nodes must be available 24 hours a day, 7 days a week. The task nodes run for 4 hours each day. A CloudOps Engineer needs to optimize the cost of this solution. Which combination of actions will meet these requirements? (Choose two.)
+
+- [x] Purchase EC2 Instance Savings Plans for the control nodes.
+- [ ] Use Dedicated Hosts for the control nodes.
+- [ ] Use Reserved Instances for the task nodes.
+- [ ] Use Spot Instances for the control nodes. Use On-Demand Instances if there is no Spot availability.
+- [x] Use Spot Instances for the task nodes. Use On-Demand Instances if there is no Spot availability.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A company is supposed to receive a data file every hour in an Amazon S3 bucket. A S3 event notification invokes an AWS Lambda function each time a file arrives. The function processes the data for use by an application. The application team notices that sometimes the file does not arrive. The application team wants to receive a notification whenever the file does not arrive. What is the MOST operationally efficient solution that meets these requirements?
+
+- [ ] Add a S3 Lifecycle rule on the S3 bucket with a scope that is limited to objects that were created in the last hour. Configure another S3 event notification to be invoked by the lifecycle transition when the number of objects transitioned is zero. Publish a message to an Amazon Simple Notification Service (Amazon SNS) topic to notify the application team.
+- [ ] Configure another S3 event notification to invoke a Lambda function that posts a message to an Amazon Simple Queue Service (Amazon SQS) queue. Create an Amazon CloudWatch alarm to publish a message to an Amazon Simple Notification Service (Amazon SNS) topic to notify the application team when the ApproximateAgeOfOldestMessage metric of the queue is greater than 1 hour.
+- [x] Create an Amazon CloudWatch alarm to publish a message to an Amazon Simple Notification Service (Amazon SNS) topic to alert the application team when the Invocations metric of the Lambda function is zero for an hour. Configure the alarm to treat missing data as breaching.
+- [ ] Create a new Lambda function to get the timestamp of the newest file in the S3 bucket. If the timestamp is more than 1 hour ago, publish a message to an Amazon Simple Notification Service (Amazon SNS) topic to notify the application team. Create an Amazon EventBridge (Amazon CloudWatch Events) rule to invoke the new function hourly.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A company has a web application that is experiencing performance problems many times each night. A root cause analysis reveals sudden increases in CPU utilization that last 5 minutes on an Amazon EC2 Linux instance. A CloudOps Engineer must find the process ID (PID) of the service or process that is consuming more CPU. What should the CloudOps Engineer do to collect the process utilization information with the LEAST amount of effort?
+
+- [x] Configure the Amazon CloudWatch agent `procstat` plugin to capture CPU process metrics.
+- [ ] Configure an AWS Lambda function to run every minute to capture the PID and send a notification.
+- [ ] Log in to the EC2 instance by using a `.pem` key each night. Then run the top command.
+- [ ] Use the default Amazon CloudWatch CPU utilization metric to capture the PID in CloudWatch.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A CloudOps Engineer configured AWS Backup to capture snapshots from a single Amazon EC2 instance that has one Amazon Elastic Block Store (Amazon EBS) volume attached. On the first snapshot, the EBS volume has 10 GiB of data. On the second snapshot, the EBS volume still contains 10 GiB of data, but 4. GiB have changed. On the third snapshot, 2 GiB of data have been added to the volume, for a total of 12 GiB. How much total storage is required to store these snapshots?
+
+- [ ] 12 GiB.
+- [x] 16 GiB.
+- [ ] 26 GiB.
+- [ ] 32 GiB.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A team is managing an AWS account that is a member of an organization in AWS Organizations. The organization has consolidated billing features enabled. The account hosts several applications. A CloudOps Engineer has applied tags to resources within the account to reflect the environment. The team needs a report of the breakdown of charges by environment. What should the CloudOps Engineer do to meet this requirement?
+
+- [ ] Filter, map, and categorize resource groups in Tag Editor.
+- [ ] Ensure that the organization's Service Control Policies (SCPs) allow access to cost allocation tags.
+- [ ] Ensure that the IAM credentials that are used to access Cost Explorer have permissions to group cost by tags.
+- [x] Activate the tag keys for cost allocation on the organization's management account.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### An errant process is known to use an entire processor and run at `100%`. A CloudOps Engineer wants to automate restarting an Amazon EC2 instance when the problem occurs for more than 2 minutes. How can this be accomplished?
+
+- [ ] Create an Amazon CloudWatch alarm for the EC2 instance with basic monitoring. Add an action to restart the instance.
+- [x] Create an Amazon CloudWatch alarm for the EC2 instance with detailed monitoring. Add an action to restart the instance.
+- [ ] Create an AWS Lambda function to restart the EC2 instance, invoked on a scheduled basis every 2 minutes.
+- [ ] Create an AWS Lambda function to restart the EC2 instance, invoked by EC2 health checks.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A company hosts a static website on Amazon S3. The website is served by an Amazon CloudFront distribution with a default `TTL` of 86,400 seconds. The company recently uploaded an updated version of the website to Amazon S3. However, users still see the old content when they refresh the site. A CloudOps Engineer must make the new version of the website visible to users as soon as possible. Which solution meets these requirements?
+
+- [ ] Adjust the `TTL` value for the `DNS` `CNAME` record that is pointing to the CloudFront distribution.
+- [x] Create an invalidation on the CloudFront distribution for the old S3 objects.
+- [ ] Create a new CloudFront distribution. Update the `DNS` records to point to the new CloudFront distribution.
+- [ ] Update the `DNS` record for the website to point to the S3 bucket.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A CloudOps Engineer is responsible for managing a company's cloud infrastructure with AWS CloudFormation. The CloudOps Engineer needs to create a single resource that consists of multiple AWS services. The resource must support creation and deletion through the CloudFormation console. Which CloudFormation resource type should the CloudOps Engineer create to meet these requirements?
+
+- [ ] `AWS::EC2::Instance` with a `cfn-init helper` script.
+- [ ] `AWS::OpsWorks::Instance`.
+- [ ] `AWS::SSM::Document`.
+- [x] `Custom::MyCustomType`.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A new website will run on Amazon EC2 instances behind an Application Load Balancer. Amazon Route 53 will be used to manage `DNS` records. What type of record should be set in Route 53 to point the website's apex domain name (for example, `company.com`) to the Application Load Balancer?
+
+- [ ] `CNAME`.
+- [ ] `SOA`.
+- [ ] `TXT`.
+- [x] `ALIAS`.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A company is implementing security and compliance by using AWS Trusted Advisor. The company's SysOps team is validating the list of Trusted Advisor checks that it can access. Which factor will affect the quantity of available Trusted Advisor checks?
+
+- [ ] Whether at least one Amazon EC2 instance is in the running state.
+- [x] The AWS Support plan.
+- [ ] An AWS Organizations Service Control Policy (SCP).
+- [ ] Whether the AWS account root user has multi-factor authentication (MFA) enabled.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A CloudOps Engineer is investigating issues on an Amazon RDS for MariaDB DB instance. The CloudOps Engineer wants to display the database load categorized by detailed wait events. How can the CloudOps Engineer accomplish this goal?
+
+- [ ] Create an Amazon CloudWatch dashboard.
+- [x] Enable Amazon RDS `Performance Insights`.
+- [ ] Enable and configure `Enhanced Monitoring`.
+- [ ] Review the database logs in Amazon CloudWatch Logs.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A company is planning to host an application on a set of Amazon EC2 instances that are distributed across multiple Availability Zones. The application must be able to scale to millions of requests each second. A CloudOps Engineer must design a solution to distribute the traffic to the EC2 instances. The solution must be optimized to handle sudden and volatile traffic patterns while using a single static IP address for each Availability Zone. Which solution will meet these requirements?
+
+- [ ] Amazon Simple Queue Service (Amazon SQS) queue.
+- [ ] Application Load Balancer.
+- [ ] AWS Global Accelerator.
+- [x] Network Load Balancer.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A CloudOps Engineer is using AWS CloudFormation `StackSets` to create AWS resources in two AWS Regions in the same AWS account. A stack operation fails in one Region and returns the stack instance status of `OUTDATED`. What is the cause of this failure?
+
+- [ ] The CloudFormation template changed on the local disk and has not been submitted to CloudFormation.
+- [x] The CloudFormation template is trying to create a global resource that is not unique.
+- [ ] The stack has not yet been deployed to the Region.
+- [ ] The CloudOps Engineer is using an old version of the CloudFormation API.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A CloudOps Engineer must configure Amazon S3 to host a simple nonproduction webpage. The CloudOps Engineer has created an empty S3 bucket from the AWS Management Console. The S3 bucket has the default configuration in place. Which combination of actions should the CloudOps Engineer take to complete this process? (Choose two.)
+
+- [ ] Configure the S3 bucket by using the `Redirect requests for an object` functionality to point to the bucket root URL.
+- [ ] Turn off the `Block all public access` setting. Allow public access by using a bucket `ACL` that contains `<Permission>WEBSITE</Permission>`.
+- [ ] Turn off the `Block all public access` setting. Allow public access by using a bucket `ACL` that allows access to the AuthenticatedUsers grantee.
+- [x] Turn off the `Block all public access` setting. Set a bucket policy that allows `Principal:` the `s3:GetObject` action.
+- [x] Create an `index.html` document. Configure static website hosting, and upload the index document to the S3 bucket.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A company is using an Amazon Aurora MySQL DB cluster that has point-in-time recovery, backtracking, and automatic backup enabled. A CloudOps Engineer needs to be able to roll back the DB cluster to a specific recovery point within the previous 72 hours. Restores must be completed in the same production DB cluster. Which solution will meet these requirements?
+
+- [ ] Create an Aurora Replica. Promote the replica to replace the primary DB instance.
+- [ ] Create an AWS Lambda function to restore an automatic backup to the existing DB cluster.
+- [x] Use backtracking to rewind the existing DB cluster to the desired recovery point.
+- [ ] Use point-in-time recovery to restore the existing DB cluster to the desired recovery point.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A user working in the Amazon EC2 console increased the size of an Amazon Elastic Block Store (Amazon EBS) volume attached to an Amazon EC2 Windows instance. The change is not reflected in the file system. What should a CloudOps Engineer do to resolve this issue?
+
+- [x] Extend the file system with operating system-level tools to use the new storage capacity.
+- [ ] Reattach the EBS volume to the EC2 instance.
+- [ ] Reboot the EC2 instance that is attached to the EBS volume.
+- [ ] Take a snapshot of the EBS volume. Replace the original volume with a volume that is created from the snapshot.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A CloudOps Engineer wants to protect objects in an Amazon S3 bucket from accidental overwrite and deletion. Noncurrent objects must be kept for 90 days and then must be permanently deleted. Objects must reside within the same AWS Region as the original S3 bucket. Which solution meets these requirements?
+
+- [ ] Create an Amazon Data Lifecycle Manager (Amazon DLM) lifecycle policy for the S3 bucket. Add a rule to the lifecycle policy to delete noncurrent objects after 90 days.
+- [ ] Create an AWS Backup policy for the S3 bucket. Create a backup rule that includes a lifecycle to expire noncurrent objects after 90 days.
+- [ ] Enable S3 Cross-Region Replication on the S3 bucket. Create a S3 Lifecycle policy for the bucket to expire noncurrent objects after 90 days.
+- [x] Enable S3 Versioning on the S3 bucket. Create a S3 Lifecycle policy for the bucket to expire noncurrent objects after 90 days.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A company uses AWS Organizations to manage multiple AWS accounts. Corporate policy mandates that only specific AWS Regions can be used to store and process customer data. A CloudOps Engineer must prevent the provisioning of Amazon EC2 instances in unauthorized Regions by anyone in the company. What is the MOST operationally efficient solution that meets these requirements?
+
+- [ ] Configure AWS CloudTrail in all Regions to record all API activity. Create an Amazon EventBridge (Amazon CloudWatch Events) rule in all unauthorized Regions for `ec2:RunInstances` events. Use AWS Lambda to terminate the launched EC2 instances.
+- [ ] In each AWS account, create a managed IAM policy that uses a Region condition to deny the `ec2:RunInstances` action in all unauthorized Regions. Attach this policy to all IAM groups in each AWS account.
+- [ ] In each AWS account, create an IAM permissions boundary policy that uses a `Region` condition to deny the `ec2:RunInstances` action in all unauthorized Regions. Attach the permissions boundary policy to all IAM users in each AWS account.
+- [x] Create a Service Control Policy (SCP) in AWS Organizations to deny the `ec2:RunInstances` action in all unauthorized Regions. Attach this policy to the root level of the organization.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A company has a private Amazon S3 bucket that contains sensitive information. A CloudOps Engineer needs to keep logs of the IP addresses from authentication failures that result from attempts to access objects in the bucket. The logs must be stored so that they cannot be overwritten or deleted for 90 days. Which solution will meet these requirements?
+
+- [ ] Create an AWS CloudTrail trail. Configure the log files to be saved to Amazon CloudWatch Logs. Configure the log group with a retention period of 90 days.
+- [ ] Create an AWS CloudTrail trail. Configure the log files to be saved to a different S3 bucket. Turn on CloudTrail log file integrity validation for 90 days.
+- [ ] Turn on access logging for the S3 bucket. Configure the access logs to be saved to Amazon CloudWatch Logs. Configure the log group with a retention period of 90 days.
+- [x] Turn on access logging for the S3 bucket. Configure the access logs to be saved in a second S3 bucket. Turn on S3 Object Lock on the second S3 bucket, and configure a default retention period of 90 days.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A CloudOps Engineer migrates `NAT` instances to `NAT` gateways. After the migration, an application that is hosted on Amazon EC2 instances in a private subnet cannot access the internet. Which of the following are possible reasons for this problem? (Choose two.)
+
+- [x] The application is using a protocol that the `NAT` gateway does not support.
+- [ ] The `NAT` gateway is not in a security group.
+- [ ] The `NAT` gateway is in an unsupported Availability Zone.
+- [x] The `NAT` gateway is not in the Available state.
+- [ ] The port forwarding settings do not allow access to internal services from the internet.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A company runs an application on an Amazon EC2 instance. A CloudOps Engineer creates an Auto Scaling group and an Application Load Balancer (ALB) to handle an increase in demand. However, the EC2 instances are failing the health check. What should the CloudOps Engineer do to troubleshoot this issue?
+
+- [ ] Verify that the Auto Scaling group is configured to use all AWS Regions.
+- [x] Verify that the application is running on the protocol and the port that the listener is expecting.
+- [ ] Verify the listener priority in the `ALB`. Change the priority if necessary.
+- [ ] Verify the maximum number of instances in the Auto Scaling group. Change the number if necessary.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A company has migrated its application to AWS. The company will host the application on Amazon EC2 instances of multiple instance families. During initial testing, a CloudOps Engineer identifies performance issues on selected EC2 instances. The company has a strict budget allocation policy, so the CloudOps Engineer must use the right resource types with the performance characteristics to match the workload. What should the CloudOps Engineer do to meet this requirement?
+
+- [ ] Purchase regional Reserved Instances (RIs) for immediate cost savings. Review and take action on the EC2 rightsizing recommendations in Cost Explorer. Exchange the RIs for the optimal instance family after rightsizing.
+- [ ] Purchase zonal Reserved Instances (RIs) for the existing instances. Monitor the RI utilization in the AWS Billing and Cost Management console. Make adjustments to instance sizes to optimize utilization.
+- [x] Review and take action on AWS Compute Optimizer recommendations. Purchase Compute Savings Plans to reduce the cost that is required to run the compute resources.
+- [ ] Review resource utilization metrics in the AWS Cost and Usage Report. Rightsize the EC2 instances. Create On-Demand Capacity Reservations for the rightsized resources.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A CloudOps Engineer is tasked with deploying a company's infrastructure as code. The CloudOps Engineer want to write a single template that can be reused for multiple environments. How should the CloudOps Engineer use AWS CloudFormation to create a solution?
+
+- [ ] Use Amazon EC2 user data in a CloudFormation template.
+- [ ] Use nested stacks to provision resources.
+- [x] Use parameters in a CloudFormation template.
+- [ ] Use stack policies to provision resources.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A CloudOps Engineer is responsible for a large fleet of Amazon EC2 instances and must know whether any instances will be affected by upcoming hardware maintenance. Which option would provide this information with the LEAST administrative overhead?
+
+- [ ] Deploy a third-party monitoring solution to provide real-time EC2 instance monitoring.
+- [ ] List any instances with failed system status checks using the AWS Management Console.
+- [ ] Monitor AWS CloudTrail for `StopInstances` API calls.
+- [x] Review the AWS Personal Health Dashboard.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A CloudOps Engineer is attempting to deploy resources by using an AWS CloudFormation template. An Amazon EC2 instance that is defined in the template fails to launch and produces an `InsufficientInstanceCapacity` error. Which actions should the CloudOps Engineer take to resolve this error? (Choose two.)
+
+- [ ] Create a separate AWS CloudFormation template for the EC2 instance.
+- [x] Modify the AWS CloudFormation template to not specify an Availability Zone for the EC2 instance.
+- [x] Modify the AWS CloudFormation template to use a different EC2 instance type.
+- [ ] Use a different Amazon Machine Image (AMI) for the EC2 instance.
+- [ ] Use the AWS CLI's `validate-template` command before creating a stack from the template.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A company hosts a web application on Amazon EC2 instances behind an Application Load Balancer (ALB). The company uses Amazon Route 53 to route traffic. The company also has a static website that is configured in an Amazon S3 bucket. A CloudOps Engineer must use the static website as a backup to the web application. The failover to the static website must be fully automated. Which combination of actions will meet these requirements? (Choose two.)
+
+- [ ] Create a primary failover routing policy record. Configure the value to be the `ALB`.
+- [ ] Create an AWS Lambda function to switch from the primary website to the secondary website when the health check fails.
+- [x] Create a primary failover routing policy record. Configure the value to be the `ALB`. Associate the record with a Route 53 health check.
+- [ ] Create a secondary failover routing policy record. Configure the value to be the static website. Associate the record with a Route 53 health check.
+- [x] Create a secondary failover routing policy record. Configure the value to be the static website.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A data analytics application is running on an Amazon EC2 instance. A CloudOps Engineer must add custom dimensions to the metrics collected by the Amazon CloudWatch agent. How can the CloudOps Engineer meet this requirement?
+
+- [ ] Create a custom shell script to extract the dimensions and collect the metrics using the Amazon CloudWatch agent.
+- [ ] Create an Amazon EventBridge (Amazon CloudWatch Events) rule to evaluate the required custom dimensions and send the metrics to Amazon Simple Notification Service (Amazon SNS).
+- [ ] Create an AWS Lambda function to collect the metrics from AWS CloudTrail and send the metrics to an Amazon CloudWatch Logs group.
+- [x] Create an `append_dimensions` field in the Amazon CloudWatch agent configuration file to collect the metrics.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A CloudOps Engineer is examining the following AWS CloudFormation template. Why will the stack creation fail?
+
+![Question 201](images/question201.jpg)
+
+- [ ] The `Outputs` section of the CloudFormation template was omitted.
+- [ ] The `Parameters` section of the CloudFormation template was omitted.
+- [x] The `PrivateDnsName` cannot be set from a CloudFormation template.
+- [ ] The `VPC` was not specified in the CloudFormation template.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A new application runs on Amazon EC2 instances and accesses data in an Amazon RDS database instance. When fully deployed in production, the application fails. The database can be queried from a console on a bastion host. When looking at the web server logs, the following error is repeated multiple times: `*** Error Establishing a Database Connection`. Which of the following may be causes of the connectivity problems? (Choose two.)
+
+- [ ] The security group for the database does not have the appropriate egress rule from the database to the web server.
+- [ ] The certificate used by the web server is not trusted by the RDS instance.
+- [x] The security group for the database does not have the appropriate ingress rule from the web server to the database.
+- [x] The port used by the application developer does not match the port specified in the RDS configuration.
+- [ ] The database is still being created and is not available for connectivity.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A compliance team requires all administrator passwords for Amazon RDS DB instances to be changed at least annually. Which solution meets this requirement in the MOST operationally efficient manner?
+
+- [x] Store the database credentials in AWS Secrets Manager. Configure automatic rotation for the secret every 365 days.
+- [ ] Store the database credentials as a parameter in the RDS parameter group. Create a database trigger to rotate the password every 365 days.
+- [ ] Store the database credentials in a private Amazon S3 bucket. Schedule an AWS Lambda function to generate a new set of credentials every 365 days.
+- [ ] Store the database credentials in AWS Systems Manager Parameter Store as a secure string parameter. Configure automatic rotation for the parameter every 365 days.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A CloudOps Engineer is responsible for managing a fleet of Amazon EC2 instances. These EC2 instances upload build artifacts to a third-party service. The third-party service recently implemented a strict IP allow list that requires all build uploads to come from a single IP address. What change should the systems engineer make to the existing build fleet to comply with this new requirement?
+
+- [x] Move all of the EC2 instances behind a `NAT` gateway and provide the gateway IP address to the service.
+- [ ] Move all of the EC2 instances behind an internet gateway and provide the gateway IP address to the service.
+- [ ] Move all of the EC2 instances into a single Availability Zone and provide the Availability Zone IP address to the service.
+- [ ] Move all of the EC2 instances to a peered `VPC` and provide the `VPC` IP address to the service.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A company uses an Amazon CloudFront distribution to deliver its website. Traffic logs for the website must be centrally stored, and all data must be encrypted at rest. Which solution will meet these requirements?
+
+- [ ] Create an Amazon OpenSearch Service (Amazon Elasticsearch Service) domain with internet access and server-side encryption that uses the default AWS managed Customer Master Key (CMK). Configure CloudFront to use the Amazon OpenSearch Service (Amazon Elasticsearch Service) domain as a log destination.
+- [ ] Create an Amazon OpenSearch Service (Amazon Elasticsearch Service) domain with `VPC` access and server-side encryption that uses `AES-256`. Configure CloudFront to use the Amazon OpenSearch Service (Amazon Elasticsearch Service) domain as a log destination.
+- [x] Create an Amazon S3 bucket that is configured with default server-side encryption that uses `AES-256`. Configure CloudFront to use the S3 bucket as a log destination.
+- [ ] Create an Amazon S3 bucket that is configured with no default encryption. Enable encryption in the CloudFront distribution, and use the S3 bucket as a log destination.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A company receives an alert from an Amazon CloudWatch alarm. The alarm indicates that a web application that is running on Amazon EC2 instances is not responding to requests. The EC2 instances have a Red Hat Enterprise Linux operating system and are in an Auto Scaling group. The Auto Scaling group has a minimum capacity of 2 and a maximum capacity of 5. An investigation reveals that the web application is experiencing out-of-memory errors. The company adds memory to the web application and wants to track operating system memory utilization. A CloudWatch memory metric does not currently exist for the EC2 instances in the Auto Scaling group. What should a CloudOps Engineer do to provide a CloudWatch memory metric for the EC2 instances?
+
+- [x] Use an Amazon Machine Image (AMI) that includes the CloudWatch agent.
+- [ ] Turn on CloudWatch detailed monitoring.
+- [ ] Turn on Instance Metadata Service Version 2 (IMDSv2).
+- [ ] Use an Amazon Machine Image (AMI) that is based on Amazon Linux.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A company uses an AWS Service Catalog portfolio to create and manage resources. A CloudOps Engineer must create a replica of the company's existing AWS infrastructure in a new AWS account. What is the MOST operationally efficient way to meet this requirement?
+
+- [ ] Create an AWS CloudFormation template to use the AWS Service Catalog portfolio in the new AWS account.
+- [ ] In the new AWS account, manually create an AWS Service Catalog portfolio that duplicates the original portfolio.
+- [ ] Run an AWS Lambda function to create a new AWS Service Catalog portfolio based on the output of the `DescribePortfolio` API operation.
+- [x] Share the AWS Service Catalog portfolio with the new AWS account. Import the portfolio into the new AWS account.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A CloudOps Engineer must manage the security of an AWS account. Recently, an IAM user's access key was mistakenly uploaded to a public code repository. The CloudOps Engineer must identify anything that was changed by using this access key. How should the CloudOps Engineer meet these requirements?
+
+- [ ] Create an Amazon EventBridge (Amazon CloudWatch Events) rule to send all IAM events to an AWS Lambda function for analysis.
+- [ ] Query Amazon EC2 logs by using Amazon CloudWatch Logs Insights for all events initiated with the compromised access key within the suspected timeframe.
+- [x] Search AWS CloudTrail event history for all events initiated with the compromised access key within the suspected timeframe.
+- [ ] Search `VPC` Flow Logs for all events initiated with the compromised access key within the suspected timeframe.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A company runs a retail website on multiple Amazon EC2 instances behind an Application Load Balancer (ALB). The company must secure traffic to the website over an `HTTPS` connection. Which combination of actions should a CloudOps Engineer take to meet these requirements? (Choose two.)
+
+- [ ] Attach the certificate to each EC2 instance.
+- [x] Attach the certificate to the `ALB`.
+- [ ] Create a private certificate in AWS Certificate Manager (ACM).
+- [x] Create a public certificate in AWS Certificate Manager (ACM).
+- [ ] Export the certificate, and attach it to the website.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### If your AWS Management Console browser does not show that you are logged in to an AWS account, close the browser and relaunch the console by using the AWS Management Console shortcut from the VM desktop. If the copy-paste functionality is not working in your environment, refer to the instructions file on the VM desktop and use `Ctrl+C`, `Ctrl+V` or `Command-C`, `Command-V`. Configure Amazon EventBridge to meet the following requirements. 1. Use the `us-east-2` Region for all resources. 2. Unless specified below, use the default configuration settings. 3. Use your own resource naming unless a resource name is specified below. 4. Ensure all Amazon EC2 events in the default event bus are replayable for the past 90 days. 5. Create a rule named `RunFunction` to send the exact message `{"name":"example"}` every 15 minutes to an existing AWS Lambda function named LogEventFunction. 6. Create a rule named `SpotWarning` to send a notification to a new standard Amazon SNS topic named `TopicEvents` whenever an Amazon EC2 Spot Instance is interrupted. Do NOT create any topic subscriptions. The notification must match the following structure: `Input path: {instance: detail.instance-id} Input template: The EC2 Spot Instance <instance> has been interrupted.` Important: Click the Next button to complete this lab and continue to the next lab. Once you click the Next button, you will NOT be able to return to this lab.
+
+![Question 210](images/question210.png)
+
+- [x] 1. Click `Event pattern form` in `Event patterns`. 2. Select `AWS service`. 3. In the `Step 1: Create rule`, select `Event Pattern` under `Event Source`. 4. Make sure `Build event pattern to match events by service` is selected. 5. Make sure `Service Name` has `EC2` selected. 6. Make sure `Event Type` has `EC2 Spot Instance Interruption Warning` selected. 7. Select `SNS topic` under `Targets`. 8. Make sure `TopicEvents` has `Topic` selected. 9. Click `Input Transformer` and make sure to have `{"instance":"$.detail-instance-id"}`. 10. Write some description and click `Configure details`. 11. In the `Step 2: Configure rule details` create 2 rules: `RunFunction` and `SpotWarning`. 12. Make sure the rules `State` is set to be `Enabled` on that step. 13. Validate in CloudWatch Events or EventBridge.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A company has a stateful, long-running workload on a single xlarge general purpose Amazon EC2 On-Demand Instance Metrics show that the service is always using `80%` of its available memory and `40%` of its available CPU. A CloudOps Engineer must reduce the cost of the service without negatively affecting performance. Which change in instance type will meet these requirements?
+
+- [ ] Change to one large compute optimized On-Demand Instance.
+- [x] Change to one large memory optimized On-Demand Instance.
+- [ ] Change to one xlarge general purpose Spot Instance.
+- [ ] Change to two large general purpose On-Demand Instances.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A company runs an application on Amazon EC2 instances that are in an Amazon EC2 Auto Scaling group. Scale-out actions take a long time to become complete because of long-running boot scripts. A CloudOps Engineer must implement a solution to reduce the required time for scale-out actions without overprovisioning the Auto Scaling group. Which solution will meet these requirements?
+
+- [ ] Change the launch configuration to use a larger instance size.
+- [ ] Increase the minimum number of instances in the Auto Scaling group.
+- [ ] Add a predictive scaling policy to the Auto Scaling group.
+- [x] Add a warm pool to the Auto Scaling group.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### When the AWS Cloud infrastructure experiences an event that may impact an organization, which AWS service can be used to see which of the organization's resources are affected?
+
+- [ ] AWS Service Health Dashboard.
+- [ ] AWS Trusted Advisor.
+- [x] AWS Personal Health Dashboard.
+- [ ] AWS Systems Manager.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A company runs an application on Amazon EC2 instances behind an Application Load Balancer. The EC2 instances are in an Auto Scaling group. The application sometimes becomes slow and unresponsive. Amazon CloudWatch metrics show that some EC2 instances are experiencing high CPU load. A CloudOps Engineer needs to create a CloudWatch dashboard that can automatically display CPU metrics of all the EC2 instances. The metrics must include new instances that are launched as part of the Auto Scaling group. What should the CloudOps Engineer do to meet these requirements in the MOST operationally efficient way?
+
+- [ ] Create a CloudWatch dashboard. Use activity notifications from the Auto Scaling group to invoke a custom AWS Lambda function. Use the Lambda function to update the CloudWatch dashboard to monitor the `CPUUtilization` metric for the new instance IDs.
+- [ ] Create a CloudWatch dashboard. Run a custom script on each EC2 instance to stream the CPU utilization to the dashboard.
+- [x] Use CloudWatch metrics explorer to filter by the `aws:autoscaling:groupName` tag and to create a visualization for the `CPUUtilization` metric. Add the visualization to a CloudWatch dashboard.
+- [ ] Use CloudWatch metrics explorer to filter by instance state and to create a visualization for the `CPUUtilization` metric. Add the visualization to a CloudWatch dashboard.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A CloudOps Engineer is trying to set up an Amazon Route 53 domain name to route traffic to a website hosted on Amazon S3. The domain name of the website is `www.example.com` and the S3 bucket name `DOC-EXAMPLE-BUCKET`. After the record set is set up in Route 53, the domain name `www.anycompany.com` does not seem to work, and the static website is not displayed in the browser. Which of the following is a cause of this?
+
+- [ ] The S3 bucket must be configured with Amazon CloudFront first.
+- [ ] The Route 53 record set must have an IAM role that allows access to the S3 bucket.
+- [ ] The Route 53 record set must be in the same region as the S3 bucket.
+- [x] The S3 bucket name must match the record set name in Route 53.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A CloudOps Engineer has used AWS CloudFormation to deploy a serverless application into a production `VPC`. The application consists of an AWS Lambda function, an Amazon DynamoDB table, and an Amazon API Gateway API. The CloudOps Engineer must delete the AWS CloudFormation stack without deleting the DynamoDB table. Which action should the CloudOps Engineer take before deleting the AWS CloudFormation stack?
+
+- [x] Add a `Retain` deletion policy to the DynamoDB resource in the AWS CloudFormation stack.
+- [ ] Add a `Snapshot` deletion policy to the DynamoDB resource in the AWS CloudFormation stack.
+- [ ] Enable termination protection on the AWS CloudFormation stack.
+- [ ] Update the application's IAM policy with a `Deny` statement for the `dynamodb:DeleteTable` action.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A CloudOps Engineer must devise a strategy for enforcing tagging of all EC2 instances and Amazon Elastic Block Store (Amazon EBS) volumes. What action can the Engineer take to implement this for real-time enforcement?
+
+- [ ] Use the AWS Tag Editor to manually search for untagged resources and then tag them properly in the editor.
+- [x] Set up AWS Service Catalog with the `TagOptions` Library rule that enforces a tagging taxonomy proactively when instances and volumes are launched.
+- [ ] In a PowerShell or shell script, check for untagged items by using the resource tagging `GetResources` API action, and then manually tag the reported items.
+- [ ] Launch items by using the AWS API. Use the `TagResources` API action to apply the required tags when the instances and volumes are launched.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A company has a business application hosted on Amazon EC2 instances behind an Application Load Balancer. Amazon CloudWatch metrics show that the CPU utilization on the EC2 instances is very high. There are also reports from users that receive `HTTP` `503` and `504` errors when they try to connect to the application. Which action will resolve these issues?
+
+- [x] Place the EC2 instances into an AWS Auto Scaling group.
+- [ ] Configure the `ALB`'s Target Group to use more frequent health checks.
+- [ ] Enable sticky sessions on the Application Load Balancer.
+- [ ] Increase the idle timeout setting of the Application Load Balancer.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A CloudOps Engineer manages policies for many AWS member accounts in an AWS Organizations structure. Engineers on other teams have access to the account root user credentials of the member accounts. The CloudOps Engineer must prevent all teams, including their administrators, from using Amazon DynamoDB. The solution must not affect the ability of the teams to access other AWS services. Which solution will meet these requirements?
+
+- [ ] In all member accounts, configure IAM policies that deny access to all DynamoDB resources for all users, including the root user.
+- [x] Create a Service Control Policy (SCP) in the management account to deny all DynamoDB actions. Apply the SCP to the root of the organization.
+- [ ] In all member accounts, configure IAM policies that deny `AmazonDynamoDBFullAccess` to all users, including the root user.
+- [ ] Remove the default Service Control Policy (SCP) in the management account. Create a replacement SCP that includes a single statement that denies all DynamoDB actions.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A company runs hundreds of Amazon EC2 instances in a single AWS Region. Each EC2 instance has two attached 1 GiB `General Purpose SSD (gp2)` Amazon Elastic Block Store (Amazon EBS) volumes. A critical workload is using all the available IOPS capacity on the EBS volumes. According to company policy, the company cannot change instance types or EBS volume types without completing lengthy acceptance tests to validate that the company's applications will function properly. A CloudOps Engineer needs to increase the I/O performance of the EBS volumes as quickly as possible. Which action should the CloudOps Engineer take to meet these requirements?
+
+- [x] Increase the size of the 1 GiB EBS volumes.
+- [ ] Add two additional elastic network interfaces on each EC2 instance.
+- [ ] Turn on Transfer Acceleration on the EBS volumes in the Region.
+- [ ] Add all the EC2 instances to a cluster placement group.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A company hosts its website on Amazon EC2 instances in the `us-east-1` Region. The company is preparing to extend its website into the `eu-central-1` Region, but the database must remain only in `us-east-1`. After deployment, the EC2 instances in `eu-central-1` are unable to connect to the database in `us-east-1`. What is the MOST operationally efficient solution that will resolve this connectivity issue?
+
+- [x] Create a `VPC` peering connection between the two Regions. Add the private IP address range of the instances to the inbound rule of the database security group.
+- [ ] Create a `VPC` peering connection between the two Regions. Add the security group of the instances in `eu-central-1` to the outbound rule of the database security group.
+- [ ] Create a `VPN` connection between the two Regions. Add the private IP address range of the instances to the outbound rule of the database security group.
+- [ ] Create a `VPN` connection between the two Regions. Add the security group of the instances in `eu-central-1` to the inbound rule of the database security group.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A company wants to create an automated solution for all accounts managed by AWS Organizations to detect any security groups that use `0.0.0.0/0` as the source address for inbound traffic. The company also wants to automatically remediate any noncompliant security groups by restricting access to a specific `CIDR` block that corresponds with the company's intranet. Which set of actions should the CloudOps Engineer take to create a solution?
+
+- [x] Create an AWS Config rule to detect noncompliant security groups. Set up automatic remediation to change the `0.0.0.0/0` source address to the approved `CIDR` block.
+- [ ] Create an IAM policy to deny the creation of security groups that have `0.0.0.0/0` as the source address. Attach this IAM policy to every user in the company.
+- [ ] Create an AWS Lambda function to inspect new and existing security groups. Check for a noncompliant `0.0.0.0/0` source address and change the source address to the approved `CIDR` block.
+- [ ] Create a Service Control Policy (SCP) for the organizational unit (OU) to deny the creation of security groups that have the `0.0.0.0/0` source address. Set up automatic remediation to change the `0.0.0.0/0` source address to the approved `CIDR` block.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A company requires that all activity in its AWS account be logged using AWS CloudTrail. Additionally, a CloudOps Engineer must know when CloudTrail log files are modified or deleted. How should the CloudOps Engineer meet these requirements?
+
+- [x] Enable log file integrity validation. Use the AWS CLI to validate the log files.
+- [ ] Enable log file integrity validation. Use the AWS CloudTrail Processing Library to validate the log files.
+- [ ] Use CloudTrail Insights to monitor the log files for modifications.
+- [ ] Use Amazon CloudWatch Logs to monitor the log files for modifications.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A company is planning to host its stateful web-based applications on AWS. A CloudOps Engineer is using an Auto Scaling group of Amazon EC2 instances. The web applications will run 24 hours a day, 7 days a week throughout the year. The company must be able to change the instance type within the same instance family later in the year based on the traffic and usage patterns. Which EC2 instance purchasing option will meet these requirements MOST cost-effectively?
+
+- [x] Convertible Reserved Instances.
+- [ ] On-Demand Instances.
+- [ ] Spot Instances.
+- [ ] Standard Reserved Instances.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### An application runs on Amazon EC2 instances in an Auto Scaling group. Following the deployment of a new feature on the EC2 instances, some instances were marked as unhealthy and then replaced by the Auto Scaling group. The EC2 instances terminated before a CloudOps Engineer could determine the cause of the health status changes. To troubleshoot this issue, the CloudOps Engineer wants to ensure that an AWS Lambda function is invoked in this situation. How should the CloudOps Engineer meet these requirements?
+
+- [ ] Activate the instance scale-in protection setting for the Auto Scaling group. Invoke the Lambda function through Amazon EventBridge (Amazon CloudWatch Events).
+- [ ] Activate the instance scale-in protection setting for the Auto Scaling group. Invoke the Lambda function through Amazon Route 53.
+- [x] Add a lifecycle hook to the Auto Scaling group to invoke the Lambda function through Amazon EventBridge (Amazon CloudWatch Events).
+- [ ] Add a lifecycle hook to the Auto Scaling group to invoke the Lambda function through Amazon Route 53.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A company runs an application that hosts critical data for several clients. The company uses AWS CloudTrail to track user activities on various AWS resources. To meet new security requirements, the company needs to protect the CloudTrail log files from being modified, deleted, or forged. Which solution will meet these requirement?
+
+- [x] Enable CloudTrail log file integrity validation.
+- [ ] Use Amazon S3 `MFA Delete` on the S3 bucket where the CloudTrail log files are stored.
+- [ ] Use Amazon S3 Versioning to keep all versions of the CloudTrail log files.
+- [ ] Use AWS Key Management Service (AWS KMS) security keys to secure the CloudTrail log files.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A global company operates out of five AWS Regions. A CloudOps Engineer wants to identify all the company's tagged and untagged Amazon EC2 instances. The company requires the output to display the instance ID and tags. What is the MOST operationally efficient way for the CloudOps Engineer to meet these requirements?
+
+- [ ] Create a tag-based resource group in AWS Resource Groups.
+- [ ] Use AWS Trusted Advisor. Export the EC2 On-Demand Instances check results from Trusted Advisor.
+- [ ] Use Cost Explorer. Choose a service type of EC2-Instances, and group by Resource.
+- [x] Use Tag Editor in AWS Resource Groups. Select all Regions, and choose a resource type of `AWS::EC2::Instance`.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A company needs to upload gigabytes of files every day. The company need to achieve higher throughput and upload speeds to Amazon S3. Which action should a CloudOps Engineer take to meet this requirement?
+
+- [ ] Create an Amazon CloudFront distribution with the GET `HTTP` method allowed and the S3 bucket as an origin.
+- [ ] Create an Amazon ElastiCache cluster and enable caching for the S3 bucket.
+- [ ] Set up AWS Global Accelerator and configure it with the S3 bucket.
+- [x] Enable S3 Transfer Acceleration and use the acceleration endpoint when uploading files.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A CloudOps Engineer maintains the security and compliance of a company's AWS account. To ensure the company's Amazon EC2 instances are following company policy, a CloudOps Engineer wants to terminate any EC2 instance that do not contain a department tag. Noncompliant resources must be terminated in near-real time. Which solution will meet these requirements?
+
+- [x] Create an AWS Config rule with the `required-tags` managed rule to identify noncompliant resources. Configure automatic remediation to run the AWS `TerminateEC2Instance` automation document to terminate noncompliant resources.
+- [ ] Create a new Amazon EventBridge (Amazon CloudWatch Events) rule to monitor when new EC2 instances are created. Send the event to a Simple Notification Service (Amazon SNS) topic for automatic remediation.
+- [ ] Ensure all users who can create EC2 instances also have the permissions to use the `ec2:CreateTags` and `ec2:DescribeTags` actions. Change the instance's shutdown behavior to terminate.
+- [ ] Ensure AWS Systems Manager Compliance is configured to manage the EC2 instances. Call the AWS-StopEC2Instances automation document to stop noncompliant resources.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A company uploaded its website files to an Amazon S3 bucket that has S3 Versioning enabled. The company uses an Amazon CloudFront distribution with the S3 bucket as the origin. The company recently modified the files, but the object names remained the same. Users report that old content is still appearing on the website. How should a CloudOps Engineer remediate this issue?
+
+- [x] Create a CloudFront invalidation, and add the path of the updated files.
+- [ ] Create a CloudFront signed URL to update each object immediately.
+- [ ] Configure a S3 Origin Access Identity (OAI) to display only the updated files to users.
+- [ ] Disable S3 Versioning on the S3 bucket so that the updated files can replace the old files.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A company has two `VPC` networks named `VPC` A and `VPC` B. The `VPC` A `CIDR` block is `10.0.0.0/16` and the `VPC` B `CIDR` block is `172.31.0.0/16`. The company wants to establish a `VPC` peering connection named `pcx-12345` between both `VPC`'s. Which rules should appear in the route table of `VPC` A after configuration? (Choose two.)
+
+- [x] `Destination`: `10.0.0.0/16`, `Target`: `Local`.
+- [ ] `Destination`: `172.31.0.0/16`, `Target`: `Local`.
+- [ ] `Destination`: `10.0.0.0/16`, `Target`: `pcx-12345`.
+- [x] `Destination`: `172.31.0.0/16`, `Target`: `pcx-12345`.
+- [ ] `Destination`: `10.0.0.0/16`, `Target`: `172.31.0.0/16`.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A company analyzes sales data for its customers. Customers upload files to one of the company's Amazon S3 buckets, and a message is posted to an Amazon Simple Queue Service (Amazon SQS) queue that contains the object Amazon Resource Name (ARN). An application that runs on an Amazon EC2 instance polls the queue and processes the messages. The processing time depends on the size of the file. Customers are reporting delays in the processing of their files. A CloudOps Engineer decides to configure Amazon EC2 Auto Scaling as the first step. The CloudOps Engineer creates an Amazon Machine Image (AMI) that is based on the existing EC2 instance. The CloudOps Engineer also creates a launch template that references the AMI. How should the CloudOps Engineer configure the Auto Scaling policy to improve the response time?
+
+- [ ] Add several different instance sizes in the launch template. Create an Auto Scaling policy based on the `ApproximateNumberOfMessagesVisible` metric to select the size of the instance based on the number of messages in the queue.
+- [ ] Create an Auto Scaling policy based on the ApproximateNumberOfMessagesDelayed metric to scale the number of instances based on the number of messages in the queue that have been delayed.
+- [ ] Create a custom metric based on the `ASGAverageCPUUtilization` metric and the GroupPendingInstances metric from the Auto Scaling group. Modify the application to calculate the metric and post the metric to Amazon CloudWatch once each minute. Create an Auto Scaling policy based on this metric to scale the number of instances.
+- [x] Create a custom metric based on the `ApproximateNumberOfMessagesVisible` metric and the number of instances in the `InService` state in the Auto Scaling group. Modify the application to calculate the metric and post the metric to Amazon CloudWatch once each minute. Create an Auto Scaling policy based on this metric to scale the number of instances.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A company runs a multi-tier web application with two Amazon EC2 instances in one Availability Zone in the `us-east-1` Region. A CloudOps Engineer must migrate one of the EC2 instances to a new Availability Zone. Which solution will accomplish this?
+
+- [ ] Copy the EC2 instance to a different Availability Zone. Terminate the original instance.
+- [x] Create an Amazon Machine Image (AMI) from the EC2 instance and launch it in a different Availability Zone. Terminate the original instance.
+- [ ] Move the EC2 instance to a different Availability Zone using the AWS CLI.
+- [ ] Stop the EC2 instance, modify the Availability Zone, and start the instance.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A company wants to prohibit its developers from using a particular family of Amazon EC2 instances. The company uses AWS Organizations and wants to apply the restriction across multiple accounts. What is the MOST operationally efficient way for the company to apply Service Control Policies (SCPs) to meet these requirements?
+
+- [x] Add the accounts to an organizational unit (OU). Apply the SCPs to the OU.
+- [ ] Add the accounts to resource groups in AWS Resource Groups. Apply the SCPs to the resource groups.
+- [ ] Apply the SCPs to each developer account.
+- [ ] Enroll the accounts with AWS Control Tower. Apply the SCPs to the AWS Control Tower management account.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### An application is running on an Amazon EC2 instance in a `VPC` with the default `DHCP` option set. The application connects to an on-premises Microsoft SQL. Server database with the `DNS` name `mssql.example.com`. The application is unable to resolve the database `DNS` name. Which solution will fix this problem?
+
+- [ ] Create an Amazon Route 53 Resolver inbound endpoint. Add a forwarding rule for the domain `example.com`. Associate the forwarding rule with the `VPC`.
+- [ ] Create an Amazon Route 53 Resolver inbound endpoint. Add a system rule for the domain `example.com`. Associate the system rule with the `VPC`.
+- [x] Create an Amazon Route 53 Resolver outbound endpoint. Add a forwarding rule for the domain `example.com`. Associate the forwarding rule with the `VPC`.
+- [ ] Create an Amazon Route 53 Resolver outbound endpoint. Add a system rule for the domain `example.com`. Associate the system rule with the `VPC`.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A company's application is hosted by an internet provider at `app.example.com`. The company wants to access the application by using `www.company.com`, which the company owns and manages with Amazon Route 53. Which Route 53 record should be created to address this?
+
+- [ ] `A` record.
+- [ ] `Alias` record.
+- [x] `CNAME` record.
+- [ ] `Pointer (PTR)` record.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A company expanded its web application to serve a worldwide audience. A CloudOps Engineer has implemented a multi-Region AWS deployment for all production infrastructure. The CloudOps Engineer must route traffic based on the location of resources. Which Amazon Route 53 routing policy should the CloudOps Engineer use to meet this requirement?
+
+- [ ] Geolocation routing policy.
+- [x] Geoproximity routing policy.
+- [ ] Latency-based routing policy.
+- [ ] Multivalue answer routing policy.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### An application team is working with a CloudOps Engineer to define Amazon CloudWatch alarms for an application. The application team does not know the application's expected usage or expected growth. Which solution should the CloudOps Engineer recommend?
+
+- [x] Create CloudWatch alarms that are based on anomaly detection.
+- [ ] Create CloudWatch alarms by using a set of composite alarms.
+- [ ] Create CloudWatch alarms by using static thresholds.
+- [ ] Create CloudWatch alarms that treat missing data as breaching.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### An ecommerce company uses an Amazon ElastiCache for Memcached cluster for in-memory caching of popular product queries on the shopping site. When viewing recent Amazon CloudWatch metrics data for the ElastiCache cluster, the CloudOps Engineer notices a large number of evictions. Which of the following actions will reduce these evictions? (Choose two.)
+
+- [x] Add an additional node to the ElastiCache cluster.
+- [ ] Increase the ElastiCache time to live (TTL).
+- [x] Increase the individual node size inside the ElastiCache cluster.
+- [ ] Put an Elastic Load Balancer in front of the ElastiCache cluster.
+- [ ] Use Amazon Simple Queue Service (Amazon SQS) to decouple the ElastiCache cluster.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A CloudOps Engineer wants to provide access to AWS services by attaching an IAM policy to multiple IAM users. The CloudOps Engineer also wants to be able to change the policy and create new versions. Which combination of actions will meet these requirements? (Choose two.)
+
+- [ ] Add the users to an IAM service-linked role. Attach the policy to the role.
+- [x] Add the users to an IAM user group. Attach the policy to the group.
+- [ ] Create an AWS managed policy.
+- [x] Create a customer managed policy.
+- [ ] Create an inline policy.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A company stores critical data in Amazon S3 buckets. A CloudOps Engineer must build a solution to record all S3 API activity. Which action will meet this requirement?
+
+- [ ] Configure S3 bucket metrics to record object access logs.
+- [x] Create an AWS CloudTrail trail to log data events for all S3 objects.
+- [ ] Enable S3 server access logging for each S3 bucket.
+- [ ] Use AWS IAM Access Analyzer for Amazon S3 to store object access logs.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A company runs an application that uses a MySQL database on an Amazon EC2 instance. The EC2 instance has a General Purpose SSD Amazon Elastic Block Store (Amazon EBS) volume. The company made changes to the application code and now wants to perform load testing to evaluate the impact of the code changes. A CloudOps Engineer must create a new MySQL instance from a snapshot of the existing production instance. This new instance needs to perform as similarly as possible to the production instance. Which restore option meets these requirements?
+
+- [x] Use EBS fast snapshot restore to create a new `General Purpose SSD EBS` volume from the production snapshot.
+- [ ] Use EBS fast snapshot restore to create a new `Provisioned IOPS SSD EBS` volume from the production snapshot.
+- [ ] Use EBS snapshot restore to create a new `General Purpose SSD EBS` volume from the production snapshot.
+- [ ] Use EBS snapshot restore to create a new `Provisioned IOPS SSD EBS` volume from the production snapshot.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A company uses AWS Organizations to manage its AWS accounts. A CloudOps Engineer must create a backup strategy for all Amazon EC2 instances across all the company's AWS accounts. Which solution will meet these requirements in the MOST operationally efficient way?
+
+- [ ] Deploy an AWS Lambda function to each account to run EC2 instance snapshots on a scheduled basis.
+- [ ] Create an AWS CloudFormation stack set in the management account to add an `AutoBackup=True` tag to every EC2 instance.
+- [x] Use AWS Backup in the management account to deploy policies for all accounts and resources.
+- [ ] Use a Service Control Policy (SCP) to run EC2 instance snapshots on a scheduled basis in each account.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A company needs to ensure strict adherence to a budget for 25 applications deployed on AWS. Separate teams are responsible for storage, compute, and database costs. A CloudOps Engineer must implement an automated solution to alert each team when their projected spend will exceed a quarterly amount that has been set by the finance department. The solution cannot incur additional compute, storage, or database costs. Which solution will meet these requirements?
+
+- [ ] Configure AWS Cost and Usage Reports to send a daily report to an Amazon S3 bucket. Create an AWS Lambda function that will evaluate spend by service and notify each team by using Amazon Simple Notification Service (Amazon SNS) notifications. Invoke the Lambda function when a report is placed in the S3 bucket.
+- [ ] Configure AWS Cost and Usage Reports to send a daily report to an Amazon S3 bucket. Create a rule in Amazon EventBridge (Amazon CloudWatch Events) to evaluate the spend by service and notify each team by using Amazon Simple Queue Service (Amazon SQS) when the cost threshold is exceeded.
+- [ ] Use AWS Budgets to create one cost budget and select each of the services in use. Specify the budget amount defined by the finance department along with the forecasted cost threshold. Enter the appropriate email recipients for the budget.
+- [x] Use AWS Budgets to create a cost budget for each team, filtering by the services they own. Specify the budget amount defined by the finance department along with a forecasted cost threshold. Enter the appropriate email recipients for each budget.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A company hosts a static website on Amazon S3. An Amazon CloudFront distribution presents this site to global users. The company uses the `Managed-CachingDisabled` CloudFront cache policy. The company's developers confirm that they frequently update a file in Amazon S3 with new information. Users report that the website presents correct information when the website first loads the file. However, the users' browsers do not retrieve the updated file after a refresh. What should a CloudOps Engineer recommend to fix this issue?
+
+- [x] Add a `Cache-Control` header field with `max-age=0` to the S3 object.
+- [ ] Change the CloudFront cache policy to `Managed-CachingOptimized`.
+- [ ] Disable bucket versioning in the S3 bucket configuration.
+- [ ] Enable content compression in the CloudFront configuration.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A CloudOps Engineer needs to delete an AWS CloudFormation stack that is no longer in use. The CloudFormation stack is in the `DELETE_FAILED` state. The CloudOps Engineer has validated the permissions that are required to delete the CloudFormation stack. Which of the following are possible causes of the `DELETE_FAILED` state? (Choose two.)
+
+- [ ] The configured timeout to delete the stack was too low for the delete operation to complete.
+- [ ] The stack contains nested stacks that must be manually deleted first.
+- [ ] The stack was deployed with the `--disable-rollback` option.
+- [x] There are additional resources associated with a security group in the stack.
+- [x] There are Amazon S3 buckets that still contain objects in the stack.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A CloudOps Engineer is required to monitor free space on Amazon EBS volumes attached to Microsoft Windows-based Amazon EC2 instances within a company's account. The Engineer must be alerted to potential issues. What should the Engineer do to receive email alerts before low storage space affects EC2 instance performance?
+
+- [ ] Use built-in Amazon CloudWatch metrics, and configure CloudWatch alarms and an Amazon SNS topic for email notifications.
+- [ ] Use AWS CloudTrail logs and configure the trail to send notifications to an Amazon SNS topic.
+- [x] Use the Amazon CloudWatch agent to send disk space metrics, then set up CloudWatch alarms using an Amazon SNS topic.
+- [ ] Use AWS Trusted Advisor and enable email notification alerts for EC2 disk space.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A company has an Auto Scaling group of Amazon EC2 instances that scale based on average CPU utilization. The Auto Scaling group events log indicates an `InsufficientInstanceCapacity` error. Which actions should a CloudOps Engineer take to remediate this issue? (Choose two.)
+
+- [x] Change the instance type that the company is using.
+- [x] Configure the Auto Scaling group in different Availability Zones.
+- [ ] Configure the Auto Scaling group to use different Amazon Elastic Block Store (Amazon EBS) volume sizes.
+- [ ] Increase the maximum size of the Auto Scaling group.
+- [ ] Request an increase in the instance service quota.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A CloudOps Engineer needs to control access to groups of Amazon EC2 instances using AWS Systems Manager Session Manager. Specific tags on the EC2 instances have already been added. Which additional actions should the Engineer take to control access? (Choose two.)
+
+- [x] Attach an IAM policy to the users or groups that require access to the EC2 instances.
+- [ ] Attach an IAM role to control access to the EC2 instances.
+- [ ] Create a placement group for the EC2 instances and add a specific tag.
+- [ ] Create a service account and attach it to the EC2 instances that need to be controlled.
+- [x] Create an IAM policy that grants access to any EC2 instances with a tag specified in the `Condition` element.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A company has an AWS Lambda function in Account A. The Lambda function needs to read the objects in an Amazon S3 bucket in Account B. A CloudOps Engineer must create corresponding IAM roles in both accounts. Which solution will meet these requirements?
+
+- [x] In Account A, create a Lambda execution role to assume the role in Account B. In Account B, create a role that the function can assume to gain access to the S3 bucket.
+- [ ] In Account A, create a Lambda execution role that provides access to the S3 bucket. In Account B, create a role that the function can assume.
+- [ ] In Account A, create a role that the function can assume. In Account B, create a Lambda execution role that provides access to the S3 bucket.
+- [ ] In Account A, create a role that the function can assume to gain access to the S3 bucket. In Account B, create a Lambda execution role to assume the role in Account A.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A CloudOps Engineer wants to monitor the free disk space that is available on a set of Amazon EC2 instances that have Amazon Elastic Block Store (Amazon EBS) volumes attached. The CloudOps Engineer wants to receive a notification when the used disk space of the EBS volumes exceeds a threshold value, but only when the `DiskReadOps` metric also exceeds a threshold value. The CloudOps Engineer has set up an Amazon Simple Notification Service (Amazon SNS) topic. How can the CloudOps Engineer receive notification only when both metrics exceed their threshold values?
+
+- [x] Install the Amazon CloudWatch agent on the EC2 instances. Create a metric alarm for the disk space and a metric alarm for the `DiskReadOps` metric. Create a composite alarm that includes the two metric alarms to publish a notification to the SNS topic.
+- [ ] Install the Amazon CloudWatch agent on the EC2 instances. Create a metric alarm for the disk space and a metric alarm for the `DiskReadOps` metric. Configure each alarm to publish a notification to the SNS topic.
+- [ ] Create a metric alarm for the `EBSByteBalance%` metric and a metric alarm for the `DiskReadOps` metric. Create a composite alarm that includes the two metric alarms to publish a notification to the SNS topic.
+- [ ] Configure detailed monitoring for the EC2 instances. Create a metric alarm for the disk space and a metric alarm for the `DiskReadOps` metric. Create a composite alarm that includes the two metric alarms to publish a notification to the SNS topic.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A company is using Amazon CloudFront to serve static content for its web application to its users. The CloudFront distribution uses an existing on-premises website as a custom origin. The company requires the use of TLS between CloudFront and the origin server. This configuration has worked as expected for several months. However, users are now experiencing `HTTP 502 (Bad Gateway)` errors when they view webpages that include content from the CloudFront distribution. What should a CloudOps Engineer do to resolve this problem?
+
+- [x] Examine the expiration date on the certificate on the origin site. Validate that the certificate has not expired. Replace the certificate if necessary.
+- [ ] Examine the hostname on the certificate on the origin site. Validate that the hostname matches one of the hostnames on the CloudFront distribution. Replace the certificate if necessary.
+- [ ] Examine the firewall rules that are associated with the origin server. Validate that port `443` is open for inbound traffic from the internet. Create an inbound rule if necessary.
+- [ ] Examine the network `ACL` rules that are associated with the CloudFront distribution. Validate that port `443` is open for outbound traffic to the origin server. Create an outbound rule if necessary.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### An Amazon CloudFront distribution has a single Amazon S3 bucket as its origin. A CloudOps Engineer must ensure that users can access the S3 bucket only through requests from the CloudFront endpoint. Which solution will meet these requirements?
+
+- [ ] Configure S3 Block Public Access on the S3 bucket. Update the S3 bucket policy to allow the `GetObject` action from only the CloudFront distribution.
+- [ ] Configure Origin Shield in the CloudFront distribution. Update the CloudFront origin to include a custom `Origin_Shield` header.
+- [x] Create an Origin Access Identity (OAI). Assign the OAI to the CloudFront distribution. Update the S3 bucket policy to restrict access to the OAI.
+- [ ] Create an Origin Access Identity (OAI). Assign the OAI to the S3 bucket. Update the CloudFront origin to include a custom `Origin` header with the OAI value.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A CloudOps Engineer is designing a solution for an Amazon RDS for PostgreSQL DB instance. Database credentials must be stored and rotated monthly. The applications that connect to the DB instance send write-intensive traffic with variable client connections that sometimes increase significantly in a short period of time. Which solution should a CloudOps Engineer choose to meet these requirements?
+
+- [ ] Configure AWS Key Management Service (AWS KMS) to automatically rotate the keys for the DB instance. Use RDS Proxy to handle the increases in database connections.
+- [ ] Configure AWS Key Management Service (AWS KMS) to automatically rotate the keys for the DB instance. Use RDS read replicas to handle the increases in database connections.
+- [x] Configure AWS Secrets Manager to automatically rotate the credentials for the DB instance. Use RDS Proxy to handle the increases in database connections.
+- [ ] Configure AWS Secrets Manager to automatically rotate the credentials for the DB instance. Use RDS read replicas to handle the increases in database connections.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A company wants to reduce costs for jobs that can be completed at any time. The jobs currently run by using multiple Amazon EC2 On-Demand Instances and the jobs take slightly less than 2 hours to complete. If a job falls for any reason it must be restarted from the beginning. Which solution will meet these requirements MOST cost-effectively?
+
+- [ ] Purchase Reserved Instances for the jobs.
+- [ ] Submit a request for a one-time Spot Instance for the jobs.
+- [x] Submit a request for Spot Instances with a defined duration for the jobs.
+- [ ] Use a mixture of On-Demand Instances and Spot Instances for the jobs.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### An environment consists of 100 Amazon EC2 Windows instances. The Amazon CloudWatch agent is deployed and running on all EC2 Instances with a baseline configuration file to capture log files. There is a new requirement to capture the `DHCP` log files that exist on 50 of the instances. What is the MOST operationally efficient way to meet this new requirement?
+
+- [x] Create an additional CloudWatch agent configuration file to capture the `DHCP` logs. Use the AWS Systems Manager Run Command to restart the CloudWatch agent on each EC2 instance with the `append-config` option to apply the additional configuration file.
+- [ ] Log in to each EC2 Instance with administrator rights. Create a PowerShell script to push the needed baseline log files and `DHCP` log files to CloudWatch.
+- [ ] Run the CloudWatch agent configuration file wizard on each EC2 instance. Verify that the baseline log files are included and add the `DHCP` log files during the wizard creation process.
+- [ ] Run the CloudWatch agent configuration file wizard on each EC2 instance and select the advanced detail level. This will capture the operating system log files.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A company needs to monitor the disk utilization of Amazon Elastic Block Store (Amazon EBS) volumes. The EBS volumes are attached to Amazon EC2 Linux instances. A CloudOps Engineer must set up an Amazon CloudWatch alarm that provides an alert when disk utilization increases to more than `80%`. Which combination of steps must the CloudOps Engineer take to meet these requirements? (Choose three.)
+
+- [x] Create an IAM role that includes the `CloudWatchAgentServerPolicy` AWS managed policy. Attach the role to the instances.
+- [ ] Create an IAM role that includes the `CloudWatchApplicationInsightsReadOnlyAccess` AWS managed policy. Attach the role to the instances.
+- [x] Install and start the CloudWatch agent by using AWS Systems Manager or the command line.
+- [ ] Install and start the CloudWatch agent by using an IAM role. Attach the `CloudWatchAgentServerPolicy` AWS managed policy to the role.
+- [x] Configure a CloudWatch alarm to enter `ALARM` state when the `disk_used_percent` CloudWatch metric is greater than `80%`.
+- [ ] Configure a CloudWatch alarm to enter `ALARM` state when the `disk_used` CloudWatch metric is greater than `80%` or when the `disk_free` CloudWatch metric is less than `20%`.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A company maintains a large set of sensitive data in an Amazon S3 bucket. The company's security team asks a CloudOps Engineer to help verify that all current objects in the S3 bucket are encrypted. What is the MOST operationally efficient solution that meets these requirements?
+
+- [ ] Create a script that runs against the S3 bucket and outputs the status of each object.
+- [x] Create a S3 Inventory configuration on the S3 bucket. Include the appropriate status fields.
+- [ ] Provide the security team with an IAM user that has read access to the S3 bucket.
+- [ ] Use the AWS CLI to output a list of all objects in the S3 bucket.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A CloudOps Engineer is managing a web application that runs on Amazon EC2 instances behind an ELB Application Load Balancer (ALB). The instances run in an EC2 Auto Scaling group. The Engineer wants to set an alarm for when all target instances associated with the `ALB` are unhealthy. Which condition should be used with the alarm?
+
+- [x] `AWS/ApplicationELB HealthyHostCount <= 0`.
+- [ ] `AWS/ApplicationELB UnhealthyHostCount >= 1`.
+- [ ] `AWS/EC2 StatusCheckFailed <= 0`.
+- [ ] `AWS/EC2 StatusCheckFailed >= 1`.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A company wants to monitor the security groups of its Amazon EC2 instances to ensure that `SSH` is not open to the public. If the port is opened, the company needs to close the port as soon as possible. Which combination of actions should a CloudOps Engineer take to meet these requirements? (Choose two.)
+
+- [ ] Add an Amazon CloudWatch alarm to detect the security groups that allow `SSH`.
+- [x] Add an AWS Config rule to detect the security groups that allow `SSH`.
+- [ ] Add an assessment template to Amazon Inspector to detect the security groups that allow `SSH`.
+- [x] Call an AWS Systems Manager Automation runbook to close the port.
+- [ ] Call AWS Systems Manager Run Command to close the port.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A company has an application that is running on Amazon EC2 instances in a `VPC`. The application needs access to download software updates from the internet. The `VPC` has public subnets and private subnets. The company's security policy requires all EC2 instances to be deployed in private subnets. What should a CloudOps Engineer do to meet these requirements?
+
+- [ ] Add an internet gateway to the `VPC`. In the route table for the private subnets, add a route to the internet gateway.
+- [ ] Add a `NAT` gateway to a private subnet. In the route table for the private subnets, add a route to the `NAT` gateway.
+- [x] Add a `NAT` gateway to public subnet. In the route table for the private subnets, add a route to the `NAT` gateway.
+- [ ] Add two internet gateways to the `VPC`. In the route tables for the private subnets and public subnets, add a route to each internet gateway.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A CloudOps Engineer has set up a new Amazon EC2 instance as a web server in a public subnet. The instance uses `HTTP` port `80` and `HTTPS` port `443`. The CloudOps Engineer has confirmed internet connectivity by downloading operating system updates and software from public repositories. However, the CloudOps Engineer cannot access the instance from a web browser on the internet. Which combination of steps should the CloudOps Engineer take to troubleshoot this issue? (Choose three.)
+
+- [x] Ensure that the inbound rules of the instance's security group allow traffic on ports `80` and `443`.
+- [ ] Ensure that the outbound rules of the instance's security group allow traffic on ports `80` and `443`.
+- [ ] Ensure that ephemeral ports `1024-65535` are allowed in the inbound rules of the network `ACL` that is associated with the instance's subnet.
+- [x] Ensure that ephemeral ports `1024-65535` are allowed in the outbound rules of the network `ACL` that is associated with the instance's subnet.
+- [x] Ensure that the filtering rules for any firewalls that are running on the instance allow inbound traffic on ports `80` and `443`.
+- [ ] Ensure that AWS WAF is turned on for the instance and is blocking web traffic.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A company recently performed a security audit of all its internal applications developed in house. Certain business-critical applications that handle sensitive data were flagged because they use Amazon ES clusters that are open for read/write to a wider user group that intended. Who is responsible for correcting the issue?
+
+- [ ] AWS Premium Support.
+- [ ] Amazon ES team.
+- [ ] AWS IAM team.
+- [x] CloudOps Engineer.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A company has deployed an application on AWS. The application runs on a fleet of Linux Amazon EC2 instances that are in an Auto Scaling group. The Auto Scaling group is configured to use launch templates. The launch templates launch Amazon Elastic Block Store (Amazon EBS) backed EC2 instances that use `General Purpose SSD (gp3)` EBS volumes for primary storage. A CloudOps Engineer needs to implement a solution to ensure that all the EC2 instances can share the same underlying files. The solution also must ensure that the data is consistent. Which solution will meet these requirements?
+
+- [x] Create an Amazon Elastic File System (Amazon EFS) file system. Create a new launch template version that includes user data that mounts the EFS file system. Update the Auto Scaling group to use the new launch template version to cycle in newer EC2 instances and to terminate the older EC2 instances.
+- [ ] Enable Multi-Attach on the EBS volumes. Create a new launch template version that includes user data that mounts the EBS volume. Update the Auto Scaling group to use the new template version to cycle in newer EC2 instances and to terminate the older EC2 instances.
+- [ ] Create a cron job that synchronizes the data between the EBS volumes for all the EC2 instances in the Auto Scaling group. Create a lifecycle hook during instance launch to configure the cron job on all the EC2 instances. Rotate out the older EC2 instances.
+- [ ] Create a new launch template version that creates an Amazon Elastic File System (Amazon EFS) file system. Update the Auto Scaling group to use the new template version to cycle in newer EC2 instances and to terminate the older EC2 instances.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A company hosts an application on Amazon EC2 instances. The instances are in an Amazon EC2 Auto Scaling group that uses a launch template. The amount of application traffic changes throughout the day. Scaling events happen frequently. A CloudOps Engineer needs to help developers troubleshoot the application. When a scaling event removes an instance, EC2 Auto Scaling terminates the instance before the developers can log in to the instance to diagnose issues. Which solution will prevent termination of the instance so that the developers can log in to the instance?
+
+- [ ] Ensure that the Delete on termination setting is turned off in the `UserData` section of the launch template.
+- [x] Update the Auto Scaling group by enabling instance scale-in protection for newly launched instances.
+- [ ] Use Amazon Inspector to configure a rules package to protect the instances from termination.
+- [ ] Use Amazon GuardDuty to configure rules to protect the instances from termination.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### An application running on Amazon EC2 instances in an Auto Scaling group across multiple Availability Zones was deployed using an AWS CloudFormation template. The SysOps team has patched the Amazon Machine Image (AMI) version and must update all the EC2 instances to use the new AMI. How can the CloudOps Engineer use CloudFormation to apply the new AMI while maintaining a minimum level of active instances to ensure service continuity?
+
+- [ ] Run the aws cloudfomation `update-stack` command with the `rollback-configuration` option.
+- [ ] Update the CloudFormation template with the new AMI ID, then reboot the EC2 instances.
+- [ ] Deploy a second CloudFormation stack and use Amazon Route 53 to redirect traffic to the new stack.
+- [x] Set an `AutoScalingRollingUpdate` policy in the CloudFormation template to update the stack.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A company hosts an internal application on Amazon EC2 On-Demand Instances behind an Application Load Balancer (ALB). The instances are in an Amazon EC2 Auto Scaling group. Employees use the application to provide product prices to potential customers. The Auto Scaling group is configured with a dynamic scaling policy and tracks average CPU utilization of the instances. Employees have noticed that sometimes the application becomes slow or unresponsive. A CloudOps Engineer finds that some instances are experiencing a high CPU load. The Auto Scaling group cannot scale out because the company is reaching the EC2 instance service quota. The CloudOps Engineer needs to implement a solution that provides a notification when the company reaches `70%` or more of the EC2 instance service quota. Which solution will meet these requirements in the MOST operationally efficient manner?
+
+- [ ] Create an AWS Lambda function that lists the EC2 instances, counts the EC2 instances, and compares the total number against the applied quota value by using the Service Quotas API. Configure the Lambda function to publish an Amazon Simple Notification Service (Amazon SNS) notification if the quota utilization is equal to or greater than `70%`. Create an Amazon EventBridge rule to invoke the Lambda function.
+- [ ] Create an AWS Lambda function that lists the EC2 instances, counts the EC2 instances, and compares the total number against the applied quota value by using the Amazon CloudWatch Metrics API. Configure the Lambda function to publish an Amazon Simple Notification Service (Amazon SNS) notification if the quota utilization is equal to or greater than `70%`. Create an Amazon EventBridge rule to invoke the Lambda function.
+- [x] Use the Service Quotas console to create an Amazon CloudWatch alarm for the EC2 instances. Configure the alarm with quota utilization equal to or greater than `70%`. Configure the alarm to publish an Amazon Simple Notification Service (Amazon SNS) notification when the alarm enters `ALARM` state.
+- [ ] Create an Amazon CloudWatch alarm. Configure the alarm with a threshold of `70%` for the `CPUUtilization` metric for the EC2 instances. Configure the alarm to publish an Amazon Simple Notification Service (Amazon SNS) notification when the alarm enters `ALARM` state.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A team of developers is using several Amazon S3 buckets as centralized repositories. Users across the world upload large sets of files to these repositories. The development team's applications later process these files. A CloudOps Engineer sets up a new S3 bucket, `DOC-EXAMPLE-BUCKET`, to support a new workload. The new S3 bucket also receives regular uploads of large sets of files from users worldwide. When the new S3 bucket is put into production, the upload performance from certain geographic areas is lower than the upload performance that the existing S3 buckets provide. What should the CloudOps Engineer do to remediate this issue?
+
+- [ ] Provision an Amazon ElastiCache for Redis cluster for the new S3 bucket. Provide the developers with the configuration endpoint of the cluster for use in their API calls
+- [ ] Add the new S3 bucket to a new Amazon CloudFront distribution. Provide the developers with the domain name of the new distribution for use in their API calls.
+- [x] Enable S3 Transfer Acceleration for the new S3 bucket. Verify that the developers are using the `DOC-EXAMPLE-BUCKET.s3-accelerate.amazonaws.com` endpoint name in their API calls.
+- [ ] Use S3 multipart upload for the new S3 bucket. Verify that the developers are using Region-specific S3 endpoint names such as `DOC-EXAMPLE-BUCKETS3`, `[Region] amazonaws.com` in their API calls.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A CloudOps Engineer wants to use AWS Systems Manager Patch Manager to automate the process of patching Amazon EC2 Windows instances. The CloudOps Engineer wants to ensure that patches are auto-approved 2 days after the release date for development instances. Patches also must be auto-approved 5 days after the release date for production instances. Maintenance must occur only during a 2-hour window for all instances. Which solution will meet these requirements?
+
+- [ ] Use tags to identify development instances and production instances. In Patch Manager, create two patch groups and one patch baseline. Add an auto-approval delay to each patch group. Create a single maintenance window.
+- [x] Use tags to identify development instances and production instances. In Patch Manager, create two patch groups and two patch baselines. Specify an auto-approval delay in each of the patch baselines. Create a single maintenance window.
+- [ ] Use tags to identity development instances and production instances. In Patch Manager, create two patch groups and one patch baseline, Create two separate maintenance windows, each with an auto-approval delay.
+- [ ] Use tags to identify development instances. In Patch Manager, create one patch group and one patch baseline. Specify auto-approval delays in the patch baseline, Add development instances to the new patch group. Use predefined Patch Manager patch baselines for all remaining instances. Create a single maintenance window.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A company has users that deploy Amazon EC2 instances that have more disk performance capacity than is required. A CloudOps Engineer needs to review all Amazon Elastic Block Store (Amazon EBS) volumes that are associated with the instances and create cost optimization recommendations based on IOPS and throughput. What should the CloudOps Engineer do to meet these requirements in the MOST operationally efficient way?
+
+- [ ] Use the monitoring graphs in the EC2 console to view metrics for EBS volumes. Review the consumed space against the provisioned space on each volume. Identify any volumes that have low utilization.
+- [ ] Stop the EC2 instances from the EC2 console. Change the EC2 instance type for Amazon EBS-optimized. Start the EC2 instances.
+- [x] Opt in to AWS Compute Optimizer. Allow sufficient time for metrics to be gathered. Review the Compute Optimizer findings for EBS volumes.
+- [ ] Install the `fio` tool onto the EC2 instances and create a `.cfg` file to approximate the required workloads. Use the benchmark results to gauge whether the provisioned EBS volumes are of the most appropriate type.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A CloudOps Engineer needs to provision a new fleet of Amazon EC2 Spot Instances in an Amazon EC2 Auto Scaling group. The Auto Scaling group will use a wide range of instance types. The configured fleet must come from pools that have the most availability for the number of instances that are launched. Which solution will meet these requirements?
+
+- [ ] Launch the Spot Instances up to the maximum capacity of the Auto Scaling group.
+- [ ] Launch the Spot Instances by using the diversified strategy.
+- [x] Launch the Spot Instances by using the capacity optimized strategy.
+- [ ] Use the Spot Instance advisor to help determine the best Spot allocation strategy.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### Users are reporting consistent forced logouts from a stateful web application. The logouts occur before the expiration of a 15-minute application logout timer. The web application is hosted on Amazon EC2 instances that are in an Auto Scaling group. The instances run behind an Application Load Balancer (ALB) that has a single target group. The `ALB` is configured as the origin in an Amazon CloudFront distribution. Session affinity (sticky sessions) is already enabled on the `ALB` target group and uses duration-based cookies. The web application generates its own application cookie. Which combination of actions should a CloudOps Engineer take to resolve the logout problem? (Choose two.)
+
+- [ ] Change to the least outstanding requests algorithm on the `ALB` target group.
+- [x] Configure cookie forwarding in the CloudFront distribution's cache behavior settings.
+- [ ] Configure the duration-based cookie to be named AWSALB.
+- [ ] Configure the `ALB` to use the expiration cookie header.
+- [x] Change the `ALB` to use application-based cookies.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A company has a public web application that experiences rapid traffic increases after advertisements appear on local television. The application runs on Amazon EC2 instances that are in an Auto Scaling group. The Auto Scaling group is not keeping up with the traffic surges after an advertisement runs. The company often needs to scale out to 100 EC2 instances during the traffic surges. The instance startup times are lengthy because of a boot process that creates machine-specific data caches that are unique to each instance. The exact timing of when the advertisements will appear on television is not known. A CloudOps Engineer must implement a solution so that the application can function properly during the traffic surges. Which solution will meet these requirements?
+
+- [x] Create a warm pool. Keep enough instances in the `Stopped` state to meet the increased demand.
+- [ ] Start 100 instances. Allow the boot process to finish running. Store this data on the instance store volume before stopping the instances.
+- [ ] Increase the value of the instance warmup time in the scaling policy
+- [ ] Use predictive scaling for the Auto Scaling group.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A company hosts a Windows-based file server on a fleet of Amazon EC2 instances across multiple Availability Zones. The current setup does not allow application servers to access files simultaneously from the EC2 fleet. Which solution will allow this access in the MOST operationally efficient way?
+
+- [ ] Create an Amazon Elastic File System (Amazon EFS) Multi-AZ file system. Copy the files to the EFS file system. Connect the EFS file system to mount points on the application servers.
+- [x] Create an Amazon FSx for Windows File Server Multi-AZ file system. Copy the files to the Amazon FSx file system. Adjust the connections from the application servers to use the share that the Amazon FSx file system exposes.
+- [ ] Create an Amazon Elastic Block Store (Amazon EBS) volume that has EBS Multi-Attach enabled. Create an Auto Scaling group for the Windows file server. Use a script in the file server's user data to attach the SharedFileAccess tag to the EBS volume during launch.
+- [ ] Create two Amazon FSx for Windows File Server file systems. Configure Distributed File System (DFS) replication between the file systems. Copy the files to the Amazon FSx file systems. Adjust the connections from the application servers to use the shares that the Amazon FSx file systems expose.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A company recently deployed an application in production. The production environment currently runs on a single Amazon EC2 instance that hosts the application's web application and a MariaDB database. Company policy states that all IT production environments must be highly available. What should a CloudOps Engineer do to meet this requirement?
+
+- [x] Migrate the database from the EC2 instance to an Amazon RDS for MariaDB Multi-AZ DB instance. Run the application on EC2 instances that are in an Auto Scaling group that extends across multiple Availability Zones. Place the EC2 instances behind a load balancer.
+- [ ] Migrate the database from the EC2 instance to an Amazon RDS for MariaDB Multi-AZ DB instance. Use AWS Application Migration Service to convert the application into an AWS Lambda function. Specify the Multi-AZ option for the Lambda function.
+- [ ] Copy the database to a different EC2 instance in a different Availability Zone. Use AWS Backup to create Amazon Machine Images (AMIs) of the application EC2 instance and the database EC2 instance. Create an AWS Lambda function that performs health checks every minute. In case of failure, configure the Lambda function to launch a new EC2 instance from the AMIs that AWS Backup created.
+- [ ] Migrate the database to a different EC2 instance. Place the application EC2 instance in an Auto Scaling group that extends across multiple Availability Zones. Create an Amazon Machine Image (AMI) from the database EC2 instance. Use the AMI to launch a second database EC2 instance in a different Availability Zone. Put the second database EC2 instance in the stopped state. Use the second database EC2 instance as a standby.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A company's reporting job that used to run in 15 minutes is now taking an hour to run. An application generates the reports. The application runs on Amazon EC2 instances and extracts data from an Amazon RDS for MySQL database. A CloudOps Engineer checks the Amazon CloudWatch dashboard for the RDS instance and notices that the Read IOPS metrics are high, even when the reports are not running. The CloudOps Engineer needs to improve the performance and the availability of the RDS instance. Which solution will meet these requirements?
+
+- [ ] Configure an Amazon ElastiCache cluster in front of the RDS instance. Update the reporting job to query the ElastiCache cluster.
+- [x] Deploy an RDS read replica. Update the reporting job to query the reader endpoint.
+- [ ] Create an Amazon CloudFront distribution. Set the RDS instance as the origin. Update the reporting job to query the CloudFront distribution.
+- [ ] Increase the size of the RDS instance.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A company has an application that uses an Amazon S3 bucket for object storage. A developer needs to configure in-transit encryption for the S3 bucket. All the S3 objects containing personal data needs to be encrypted at rest with AWS Key Management Service (AWS KMS) keys, which can be rotated on demand. Which combination of steps will meet these requirements? (Choose two.)
+
+- [ ] Write a S3 bucket policy to allow only encrypted connections over `HTTPS` by using permissions boundary.
+- [ ] Configure a S3 bucket policy to enable client-side encryption for the objects containing personal data by using an AWS KMS customer managed key.
+- [x] Configure the application to encrypt the objects by using an AWS KMS customer managed key before uploading the objects containing personal data to Amazon S3.
+- [x] Write a S3 bucket policy to allow only encrypted connections over `HTTPS` by using the `aws:SecureTransport` condition.
+- [ ] Configure S3 Block Public Access settings for the S3 bucket to allow only encrypted connections over `HTTPS`.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A CloudOps Engineer found that a newly-deployed Amazon EC2 application server is unable to connect to an existing Amazon RDS database. After enabling `VPC` Flow Logs and confirming that the flow log is active on the console, the log group cannot be located in Amazon CloudWatch. What are the MOST likely reasons for this situation? (Choose two.)
+
+- [ ] The Engineer must configure the `VPC` Flow Logs to have them sent to AWS CloudTrail.
+- [x] The Engineer has waited less than ten minutes for the log group to be created in CloudWatch.
+- [ ] The account `VPC` Flow Logs have been disabled by using a Service Control Policy.
+- [x] No relevant traffic has been sent since the `VPC` Flow Logs were created.
+- [ ] The account has Amazon GuardDuty enabled.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A company's CloudOps Engineer is troubleshooting communication between the components of an application. The company configured `VPC` flow logs to be published to Amazon CloudWatch Logs. However, there are no logs in CloudWatch Logs. What could be blocking the `VPC` flow logs from being published to CloudWatch Logs?
+
+- [x] The IAM policy that is attached to the IAM role for the flow log is missing the logs `CreateLogGroup` permission.
+- [ ] The IAM policy that is attached to the IAM role for the flow log is missing the logs `CreateExportTask` permission.
+- [ ] The `VPC` is configured for IPv6 addresses.
+- [ ] The `VPC` is peered with another `VPC` in the AWS account.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A CloudOps Engineer configures `VPC` flow logs to publish to Amazon CloudWatch Logs. The CloudOps Engineer reviews the logs in CloudWatch Logs and notices less traffic than expected. After the CloudOps Engineer compares the `VPC` flow logs to logs that were captured on premises, the CloudOps Engineer believes that the `VPC` flow logs are incomplete. Which of the following is a possible reason for the difference in traffic?
+
+- [ ] CloudWatch Logs throttling has been applied.
+- [ ] The CloudWatch IAM role does not have a trust relationship with the `VPC` flow logs service.
+- [ ] The `VPC` flow log is still in the process of being created.
+- [x] `VPC` flow logs cannot capture traffic from on-premises servers to a `VPC`.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A CloudOps Engineer is reviewing `VPC` Flow Logs to troubleshoot connectivity issues in a `VPC`. While reviewing the logs, the CloudOps Engineer notices that rejected traffic is not listed. What should the CloudOps Engineer do to ensure that all traffic is logged?
+
+- [x] Create a new flow log that has a filter setting to capture all traffic.
+- [ ] Create a new flow log. Set the log record format to a custom format. Select the proper fields to include in the log.
+- [ ] Edit the existing flow log. Change the filter setting to capture all traffic.
+- [ ] Edit the existing flow log. Set the log record format to a custom format. Select the proper fields to include in the log.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A company hosts a web application on an Amazon EC2 instance in a production `VPC`. Client connections to the application are failing. A CloudOps Engineer inspects the `VPC` flow logs and finds the following entry. What is a possible cause of these failed connections?
+
+![Question 282](images/question282.png)
+
+- [ ] A security group deny rule is blocking traffic on port `443`.
+- [ ] The EC2 instance is shut down.
+- [x] The network `ACL` is blocking `HTTPS` traffic.
+- [ ] The `VPC` has no internet gateway attached.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A company has created a `NAT` gateway in a public subnet in a `VPC`. The `VPC` also contains a private subnet that includes Amazon EC2 instances. The EC2 instances use the `NAT` gateway to access the internet to download patches and updates. The company has configured a `VPC` flow log for the elastic network interface of the `NAT` gateway. The company is publishing the output to Amazon CloudWatch Logs. A CloudOps Engineer must identify the top five internet destinations that the EC2 instances in the private subnet communicate with for downloads. What should the CloudOps Engineer do to meet this requirement in the MOST operationally efficient way?
+
+- [ ] Use AWS CloudTrail Insights events to identify the top five internet destinations.
+- [ ] Use Amazon CloudFront standard logs (access logs) to identify the top five internet destinations.
+- [x] Use CloudWatch Logs Insights to identify the top five internet destinations.
+- [ ] Change the flow log to publish logs to Amazon S3. Use Amazon Athena to query the log files in Amazon S3.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A company runs a single-page web application on AWS. The application uses Amazon CloudFront to deliver static content from an Amazon S3 bucket origin. The application also uses an Amazon Elastic Kubernetes Service (Amazon EKS) cluster to serve API calls. Users sometimes report that the website is not operational, even when monitoring shows that the index page is reachable and that the EKS cluster is healthy. A CloudOps Engineer must implement additional monitoring that can detect when the website is not operational before users report the problem. Which solution will meet these requirements?
+
+- [x] Create an Amazon CloudWatch Synthetics heartbeat monitor canary that points to the fully qualified domain name (FQDN) of the website.
+- [ ] Create an Amazon CloudWatch Synthetics API canary that monitors the availability of API endpoints from the EKS cluster.
+- [ ] Create an Amazon CloudWatch RUM app monitor that points to the fully qualified domain name (FQDN) of the website. Configure the app monitor to collect performance telemetry and JavaScript errors.
+- [ ] Create an Amazon CloudWatch RUM app monitor that uses the API endpoints from the EKS cluster.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A company is transitioning away from applications that are hosted on Amazon EC2 instances. The company wants to implement a serverless architecture that uses Amazon S3, Amazon API Gateway, AWS Lambda, and Amazon CloudFront. As part of this transition, the company has Elastic IP addresses that are unassociated with any EC2 instances after the EC2 instances are terminated. A CloudOps Engineer needs to automate the process of releasing all unassociated Elastic IP addresses that remain after the EC2 instances are terminated. Which solution will meet this requirement in the MOST operationally efficient way?
+
+- [x] Activate the `eip-attached` AWS Config managed rule to run automatically when resource changes occur in the AWS account. Configure automatic remediation for the rule. Specify the `AWS-ReleaseElasticIP` AWS Systems Manager Automation runbook for remediation. Specify an appropriate role that has permission for the remediation.
+- [ ] Create a custom Lambda function that calls the EC2 `ReleaseAddress` API operation and specifies the Elastic IP address `AllocationId`. Invoke the Lambda function by using an Amazon EventBridge rule. Specify AWS services as the event source, All Events as the event type, and AWS Trusted Advisor as the target.
+- [ ] Create an Amazon EventBridge rule. Specify AWS services as the event source, `Instance State-change Notification` as the event type, and Amazon EC2 as the service. Invoke a Lambda function that extracts the Elastic IP address from the notification. Use AWS CloudFormation to release the address by specifying the `AllocationId` as an input parameter.
+- [ ] Create a custom Lambda function that calls the EC2 `ReleaseAddress` API operation and specifies the Elastic IP address `AllocationId`. Invoke the Lambda function by using an Amazon EventBridge rule. Specify AWS services as the event source, `Instance State-change Notification` as the event type, and Amazon EC2 as the service.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A company is running an application on a group of Amazon EC2 instances behind an Application Load Balancer. The EC2 instances run across three Availability Zones. The company needs to provide the customers with a maximum of two static IP addresses for their applications. How should a CloudOps Engineer meet these requirement?
+
+- [x] Add AWS Global Accelerator in front of the Application Load Balancer.
+- [ ] Add an internal Network Load Balancer behind the Application Load Balancer.
+- [ ] Configure the Application Load Balancer in only two Availability Zones.
+- [ ] Create two Elastic IP addresses and assign them to the Application Load Balancer.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A company is storing media content in an Amazon S3 bucket and uses Amazon CloudFront to distribute the content to its users. Due to licensing terms, the company is not authorized to distribute the content in some countries. A CloudOps Engineer must restrict access to certain countries. What is the MOST operationally efficient solution that meets these requirements?
+
+- [ ] Configure the S3 bucket policy to deny the `GetObject` operation based on the `s3:LocationConstraint` condition.
+- [ ] Create a secondary Origin Access Identity (OAI). Configure the S3 bucket policy to prevent access from unauthorized countries.
+- [x] Enable the geo restriction feature in the CloudFront distribution to prevent access from unauthorized countries.
+- [ ] Update the application to generate signed CloudFront URLs only for IP addresses in authorized counties.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A CloudOps Engineer is using IAM credentials to try to upload a file to a customer's Amazon S3 bucket that is named `DOC-EXAMPLE-BUCKET`. The CloudOps Engineer is receiving an `AccessDenied` message. Which combination of configuration changes will correct this problem? (Choose two.)
+
+- [x] Add this IAM policy to the CloudOps Engineer user.
+![Question 288 option A](images/question288_A.png)
+- [x] Add this IAM policy to the customer S3 bucket.
+![Question 288 option B](images/question288_B.png)
+- [ ] Add this IAM policy to the CloudOps Engineer user.
+![Question 288 option C](images/question288_C.png)
+- [ ] Add this IAM policy to the customer account root user.
+![Question 288 option D](images/question288_D.png)
+- [ ] Add this IAM policy to the CloudOps Engineer account root user.
+![Question 288 option E](images/question288_E.png)
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A company has mandated the use of multi-factor authentication (MFA) for all IAM users, and requires users to make all API-calls using the CLI. However, users are not prompted to enter MFA tokens, and are able to run CLI commands without MFA. In an attempt to enforce MFA, the company attached an IAM policy to all users that denies API calls that have not been authenticated with MFA. What additional step must be taken to ensure that API calls are authenticated using MFA?
+
+- [ ] Enable MFA on IAM roles, and require IAM users to use role credentials to sign API calls.
+- [ ] Ask the IAM users to log into the AWS Management Console with MFA before making API calls using the CLI.
+- [ ] Restrict the IAM users to use of the console, as MFA is not supported for CLI use.
+- [x] Require users to use temporary credentials from the `get-session` token command to sign API calls.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A CloudOps Engineer needs to design a Disaster Recovery (DR) plan for an application on AWS. The application runs on Amazon EC2 instances behind an Application Load Balancer (ALB). The instances are in an Auto Scaling group. The application uses an Amazon Aurora PostgreSQL database. The Recovery Time Objective (RTO) and Recovery Point Objective (RPO) are 15 minutes each. Which combination of steps should the CloudOps Engineer take to meet these requirements MOST cost-effectively? (Choose two.)
+
+- [ ] Configure Aurora backups to be exported to the DR Region.
+- [x] Configure the Aurora cluster to replicate data to the DR Region by using the Aurora global database option.
+- [ ] Configure the DR Region with an `ALB` and an Auto Scaling group. Use the same configuration as in the primary Region.
+- [x] Configure the DR Region with an `ALB` and an Auto Scaling group. Set the Auto Scaling group's minimum capacity, maximum capacity, and desired capacity to `1`.
+- [ ] Manually launch a new `ALB` and a new Auto Scaling group by using AWS CloudFormation during a failover activity.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A company has a memory-intensive application that runs on a fleet of Amazon EC2 instances behind an Elastic Load Balancer (ELB). The instances run in an Auto Scaling group. A CloudOps Engineer must ensure that the application can scale based on the number of users that connect to the application. Which solution will meet these requirements?
+
+- [x] Create a scaling policy that will scale the application based on the `ActiveConnectionCount` Amazon CloudWatch metric that is generated from the ELB.
+- [ ] Create a scaling policy that will scale the application based on the `mem_used` Amazon CloudWatch metric that is generated from the ELB.
+- [ ] Create a scheduled scaling policy to increase the number of EC2 instances in the Auto Scaling group to support additional connections.
+- [ ] Create and deploy a script on the ELB to expose the number of connected users as a custom Amazon CloudWatch metric. Create a scaling policy that uses the metric.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A company using AWS Organizations requires that no Amazon S3 buckets in its production accounts should ever be deleted. What is the SIMPLEST approach the CloudOps Engineer can take to ensure S3 buckets in those accounts can never be deleted?
+
+- [ ] Set up `MFA Delete` on all the S3 buckets to prevent the buckets from being deleted.
+- [x] Use Service Control Policies to deny the `s3:DeleteBucket` action on all buckets in production accounts.
+- [ ] Create an IAM group that has an IAM policy to deny the `s3:DeleteBucket` action on all buckets in production accounts.
+- [ ] Use AWS Shield to deny the `s3:DeleteBucket` action on the AWS account instead of all S3 buckets.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A company has an application that is running on an EC2 instance in one Availability Zone. A CloudOps Engineer has been tasked with making the application highly available. The Engineer created a launch configuration from the running EC2 instance. The Engineer also properly configured a load balancer. What step should the Engineer complete next to make the application highly available?
+
+- [ ] Create an Auto Scaling group by using the launch configuration across at least `2` Availability Zones with a minimum size of `1`, desired capacity of `1`, and a maximum size of `1`.
+- [x] Create an Auto Scaling group by using the launch configuration across at least `3` Availability Zones with a minimum size of `2`, desired capacity of `2`, and a maximum size of `2`.
+- [ ] Create an Auto Scaling group by using the launch configuration across at least `2` regions with a minimum size of `1`, desired capacity of `1`, and a maximum size of `1`.
+- [ ] Create an Auto Scaling group by using the launch configuration across at least `3` regions with a minimum size of `2`, desired capacity of `2`, and a maximum size of `2`.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### An application is running on multiple EC2 instances. As part of an initiative to improve overall infrastructure security, the EC2 instances were moved to a private subnet. However, since moving, the EC2 instances have not been able to automatically update, and a CloudOps Engineer has not been able to `SSH` into them remotely. Which two actions could the Engineer take to securely resolve these issues? (Choose two.)
+
+- [x] Set up a bastion host in a public subnet, and configure security groups and route tables accordingly.
+- [ ] Set up a bastion host in the private subnet, and configure security groups accordingly.
+- [ ] Configure a load balancer in a public subnet, and configure the route tables accordingly.
+- [x] Set up a `NAT` gateway in a public subnet, and change the private subnet route tables accordingly.
+- [ ] Set up a `NAT` gateway in a private subnet, and ensure that the route tables are configured accordingly.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A company's use of AWS Cloud services is quickly growing, so a CloudOps Engineer has been asked to generate details of daily spending to share with management. Which method should the Engineer choose to produce this data?
+
+- [ ] Share the monthly AWS bill with management.
+- [ ] Use AWS CloudTrail Logs to access daily costs in JSON format.
+- [x] Set up a daily Cost and Usage Report and download the output from Amazon S3.
+- [ ] Monitor AWS costs with Amazon CloudWatch and create billing alerts and notifications.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### An ecommerce company has built a web application that uses an Amazon Aurora DB cluster. The DB cluster includes memory optimized instance types with both a writer node and a reader node. Traffic volume changes throughout the day. During sudden traffic surges, Amazon CloudWatch metrics for the DB cluster indicate high RAM consumption and an increase in select latency. A CloudOps Engineer must implement a configuration change to improve the performance of the DB cluster. The change must minimize downtime and must not result in the loss of data. Which change will meet these requirements?
+
+- [x] Add an Aurora Replica to the DB cluster.
+- [ ] Modify the DB cluster to convert the DB cluster into a multi-master DB cluster.
+- [ ] Take a snapshot of the DB cluster. From that snapshot, create a new DB cluster that has larger memory optimized instances.
+- [ ] Increase the disk storage capacity of the DB cluster to double the existing disk capacity.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A web-commerce application stores its data in an Amazon Aurora DB cluster with an Aurora replica. The application displays shopping cart information by reading data from the reader endpoint. When monitoring the Aurora database, the CloudOps Engineer sees that the `AuroraReplicaLagMaximum` metric for a single replica is high. What behavior is the application MOST likely exhibiting to users?
+
+- [ ] Users cannot add any items to the shopping cart.
+- [x] Users intermittently notice that the cart is not updated correctly.
+- [ ] Users cannot remove any items from the shopping cart.
+- [ ] Users cannot use the application because it is falling back to an error page.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### Users are periodically experiencing slow response times from a relational database. The database runs on a burstable Amazon EC2 instance with a `350 GB` `General Purpose SSD (gp2)` Amazon Elastic Block Store (Amazon EBS) volume. A CloudOps Engineer monitors the EC2 instance in Amazon CloudWatch and observes that the `VolumeReadOps` metric drops to less than `10%` of its peak value during the periods of slow response. What should the CloudOps Engineer do to ensure consistently high performance?
+
+- [ ] Convert the `gp2` volume to a `General Purpose SSD (gp3)` EBS volume.
+- [ ] Convert the `gp2` volume to a `Cold HDD (sc1)` EBS volume.
+- [ ] Convert the EC2 instance to a memory optimized instance type.
+- [x] Activate unlimited mode on the EC2 instance.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### AnyCompany has acquired Example Corp and is attempting to consolidate the business systems of both companies. AnyCompany's IT department needs to integrate with Example Corp's IT ticketing system. A CloudOps Engineer must implement a solution that uses Amazon CloudWatch alarms for Amazon EC2 instances in AnyCompany's account to create new tickets in Example Corp's ticketing system. The ticketing system provides an `HTTPS` endpoint for the creation of new tickets. The ticketing system accepts messages in the following JSON format. Which approach to creating tickets from the CloudWatch alarms will meet these requirements with the LEAST development time?
+
+![Question 299](images/question299.png)
+
+- [ ] Create an Amazon EventBridge rule that filters appropriate events and specifies EventBridge API destinations as a target. Configure EventBridge API destinations to send events to the `HTTPS` endpoint. In the EventBridge rule, create an input transformer to convert the source to a compatible output for the ticketing system.
+- [ ] Create an Amazon EventBridge rule that filters appropriate events and specifies an Amazon Kinesis data stream as the target. Create an AWS Lambda function to receive events from the Kinesis data stream. Configure the Lambda function to start an AWS Glue job to transform the data and forward the output to the `HTTPS` endpoint.
+- [x] Create an Amazon EventBridge rule that filters appropriate events and specifies Amazon Simple Notification Service (Amazon SNS) as a target. Configure Amazon SNS to transform the events and send the events to the `HTTPS` endpoint.
+- [ ] Create an Amazon EventBridge rule that filters appropriate events and specifies an AWS Step Functions state machine as a target. Create an AWS Lambda function and an AWS Glue job in Step Functions to transform the events and send the events to the `HTTPS` endpoint.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A company runs its applications on a large number of Amazon EC2 instances. A CloudOps Engineer must implement a solution to notify the operations team whenever an EC2 instance state changes. What is the MOST operationally efficient solution that meets these requirements?
+
+- [ ] Create a script that captures instance state changes and publishes a notification to an Amazon Simple Notification Service (Amazon SNS) topic. Use AWS Systems Manager Run Command to run the script on all EC2 instances.
+- [x] Create an Amazon EventBridge event rule that captures EC2 instance state changes. Set an Amazon Simple Notification Service (Amazon SNS) topic as the target.
+- [ ] Create an Amazon EventBridge event rule that captures EC2 instance state changes. Set as the target an AWS Lambda function that publishes a notification to an Amazon Simple Notification Service (Amazon SNS) topic.
+- [ ] Create an AWS Config custom rule that evaluates instance state changes with automatic remediation. Use the rule to invoke an AWS Lambda function that publishes a notification to an Amazon Simple Notification Service (Amazon SNS) topic.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A company is running Amazon EC2 On-Demand Instances in an Auto Scaling group. The instances process messages from an Amazon Simple Queue Service (Amazon SQS) queue. The Auto Scaling group is set to scale based on the number of messages in the queue. Messages can take up to 12 hours to process completely. A CloudOps Engineer must ensure that instances are not interrupted during message processing. What should the CloudOps Engineer do to meet these requirements?
+
+- [x] Enable instance scale-in protection for the specific instance in the Auto Scaling group at the start of message processing by calling the Amazon EC2 Auto Scaling API from the processing script. Disable instance scale-in protection after message processing is complete by calling the Amazon EC2 Auto Scaling API from the processing script.
+- [ ] Set the Auto Scaling group's termination policy to `OldestInstance`.
+- [ ] Set the Auto Scaling group's termination policy to `OldestLaunchConfiguration`.
+- [ ] Suspend the `Launch and Terminate` scaling processes for the specific instance in the Auto Scaling group at the start of message processing by calling the Amazon EC2 Auto Scaling API from the processing script. Resume the scaling processes after message processing is complete by calling the Amazon EC2 Auto Scaling API from the processing script.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A company has an application that collects notifications from thousands of alarm systems. The notifications include alarm notifications and information notifications. The information notifications include the system arming processes, disarming processes, and sensor status. All notifications are kept as messages in an Amazon Simple Queue Service (Amazon SQS) queue. Amazon EC2 instances that are in an Auto Scaling group process the messages. A CloudOps Engineer needs to implement a solution that prioritizes alarm notifications over information notifications. Which solution will meet these requirements?
+
+- [ ] Adjust the Auto Scaling group to scale faster when a high number of messages is in the queue.
+- [ ] Use the Amazon Simple Notification Service (Amazon SNS) fanout feature with Amazon SQS to send the notifications in parallel to all the C2 instances.
+- [ ] Add an Amazon DynamoDB stream to accelerate the message processing.
+- [x] Create a queue for alarm notifications and a queue for information notifications. Update the application to collect messages from the alarm notifications queue first.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A CloudOps Engineer is responsible for more than `50` Amazon EC2 instances that are deployed in a single production AWS account. The EC2 instances are running several different operating systems. The company's standards require patching to be completed at least once a month. The CloudOps Engineer wants to use AWS Systems Manager to reduce the number of hours the company spends on operating system patching each month. Which combination of steps should the CloudOps Engineer take to meet these requirements? (Choose three.)
+
+- [x] Group similar EC2 instances together into resource groups by using AWS Resource Groups.
+- [ ] Create a schedule in Systems Manager Patch Manager. Specify the appropriate resource group as the target.
+- [x] Specify Systems Manager Automation runbooks to patch the operating systems. Register the runbooks as tasks in the maintenance window. Specify the appropriate resource group as the target.
+- [ ] Create a Systems Manager Automation runbook to monitor and control the state of the patches required. Apply the runbook to Systems Manager Patch Manager.
+- [x] Create a single Systems Manager maintenance window for each resource group.
+- [ ] Configure Systems Manager Fleet Manager to apply a Systems Manager Automation runbook to the appropriate resource group.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A company needs to enforce tagging requirements for Amazon DynamoDB tables in its AWS accounts. A CloudOps Engineer must implement a solution to identify and remediate all DynamoDB tables that do not have the appropriate tags. Which solution will meet these requirements with the LEAST operational overhead?
+
+- [ ] Create a custom AWS Lambda function to evaluate and remediate all DynamoDB tables. Create an Amazon EventBridge scheduled rule to invoke the Lambda function.
+- [ ] Create a custom AWS Lambda function to evaluate and remediate ail DynamoDB tables. Create an AWS Config custom rule to invoke the Lambda function.
+- [x] Use the `required-tags` AWS Config managed rule to evaluate all DynamoDB tables for the appropriate tags. Configure an automatic remediation action that uses an AWS Systems Manager Automation custom runbook.
+- [ ] Create an Amazon EventBridge managed rule to evaluate all DynamoDB tables for the appropriate tags. Configure the EventBridge rule to run an AWS Systems Manager Automation custom runbook for remediation.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A company has an application that uses Amazon DynamoDB tables. The tables are spread across AWS accounts and AWS Regions. The company uses AWS CloudFormation to deploy AWS resources. A new team at the company is deleting unused AWS resources. The team accidentally deletes several production DynamoDB tables by running an AWS Lambda function that makes a DynamoDB `DeleteTable` API call. The table deletions cause an application outage. A CloudOps Engineer must implement a solution that minimizes the chance of accidental deletions of tables. The solution also must minimize data loss that results from accidental deletions. Which combination of steps will meet these requirements? (Choose two.)
+
+- [ ] Enable termination protection for the CloudFormation stacks that deploy the DynamoDB tables.
+- [x] Enable deletion protection for the DynamoDB tables.
+- [x] Enable point-in-time recovery for the DynamoDB tables. Restore the tables if they are accidentally deleted.
+- [ ] Schedule daily backups of the DynamoDB tables. Restore the tables if they are accidentally deleted.
+- [ ] Export the DynamoDB tables to Amazon S3 every day. Use Import from Amazon S3 to restore data for tables that are accidentally deleted.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A company wants to track its AWS costs in all member accounts that are part of an organization in AWS Organizations. Managers of the member accounts want to receive a notification when the estimated costs exceed a predetermined amount each month. The managers are unable to configure a billing alarm. The IAM permissions for all users are correct. What could be the cause of this issue?
+
+- [x] The management/payer account does not have billing alerts turned on.
+- [ ] The company has not configured AWS Resource Access Manager (AWS RAM) to share billing information between the member accounts and the management/payer account.
+- [ ] Amazon GuardDuty is turned on for all the accounts.
+- [ ] The company has not configured an AWS Config rule to monitor billing.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A CloudOps Engineer is troubleshooting a `VPC` with public and private subnets that leverage custom network `ACL`s. Instances in the private subnet are unable to access the internet. There is an internet gateway attached to the public subnet. The private subnet has a route to a `NAT` gateway that is also attached to the public subnet. The Amazon EC2 instances are associated with the default security group for the `VPC`. What is causing the issue in this scenario?
+
+- [x] There is a network `ACL` on the private subnet set to deny all outbound traffic.
+- [ ] There is no `NAT` gateway deployed in the private subnet of the `VPC`.
+- [ ] The default security group for the `VPC` blocks all inbound traffic to the EC2 instances.
+- [ ] The default security group for the `VPC` blocks all outbound traffic from the EC2 instances.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### An organization is running multiple applications for their customers. Each application is deployed by running a base AWS CloudFormation template that configures a new `VPC`. All applications are run in the same AWS account and AWS Region. A CloudOps Engineer has noticed that when trying to deploy the same AWS CloudFormation stack, it fails to deploy. What is likely to be the problem?
+
+- [ ] The Amazon Machine image used is not available in that region.
+- [ ] The AWS CloudFormation template needs to be updated to the latest version.
+- [ ] The `VPC` configuration parameters have changed and must be updated in the template.
+- [x] The account has reached the default limit for `VPC`'s allowed.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A financial service company is running distributed computing software to manage a fleet of 20 servers for their calculations. There are 2 control nodes and 18 worker nodes to run the calculations. Worker nodes can be automatically started by the control nodes when required. Currently, all nodes are running on demand, and the worker nodes are used for approximately 4 hours each day. Which combination of actions will be MOST cost-effective? (Choose two.)
+
+- [ ] Use Dedicated Hosts for the control nodes.
+- [x] Use Reserved Instances for the control nodes.
+- [ ] Use Reserved Instances for the worker nodes.
+- [ ] Use Spot Instances for the control nodes and On-Demand Instances if there is no Spot availability.
+- [x] Use Spot Instances for the worker nodes and On-Demand Instances if there is no Spot availability.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A company has a web application that is experiencing performance problems many times each night. A root cause analysis reveals spikes in CPU utilization that last 5 minutes on an Amazon EC2 Linux instance. A CloudOps Engineer is tasked with finding the process ID (PID) of the service or process that is consuming more CPU. How can the Engineer accomplish this with the LEAST amount of effort?
+
+- [ ] Configure an AWS Lambda function in Python `3.7` to run every minute to capture the PID and send a notification.
+- [x] Configure the `procstat` plugin to collect and send CPU metrics for the running processes.
+- [ ] Log in to the EC2 Linux instance using a `.pem` key each night and then run the top command.
+- [ ] Use the default Amazon CloudWatch CPU utilization metric to capture the PID in the CloudWatch dashboard.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A company uses AWS Organizations to host several applications across multiple AWS accounts. Several teams are responsible for building and maintaining the infrastructure of the applications across the AWS accounts. A CloudOps Engineer must implement a solution to ensure that user accounts and permissions are centrally managed. The solution must be integrated with the company's existing on-premises Active Directory environment. The CloudOps Engineer already has enabled AWS IAM Identity Center (AWS Single Sign-On) and has set up an AWS Direct Connect connection. What is the MOST operationally efficient solution that meets these requirements?
+
+- [ ] Create a Simple AD domain, and establish a forest trust relationship with the on-premises Active Directory domain. Set the Simple AD domain as the identity source for IAM Identity Center. Create the required role-based permission sets. Assign each group of users to the AWS accounts that the group will manage.
+- [ ] Create an Active Directory domain controller on an Amazon EC2 instance that is joined to the on-premises Active Directory domain. Set the Active Directory domain controller as the identity source for IAM Identity Center. Create the required role-based permission sets. Assign each group of users to the AWS accounts that the group will manage.
+- [x] Create an AD Connector that is associated with the on-premises Active Directory domain. Set the AD Connector as the identity source for IAM Identity Center. Create the required role-based permission sets. Assign each group of users to the AWS accounts that the group will manage.
+- [ ] Use the built-in SSO directory as the identity source for IAM Identity Center. Copy the users and groups from the on-premises Active Directory domain. Create the required role-based permission sets. Assign each group of users to the AWS accounts that the group will manage.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A CloudOps Engineer has been asked to configure user-defined cost allocation tags for a new AWS account. The company is using AWS Organizations for account management. What should the Engineer do to enable user-defined cost allocation tags?
+
+- [ ] Log in to the AWS Billing and Cost Management console of the new account, and use the Cost Allocation Tags manager to create the new user-defined cost allocation tags.
+- [x] Log in to the AWS Billing and Cost Management console of the payer account, and use Cost Allocation Tags manager to create the new user-defined cost allocation tags.
+- [ ] Log in to the AWS Management Console of the new account, use the Tag Editor to create the new user-defined tags, then use the Cost Allocation Tags manager in the new account to mark the tags as cost allocation tags.
+- [ ] Log in to the AWS Management Console of the new account, use the Tag Editor to create the new user-defined tags, then use the Cost Allocation Tags manager in the payer account to mark the tags as cost allocation tags.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A CloudOps Engineer needs to configure an Amazon S3 bucket to host a web application. The CloudOps Engineer has created the S3 bucket and has copied the static files for the web application to the S3 bucket. The company has a policy that all S3 buckets must not be public. What should the CloudOps Engineer do to meet these requirements?
+
+- [x] Create an Amazon CloudFront distribution. Configure the S3 bucket as an origin with an Origin Access Identity (OAI). Give the OAI the `s3:GetObject` permission in the S3 bucket policy.
+- [ ] Configure static website hosting in the S3 bucket. Use Amazon Route 53 to create a `DNS` `CNAME` to point to the S3 website endpoint.
+- [ ] Create an Application Load Balancer (ALB). Change the protocol to `HTTPS` in the `ALB` listener configuration. Forward the traffic to the S3 bucket.
+- [ ] Create an accelerator in AWS Global Accelerator. Set up a listener configuration for port `443`. Set the endpoint type to forward the traffic to the S3 bucket.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### An Amazon EBS volume attached to an EC2 instance was recently modified. Part of the modification included increasing the storage capacity. The CloudOps Engineer notices that the increased storage capacity is not reflected in the file system. Which step should the Engineer complete to use the increased storage capacity?
+
+- [ ] Restart the EC2 instance.
+- [x] Extend the volume's file system.
+- [ ] Detach the EBS volume, resize it, and attach it.
+- [ ] Take an EBS snapshot and restore it to the bigger volume.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### Recently several critical files were mistakenly deleted from a shared Amazon S3 bucket. A CloudOps Engineer needs to prevent accidental deletions from occurring in the future by enabling `MFA Delete`. Once enabled, which bucket activities will require MFA authentication? (Choose two.)
+
+- [x] Permanently removing an object version from the bucket.
+- [ ] Disabling default object encryption for the bucket.
+- [ ] Listing all versions of deleted objects in the bucket.
+- [x] Suspending versioning on the bucket.
+- [ ] Enabling `MFA Add` on the bucket.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A CloudOps Engineer is testing an application that is hosted on five Amazon EC2 instances. The instances run in an Auto Scaling group behind an Application Load Balancer (`ALB`). High CPU utilization during load testing is causing the Auto Scaling group to scale out. The CloudOps Engineer must troubleshoot to find the root cause of the high CPU utilization before the Auto Scaling group scales out. Which action should the CloudOps Engineer take to meet these requirements?
+
+- [ ] Enable instance scale-in protection.
+- [ ] Place the instance into the Standby state.
+- [ ] Remove the listener from the `ALB`.
+- [x] Suspend the `Launch and Terminate` process types.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A CloudOps Engineer has been tasked with deploying a company's infrastructure as code. The Engineer wants to write a single template that can be reused for multiple environments in a safe, repeatable manner. What is the recommended way to use AWS CloudFormation to meet this requirement?
+
+- [x] Use parameters to provision the resources.
+- [ ] Use nested stacks to provision the resources.
+- [ ] Use Amazon EC2 user data to provision the resources.
+- [ ] Use stack policies to provision the resources.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A CloudOps Engineer is responsible for a large fleet of EC2 instances and must know whether any instances will be affected by upcoming hardware maintenance. Which option would provide this information with the LEAST administrative overhead?
+
+- [ ] Monitor AWS CloudTrail for `StopInstances` API calls related to upcoming maintenance.
+- [x] Review the Personal Health Dashboard for any scheduled maintenance.
+- [ ] From the AWS Management Console, list any instances with failed system status checks.
+- [ ] Deploy a third-party monitoring solution to provide real-time EC2 instance monitoring.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A CloudOps Engineer is creating resources from an AWS CloudFormation template that defines an Auto Scaling group of Amazon EC2 instances. The Auto Scaling group launch template provisions each EC2 instance by using a user data script. The creation of the Auto Scaling group resource is failing because of an error. The wait condition is not receiving the required number of signals. How should the CloudOps Engineer resolve this error?
+
+- [x] Run `cfn-signal` at the completion of the user data script.
+- [ ] Modify the EC2 instances' security group to allow outgoing traffic on port `443`.
+- [ ] Reduce the Auto Scaling group's `DesiredCapacity` value in the CloudFormation template.
+- [ ] Set the `AssociatePublicIpAddress` property to `True` in the Auto Scaling group launch template.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A company hosts a web application on Amazon EC2 instances behind an Application Load Balancer. The instances are in an Amazon EC2 Auto Scaling group. The application is accessed with a public URL. A CloudOps Engineer needs to implement a monitoring solution that checks the availability of the application and follows the same routes and actions as a customer. The CloudOps Engineer must receive a notification if less than `95%` of the monitoring runs find no errors. Which solution will meet these requirements?
+
+- [x] Create an Amazon CloudWatch Synthetics canary with a script that follows customer routes. Schedule the canary to run on a recurring schedule. Create a CloudWatch alarm that publishes a message to an Amazon Simple Notification Service (Amazon SNS) topic when the `SuccessPercent` metric is less than `95%`.
+- [ ] Create Amazon Route 53 health checks that monitor the availability of the endpoint. Create Amazon CloudWatch alarms that publish a message to an Amazon Simple Notification Service (Amazon SNS) topic when the `HealthCheckPercentageHealthy` metric is less than `95%`.
+- [ ] Create a single AWS Lambda function to check whether the endpoints are available for each customer path. Schedule the Lambda function by using Amazon EventBridge (Amazon CloudWatch Events). Configure the Lambda function to publish a message to an Amazon Simple Notification Service (Amazon SNS) topic when an endpoint returns an error.
+- [ ] Create an AWS Lambda function for each customer path to check whether that specific endpoint is available. Schedule the Lambda functions by using Amazon EventBridge (Amazon CloudWatch Events). Configure each Lambda function to publish a custom metric to Amazon CloudWatch for the endpoint status. Create CloudWatch alarms based on each custom metric to publish a message to an Amazon Simple Notification Service (Amazon SNS) topic when an alarm is in the `ALARM` state.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A CloudOps Engineer working on an Amazon EC2 instance has misconfigured the clock by one hour. The EC2 instance is sending data to Amazon CloudWatch through the CloudWatch agent. The timestamps on the logs are 45 minutes in the future. What will be the result of this configuration?
+
+- [ ] Amazon CloudWatch will not capture the data because it is in the future.
+- [x] Amazon CloudWatch will accept the custom metric data and record it.
+- [ ] The Amazon CloudWatch agent will check the Network Time Protocol (NTP) server before sending the data, and the agent will correct the time.
+- [ ] The Amazon CloudWatch agent will check the Network Time Protocol (NTP) server, and the agent will not send the data because it is more than 30 minutes in the future.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A CloudOps Engineer has configured a CloudWatch agent to send custom metrics to Amazon CloudWatch and is now assembling a CloudWatch dashboard to display these metrics. What steps should the Engineer take to complete this task?
+
+- [ ] Select the AWS Namespace, filter by metric name, then add to the dashboard.
+- [ ] Add a text widget, select the appropriate metric from the custom namespace, then add to the dashboard.
+- [x] Select the appropriate widget and metrics from the custom namespace, then add to the dashboard.
+- [ ] Open the CloudWatch console, from the CloudWatch Events, add all custom metrics.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A CloudOps Engineer needs to create a replica of a company's existing AWS infrastructure in a new AWS account. Currently, an AWS Service Catalog portfolio is used to create and manage resources. What is the MOST efficient way to accomplish this?
+
+- [ ] Create an AWS CloudFormation template to use the AWS Service Catalog portfolio in the new AWS account.
+- [ ] Manually create an AWS Service Catalog portfolio in the new AWS account that duplicates the original portfolio.
+- [ ] Run an AWS Lambda function to create a new AWS Service Catalog portfolio based on the output of the `DescribePortfolio` API operation.
+- [x] Share the AWS Service Catalog portfolio with the other AWS accounts and import the portfolio into the other AWS accounts.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A company has an application that is deployed to two AWS Regions in an active-passive configuration. The application runs on Amazon EC2 instances behind an Application Load Balancer (ALB) in each Region. The instances are in an Amazon EC2 Auto Scaling group in each Region. The application uses an Amazon Route 53 hosted zone for `DNS`. A CloudOps Engineer needs to configure automatic failover to the secondary Region. What should the CloudOps Engineer do to meet these requirements?
+
+- [x] Configure Route 53 alias records that point to each `ALB`. Choose a failover routing policy. Set `Evaluate Target Health` to `Yes`.
+- [ ] Configure `CNAME` records that point to each ALChoose a failover routing policy. Set `Evaluate Target Health` to `Yes`.
+- [ ] Configure Elastic Load Balancing (ELB) health checks for the Auto Scaling group. Add a target group to the `ALB` in the primary Region. Include the EC2 instances in the secondary Region as targets.
+- [ ] Configure EC2 health checks for the Auto Scaling group. Add a target group to the `ALB` in the primary Region. Include the EC2 instances in the secondary Region as targets.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A company plans to launch a static website on its domain `example.com` and subdomain `www.example.com` using Amazon S3. How should the CloudOps Engineer meet this requirement?
+
+- [ ] Create one S3 bucket named `example.com` for both the domain and subdomain.
+- [ ] Create one S3 bucket with a wildcard named `*.example.com` for both the domain and subdomain.
+- [x] Create two S3 buckets named `example.com` and `www.example.com`. Configure the subdomain bucket to redirect requests to the domain bucket.
+- [ ] Create two S3 buckets named `http://example.com` and `http://*.example.com`. Configure the wildcard (`*`) bucket to redirect requests to the domain bucket.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A CloudOps Engineer is maintaining an application that runs on Amazon EC2 instances behind an Application Load Balancer (ALB). Users are reporting errors when attempting to launch the application. The Engineer notices an increase in the `HTTPCode_ELB_5xx_Count` Amazon CloudWatch metric for the load balancer. What is a possible cause for this increase?
+
+- [ ] The `ALB` is associated with private subnets within the `VPC`.
+- [ ] The `ALB` received a request from a client, but the client closed the connection.
+- [ ] The `ALB` security group is not configured to allow inbound traffic from the users.
+- [x] The `ALB` target group does not contain healthy EC2 instances.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A company has several member accounts that are in an organization in AWS Organizations. The company recently discovered that administrators have been using account root user credentials. The company must prevent the Engineers from using root user credentials to perform any actions on Amazon EC2 instances. What should a CloudOps Engineer do to meet this requirement?
+
+- [ ] Create an identity-based IAM policy in each member account to deny actions on EC2 instances by the root user.
+- [x] In the organization's management account, create a Service Control Policy (SCP) to deny actions on EC2 instances by the root user in all member accounts.
+- [ ] Use AWS Config to prevent any actions on EC2 instances by the root user.
+- [ ] Use Amazon Inspector in each member account to scan for root user logins and to prevent any actions on EC2 instances by the root user
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A company creates a new member account by using AWS Organizations. A CloudOps Engineer needs to add AWS Business Support to the new account. Which combination of steps must the CloudOps Engineer take to meet this requirement? (Choose two.)
+
+- [x] Sign in to the new account by using IAM credentials. Change the support plan.
+- [ ] Sign in to the new account by using root user credentials. Change the support plan.
+- [ ] Use the AWS Support API to change the support plan.
+- [ ] Reset the password of the account root user.
+- [x] Create an IAM user that has administrator privileges in the new account.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A company hosts its website in the `us-east-1` Region. The company is preparing to deploy its website into the `eu-central-1` Region. Website visitors who are located in Europe should access the website that is hosted in `eu-central-1`. All other visitors access the website that is hosted in `us-east-1`. The company uses Amazon Route 53 to manage the website's `DNS` records. Which routing policy should a CloudOps Engineer apply to the Route 53 record set to meet these requirements?
+
+- [x] Geolocation routing policy.
+- [ ] Geoproximity routing policy.
+- [ ] Latency routing policy.
+- [ ] Multivalue answer routing policy.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A company's CloudOps Engineer manages a fleet of hundreds of Amazon EC2 instances that run Windows-based workloads and Linux-based workloads. Each EC2 instance has a tag that identifies its operating system. All the EC2 instances run AWS Systems Manager Session Manager. A zero-day vulnerability is reported, and no patches are available. The company's security team provides code for all the relevant operating systems to reduce the risk of the vulnerability. The CloudOps Engineer needs to implement the code on the EC2 instances and must provide a report that shows that the code has successfully run on all the instances. What should the CloudOps Engineer do to meet these requirements as quickly as possible?
+
+- [x] Use Systems Manager Run Command. Choose either the `AWS-RunShellScript` document or the `AWS-RunPowerShellScript` document. Configure Run Command with the code from the security team. Specify the operating system tag in the Targets parameter. Run the command. Provide the command history's evidence to the security team.
+- [ ] Create an AWS Lambda function that connects to the EC2 instances through Session Manager. Configure the Lambda function to identify the operating system, run the code from the security team, and return the results to an Amazon RDS DB instance. Query the DB instance for the results. Provide the results as evidence to the security team.
+- [ ] Log on to each EC2 instance. Run the code from the security team on each EC2 instance. Copy and paste the results of each run into a single spreadsheet. Provide the spreadsheet as evidence to the security team.
+- [ ] Update the launch templates of the EC2 instances to include the code from the security team in the user data. Relaunch the EC2 instances by using the updated launch templates. Retrieve the EC2 instance logs of each instance. Provide the EC2 instance logs as evidence to the security team.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+### A CloudOps Engineer is responsible for the security of a company's AWS account. The company has a policy that a user may stop or terminate Amazon EC2 instances only when the user is authenticated by using a multi-factor authentication (MFA) device. Which policy should the CloudOps Engineer apply to meet this requirement?
 
 - [x] Option A.
-![Question 30 option A](images/question30_A.jpg)
+![Question 331 option A](images/question331_A.png)
 - [ ] Option B.
-![Question 30 option B](images/question30_B.jpg)
+![Question 331 option B](images/question331_B.png)
 - [ ] Option C.
-![Question 30 option C](images/question30_C.jpg)
+![Question 331 option C](images/question331_C.png)
 - [ ] Option D.
-![Question 30 option D](images/question30_D.jpg)
+![Question 331 option D](images/question331_D.png)
 
 **[⬆ Back to Top](#table-of-contents)**
 
-### A developer wants the ability to roll back to a previous version of an AWS Lambda function in the event of errors caused by a new deployment. How can the developer achieve this with MINIMAL impact on users?
+### A company is setting up a `VPC` peering connection between its `VPC` and a customer's `VPC`. The company `VPC` is an IPv4 `CIDR` block of `172.16.0.0/16`, and the customer's is an IPv4 `CIDR` block of `10.0.0.0/16`. The CloudOps Engineer wants to be able to ping the customer's database private IP address from one of the company's Amazon EC2 instances. What action should be taken to meet the requirements?
 
-- [ ] Change the application to use an alias that points to the current version. Deploy the new version of the code. Update the alias to use the newly deployed version. If too many errors are encountered, point the alias back to the previous version.
-- [x] Change the application to use an alias that points to the current version. Deploy the new version of the code. Update the alias to direct 10% of users to the newly deployed version. If too many errors are encountered, send 100% of traffic to the previous version.
-- [ ] Do not make any changes to the application Deploy the new version of the code. If too many errors are encountered, point the application back to the previous version using the version number in the Amazon Resource Name (ARN).
-- [ ] Create three aliases: new, existing, and router. Point the existing alias to the current version. Have the router alias direct 100% of users to the existing alias. Update the application to use the router alias. Deploy the new version of the code. Point the new alias to this version. Update the router alias to direct 10% of users to the new alias. If too many errors are encountered, send 100% of traffic to the existing alias.
+- [ ] Ensure that both accounts are linked and are part of consolidated billing to create a file sharing network, and then enable `VPC` peering.
+- [x] Ensure that both `VPC` owners manually add a route to the `VPC` route tables that points to the IP address range of the other `VPC`.
+- [ ] Instruct the customer to set up a `VPC` with the same IPv4 `CIDR` block as that of the source `VPC`: `172.16.0.0/16`.
+- [ ] Instruct the customer to create a virtual private gateway to link the two `VPC`'s.
 
 **[⬆ Back to Top](#table-of-contents)**
 
-### An application contains two components: one component to handle HTTP requests, and another component to handle background processing tasks. Each component must scale independently. The developer wants to deploy this application using AWS Elastic Beanstalk. How should this application be deployed, based on these requirements?
+### A company runs a web application that users access using the domain name `www.example.com`. The company manages the domain name using Amazon Route 53. The company created an Amazon CloudFront distribution in front of the application and would like `www.example.com` to access the application through CloudFront. What is the MOST cost-effective way to achieve this?
 
-- [ ] Deploy the application in a single Elastic Beanstalk environment.
-- [x] Deploy each component in a separate Elastic Beanstalk environment.
-- [ ] Use multiple Elastic Beanstalk environments for the HTTP component but one environment for the background task component.
-- [ ] Use multiple Elastic Beanstalk environments for the background task component but one environment for the HTTP component.
+- [ ] Create a `CNAME` record in Amazon Route 53 that points to the CloudFront distribution URL.
+- [x] Create an `ALIAS` record in Amazon Route 53 that points to the CloudFront distribution URL.
+- [ ] Create an `A` record in Amazon Route 53 that points to the public IP address of the web application.
+- [ ] Create a `PTR` record in Amazon Route 53 that points to the public IP address of the web application.
 
 **[⬆ Back to Top](#table-of-contents)**
 
-### A company is using AWS CloudFormation templates to deploy AWS resources. The company needs to update one of its AWS CloudFormation stacks. What can the company do to find out how the changes will impact the resources that are running?
+### A CloudOps Engineer needs to deploy an application in multiple AWS Regions. The CloudOps Engineer must implement a solution that routes users to the Region with the lowest latency. In case of failure, the solution must automatically route requests to a Region with a healthy instance of the application. The company needs a solution with the shortest time to failover. Which solution will meet these requirements?
 
-- [x] Investigate the change sets.
-- [ ] Investigate the stack policies.
-- [ ] Investigate the `Metadata` section.
-- [ ] Investigate the `Resources` section.
+- [ ] Create Amazon Route 53 `A` records that have the same name for each endpoint. Use a latency routing policy. Associate a health check with each record.
+- [ ] Create Amazon Route 53 `A` records that have the same name for each endpoint. Use a failover routing policy. Associate a health check with each record.
+- [x] Create an AWS Global Accelerator standard accelerator. Create an endpoint group for each Region. Add a listener to the accelerator. Associate the endpoint group with the listener.
+- [ ] Create Amazon Route 53 `A` records that have the same name for each endpoint. Use a geolocation routing policy. Associate a health check with each record.
 
 **[⬆ Back to Top](#table-of-contents)**
 
-### A developer is creating a serverless web application and maintains different branches of code. The developer wants to avoid updating the Amazon API Gateway target endpoint each time a new code push is performed. What solution would allow the developer to perform a code push efficiently, without the need to update the API Gateway?
+### A company is using Amazon CloudWatch alarms to monitor Amazon Elastic Kubernetes Service (Amazon EKS) workloads. The alarms are initiated through a threshold definition and are not helping the EKS cluster operate more efficiently. A CloudOps Engineer must implement a solution that identifies anomalies and generates recommendations for how to address the anomalies. Which solution will meet these requirements?
 
-- [ ] Associate different AWS Lambda functions to an API Gateway target endpoint.
-- [ ] Create different stages in API Gateway, then associate API Gateway with AWS Lambda.
-- [x] Create aliases and versions in AWS Lambda.
-- [ ] Tag the AWS Lambda functions with different names.
+- [ ] Use CloudWatch anomaly detection to identify anomalies and provide recommendations.
+- [x] Use CloudWatch Container Insights with Amazon DevOps Guru to identify anomalies and provide recommendations.
+- [ ] Use CloudWatch Container Insights to identify anomalies and provide recommendations.
+- [ ] Use CloudWatch anomaly detection with CloudWatch Container Insights to identify anomalies and provide recommendations.
 
 **[⬆ Back to Top](#table-of-contents)**
 
-### An application running on EC2 instances is storing data in an S3 bucket. Security policy mandates that all data must be encrypted in transit. How can the Developer ensure that all traffic to the S3 bucket is encrypted?
+### A company's application currently uses an IAM role that allows all access to all AWS services. A CloudOps Engineer must ensure that the company's IAM policies allow only the permissions that the application requires. How can the CloudOps Engineer create a policy to meet this requirement?
 
-- [ ] Install certificates on the EC2 instances.
-- [ ] Create a bucket policy that allows traffic where `SecureTransport` is `true`.
-- [ ] Create an HTTPS redirect on the EC2 instances.
-- [x] Create a bucket policy that denies traffic where `SecureTransport` is `false`.
+- [ ] Turn on AWS CloudTrail. Generate a policy by using AWS Security Hub.
+- [ ] Turn on Amazon EventBridge (Amazon CloudWatch Events). Generate a policy by using AWS Identity and Access Management Access Analyzer.
+- [ ] Use the AWS CLI to run the `get-generated-policy` command in AWS Identity and Access Management Access Analyzer.
+- [x] Turn on AWS CloudTrail. Generate a policy by using AWS Identity and Access Management Access Analyzer.
 
 **[⬆ Back to Top](#table-of-contents)**
 
-### A supplier is writing a new RESTful API for customers to query the status of orders. The customers requested the following API endpoint `http://www.supplierdomain.com/status/customerID`. Which of the following application designs meet the requirements? (Select TWO)
+### A company stores sensitive data in an Amazon S3 bucket. The company must log all access attempts to the S3 bucket. The company's risk team must receive immediate notification about any delete events. Which solution will meet these requirements?
 
-- [ ] Amazon SQS; Amazon SNS.
-- [x] Elastic Load Balancing; Amazon EC2.
-- [ ] Amazon ElastiCache; Amazon Elacticsearch Service.
-- [x] Amazon API Gateway; AWS Lambda.
-- [ ] Amazon S3; Amazon CloudFront.
+- [x] Enable S3 server access logging for audit logs. Set up an Amazon Simple Notification Service (Amazon SNS) notification for the S3 bucket. Select `DeleteObject` for the event type for the alert system.
+- [ ] Enable S3 server access logging for audit logs. Launch an Amazon EC2 instance for the alert system. Run a cron job on the EC2 instance to download the access logs each day and to scan for a `DeleteObject` event.
+- [ ] Use Amazon CloudWatch Logs for audit logs. Use Amazon CloudWatch alarms with an Amazon Simple Notification Service (Amazon SNS) notification for the alert system.
+- [ ] Use Amazon CloudWatch Logs for audit logs. Launch an Amazon EC2 instance for the alert system. Run a cron job on the EC2 instance each day to compare the list of the items with the list from the previous day. Configure the cron job to send a notification if an item is missing.
 
 **[⬆ Back to Top](#table-of-contents)**
 
-### A developer Is designing an AWS Lambda function that create temporary files that are less than 10 MB during execution. The temporary files will be accessed and modified multiple times during execution. The developer has no need to save or retrieve these files in the future. Where should the temporary file be stored?
+### A company stores its internal data within an Amazon S3 bucket. All existing data within the S3 bucket is protected by using server-side encryption with Amazon S3 managed encryption keys (SSE-S3). S3 Versioning is enabled. A CloudOps Engineer must replicate the internal data to another S3 bucket in a different AWS account for disaster recovery. All the existing data is copied from the source S3 bucket to the destination S3 bucket. Which replication solution is MOST operationally efficient?
 
-- [x] the `/tmp` directory.
-- [ ] Amazon EFS.
-- [ ] Amazon EBS.
-- [ ] Amazon S3.
+- [x] Add a replication rule to the source bucket and specify the destination bucket. Create a bucket policy for the destination bucket to allow the owner of the source bucket to replicate objects.
+- [ ] Schedule an AWS Batch job with Amazon EventBridge to copy new objects from the source bucket to the destination bucket. Create a Batch Operations IAM role in the destination account.
+- [ ] Configure an Amazon S3 event notification for the source bucket to invoke an AWS Lambda function to copy new objects to the destination bucket. Ensure that the Lambda function has cross-account access permissions.
+- [ ] Run a scheduled script on an Amazon EC2 instance to copy new objects from the source bucket to the destination bucket. Assign cross-account access permissions to the EC2 instance's role.
 
 **[⬆ Back to Top](#table-of-contents)**
 
-### A website's page load times are gradually increasing as more users access the system at the same time. Analysis indicates that a user profile is being loaded from a database in all the web pages being visited by each user and this is increasing the database load and the page load latency. To address this issue the Developer decides to cache the user profile data. Which caching strategy will address this situation MOST efficiently?
+### A company recently deployed MySQL on an Amazon EC2 instance with a default boot volume. The company intends to restore a 1.75 TB database. A CloudOps Engineer needs to provision the correct Amazon Elastic Block Store (Amazon EBS) volume. The database will require read performance of up to 10,000 IOPS and is not expected to grow in size. Which solution will provide the required performance at the LOWEST cost?
 
-- [ ] Create a new Amazon EC2 Instance and run a NoSQL database on it. Cache the profile data within this database using the write-through caching strategy.
-- [x] Create an Amazon ElastiCache cluster to cache the user profile data. Use a cache-aside caching strategy.
-- [ ] Use a dedicated Amazon RDS instance for caching profile data. Use a write-through caching strategy.
-- [ ] Create an ElastiCache cluster to cache the user profile data. Use a write-through caching strategy.
+- [ ] Deploy a 2 TB `Cold HDD (sc1)` volume.
+- [ ] Deploy a 2 TB `Throughput Optimized HDD (st1)` volume.
+- [x] Deploy a 2 TB `General Purpose SSD (gp3)` volume. Set the IOPS to 10,000.
+- [ ] Deploy a 2 TB `Provisioned IOPS SSD (io2)` volume. Set the IOPS to 10,000.
 
 **[⬆ Back to Top](#table-of-contents)**
 
-### An advertising company has a dynamic website with heavy traffic. The company wants to migrate the website infrastructure to AWS to handle everything except website development. Which solution BEST meets these requirements?
+### A company manages its multi-account environment by using AWS Organizations. The company needs to automate the creation of daily incremental backups of any Amazon Elastic Block Store (Amazon EBS) volume that is marked with a Lifecycle: Production tag in one of its primary AWS accounts. The company wants to prevent users from using Amazon EC2 `*` permissions to delete any of these production snapshots. What should a CloudOps Engineer do to meet these requirements?
 
-- [ ] Use AWS VM Import to migrate a web server image to AWS Launch the image on a compute-optimized Amazon EC2 instance.
-- [ ] Launch multiple Amazon Lightsail instance behind a load balancer. Set up the website on those instances.
-- [x] Deploy the website code in an AWS Elastic Beanstalk environment. Use Auto Scaling to scale the numbers of instance.
-- [ ] Use Amazon S3 to host the website. Use Amazon CloudFornt to deliver the content at scale.
+- [ ] Create a daily snapshot of all EBS volumes by using Amazon Data Lifecycle Manager. Specify Lifecycle as the tag key. Specify Production as the tag value.
+- [x] Associate a Service Control Policy (SCP) with the account to deny users the ability to delete EBS snapshots. Create an Amazon EventBridge rule with a 24-hour cron schedule. Configure EBS Create Snapshot as the target. Target all EBS volumes with the specified tags.
+- [ ] Create a daily snapshot of all EBS volumes by using AWS Backup. Specify Lifecycle as the tag key. Specify Production as the tag value.
+- [ ] Create a daily Amazon Machine Image (AMI) of every production EC2 instance within the AWS account by using Amazon Data Lifecycle Manager.
 
 **[⬆ Back to Top](#table-of-contents)**
 
-### A developer is writing an AWS Lambda function. The developer wants to log key events that occur during the Lambda function and include a unique identifier to associate the events with a specific function invocation. Which of the following will help the developer accomplish this objective?
+### A web application accepts orders from online users and places the orders into an Amazon SQS queue. Amazon EC2 instances in an EC2 Auto Scaling group read the messages from the queue, process the orders, and email order confirmations to the users. The Auto Scaling group scales up and down based on the queue depth. At the beginning of each business day, users report confirmation emails are delayed. What action will address this issue?
 
-- [x] Obtain the request identifier from the Lambda context object. Architect the application to write logs to the console.
-- [ ] Obtain the request identifier from the Lambda event object. Architect the application to write logs to a file.
-- [ ] Obtain the request identifier from the Lambda event object. Architect the application to write logs to the console.
-- [ ] Obtain the request identifier from the Lambda context object. Architect the application to write logs to a file.
+- [x] Create a scheduled scaling action to scale up in anticipation of the traffic.
+- [ ] Change the Auto Scaling group to scale up and down based on CPU utilization.
+- [ ] Change the launch configuration to launch larger EC2 instance types.
+- [ ] Modify the scaling policy to deploy more EC2 instances when scaling up.
 
 **[⬆ Back to Top](#table-of-contents)**
 
-### A company stores all personally identifiable information (PII) in an Amazon DynamoDB table named PII in Account A. An application running on Amazon EC2 instances in Account B requires access to the PII table. An administrators in Account A created an IAM role named AccessPII with privileges to access the PII table, and made account B a trusted entity. Which combination of actional steps should Developers take to access the table? (Select TWO)
+### A company has developed a service that is deployed on a fleet of Linux-based Amazon EC2 instances that are in an Auto Scaling group. The service occasionally fails unexpectedly because of an error in the application code. The company's engineering team determines that resolving the underlying cause of the service failure could take several weeks. A CloudOps Engineer needs to create a solution to automate recovery if the service crashes on any of the EC2 instances. Which solutions will meet this requirement? (Choose two.)
 
-- [x] Allow the EC2 IAM role the permission to assume the AccessPII role.
-- [ ] Allow the EC2 IAM role the permission to access the PII table.
-- [ ] Include the AWS API in the application code logic to obtain temporary credentials from the EC2 IAM role to access the PII table.
-- [x] Include the `AssumeRole` API operation in the application code logic to obtain temporary credentials to access the PII table.
-- [ ] Include the GetSessionToken API operation in the application code logic to obtain temporary credentials to access the PII table.
+- [ ] Install the Amazon CloudWatch agent on the EC2 instances. Configure the CloudWatch agent to monitor the service. Set the CloudWatch action to restart if the service health check fails.
+- [ ] Tag the EC2 instances. Create an AWS Lambda function that uses AWS Systems Manager Session Manager to log in to the tagged EC2 instances and restart the service. Schedule the Lambda function to run every 5 minutes.
+- [x] Tag the EC2 instances. Use AWS Systems Manager State Manager to create an association that uses the `AWS-RunShellScript` document. Configure the association command with a script that checks if the service is running and that starts the service if the service is not running. For targets, specify the EC2 instance tag. Schedule the association to run every 5 minutes.
+- [x] Update the EC2 user data that is specified in the Auto Scaling group's launch template to include a script that runs on a cron schedule every 5 minutes. Configure the script to check if the service is running and to start the service if the service is not running. Redeploy all the EC2 instances in the Auto Scaling group with the updated launch template.
+- [ ] Update the EC2 user data that is specified in the Auto Scaling group's launch template to ensure that the service runs during startup. Redeploy all the EC2 instances in the Auto Scaling group with the updated launch template.
 
 **[⬆ Back to Top](#table-of-contents)**
 
-### An AWS Lambda function accesses two Amazon DynamoDB tables. A developer wants to improve the performance of the Lambda function by identifying bottlenecks in the function. How can the developer inspect the timing of the DynamoDB API calls?
+### A CloudOps Engineer is writing an AWS Lambda function in AWS Account A to put objects in an Amazon S3 bucket in AWS Account B. The Lambda function is able to successfully write new objects to the S3 bucket, but IAM users in Account B are unable to delete objects written to the bucket by Account A. Which step will fix this issue?
 
-- [ ] Add DynamoDB as an event source to the Lambda function. View the performance with Amazon CloudWatch metrics.
-- [ ] Place an Application Load Balancer (ALB) in front of the two DynamoDB tables. Inspect the ALB logs.
-- [ ] Limit Lambda to no more than five concurrent invocations Monitor from the Lambda console.
-- [x] Enable AWS X-Ray tracing for the function. View the traces from the X-Ray service.
+- [ ] Add `s3:DeleteObject` permission to the IAM execution role of the AWS Lambda function in Account A.
+- [ ] Change the bucket policy of the S3 bucket in Account B to allow `s3:DeleteObject` permission for Account A.
+- [ ] Disable server-side encryption for objects written to the S3 bucket by the Lambda function.
+- [x] Modify the Lambda function to call the `s3:PutObjectAcl` API operation to specify bucket owner, full control.
 
 **[⬆ Back to Top](#table-of-contents)**
 
-### An Amazon RDS database instance is used by many applications to look up historical data. The query rate is relatively constant. When the historical data is updated each day, the resulting write traffic slows the read query performance and affects all application users. What can be done to eliminate the performance impact on application users?
+### A CloudOps Engineer needs to automate the invocation of an AWS Lambda function. The Lambda function must run at the end of each day to generate a report on data that is stored in an Amazon S3 bucket. What is the MOST operationally efficient solution that meets these requirements?
 
-- [ ] Make sure Amazon RDS is Multi-AZ so it can better absorb increased traffic.
-- [x] Create an RDS Read Replica and direct all read traffic to the replica.
-- [ ] Implement Amazon ElastiCache in front of Amazon RDS to buffer the write traffic.
-- [ ] Use Amazon DynamoDB instead of Amazon RDS to buffer the read traffic.
+- [ ] Create an Amazon EventBridge (Amazon CloudWatch Events) rule that has an event pattern for Amazon S3 and the Lambda function as a target.
+- [x] Create an Amazon EventBridge (Amazon CloudWatch Events) rule that has a schedule and the Lambda function as a target.
+- [ ] Create a S3 event notification to invoke the Lambda function whenever objects change in the S3 bucket.
+- [ ] Deploy an Amazon EC2 instance with a cron job to invoke the Lambda function.
 
 **[⬆ Back to Top](#table-of-contents)**
 
-### A company is developing a serverless ecommerce web application. The application needs to make coordinated, all-or-nothing changes to multiple items in the company's inventory table in Amazon DynamoDB. Which solution will meet these requirements?
+### A CloudOps Engineer has an Amazon S3 website and wants to restrict access to a single Amazon CloudFront distribution. Visitors to the website should not be able to circumvent CloudFront or view the S3 website directly from the bucket. Which AWS service or feature will meet these requirements?
 
-- [ ] Enable transactions for the DynamoDB table. Use the `BatchWriteItem` operation to update the items.
-- [x] Use the `TransactWriteitems` operation to group the changes. Update the items in the table.
-- [ ] Set up a FIFO queue using Amazon SQS. Group the changes in the queue. Update the table based on the grouped changes.
-- [ ] Create a transaction table in an Amazon Aurora DB cluster to manage the transactions. Write a backend process to sync the Aurora DB table and the DynamoDB table.
+- [ ] S3 bucket `ACL`.
+- [ ] AWS Firewall Manager.
+- [ ] Amazon Route 53 private hosted zone.
+- [x] Origin Access Identity (OAI).
 
 **[⬆ Back to Top](#table-of-contents)**
 
-### An application is running on an EC2 instance. The Developer wants to store an application metric in Amazon CloudWatch. What is the best practice for implementing this requirement?
+### An application running on Amazon EC2 allows users to launch batch jobs for data analysis. The jobs are run asynchronously, and the user is notified when they are complete. While multiple jobs can run concurrently, a user's request need not be fulfilled for up to 24 hours. To run a job, the application launches an additional EC2 instance that performs all the analytics calculations. A job takes between 75 and 110 minutes to complete and cannot be interrupted. What is the MOST cost-effective way to run this workload?
 
-- [ ] Use the PUT Object API call to send data to an S3 bucket. Use an event notification to invoke a Lambda function to publish data to CloudWatch.
-- [ ] Publish the metric data to an Amazon Kinesis Stream using a `PutRecord` API call. Subscribe a Lambda function that publishes data to CloudWatch.
-- [ ] Use the CloudWatch `PutMetricData` API call to submit a custom metric to CloudWatch. Provide the required credentials to enable the API call.
-- [x] Use the CloudWatch `PutMetricData` API call to submit a custom metric to CloudWatch. Launch the EC2 instance with the required IAM role to enable the API call.
+- [ ] Run the application on On-Demand EC2 instances. Run the jobs on Spot Instances with a specified duration.
+- [ ] Run the application on Reserved Instance EC2 instances. Run the jobs on AWS Lambda.
+- [ ] Run the application on On-Demand EC2 instances. Run the jobs on On-Demand EC2 instances.
+- [x] Run the application on Reserved Instance EC2 instances. Run the jobs on Spot Instances with a specified duration.
 
 **[⬆ Back to Top](#table-of-contents)**
 
-### A Developer needs to design an application running on AWS that will be used to consume Amazon SQS messages that range from 1 KB up to 1GB in size. How should the Amazon SQS messages be managed?
+### An e-commerce company wants to lower costs on its nightly jobs that aggregate the current day's sales and store the results in Amazon S3. The jobs are currently run using multiple on-demand instances and the jobs take just under 2 hours to complete. If a job fails for any reason, it needs to be restarted from the beginning. What method is the MOST cost effective based on these requirements?
 
-- [ ] Use Amazon S3 and the Amazon SQS CLI.
-- [x] Use Amazon S3 and the Amazon SQS Extended Client Library for Java.
-- [ ] Use Amazon EBS and the Amazon SQS CLI.
-- [ ] Use Amazon EFS and the Amazon SQS CLI.
+- [ ] Use a mixture of On-Demand and Spot Instances for job execution.
+- [x] Submit a request for a Spot block to be used for job execution.
+- [ ] Purchase Reserved Instances to be used for job execution.
+- [ ] Submit a request for a one-time Spot Instance for job execution.
 
 **[⬆ Back to Top](#table-of-contents)**
 
-### A developer has written a multi-threaded application that is running on a fleet of Amazon EC2 instances. The operations team has requested a graphical method to monitor the number of running threads over time. What is the MOST efficient way to fulfill this request?
+### A company wants to reduce costs on jobs that can be completed at any time. The jobs are currently run using multiple On-Demand Instances, and the jobs take just under 2 hours to complete. If a job fails for any reason, it can be restarted from the beginning. Which method is the MOST cost-effective based on these requirements?
 
-- [ ] Periodically send the thread count to AWS X-Ray segments, then generate a service graph on demand.
-- [x] Create a custom Amazon CloudWatch metric and periodically perform a `PutMetricData` call with the current thread count.
-- [ ] Periodically log thread count data to Amazon S3. Use Amazon Kinesis to process the data into a graph.
-- [ ] Periodically write the current thread count to a table using Amazon DynarnoDB and use Amazon CloudFront to create a graph.
+- [ ] Purchase Reserved Instances to be used for job execution.
+- [ ] Submit a request for a one-time Spot Instance for job execution.
+- [x] Submit a request for a Spot block to be used for job execution.
+- [ ] Use a mixture of On-Demand and Spot Instances for job execution.
 
 **[⬆ Back to Top](#table-of-contents)**
 
-### The Lambda function below is being called through an API using Amazon API Gateway. The average execution time for the Lambda function is about 1 second. The pseudocode for the Lambda function is as shown in the exhibit. What two actions can be taken to improve the performance of this Lambda function without increasing the cost of the solution? (Select TWO)
+### A CloudOps Engineer needs to collect the content of log files from a custom application that is deployed across hundreds of Amazon EC2 instances running Ubuntu. The log files need to be stored in Amazon CloudWatch Logs. How should the CloudOps Engineer collect the application log files with the LOWEST operational overhead?
 
-![Question 48](images/question48.jpg)
+- [ ] Configure the `syslogd` service on each EC2 instance to collect and send the application log files to CloudWatch Logs.
+- [ ] Install the CloudWatch agent by using the Amazon Linux package manager on each EC2 instance. Configure each agent to collect the application log files.
+- [ ] Install the CloudWatch agent on each EC2 instance by using AWS Systems Manager. Create an agent configuration on each instance by using the CloudWatch configuration wizard. Configure each agent to collect the application log files.
+- [x] Store a CloudWatch agent configuration in the AWS Systems Manager Parameter Store. Install the CloudWatch agent on each EC2 instance by using Systems Manager. Configure each agent to collect the application log files.
 
-- [x] Package only the modules the Lambda function requires.
-- [ ] Use Amazon DynamoDB instead of Amazon RDS.
-- [x] Move the initialization of the variable Amazon RDS connection outside of the handler function.
-- [ ] Implement custom database connection pooling with the Lambda function.
-- [ ] Implement local caching of Amazon RDS data so Lambda can re-use the cache.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### An application on AWS is using third-party APIs. The Developer needs to monitor API errors in the code, and wants to receive notifications if failures go above a set threshold value. How can the Developer achieve these requirements?
-
-- [ ] Publish a custom metric on Amazon CloudWatch and use Amazon Simple Email Service (SES) for notification.
-- [ ] Use an Amazon CloudWatch API-error metric and use Amazon Simple Notification Service (SNS) for notification.
-- [ ] Use an Amazon CloudWatch API-error metric and use Amazon SES for notification.
-- [x] Publish a custom metric on Amazon CloudWatch and use Amazon SNS for notification.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### The release process workflow of an application requires a manual approval before the code is deployed into the production environment. What is the BEST way to achieve this using AWS CodePipeline?
-
-- [ ] Use multiple pipelines to allow approval.
-- [x] Use an approval action in a stage.
-- [ ] Disable the stage transition to allow manual approval.
-- [ ] Disable a stage just prior the deployment stage.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### A Developer is asked to implement a caching layer in front of Amazon RDS. Cached content is expensive to regenerate in case of service failure. Which implementation below would work while maintaining maximum uptime?
-
-- [x] Implement Amazon ElastiCache Redis in Cluster Mode.
-- [ ] Install Redis on an Amazon EC2 instance.
-- [ ] Implement Amazon ElastiCache Memcached.
-- [ ] Migrate the database to Amazon Redshift.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### A company has written a Java AWS Lambda function to be triggered whenever a user uploads an image to an Amazon S3 bucket. The function converts the original image to several different formats and then copies the resulting images to another Amazon S3 bucket. The Developers find that no images are being copied to the second Amazon S3 bucket. They have tested the code on an Amazon EC2 instance with 1GB of RAM, and it takes an average of 500 seconds to complete. What is the MOST likely cause of the problem?
-
-- [x] The Lambda function has insufficient memory and needs to be increased to 1 GB to match the Amazon EC2 instance.
-- [ ] Files need to be copied to the same Amazon S3 bucket for processing, so the second bucket needs to be deleted.
-- [ ] Lambda functions have a maximum execution limit of 15 minutes, therefore the function is not completing.
-- [ ] There is a problem with the Java runtime for Lambda, and the function needs to be converted to node.js.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### A web application is using Amazon Kinesis Streams for clickstream data that may not be consumed for up to 12 hours. How can the Developer implement encryption at rest for data within the Kinesis Streams?
-
-- [ ] Enable SSL connections to Kinesis.
-- [ ] Use Amazon Kinesis Consumer Library.
-- [ ] Encrypt the data once it is at rest with a Lambda function.
-- [x] Enable server-side encryption in Kinesis Streams.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### A Developer is creating a mobile application with a limited budget. The solution requires a scalable service that will enable customers to sign up and authenticate into the mobile application while using the organization's current SAML 2.0 identity provider. Which AWS service should be used to meet these requirements?
-
-- [ ] AWS Lambda.
-- [x] Amazon Cognito.
-- [ ] AWS IAM.
-- [ ] Amazon EC2.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### A company wants to migrate its web application to AWS and leverage Auto Scaling to handle peak workloads. The Solutions Architect determined that the best metric for an Auto Scaling event is the number of concurrent users. Based on this information, what should the Developer use to autoscale based on concurrent users?
-
-- [ ] An Amazon SNS topic to be triggered when a concurrent user threshold is met.
-- [ ] An Amazon Cloudwatch NetworkIn metric.
-- [ ] Amazon CloudFront to leverage AWS Edge Locations.
-- [x] A Custom Amazon CloudWatch metric for concurrent users.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### A Developer has written a serverless application using multiple AWS services. The business logic is written as a Lambda function which has dependencies on third-party libraries. The Lambda function endpoints will be exposed using Amazon API Gateway. The Lambda function will write the information to Amazon DynamoDB. The Developer is ready to deploy the application but must have the ability to rollback. How can this deployment be automated, based on these requirements?
-
-- [ ] Deploy using Amazon Lambda API operations to create the Lambda function by providing a deployment package.
-- [ ] Use an AWS CloudFormation template and use CloudFormation syntax to define the Lambda function resource in the template.
-- [x] Use syntax conforming to the Serverless Application Model in the AWS CloudFormation template to define the Lambda function resource.
-- [ ] Create a bash script which uses AWS CLI to package and deploy the application.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### A game stores user game data in an Amazon DynamoDB table. Individual users should not have access to other users' game data. How can this be accomplished?
-
-- [ ] Encrypt the game data with individual user keys.
-- [x] Restrict access to specific items based on certain primary key values.
-- [ ] Stage data in SQS queues to inject metadata before accessing DynamoDB.
-- [ ] Read records from DynamoDB and discard irrelevant data client-side.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### A Developer is creating a web application that requires authentication, but also needs to support guest access to provide users limited access without having to authenticate. What service can provide support for the application to allow guest access?
-
-- [ ] IAM temporary credentials using AWS STS.
-- [ ] Amazon Directory Service.
-- [x] Amazon Cognito with unauthenticated access enabled.
-- [ ] IAM with SAML integration
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### Given the source code for an AWS Lambda function in the local `store.py` containing a handler function called `get_store` and the following AWS CloudFormation template. What should be done to prepare the template so that it can be deployed using the AWS CLI command `aws cloudformation deploy`?
-
-![Question 59](images/question59.jpg)
-
-- [ ] Use AWS CloudFormation compile to base64 encode and embed the source file into a modified CloudFormation template.
-- [x] Use AWS CloudFormation package to upload the source code to an Amazon S3 bucket and produce a modified CloudFormation template.
-- [ ] Use AWS Lambda zip to package the source file together with the CloudFormation template and deploy the resulting zip archive.
-- [ ] Use AWS Serverless `create-package` to embed the source file directly into the existing CloudFormation template.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### A Developer has created a large Lambda function, and deployment is failing with the following error: `ClientError: An error occurred (InvalidParameterValueException) when calling the CreateFunction operation: Unzipped size must be smaller than XXXXXXXXX bytes.`, where `XXXXXXXXX` is the current Lambda limit. What can the Developer do to fix this problem?
-
-- [ ] Submit a limit increase request to AWS Support to increase the function to the size needed.
-- [ ] Use a compression algorithm that is more efficient than `ZIP`.
-- [x] Break the function into multiple smaller Lambda functions.
-- [ ] ZIP the `ZIP` file twice to compress it further.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### A serverless application uses an API Gateway and AWS Lambda. Where should the Lambda function store its session information across function calls?
-
-- [x] In an Amazon DynamoDB table.
-- [ ] In an Amazon SQS queue.
-- [ ] In the local filesystem.
-- [ ] In an SQLite session table using `CDSQLITE_ENABLE_SESSION`.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### An application reads data from an Amazon DynamoDB table. Several times a day, for a period of 15 seconds, the application receives multiple `ProvisionedThroughputExceeded` errors. How should this exception be handled?
-
-- [ ] Create a new global secondary index for the table to help with the additional requests.
-- [x] Retry the failed read requests with exponential backoff.
-- [ ] Immediately retry the failed read requests.
-- [ ] Use the DynamoDB `UpdateItem` API to increase the provisioned throughput capacity of the table.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### A Developer is writing a Linux-based application to run on AWS Elastic Beanstalk. Application requirements state that the application must maintain full capacity during updates while minimizing cost. Which type of Elastic Beanstalk deployment policy should the Developer specify for the environment?
-
-- [ ] Immutable.
-- [ ] Rolling.
-- [ ] All at Once.
-- [x] Rolling with additional batch.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### When writing a Lambda function, what is the benefit of instantiating AWS clients outside the scope of the handler?
-
-- [ ] Legibility and stylistic convention.
-- [x] Taking advantage of connection re-use.
-- [ ] Better error handling.
-- [ ] Creating a new instance per invocation.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### A current architecture uses many Lambda functions invoking one another as large state machine. The coordination of this state machine is legacy custom code that breaks easily. Which AWS Service can help refactor and manage the state machine?
-
-- [ ] AWS Data Pipeline.
-- [ ] AWS SNS with AWS SQS.
-- [ ] Amazon Elastic MapReduce.
-- [x] AWS Step Functions.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### A company is developing a new online game that will run on top of Amazon ECS. Four distinct Amazon ECS services will be part of the architecture, each requiring specific permissions to various AWS services. The company wants to optimize the use of the underlying Amazon EC2 instances by bin packing the containers based on memory reservation. Which configuration would allow the Development team to meet these requirements MOST securely?
-
-- [ ] Create a new Identity and Access Management (IAM) instance profile containing the required permissions for the various ECS services, then associate that instance role with the underlying EC2 instances.
-- [ ] Create four distinct IAM roles, each containing the required permissions for the associated ECS service, then configure each ECS service to reference the associated IAM role.
-- [ ] Create four distinct IAM roles, each containing the required permissions for the associated ECS service, then, create an IAM group and configure the ECS cluster to reference that group.
-- [x] Create four distinct IAM roles, each containing the required permissions for the associated ECS service, then configure each ECS task definition to referenсe the associated IAM role.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### A Developer must re-implement the business logic for an order fulfilment system. The business logic has to make requests to multiple vendors to decide where to purchase an item. The whole process can take up to a week to complete. What is the MOST efficient and SIMPLEST way to implement a system that meets these requirements?
-
-- [x] Use AWS Step Functions to execute parallel Lambda functions, and join the results.
-- [ ] Create an AWS SQS for each vendor, poll the queue from a worker instance, and joint the results.
-- [ ] Use AWS Lambda to asynchronously call a Lambda function for each vendor, and join the results.
-- [ ] Use Amazon CloudWatch Events to orchestrate the Lambda functions.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### A mobile app stores blog posts in an Amazon DynamoDB table. Millions of posts are added every day, and each post represents a single item in the table. The mobile app requires only recent posts. Any post that is older than 48 hours can be removed. What is the MOST cost-effective way to delete posts that are older than 48 hours?
-
-- [ ] For each item, add a new attribute of type `String` that has a timestamp that is set to the blog post creation time. Create a script to find old posts with a table scan and remove posts that are older than 48 hours by using the `BatchWriteItem` API operation. Schedule a cron job on an Amazon EC2 instance once an hour to start the script.
-- [ ] For each item, add a new attribute of type `String` that has a timestamp that is set to the blog post creation time. Create a script to find old posts with a table scan and remove posts that are older than 48 hours by using the `BatchWriteItem` API operation. Place the script in a container image. Schedule an Amazon Elastic Container Service (Amazon ECS) task on AWS Fargate that invokes the container every 5 minutes.
-- [ ] For each item, add a new attribute of type `Date` that has a timestamp that is set to 48 hours after the blog post creation time. Create a Global Secondary Index (GSI) that uses the new attribute as a sort key. Create an AWS Lambda function that references the GSI and removes expired items by using the `BatchWriteItem` API operation. Schedule the function with an Amazon CloudWatch event every minute.
-- [x] For each item, add a new attribute of type `Number` that has a timestamp that is set to 48 hours after the blog post creation time. Configure the DynamoDB table with a TTL that references the new attribute.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### A Developer is receiving HTTP `400`: `ThrottlingException` errors intermittently when calling the Amazon CloudWatch API. When a call fails, no data is retrieved. What best practice should first be applied to address this issue?
-
-- [ ] Contact AWS Support for a limit increase.
-- [ ] Use the AWS CLI to get the metrics.
-- [ ] Analyze the applications and remove the API call.
-- [x] Retry the call with exponential backoff.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### An application is real-time processing millions of events that are received through an API. What service could be used to allow multiple consumers to process the data concurrently and MOST cost-effectively?
-
-- [ ] Amazon SNS with fanout to an SQS queue for each application.
-- [ ] Amazon SNS with fanout to an SQS FIFO (first-in, first-out) queue for each application.
-- [ ] Amazon Kinesis Firehose.
-- [x] Amazon Kinesis Streams.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### Where should the `appspec.yml` file be placed in order for AWS CodeDeploy to work?
-
-- [x] In the root of the application source code directory structure.
-- [ ] In the `bin` folder along with all the complied code.
-- [ ] In an S3 bucket.
-- [ ] In the same folder as the application configuration files.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### An application will ingest data at a very high throughput from many sources and must store the data in an Amazon S3 bucket. Which service would BEST accomplish this task?
-
-- [x] Amazon Kinesis Firehose.
-- [ ] Amazon S3 Acceleration Transfer.
-- [ ] Amazon SQS.
-- [ ] Amazon SNS.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### A Developer is creating a Lambda function and will be using external libraries that are not included in the standard Lambda libraries. What action would minimize the Lambda compute time consumed?
-
-- [ ] Install the dependencies and external libraries at the beginning of the Lambda function.
-- [ ] Create a Lambda deployment package that includes the external libraries.
-- [ ] Copy the external libraries to Amazon S3, and reference the external libraries to the S3 location.
-- [x] Install the external libraries in Lambda Layer to be available to all Lambda functions.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### During non-peak hours, a Developer wants to minimize the execution time of a full Amazon DynamoDB table scan without affecting normal workloads. The workloads average half of the strongly consistent read capacity units during non-peak hours. How would the Developer optimize this scan?
-
-- [x] Use parallel scans while limiting the rate.
-- [ ] Use sequential scans.
-- [ ] Increase read capacity units during the scan operation.
-- [ ] Change consistency to eventually consistent during the scan operation.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### A large e-commerce site is being designed to deliver static objects from Amazon S3. The Amazon S3 bucket will server more than 300 GET requests per second. What should be done to optimize performance? (Choose TWO)
-
-- [x] Integrate Amazon CloudFront with Amazon S3.
-- [ ] Enable Amazon S3 cross-region replication.
-- [ ] Delete expired Amazon S3 server log files.
-- [ ] Configure Amazon S3 lifecycle rules.
-- [x] Randomize Amazon S3 key name prefixes.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### A legacy service has an XML-based SOAP interface. The Developer wants to expose the functionality of the service to external clients with the Amazon API Gateway. Which technique will accomplish this?
-
-- [x] Create a RESTful API with the API Gateway; transform the incoming JSON into a valid XML message for the SOAP interface using mapping templates.
-- [ ] Create a RESTful API with the API Gateway; pass the incoming JSON to the SOAP interface through an Application Load Balancer.
-- [ ] Create a RESTful API with the API Gateway; pass the incoming XML to the SOAP interface through an Application Load Balancer.
-- [ ] Create a RESTful API with the API Gateway; transform the incoming XML into a valid message for the SOAP interface using mapping templates.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### A Developer has an application that can upload tens of thousands of objects per second to Amazon S3 in parallel within a single AWS account. As part of new requirements, data stored in S3 must use server side encryption with AWS KMS (SSE-KMS). After creating this change, performance of the application is slower. Which of the following is MOST likely the cause of the application latency?
-
-- [ ] Amazon S3 throttles the rate at which uploaded objects can be encrypted using Customer Master Keys.
-- [x] The AWS KMS API calls limit is less than needed to achieve the desired performance.
-- [ ] The client encryption of the objects is using a poor algorithm.
-- [ ] KMS requires that an alias be used to create an independent display name that can be mapped to a CM.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### A customer wants to deploy its source code on an AWS Elastic Beanstalk environment. The customer needs to perform deployment with minimal outage and should only use existing instances to retain application access log. What deployment policy would satisfy these requirements?
-
-- [x] Rolling.
-- [ ] All at once.
-- [ ] Rolling with an additional batch.
-- [ ] Immutable.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### A Developer has setup an Amazon Kinesis Stream with 4 shards to ingest a maximum of 2500 records per second. A Lambda function has been configured to process these records. In which order will these records be processed?
-
-- [ ] Lambda will receive each record in the reverse order it was placed into the stream following a LIFO (last-in, first-out) method.
-- [ ] Lambda will receive each record in the exact order it was placed into the stream following a FIFO (first­-in, first-out) method.
-- [x] Lambda will receive each record in the exact order it was placed into the shard following a FIFO (first-in, first-out) method. There is no guarantee of order across shards.
-- [ ] The Developer can select FIFO, (first-in, first-out), LIFO (last-in, last-out), random, or request specific record using the getRecords API.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### An organization must store thousands of sensitive audio and video files in an Amazon S3 bucket. Organizational security policies require that all data written to this bucket be encrypted. How can compliance with this policy be ensured?
-
-- [ ] Use AWS Lambda to send notifications to the security team if unencrypted objects are put in the bucket.
-- [x] Configure an Amazon S3 bucket policy to prevent the upload of objects that do not contain the `x-amz­-server-side-encryption` header.
-- [ ] Create an Amazon CloudWatch event rule to verify that all objects stored in the Amazon S3 bucket are encrypted.
-- [ ] Configure an Amazon S3 bucket policy to prevent the upload of objects that contain the `x-amz-server­side-encryption` header.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### An application is designed to use Amazon SQS to manage messages from many independent senders. Each sender's messages must be processed in the order they are received. Which SQS feature should be implemented by the Developer?
-
-- [x] Configure each sender with a unique MessageGroupId.
-- [ ] Enable MessageDeduplicationIds on the SQS queue.
-- [ ] Configure each message with unique MessageGroupIds.
-- [ ] Enable ContentBasedDeduplication on the SQS queue.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### A Developer created a dashboard for an application using Amazon API Gateway, Amazon S3, AWS Lambda, and Amazon RDS. The Developer needs an authentication mechanism allowing a user to sign in and view the dashboard. It must be accessible from mobile applications, desktops, and tablets, and must remember user preferences across platforms. Which AWS service should the Developer use to support this authentication scenario?
-
-- [ ] AWS KMS.
-- [x] Amazon Cognito.
-- [ ] AWS Directory Service.
-- [ ] Amazon IAM.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### A Lambda function is packaged for deployment to multiple environments, including development, test, production, etc. Each environment has unique set of resources such as databases, etc. How can the Lambda function use the resources for the current environment?
-
-- [ ] Apply tags to the Lambda functions.
-- [ ] Hardcore resources in the source code.
-- [x] Use environment variables for the Lambda functions.
-- [ ] Use separate function for development and production.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### A Developer needs temporary access to resources in a second account. What is the MOST secure way to achieve this?
-
-- [ ] Use the Amazon Cognito user pools to get short-lived credentials for the second account.
-- [ ] Create a dedicated IAM access key for the second account, and send it by mail.
-- [x] Create a cross-account access role, and use `sts:AssumeRole` API to get short-lived credentials.
-- [ ] Establish trust, and add an SSH key for the second account to the IAM user.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### A Developer needs to use AWS X-Ray to monitor an application that is deployed on EC2 instances. What steps have to be executed to perform the monitoring?
-
-- [ ] Deploy the X-Ray SDK with the application and use X-Ray annotation.
-- [x] Install the X-Ray daemon and instrument the application code.
-- [ ] Install the X-Ray daemon and configure it to forward data to Amazon CloudWatch Events.
-- [ ] Deploy the X-Ray SDK with the application and instrument the application code.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### A Developer is creating an Auto Scaling group whose instances need to publish a custom metric to Amazon CloudWatch. Which method would be the MOST secure way to authenticate a CloudWatch PUT request?
-
-- [ ] Create an IAM user with `PutMetricData` permission and put the user credentials in a private repository; have applications pull the credentials as needed.
-- [ ] Create an IAM user with `PutMetricData` permission, and modify the Auto Scaling launch configuration to inject the user credentials into the instance user data.
-- [ ] Modify the CloudWatch metric policies to allow the `PutMetricData` permission to instances from the Auto Scaling group.
-- [x] Create an IAM role with `PutMetricData` permission and modify the Auto Scaling launching configuration to launch instances using that role.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### A Developer is working on an application that tracks hundreds of millions of product reviews in an Amazon DynamoDB table. The records include the data elements shown in the table. Which field, when used as the partition key, would result in the MOST consistent performance using DynamoDB?
-
-![Question 87](images/question87.jpg)
-
-- [ ] `starRating`.
-- [x] `reviewID`.
-- [ ] `comment`.
-- [ ] `productID`.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### A development team consists of 10 team members. Similar to a home directory for each team member, the manager wants to grant access to user-specific folders in an Amazon S3 bucket. For the team member with the username `TeamMemberX`, the snippet of the IAM policy looks like this. Instead of creating distinct policies for each team member, what approach can be used to make this policy snippet generic for all team members?
-
-![Question 88](images/question88.jpg)
-
-- [x] Use IAM policy condition.
-- [ ] Use IAM policy principal.
-- [ ] Use IAM policy variables.
-- [ ] Use IAM policy resource.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### A company needs to encrypt data at rest, but it wants to leverage an AWS managed service using its own master key. Which of the following AWS service can be used to meet these requirements?
-
-- [ ] SSE with Amazon S3.
-- [x] SSE with AWS KMS.
-- [ ] Client-side encryption.
-- [ ] AWS IAM roles and policies.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### A Developer has created a software package to be deployed on multiple EC2 instances using IAM roles. What actions could be performed to verify IAM access to get records from Amazon Kinesis Streams? (Select TWO)
-
-- [ ] Use the AWS CLI to retrieve the IAM group.
-- [ ] Query Amazon EC2 metadata for in-line IAM policies.
-- [ ] Request a token from AWS STS, and perform a describe action.
-- [x] Perform a get action using the `--dry-run` argument.
-- [x] Validate the IAM role policy with the IAM policy simulator.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### A company wants to implement a continuous integration for its workloads on AWS. The company wants to trigger unit test in its pipeline for commits-on its code repository, and wants to be notified of failure events in the pipeline. How can these requirements be met?
-
-- [x] Store the source code in AWS CodeCommit. Create a CodePipeline to automate unit testing. Use Amazon SNS to trigger notifications of failure events.
-- [ ] Store the source code in GitHub. Create a CodePipeline to automate unit testing. Use Amazon SES to trigger notifications of failure events.
-- [ ] Store the source code on GitHub. Create a CodePipeline to automate unit testing. Use Amazon CloudWatch to trigger notifications of failure events.
-- [ ] Store the source code in AWS CodeCommit. Create a CodePipeline to automate unit testing. Use Amazon CloudWatch to trigger notification of failure events.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### An application takes 40 seconds to process instructions received in an Amazon SQS message. Assuming the SQS queue is configured with the default `VisibilityTimeout` value, what is the BEST way, upon receiving a message, to ensure that no other instances can retrieve a message that has already been processed or is currently being processed?
-
-- [x] Use the `ChangeMessageVisibility` API to increase the `VisibilityTimeout`, then use the `DeleteMessage` API to delete the message.
-- [ ] Use the `DeleteMessage` API call to delete the message from the queue, then call `DeleteQueue` API to remove the queue.
-- [ ] Use the `ChangeMessageVisibility` API to decrease the timeout value, then use the `DeleteMessage` API to delete the message.
-- [ ] Use the `DeleteMessageVisibility` API to cancel the `VisibilityTimeout`, then use the `DeleteMessage` API to delete the message.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### A Developer is developing an application that manages financial transactions. To improve security, multi-factor authentication (MFA) will be required as part of the login protocol. What services can the Developer use to meet these requirements?
-
-- [ ] Amazon DynamoDB to store MFA session data, and Amazon SNS to send MFA codes.
-- [x] Amazon Cognito with MFA.
-- [ ] AWS Directory Service.
-- [ ] AWS IAM with MFA enabled.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### A Developer is writing transactions into a DynamoDB table called `SystemUpdates` that has 5 write capacity units. Which option has the highest read throughput?
-
-- [x] Eventually consistent reads of 5 read capacity units reading items that are 4 KB in size.
-- [ ] Strongly consistent reads of 5 read capacity units reading items that are 4 KB in size.
-- [ ] Eventually consistent reads of 15 read capacity units reading items that are 1 KB in size.
-- [ ] Strongly consistent reads of 15 read capacity units reading items that are 1 KB in size.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### A Developer has created an S3 bucket` s3://mycoolapp` and has enabled server across logging that points to the folder `s3://mycoolapp/logs`. The Developer moved 100 KB of Cascading Style Sheets (CSS) documents to the folder `s3://mycoolapp/css`, and then stopped work. When the developer came back a few days later, the bucket was 50 GB. What is the MOST likely cause of this situation?
-
-- [ ] The CSS files were not compressed and S3 versioning was enabled.
-- [ ] S3 replication was enabled on the bucket.
-- [x] Logging into the same bucket caused exponential log growth.
-- [ ] An S3 lifecycle policy has moved the entire CSS file to S3 Infrequent Access.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### A Developer is testing a Docker-based application that uses the AWS SDK to interact with Amazon DynamoDB. In the local development environment, the application has used IAM access keys. The application is now ready for deployment onto an ECS cluster. How should the application authenticate with AWS services in production?
-
-- [x] Configure an ECS task IAM role for the application to use.
-- [ ] Refactor the application to call AWS STS `AssumeRole` based on an instance role.
-- [ ] Configure AWS access `key/secret` access key environment variables with new credentials.
-- [ ] Configure the credentials file with a new access `key/secret` access key.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### A company is using AWS CodeBuild to compile a website from source code stored in AWS CodeCommit. A recent change to the source code has resulted in the CodeBuild project being unable to successfully compile the website. How should the Developer identify the cause of the failures?
-
-- [ ] Modify the `buildspec.yml` file to include steps to send the output of build commands to Amazon CloudWatch.
-- [ ] Use a custom Docker image that includes the AWS X-Ray agent in the AWS CodeBuild project configuration.
-- [x] Check the build logs of the failed phase in the last build attempt in the AWS CodeBuild project build history.
-- [ ] Manually re-run the build process on a local machine so that the output can be visualized.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### For a deployment using AWS CodeDeploy, what is the run order of the hooks for in-place deployments?
-
-- [ ] Before Install -> Application Stop -> Application Start -> After Install.
-- [x] Application Stop -> Before Install -> After Install -> Application Start.
-- [ ] Before Install -> Application Stop -> Validate Service -> Application Start.
-- [ ] Application Stop -> Before Install -> Validate Service -> Application Start.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### A Developer executed a AWS CLI command and received the error shown below. What action should the Developer perform to make this error human-readable?
-
-![Question 99](images/question99.jpg)
-
-- [ ] Make a call to AWS KMS to decode the message.
-- [x] Use the AWS STS `decode-authorization-message` API to decode the message.
-- [ ] Use an open source decoding library to decode the message.
-- [ ] Use the AWS IAM `decode-authorization-message` API to decode this message.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### A Developer uses AWS CodeDeploy to automate application deployment that connects to an external MySQL database. The Developer wants to securely access the encrypted secrets, such as API keys and database passwords. Which of the following solutions would involve the LEAST administrative effort?
-
-- [ ] Save the secrets in Amazon S3 with AWS KMS server-side encryption, and use a signed URL to access them by using the IAM role from Amazon EC2 instances.
-- [ ] Use the instance metadata to store the secrets and to programmatically access the secrets from EC2 instances.
-- [ ] Use the Amazon DynamoDB client-side encryption library to save the secrets in DynamoDB and to programmatically access the secrets from EC2 instances.
-- [x] Use AWS SSM Parameter Store to store the secrets and to programmatically access them by using the IAM role from EC2 instances.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### An application stops working with the following error: `The specified bucket does not exist`. Where is the BEST place to start the root cause analysis?
-
-- [ ] Check the Elastic Load Balancer logs for `DeleteBucket` requests.
-- [ ] Check the application logs in Amazon CloudWatch Logs for Amazon S3 `DeleteBucket` errors.
-- [ ] Check AWS X-Ray for Amazon S3 `DeleteBucket` alarms.
-- [x] Check AWS CloudTrail for a `DeleteBucket` event.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### A Developer will be using the AWS CLI on a local development server to manage AWS services. What can be done to ensure that the CLI uses the Developer's IAM permissions when making commands?
-
-- [ ] Specify the Developer's IAM access key ID and secret access key as parameters for each CLI command.
-- [x] Run the `aws configure` CLI command, and provide the Developer's IAM access key ID and secret access key.
-- [ ] Specify the Developer's IAM user name and password as parameters for each CLI command.
-- [ ] Use the Developer's IAM role when making the CLI command.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### An application stores images in an S3 bucket. Amazon S3 event notifications are used to trigger a Lambda function that resizes the images. Processing each image takes less than a second. How will AWS Lambda handle the additional traffic?
-
-- [x] Lambda will scale out to execute the requests concurrently.
-- [ ] Lambda will handle the requests sequentially in the order received.
-- [ ] Lambda will process multiple images in a single execution.
-- [ ] Lambda will add more compute to each execution to reduce processing time.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### A company is building a stock trading application that requires sub-millisecond latency in processing trading requests. Amazon DynamoDB is used to store all the trading data that is used to process each request. After load testing the application, the development team found that due to data retrieval times, the latency requirement is not satisfied. Because of sudden high spikes in the number of requests, DynamoDB read capacity has to be significantly over-provisioned to avoid throttling. What steps should be taken to meet latency requirements and reduce the cost of running the application?
-
-- [ ] Add Global Secondary Indexes for trading data.
-- [ ] Store trading data in Amazon S3 and use Transfer Acceleration.
-- [ ] Add retries with exponential back-off for DynamoDB queries.
-- [x] Use DynamoDB Accelerator to cache trading data.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### A Developer created a Lambda function for a web application backend. When testing the Lambda function from the AWS Lambda console, the Developer can see that the function is being executed, but there is no log data being generated in Amazon CloudWatch Logs, even after several minutes. What could cause this situation?
-
-- [ ] The Lambda function does not have any explicit log statements for the log data to send it to CloudWatch Logs.
-- [ ] The Lambda function is missing CloudWatch Logs as a source trigger to send log data.
-- [x] The execution role for the Lambda function is missing permissions to write log data to the CloudWatch Logs.
-- [ ] The Lambda function is missing a target CloudWatch Log group.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### A Developer wants to use AWS X-Ray to trace a user request end-to-end throughput the software stack. The Developer made the necessary changes in the application tested it, and found that the application is able to send the traces to AWS X-Ray. However, when the application is deployed to an EC2 instance, the traces are not availableWhich of the following could create this situation? (Choose TWO)
-
-- [ ] The traces are reaching X-Ray, but the Developer does not have access to view the records.
-- [x] The X-Ray daemon is not installed on the EC2 instance.
-- [ ] The X-Ray endpoint specified in the application configuration is incorrect.
-- [ ] The instance role does not have `xray:BatchGetTraces` and `xray:GetTraceGraph` permissions.The instance role does not have `xray:PutTraceSegments` and `xray:PutTelemetryRecords` permissions.
-- [x] The instance role does not have `xray:PutTraceSegments` and `xray:PutTelemetryRecords` permissions.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### An application has hundreds of users. Each user may use multiple devices to access the application. The Developer wants to assign unique identifiers to these users regardless of the device they use. Which of the following methods should be used to obtain unique identifiers?
-
-- [ ] Create a user table in Amazon DynamoDB as key-value pairs of users and their devices. Use these keys as unique identifiers.
-- [ ] Use IAM-generated access key IDs for the users as the unique identifier, but do not store secret keys.
-- [x] Implement developer-authenticated identities by using Amazon Cognito, and get credentials for these identities.
-- [ ] Assign IAM users and roles to the users. Use the unique IAM resource ID as the unique identifier.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### What are the steps to using the AWS CLI to launch a templatized serverless application?
-
-- [ ] Use AWS CloudFormation get-template then CloudFormation execute-change-set.
-- [ ] Use AWS CloudFormation validate-template then CloudFormation create-change-set.
-- [x] Use AWS CloudFormation package then CloudFormation deploy.
-- [ ] Use AWS CloudFormation create-stack then CloudFormation update-stack.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### A deployment package uses the AWS CLI to copy files into any S3 bucket in the account, using access keys stored in environment variables. The package is running on EC2 instances, and the instances have been modified to run with an assumed IAM role and a more restrictive policy that allows access to only one bucket. After the change, the Developer logs into the host and still has the ability to write into all of the S3 buckets in that account. What is the MOST likely cause of this situation?
-
-- [ ] An IAM inline policy is being used on the IAM role.
-- [x] An IAM managed policy is being used on the IAM role.
-- [ ] The AWS CLI is corrupt and needs to be reinstalled.
-- [ ] The AWS credential provider looks for instance profile credentials last.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### An application overwrites an object in Amazon S3, and then immediately reads the same object. Why would the application sometimes retrieve the old version of the object?
-
-- [x] S3 overwrite PUTS are eventually consistent, so the application may read the old object.
-- [ ] The application needs to add extra metadata to label the latest version when uploading to Amazon S3.
-- [ ] All S3 PUTS are eventually consistent, so the application may read the old object.
-- [ ] The application needs to explicitly specify latest version when retrieving the object.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### An application under development is required to store hundreds of video files. The data must be encrypted within the application prior to storage, with a unique key for each video file. How should the Developer code the application?
-
-- [ ] Use the `KMS Encrypt` API to encrypt the data. Store the encrypted data key and data.
-- [ ] Use a cryptography library to generate an encryption key for the application. Use the encryption key to encrypt the data. Store the encrypted data.
-- [x] Use the `KMS GenerateDataKey` API to get a data key. Encrypt the data with the data key. Store the encrypted data key and data.
-- [ ] Upload the data to an S3 bucket using server side-encryption with an AWS KMS key.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### A developer is testing an application that invokes an AWS Lambda function asynchronously. During the testing phase, the Lambda function fails to process after two retries. How can the developer troubleshoot the failure?
-
-- [ ] Configure AWS CloudTrail logging to investigate the invocation failures.
-- [x] Configure Dead Letter Queues by sending events to Amazon SQS for investigatio.
-- [ ] Configure Amazon Simple Workflow Service to process any direct unprocessed events.
-- [ ] Configure AWS Config to process any direct unprocessed events.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### A developer is setting up Amazon API Gateway for their company's products. The API will be used by registered developers to query and update their environments. The company wants to limit the amount of requests end users can send for both cost and security reasons. Management wants to offer registered developers the option of buying larger packages that allow for more requests. How can the developer accomplish this with the LEAST amount of overhead management?
-
-- [ ] Enable throttling for the API Gateway stage. Set a value for both the rate and burst capacity. If a registered user chooses a larger package, create a stage for them, adjust the values, and share the new URL with them.
-- [ ] Set up Amazon CloudWatch API logging in API Gateway. Create a filter based on the user and requestTime fields and create an alarm on this filter. Write an AWS Lambda function to analyze the values and requester information, and respond accordingly. Set up the function as the target for the alarm. If a registered user chooses a larger package, update the Lambda code with the values.
-- [ ] Enable Amazon CloudWatch metrics for the API Gateway stage. Set up CloudWatch alarms based off the Count metric and the ApiName, Method, Resource, and Stage dimensions to alerts when request rates pass the threshold. Set the alarm action to `Deny`. If a registered user chooses a larger package, create a user-specific alarm and adjust the values.
-- [x] Set up a default usage plan, specify values for the rate and burst capacity, and associate it with a stage. If a registered user chooses a larger package, create a custom plan with the appropriate values and associate the plan with the user.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### A developer is refactoring a monolithic application. The application takes a POST request and performs several operations. Some of the operations are in parallel while others run sequentially. These operations have been refactored into individual AWS Lambda functions. The POST request will be processed by Amazon API Gateway. How should the developer invoke the Lambda functions in the same sequence using API Gateway?
-
-- [ ] Use Amazon SQS to invoke the Lambda functions.
-- [ ] Use an AWS Step Functions activity to run the Lambda functions.
-- [ ] Use Amazon SNS to trigger the Lambda functions.
-- [x] Use an AWS Step Functions state machine to orchestrate the Lambda functions.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### A company is adding stored value (or gift card) capability to its highly popular casual gaming website. Users need to be able to trade this value for other users' items on the platform. This would require both users' records be updated as a single transaction, or both users' records to be completely rolled back. Which AWS database options can provide the transactional capability required for this new feature? (Choose TWO)
-
-- [ ] Amazon DynamoDB with operations made with the `ConsistentRead` parameter set to `true`.
-- [ ] Amazon ElastiCache for Memcached with operations made within a transaction block.
-- [x] Amazon Aurora MySQL with operations made within a transaction block.
-- [x] Amazon DynamoDB with reads and writes made using `Transact*` operations.
-- [ ] Amazon Redshift with operations made within a transaction block.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### A developer is creating an AWS Lambda function that generates a new file each time it runs. Each new file must be checked into an AWS CodeCommit repository hosted in the same AWS account. How should the developer accomplish this?
-
-- [x] When the Lambda function starts, use the Git CLI to clone the repository. Check the new file into the cloned repository and push the change.
-- [ ] After the new file is created in Lambda, use cURL to invoke the CodeCommit API. Send the file to the repository.
-- [ ] Use an AWS SDK to instantiate a CodeCommit client. Invoke the `put_file` method to add the file to the repository.
-- [ ] Upload the new to an Amazon S3 bucket. Create an AWS Step Function to accept S3 events. In the Step Function, add the new file to the repository.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### A developer must ensure that the IAM credentials used by an application in Amazon EC2 are not misused or compromised. What should the developer use to keep user credentials secure?
-
-- [ ] Environment variables.
-- [ ] AWS credentials file.
-- [x] Instance profile credentials.
-- [ ] Command line options.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### A company has an application where reading objects from Amazon S3 is based on the type of user. The user types are registered user and guest user. The company has 25,000 users and is growing. Information is pulled from an S3 bucket depending on the user type. Which approaches are recommended to provide access to both user types? (Choose TWO)
-
-- [ ] Provide a different access key and secret access key in the application code for registered users and guest users to provide read access to the objects.
-- [ ] Use S3 bucket policies to restrict read access to specific IAM users.
-- [x] Use Amazon Cognito to provide access using authenticated and unauthenticated roles.
-- [ ] Create a new IAM user for each user and grant read access.
-- [x] Use the AWS IAM service and let the application assume the different roles using the AWS Security Token Service (AWS STS) `AssumeRole` action depending on the type of user and provide read access to Amazon S3 using the assumed role.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### A company has 25,000 employees and is growing. The company is creating an application that will be accessible to its employees only. A developer is using Amazon S3 to store images and Amazon RDS to store application data. The company requires that all employee information remain in the legacy Security Assertion Markup Language (SAML) employee directory only and is not interested in mirroring any employee information on AWS. How can the developer provide authorized access for the employees who will be using this application so each employee can access their own application data only?
-
-- [ ] Use Amazon VPC and keep all resources inside the VPC, and use a VPC link for the S3 bucket with the bucket policy.
-- [ ] Use Amazon Cognito user pools, federate with the SAML provider, and use user pool groups with an IAM policy.
-- [x] Use an Amazon Cognito identity pool, federate with the SAML provider, and use an IAM condition key with a value for the `cognito-identity.amazonaws.com:sub` variable to grant access to the employees.
-- [ ] Create a unique IAM role for each employee and have each employee assume the role to access the application so they can access their personal data only.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### A company has developed a new serverless application using AWS Lambda functions that will be deployed using the AWS Serverless Application Model (AWS SAM) CLI. Which step should the developer complete prior to deploying the application?
-
-- [ ] Compress the application to a `.zip` file and upload it into AWS Lambda.
-- [ ] Test the new AWS Lambda function by first tracing it in AWS X-Ray.
-- [x] Bundle the serverless application using a SAM package.
-- [ ] Create the application environment using the `eb create my-env` command.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### An application needs to encrypt data that is written to Amazon S3 where the keys are managed in an on-premises data center, and the encryption is handled by S3. Which type of encryption should be used?
-
-- [ ] Use server-side encryption with Amazon S3-managed keys.
-- [ ] Use server-side encryption with AWS KMS-managed keys.
-- [ ] Use client-side encryption with customer master keys.
-- [x] Use server-side encryption with customer-provided keys.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### A development team is working on a mobile app that allows users to upload pictures to Amazon S3. The team expects the app will be used by hundreds of thousands of users during a single event simultaneously. Once the pictures are uploaded, the backend service will scan and parse the pictures for inappropriate content. Which approach is the MOST resilient way to achieve this goal, which also smooths out temporary volume spikes for the backend service?
-
-- [ ] Develop an AWS Lambda function to check the upload folder in the S3 bucket. If new uploaded pictures are detected, the Lambda function will scan and parse them.
-- [x] Once a picture is uploaded to Amazon S3, publish the event to an Amazon SQS queue. Use the queue as an event source to trigger an AWS Lambda function. In the Lambda function, scan and parse the picture.
-- [ ] When the user uploads a picture, invoke an API hosted in Amazon API Gateway. The API will invoke an AWS Lambda function to scan and parse the picture.
-- [ ] Create a state machine in AWS Step Functions to check the upload folder in the S3 bucket. If a new picture is detected, invoke an AWS Lambda function to scan and parse it.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### A development team wants to run their container workloads on Amazon ECS. Each application container needs to share data with another container to collect logs and metrics. What should the developer team do to meet these requirements?
-
-- [ ] Create two pod specifications. Make one to include the application container and the other to include the other container. Link the two pods together.
-- [ ] Create two task definitions. Make one to include the application container and the other to include the other container. Mount a shared volume between the two tasks.
-- [x] Create one task definition. Specify both containers in the definition. Mount a shared volume between those two containers.
-- [ ] Create a single pod specification. Include both containers in the specification. Mount a persistent volume to both containers.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### An ecommerce startup is preparing for an annual sales event. As the traffic to the company's application increases, the development team wants to be notified when the Amazon EC2 instance's CPU utilization exceeds 80%. Which solution will meet this requirement?
-
-- [x] Create a custom Amazon CloudWatch alarm that sends a notification to an Amazon SNS topic when the CPU utilization exceeds 80%.
-- [ ] Create a custom AWS Cloud Trail alarm that sends a notification to an Amazon SNS topic when the CPU utilization exceeds 80%.
-- [ ] Create a cron job on the EC2 instance that executes the `–describe-instance-information` command on the host instance every 15 minutes and sends the results to an Amazon SNS topic.
-- [ ] Create an AWS Lambda function that queries the AWS CloudTrail logs for the CPUUtilization metric every 15 minutes and sends a notification to an Amazon SNS topic when the CPU utilization exceeds 80%.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### An application running on Amazon EC2 opens connections to an Amazon RDS SQL Server database. The developer does not want to store the user name and password for the database in the code. The developer would also like to automatically rotate the credentials. What is the MOST secure way to store and access the database credentials?
-
-- [ ] Create an IAM role that has permissions to access the database. Attach the role to the EC2 instance.
-- [x] Use AWS Secrets Manager to store the credentials. Retrieve the credentials from Secrets Manager as needed.
-- [ ] Store the credentials in an encrypted text file in an Amazon S3 bucket. Configure the EC2 instance's user data to download the credentials from Amazon S3 as the instance boots.
-- [ ] Store the user name and password credentials directly in the source code. No further action is needed because the source code is stored in a private repository.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### A developer is updating an application deployed on AWS Elastic Beanstalk. The new version is incompatible with the old version. To successfully deploy the update, a full cutover to the new, updated version must be performed on all instances at one time, with the ability to roll back changes in case of a deployment failure in the new version. How can this be performed with the LEAST amount of downtime?
-
-- [ ] Use the Elastic Beanstalk All at once deployment policy to update all instances simultaneously.
-- [ ] Perform an Elastic Beanstalk Rolling with additional batch deployment.
-- [x] Deploy the new version in a new Elastic Beanstalk environment and swap environment URLs.
-- [ ] Perform an Elastic Beanstalk Rolling deployment.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### A developer is writing a web application that must share secure documents with end users. The documents are stored in a private Amazon S3 bucket. The application must allow only authenticated users to download specific documents when requested, and only for a duration of 15 minutes. How can the developer meet these requirements?
-
-- [ ] Copy the documents to a separate S3 bucket that has a lifecycle policy for deletion after 15 minutes.
-- [x] Create a presigned S3 URL using the AWS SDK with an expiration time of 15 minutes.
-- [ ] Use server-side encryption with AWS KMS managed keys (SSE-KMS) and download the documents using HTTPS.
-- [ ] Modify the S3 bucket policy to only allow specific users to download the documents. Revert the change after 15 minutes.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### A company is developing a report executed by AWS Step Functions, Amazon CloudWatch shows errors in the Step Functions task state machine. To troubleshoot each task, the state input needs to be included along with the error message in the state output. Which coding practice can preserve both the original input and the error for the state?
-
-- [x] Use `ResultPath` in a `Catch` statement to include the error with the original input.
-- [ ] Use `InputPath` in a `Catch` statement and set the value to `null`.
-- [ ] Use `Error Equals` in a `Retry` statement to include the error with the original input.
-- [ ] Use `OutputPath` in a `Retry` statement and set the value to `$`.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### A developer receives the following error message when trying to launch or terminate an Amazon EC2 instance using a boto3 script. What should the developer do to correct this error message?
-
-![Question 129](images/question129.jpg)
-
-- [ ] Assign an IAM role to the EC2 instance to allow necessary API calls on behalf of the client.
-- [x] Implement an exponential backoff algorithm for optimizing the number of API requests made to Amazon EC2.
-- [ ] Increase the overall network bandwidth to handle higher API request rates.
-- [ ] Upgrade to the latest AWS CLI version so that boto3 can handle higher request rates.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### Given the following AWS CloudFormation template. What is the MOST efficient way to reference the new Amazon S3 bucket from another AWS CloudFormation template?
-
-![Question 130](images/question130.jpg)
-
-- [x] Add an `Export` declaration to the `Outputs` section of the original template and use `ImportValue` in other templates.
-- [ ] Add `Exported: true` to the `Content.Bucket` in the original template and use `ImportResource` in other templates.
-- [ ] Create a custom AWS CloudFormation resource that gets the bucket name from the `ContentBucket` resource of the first stack.
-- [ ] Use `Fn::Include` to include the existing template in other templates and use the `ContentBucket` resource directly.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### A developer is using AWS CodeDeploy to deploy an application running on Amazon EC2. The developer wants to change the file permissions for a specific deployment file. Which lifecycle event should a developer use to meet this requirement?
-
-- [x] AfterInstall.
-- [ ] DownloadBundle.
-- [ ] BeforeInstall.
-- [ ] ValidateService.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### A developer is using Amazon DynamoDB to store application data. The developer wants to further improve application performance by reducing response times for read and write operations. Which DynamoDB feature should be used to meet these requirements?
-
-- [ ] Amazon DynamoDB Streams.
-- [x] Amazon DynamoDB Accelerator.
-- [ ] Amazon DynamoDB global tables.
-- [ ] Amazon DynamoDB transactions.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### A developer is creating a script to automate the deployment process for a serverless application. The developer wants to use an existing AWS Serverless Application Model (AWS SAM) template for the application. What should the developer use for the project? (Choose TWO)
-
-- [x] Call `aws cloudformation package` to create the deployment package. Call `aws cloudformation deploy` to deploy the package afterward.
-- [x] Call `sam package` to create the deployment package. Call `sam deploy` to deploy the package afterward.
-- [ ] Call `aws s3 cp` to upload the AWS SAM template to Amazon S3. Call `aws lambda update-function-code` to create the application.
-- [ ] Create a `ZIP` package locally and call `aws serverlessrepo create-application` to create the application.
-- [ ] Create a `ZIP` package and upload it to Amazon S3. Call `aws cloudformation create-stack` to create the application.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### A development team is designing a mobile app that requires multi-factor authentication. Which steps should be taken to achieve this? (Choose TWO)
-
-- [x] Use Amazon Cognito to create a user pool and create users in the user pool.
-- [ ] Send multi-factor authentication text codes to users with the Amazon SNS Publish API call in the app code.
-- [x] Enable multi-factor authentication for the Amazon Cognito user pool.
-- [ ] Use AWS IAM to create IAM users.
-- [ ] Enable multi-factor authentication for the users created in AWS IAM.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### Two containerized microservices are hosted on Amazon EC2 ECS. The first microservice reads an Amazon RDS Aurora database instance, and the second microservice reads an Amazon DynamoDB table. How can each microservice be granted the minimum privileges?
-
-- [ ] Set `ECS_ENABLE_TASK_IAM_ROLE` to `false` on EC2 instance boot in ECS agent configuration file. Run the first microservice with an IAM role for ECS tasks with read-only access for the Aurora database. Run the second microservice with an IAM role for ECS tasks with read-only access to DynamoDB.
-- [ ] Set `ECS_ENABLE_TASK_IAM_ROLE` to `false` on EC2 instance boot in the ECS agent configuration file. Grant the instance profile role read-only access to the Aurora database and DynamoDB.
-- [x] Set `ECS_ENABLE_TASK_IAM_ROLE` to `true` on EC2 instance boot in the ECS agent configuration file. Run the first microservice with an IAM role for ECS tasks with read-only access for the Aurora database. Run the secondmicroservice with an IAM role for ECS tasks with read-only access to DynamoDB.
-- [ ] Set `ECS_ENABLE_TASK_IAM_ROLE` to `true` on EC2 instance boot in the ECS agent configuration file. Grant the instance profile role read-only access to the Aurora database and DynamoDB.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### A developer has written an AWS Lambda function using Java as the runtime environment. The developer wants to isolate a performance bottleneck in the code. Which steps should be taken to reveal the bottleneck?
-
-- [ ] Use the Amazon CloudWatch API to write timestamps to a custom CloudWatch metric. Use the CloudWatch console to analyze the resulting data.
-- [ ] Use the AWS X-Ray API to write trace data into X-Ray from strategic places within the code. Use the Amazon CloudWatch console to analyze the resulting data.
-- [x] Use the AWS X-Ray API to write trace data into X-Ray from strategic places within the code. Use the X-Ray console to analyze the resulting data.
-- [ ] Use the Amazon CloudWatch API to write timestamps to a custom CloudWatch metric. Use the AWS X-Ray console to analyze the resulting data.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### A developer added a new feature to an application running on an Amazon EC2 instance that uses Amazon SQS. After deployment, the developer noticed a significant increase in Amazon SQS costs. When monitoring the Amazon SQS metrics on Amazon CloudWatch, the developer found that on average one message per minute is posted on this queue. What can be done to reduce Amazon SQS costs for this application?
-
-- [x] Increase the Amazon SQS queue polling timeout.
-- [ ] Scale down the Amazon SQS queue to the appropriate size for low traffic demand.
-- [ ] Configure push delivery via Amazon SNS instead of polling the Amazon SQS queue.
-- [ ] Use an Amazon SQS first-in, first-out (FIFO) queue instead of a standard queue.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### A developer is building an application using an Amazon API Gateway REST API backend by an AWS Lambda function that interacts with an Amazon DynamoDB table. During testing, the developer observes high latency when making requests to the API. How can the developer evaluate the end-to-end latency and identify performance bottlenecks?
-
-- [ ] Enable AWS CloudTrail logging and use the logs to map each latency and bottleneck.
-- [x] Enable and configure AWS X-Ray tracing on API Gateway and the Lambda function. Use X-Ray to trace and analyze user requests.
-- [ ] Enable Amazon CloudWatch Logs for the Lambda function. Enable execution logs for API Gateway to view and analyze user request logs.
-- [ ] Enable VPC Flow Logs to capture and analyze network traffic within the VPC.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### An IAM role is attached to an Amazon EC2 instance that explicitly denies access to all Amazon S3 API actions. The EC2 instance credentials file specifies the IAM access key and secret access key, which allow full administrative access. Given that multiple modes of IAM access are present for this EC2 instance, which of the following is correct?
-
-- [ ] The EC2 instance will only be able to list the S3 buckets.
-- [ ] The EC2 instance will only be able to list the contents of one S3 bucket at a time.
-- [ ] The EC2 instance will be able to perform all actions on any S3 bucket.
-- [x] The EC2 instance will not be able to perform any S3 action on any S3 bucket.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### A development team uses AWS Elastic Beanstalk for application deployment. The team has configured the application version lifecycle policy to limit the number of application versions to 25. However, even with the lifecycle policy, the source bundle is deleted from the Amazon S3 source bucket. What should a developer do in the Elastic Beanstalk application version lifecycle settings to retain the source code in the S3 bucket?
-
-- [ ] Change the Set the application versions limit by total count setting to zero.
-- [ ] Disable the Lifecycle policy setting.
-- [ ] Change the Set the application version limit by age setting to zero.
-- [x] Set Retention to Retain source bundle in S3.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### A developer has built a market application that stores pricing data in Amazon DynamoDB with Amazon ElastiCache in front. The prices of items in the market change frequently. Sellers have begun complaining that, after they update the price of an item, the price does not actually change in the product listing. What could be causing this issue?
-
-- [x] The cache is not being invalidated when the price of the item is changed.
-- [ ] The price of the item is being retrieved using a write-through ElastiCache cluster.
-- [ ] The DynamoDB table was provisioned with insufficient read capacity.
-- [ ] The DynamoDB table was provisioned with insufficient write capacity.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### A developer is provided with an HTTPS clone URL for an AWS CodeCommit repository. What needs to be configured before cloning this repository?
-
-- [ ] Use AWS KMS to set up public and private keys for use with AWS CodeCommit.
-- [x] Set up the Git credential helper to use an AWS credential profile, and enable the helper to send the path to the repositories.
-- [ ] Use AWS Certificate Manager to provision public and private SSL/TLS certificates.
-- [ ] Generate encryption keys using AWS CloudHSM, then export the key for use with AWS CodeCommit.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### What is required to trace Lambda-based applications with AWS X-Ray?
-
-- [ ] Send logs from the Lambda application to an S3 bucket; trigger a Lambda function from the bucket to send data to AWS X-Ray.
-- [ ] Trigger a Lambda function from the application logs in Amazon CloudWatch to submit tracing data to AWS X-Ray.
-- [x] Use an IAM execution role to give the Lambda function permissions and enable tracing.
-- [ ] Update and add AWS X-Ray daemon code to relevant parts of the Lambda function to set up the trace.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### A development team is building a new application that will run on Amazon EC2 and use Amazon DynamoDB as a storage layer. The developers all have assigned IAM user accounts in the same IAM group. The developers currently can launch EC2 instances, and they need to be able to launch EC2 instances with an instance role allowing access to Amazon DynamoDB. Which AWS IAM changes are needed when creating an instance role to provide this functionality?
-
-- [ ] Create an IAM permission policy attached to the role that allows access to DynamoDB. Add a trust policy to the role that allows DynamoDB to assume the role. Attach a permissions policy to the development group in AWS IAM that allows developers to use the iam:GetRole and iam:PassRole permissions for the role.
-- [x] Create an IAM permissions policy attached to the role that allows access to DynamoDB. Add a trust policy to the role that allows Amazon EC2 to assume the role. Attach a permissions policy to the development group in AWS IAM that allows developers to use the iam:PassRole permission for the role.
-- [ ] Create an IAM permission policy attached to the role that allows access to Amazon EC2. Add a trust policy to the role that allows DynamoDB to assume the role. Attach a permissions policy to the development group in AWS IAM that allows developers to use the iam:PassRole permission for the role.
-- [ ] Create an IAM permissions policy attached to the role that allows access to DynamoDB. Add a trust policy to the role that allows Amazon EC2 to assume the role. Attach a permissions policy to the development group in AWS IAM that allows developers to use the iam:GetRole permission for the role.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### A developer converted an existing program to an AWS Lambda function in the console. The program runs properly on a local laptop, but shows an `Unable to import module` error when tested in the Lambda console. Which of the following can fix the error?
-
-- [x] Install the missing module and specify the current directory as the target. Create a `ZIP` file to include all files under the current directory, and upload the `ZIP` file.
-- [ ] Install the missing module in a lib directory. Create a `ZIP` file to include all files under the lib directory, and upload the `ZIP` file as dependency file.
-- [ ] In the Lambda code, invoke a Linux command to install the missing modules under the `/usr/lib directory`.
-- [ ] In the Lambda console, create a `LB_LIBRARY_PATH` environment and specify the value for the system library plan.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### A front-end web application is using Amazon Cognito user pools to handle the user authentication flow. A developer is integrating Amazon DynamoDB into the application using the AWS SDK for JavaScript. How would the developer securely call the API without exposing the access or secret keys?
-
-- [x] Configure Amazon Cognito identity pools and exchange the JSON Web Token (JWT) for temporary credentials.
-- [ ] Run the web application in an Amazon EC2 instance with the instance profile configured.
-- [ ] Hardcore the credentials, use Amazon S3 to host the web application, and enable server-side encryption.
-- [ ] Use Amazon Cognito user pool JSON Web Tokens (JWITs) to access the DynamoDB APIs.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### A developer needs to manage AWS infrastructure as code and must be able to deploy multiple identical copies of the infrastructure, stage changes, and revert to previous versions. Which approach addresses these requirements?
-
-- [ ] Use cost allocation reports and AWS OpsWorks to deploy and manage the infrastructure.
-- [ ] Use Amazon CloudWatch metrics and alerts along with resource tagging to deploy and manage the infrastructure.
-- [ ] Use AWS Elastic Beanstalk and AWS CodeCommit to deploy and manage the infrastructure.
-- [x] Use AWS CloudFormation and AWS CodeCommit to deploy and manage the infrastructure.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### A Developer needs to deploy an application running on AWS Fargate using Amazon ECS. The application has environment variables that must be passed to a container for the application to initialize. How should the environment variables be passed to the container?
-
-- [ ] Define an array that includes the environment variables under the environment parameter within the service definition.
-- [x] Define an array that includes the environment variables under the environment parameter within the task definition.
-- [ ] Define an array that includes the environment variables under the entryPoint parameter within the task definition.
-- [ ] Define an array that includes the environment variables under the entryPoint parameter within the service definition.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### A company's fleet of Amazon EC2 instances receives data from millions of users through an API. The servers batch the data, add an object for each user, and upload the objects to an S3 bucket to ensure high access rates. The object attributes are `Customer ID`, `Server ID`, `TS-Server` (`TimeStamp` and `Server ID`), the size of the object, and a timestamp. A Developer wants to find all the objects for a given user collected during a specified time range. After creating an S3 object created event, how can the Developer achieve this requirement?
-
-- [ ] Execute an AWS Lambda function in response to the S3 object creation events that creates an Amazon DynamoDB record for every object with the `Customer ID` as the partition key and the `Server ID` as the sort key. Retrieve all the records using the `Customer ID` and `Server ID` attributes.
-- [ ] Execute an AWS Lambda function in response to the S3 object creation events that creates an Amazon Redshift record for every object with the `Customer ID` as the partition key and `TS-Server` as the sort key. Retrieve all the records using the `Customer ID` and `TS-Server` attributes.
-- [x] Execute an AWS Lambda function in response to the S3 object creation events that creates an Amazon DynamoDB record for every object with the `Customer ID` as the partition key and `TS-Server` as the sort key. Retrieve all the records using the `Customer ID` and `TS-Server` attributes.
-- [ ] Execute an AWS Lambda function in response to the S3 object creation events that creates an Amazon Redshift record for every object with the `Customer ID` as the partition key and the `Server ID` as the sort key. Retrieve all the records using the `Customer ID` and `Server ID` attributes.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### A company is managing a NoSQL database on-premises to host a critical component of an application, which is starting to have scaling issues. The company wants to migrate the application to Amazon DynamoDB with the following considerations: Optimize frequent queries. Reduce read latencies. Plan for frequent queries on certain key attributes of the table. Which solution would help achieve these objectives?
-
-- [x] Create global secondary indexes on keys that are frequently queried. Add the necessary attributes into the indexes.
-- [ ] Create local secondary indexes on keys that are frequently queried. DynamoDB will fetch needed attributes from the table.
-- [ ] Create DynamoDB global tables to speed up query responses. Use a scan to fetch data from the table.
-- [ ] Create an AWS Auto Scaling policy for the DynamoDB table.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### A developer is writing an application that will process data delivered into an Amazon S3 bucket. The data is delivered approximately 10 times a day, and the developer expects the data will be processed in less than 1 minute, on average. How can the developer deploy and invoke the application with the lowest cost and lowest latency?
-
-- [ ] Deploy the application as an AWS Lambda function and invoke it with an Amazon CloudWatch alarm triggered by an S3 object upload.
-- [x] Deploy the application as an AWS Lambda function and invoke it with an S3 event notification.
-- [ ] Deploy the application as an AWS Lambda function and invoke it with an Amazon CloudWatch scheduled event.
-- [ ] Deploy the application onto an Amazon EC2 instance and have it poll the S3 bucket for new objects.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### A company is using Amazon API Gateway to manage its public-facing API. The CISO requires that the APIs be used by test account users only. What is the MOST secure way to restrict API access to users of this particular AWS account?
-
-- [ ] Client-side SSL certificates for authentication.
-- [x] API Gateway resource policies.
-- [ ] Cross-origin resource sharing (CORS).
-- [ ] Usage plans.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### A Developer is migrating existing applications to AWS. These applications use MongoDB as their primary data store, and they will be deployed to Amazon EC2 instances. Management requires that the Developer minimize changes to applications while using AWS services. Which solution should the Developer use to host MongoDB in AWS?
-
-- [ ] Install MongoDB on the same instance where the application is running.
-- [x] Deploy Amazon DocumentDB in MongoDB compatibility mode.
-- [ ] Use Amazon API Gateway to translate API calls from MongoDB to Amazon DynamoDB.
-- [ ] Replicate the existing MongoDB workload to Amazon DynamoDB.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### A company requires that AWS Lambda functions written by Developers log errors so System Administrators can more effectively troubleshoot issues. What should the Developers implement to meet this need?
-
-- [ ] Publish errors to a dedicated Amazon SQS queue.
-- [ ] Create an Amazon CloudWatch Events event trigger based on certain Lambda events.
-- [x] Report errors through logging statements in Lambda function code.
-- [ ] Set up an Amazon SNS topic that sends logging statements upon failure.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### A Developer is writing an application that runs on Amazon EC2 instances in an Auto Scaling group. The application data is stored in an Amazon DynamoDB table and records are constantly updated by all instances. An instance sometimes retrieves old data. The Developer wants to correct this by making sure the reads are strongly consistent. How can the Developer accomplish this?
-
-- [x] Set `ConsistentRead` to `true` when calling `GetItem`.
-- [ ] Create a new DynamoDB Accelerator (DAX) table.
-- [ ] Set Consistency to strong when calling `UpdateTable`.
-- [ ] Use the `GetShardIterator` command.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### A Developer has an application that must accept a large amount of incoming data streams and process the data before sending it to many downstream users. Which serverless solution should the Developer use to meet these requirements?
-
-- [ ] Amazon RDS MySQL stored procedure with AWS Lambda.
-- [ ] AWS Direct Connect with AWS Lambda.
-- [x] Amazon Kinesis Data Streams with AWS Lambda.
-- [ ] Amazon EC2 bash script with AWS Lambda.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### An application is experiencing performance issues based on increased demand. This increased demand is on read-only historical records pulled from an Amazon RDS-hosted database with custom views and queries. A Developer must improve performance without changing the database structure. Which approach will improve performance and MINIMIZE management overhead?
-
-- [ ] Deploy Amazon DynamoDB, move all the data, and point to DynamoDB.
-- [x] Deploy Amazon ElastiCache for Redis and cache the data for the application.
-- [ ] Deploy Memcached on Amazon EC2 and cache the data for the application.
-- [ ] Deploy Amazon DynamoDB Accelerator (DAX) on Amazon RDS to improve cache performance.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### A Developer has an Amazon DynamoDB table that must be in provisioned mode to comply with user requirements. The application needs to support the following: Average item size: 10 KB. Item reads each second: 10 strongly consistent. Item writes each second: 2 transactional. Which read and write capacity cost-effectively meets these requirements?
-
-- [ ] Read `10`; write `2`.
-- [x] Read `30`; write `40`.
-- [ ] Use on-demand scaling.
-- [ ] Read `300`; write `400`.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### A company wants to containerize an existing three-tier web application and deploy it to Amazon ECS Fargate. The application is using session data to keep track of user activities. Which approach would provide the BEST user experience?
-
-- [x] Provision a Redis cluster in Amazon ElastiCache and save the session data in the cluster.
-- [ ] Create a session table in Amazon Redshift and save the session data in the database table.
-- [ ] Enable session stickiness in the existing Network Load Balancer and manage the session data in the container.
-- [ ] Use an Amazon S3 bucket as data store and save the session data in the bucket.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### An application is using a single-node Amazon ElastiCache for Redis instance to improve read performance. Over time, demand for the application has increased exponentially, which has increased the load on the ElastiCache instance. It is critical that this cache layer handles the load and is resilient in case of node failures. What can the Developer do to address the load and resiliency requirements?
-
-- [x] Add a read replica instance.
-- [ ] Migrate to a Memcached cluster.
-- [ ] Migrate to an Amazon Elasticsearch Service cluster.
-- [ ] Vertically scale the ElastiCache instance.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### A Developer is investigating an application's performance issues. The application consists of hundreds of microservices, and a single API call can potentially have a deep call stack. The Developer must isolate the component that is causing the issue. Which AWS service or feature should the Developer use to gather information about what is happening and isolate the fault?
-
-- [x] AWS X-Ray.
-- [ ] VPC Flow Logs.
-- [ ] Amazon GuardDuty.
-- [ ] Amazon Macie.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### A Company runs continuous integration/continuous delivery (CI/CD) pipelines for its application on AWS CodePipeline. A Developer must write unit tests and run them as part of the pipelines before staging the artifacts for testing. How should the Developer incorporate unit tests as part of CI/CD pipelines?
-
-- [ ] Create a separate CodePipeline pipeline to run unit tests.
-- [x] Update the AWS CodeBuild specification to include a phase for running unit tests.
-- [ ] Install the AWS CodeDeploy agent on an Amazon EC2 instance to run unit tests.
-- [ ] Create a testing branch in AWS CodeCommit to run unit tests.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### An application has the following requirements: Performance efficiency of seconds with up to a minute of latency. The data storage size may grow up to thousands of terabytes. Per-message sizes may vary between 100 KB and 100 MB. Data can be stored as key/value stores supporting eventual consistency. What is the MOST cost-effective AWS service to meet these requirements?
-
-- [x] Amazon DynamoDB.
-- [ ] Amazon S3.
-- [ ] Amazon RDS (with a MySQL engine).
-- [ ] Amazon ElastiCache.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### A Developer must allow guest users without logins to access an Amazon Cognito-enabled site to view files stored within an Amazon S3 bucket. How should the Developer meet these requirements?
-
-- [ ] Create a blank user ID in a user pool, add to the user group, and grant access to AWS resources.
-- [x] Create a new identity pool, enable access to unauthenticated identities, and grant access to AWS resources.
-- [ ] Create a new user pool, enable access to authenticated identifies, and grant access to AWS resources.
-- [ ] Create a new user pool, disable authentication access, and grant access to AWS resources.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### A Developer has written code for an application and wants to share it with other Developers on the team to receive feedback. The shared application code needs to be stored long-term with multiple versions and batch change tracking. Which AWS service should the Developer use?
-
-- [ ] AWS CodeBuild.
-- [ ] Amazon S3.
-- [x] AWS CodeCommit.
-- [ ] AWS Cloud9.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### A Developer has discovered that an application responsible for processing messages in an Amazon SQS queue is routinely falling behind. The application is capable of processing multiple messages in one execution, but is only receiving one message at a time. What should the Developer do to increase the number of messages the application receives?
-
-- [ ] Call the `ChangeMessageVisibility` API for the queue and set `MaxNumberOfMessages` to a value greater than the default of `1`.
-- [ ] Call the `AddPermission` API to set `MaxNumberOfMessages` for the `ReceiveMessage` action to a value greater than the default of `1`.
-- [x] Call the `ReceiveMessage` API to set `MaxNumberOfMessages` to a value greater than the default of `1`.
-- [ ] Call the `SetQueueAttributes` API for the queue and set `MaxNumberOfMessages` to a value greater than the default of `1`.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### A Developer registered an AWS Lambda function as a target for an Application Load Balancer (ALB) using a CLI command. However, the Lambda function is not being invoked when the client sends requests through the ALB. Why is the Lambda function not being invoked?
-
-- [ ] A Lambda function cannot be registered as a target for an ALB.
-- [ ] A Lambda function can be registered with an ALB using AWS Management Console only.
-- [x] The permissions to invoke the Lambda function are missing.
-- [ ] Cross-zone is not enabled on the ALB.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### A company provides APIs as a service and commits to a service level agreement (SLA) with all its users. To comply with each SLA, what should the company do?
-
-- [ ] Enable throttling limits for each method in Amazon API Gateway.
-- [x] Create a usage plan for each user and request API keys to access the APIs.
-- [ ] Enable API rate limiting in Amazon Cognito for each user.
-- [ ] Enable default throttling limits for each stage after deploying the APIs.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### A Developer is preparing a deployment package using AWS CloudFormation. The package consists of two separate templates: one for the infrastructure and one for the application. The application has to be inside the VPC that is created from the infrastructure template. How can the application stack refer to the VPC created from the infrastructure template?
-
-- [ ] Use the Ref function to import the VPC into the application stack from the infrastructure template.
-- [x] Use the export flag in the infrastructure template, and then use the `Fn::ImportValue` function in the application template.
-- [ ] Use the `DependsOn` attribute to specify that the application instance depends on the VPC in the application template.
-- [ ] Use the `Fn::GetAtt` function to include the attribute of the VPC in the application template.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### A Developer needs to create an application that supports Security Assertion Markup Language (SAML) and Facebook authentication. It must also allow access to AWS services, such as Amazon DynamoDB. Which AWS service or feature will meet these requirements with the LEAST amount of additional coding?
-
-- [ ] AWS AppSync.
-- [x] Amazon Cognito identity pools.
-- [ ] Amazon Cognito user pools.
-- [ ] Amazon Lambda@Edge.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### A Developer is trying to monitor an application's status by running a cron job that returns 1 if the service is up and 0 if the service is down. The Developer created code that uses an AWS CLI `put-metric-alarm` command to publish the custom metrics to Amazon CloudWatch and create an alarm. However, the Developer is unable to create an alarm as the custom metrics do not appear in the CloudWatch console. What is causing this issue?
-
-- [ ] Sending custom metrics using the CLI is not supported.
-- [x] The Developer needs to use the `put-metric-data` command.
-- [ ] The Developer must use a unified CloudWatch agent to publish custom metrics.
-- [ ] The code is not running on an Amazon EC2 instance.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### A Developer has written an application that runs on Amazon EC2 instances and generates a value every minute. The Developer wants to monitor and graph the values generated over time without logging in to the instance each time. Which approach should the Developer use to achieve this goal?
-
-- [ ] Use the Amazon CloudWatch metrics reported by default for all EC2 instances. View each value from the CloudWatch console.
-- [ ] Develop the application to store each value in a file on Amazon S3 every minute with the timestamp as the name.
-- [x] Publish each generated value as a custom metric to Amazon CloudWatch using available AWS SDKs.
-- [ ] Store each value as a variable and add the variable to the list of EC2 metrics that should be reported to the Amazon CloudWatch console.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### A Development team decides to adopt a continuous integration/continuous delivery (CI/CD) process using AWS CodePipeline and AWS CodeCommit for a new application. However, management wants a person to review and approve the code before it is deployed to production. How can the Development team add a manual approver to the CI/CD pipeline?
-
-- [ ] Use AWS SES to send an email to approvers when their action is required. Develop a simple application that allows approvers to accept or reject a build. Invoke an AWS Lambda function to advance the pipeline when a build is accepted.
-- [ ] If approved, add an approved tag when pushing changes to the CodeCommit repository. CodePipeline will proceed to build and deploy approved commits without interruption.
-- [ ] Add an approval step to CodeCommit. Commits will not be saved until approved.
-- [x] Add an approval action to the pipeline. Configure the approval action to publish to an Amazon SNS topic when approval is required. The pipeline execution will stop and wait for an approval.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### A Developer is building a serverless application using AWS Lambda and must create a REST API using an HTTP GET method. What needs to be defined to meet this requirement? (Choose TWO)
-
-- [ ] A Lambda@Edge function.
-- [x] An Amazon API Gateway with a Lambda function.
-- [x] An exposed GET method in an Amazon API Gateway.
-- [ ] An exposed GET method in the Lambda function.
-- [ ] An exposed GET method in Amazon Route 53.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### A Developer is writing an application in AWS Lambda. To simplify testing and deployments, the Developer needs the database connection string to be easily changed without modifying the Lambda code. How can this requirement be met?
-
-- [x] Store the connection string as a secret in AWS Secrets Manager.
-- [ ] Store the connection string in an IAM user account.
-- [ ] Store the connection string in AWS KMS.
-- [ ] Store the connection string as a Lambda layer.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### A company is launching an ecommerce website and will host the static data in Amazon S3. The company expects approximately 1,000 transactions per second (TPS) for GET and PUT requests in total. Logging must be enabled to track all requests and must be retained for auditing purposes. What is the MOST cost-effective solution?
-
-- [ ] Enable AWS CloudTrail logging for the S3 bucket-level action and create a lifecycle policy to move the data from the log bucket to Amazon S3 Glacier in 90 days.
-- [ ] Enable S3 server access logging and create a lifecycle policy to expire the data in 90 days.
-- [ ] Enable AWS CloudTrail logging for the S3 bucket-level action and create a lifecycle policy to expire the data in 90 days.
-- [x] Enable S3 server access logging and create a lifecycle policy to move the data to Amazon S3 Glacier in 90 days.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### A Developer decides to store highly secure data in Amazon S3 and wants to implement server-side encryption (SSE) with granular control of who can access the master key. Company policy requires that the master key be created, rotated, and disabled easily when needed, all for security reasons. Which solution should be used to meet these requirements?
-
-- [ ] SSE with Amazon S3 managed keys (SSE-S3).
-- [x] SSE with AWS KMS managed keys (SSE-KMS).
-- [ ] SSE with AWS Secrets Manager.
-- [ ] SSE with customer-provided encryption keys.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### A Developer is migrating an on-premises application to AWS. The application currently takes user uploads and saves them to a local directory on the server. All uploads must be saved and made immediately available to all instances in an Auto Scaling group. Which approach will meet these requirements?
-
-- [ ] Use Amazon EBS and configure the application AMI to use a snapshot of the same EBS instance on boot.
-- [x] Use Amazon S3 and rearchitect the application so all uploads are placed in S3.
-- [ ] Use instance storage and share it between instances launched from the same Amazon Machine Image (AMI).
-- [ ] Use Amazon EBS and file synchronization software to achieve eventual consistency among the Auto Scaling group.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### A Developer implemented a static website hosted in Amazon S3 that makes web service requests hosted in Amazon API Gateway and AWS Lambda. The site is showing an error that reads: `No Access-Control-Allow-Origin` header is present on the requested resource. Origin `null` is therefore not allowed access.' What should the Developer do to resolve this issue?
-
-- [ ] Enable cross-origin resource sharing (CORS) on the S3 bucket.
-- [x] Enable cross-origin resource sharing (CORS) for the method in API Gateway.
-- [ ] Add the `Access-Control-Request-Method` header to the request.
-- [ ] Add the `Access-Control-Request-Headers` header to the request.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### A Developer is building an application that needs to store data in Amazon S3. Management requires that the data be encrypted before it is sent to Amazon S3 for storage. The encryption keys need to be managed by the Security team. Which approach should the Developer take to meet these requirements?
-
-- [ ] Implement server-side encryption using customer-provided encryption keys (SSE-C).
-- [ ] Implement server-side encryption by using a client-side master key.
-- [x] Implement client-side encryption using an AWS KMS managed customer master key (CMK).
-- [ ] Implement client-side encryption using Amazon S3 managed keys.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### A Developer has written an Amazon Kinesis Data Streams application. As usage grows and traffic increases over time, the application is regularly receiving `ProvisionedThroughputExceededException` error messages. Which steps should the Developer take to resolve the error? (Choose TWO)
-
-- [ ] Use Auto Scaling to scale the stream for better performance.
-- [ ] Increase the delay between the `GetRecords` call and the `PutRecords` call.
-- [x] Increase the number of shards in the data stream.
-- [ ] Specify a shard iterator using the `ShardIterator` parameter.
-- [x] Implement exponential backoff on the `GetRecords` call and the `PutRecords` call.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### A Developer is publishing critical log data to a log group in Amazon CloudWatch Logs, which was created 2 months ago. The Developer must encrypt the log data using an AWS KMS customer master key (CMK) so future data can be encrypted to comply with the company's security policy. How can the Developer meet this requirement?
-
-- [ ] Use the CloudWatch Logs console and enable the encrypt feature on the log group.
-- [ ] Use the AWS CLI `create-log-group` command and specify the key Amazon Resource Name (ARN).
-- [ ] Use the KMS console and associate the CMK with the log group.
-- [x] Use the AWS CLI `associate-kms-key` command and specify the key Amazon Resource Name (ARN)
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### A Developer has code running on Amazon EC2 instances that needs read-only access to an Amazon DynamoDB table. What is the MOST secure approach the Developer should take to accomplish this task?
-
-- [ ] Create a user access key for each EC2 instance with read-only access to DynamoDB. Place the keys in the code. Redeploy the code as keys rotate.
-- [x] Use an IAM role with an AmazonDynamoDBReadOnlyAccess policy applied to the EC2 instances.
-- [ ] Run all code with only AWS account root user access keys to ensure maximum access to services.
-- [ ] Use an IAM role with Administrator access applied to the EC2 instance.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### A Developer migrated a web application to AWS. As part of the migration, the Developer implemented an automated continuous integration/continuous improvement (CI/CD) process using a blue/green deployment. The deployment provisions new Amazon EC2 instances in an Auto Scaling group behind a new Application Load Balancer. After the migration was completed, the Developer began receiving complaints from users getting booted out of the system. The system also requires users to log in after every new deployment. How can these issues be resolved?
-
-- [ ] Use rolling updates instead of a blue/green deployment.
-- [x] Externalize the user sessions to Amazon ElastiCache.
-- [ ] Turn on sticky sessions in the Application Load Balancer.
-- [ ] Use multicast to replicate session information.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### A Developer wants to insert a record into an Amazon DynamoDB table as soon as a new file is added to an Amazon S3 bucket. Which set of steps would be necessary to achieve this?
-
-- [ ] Create an event with Amazon CloudWatch Events that will monitor the S3 bucket and then insert the records into DynamoDB.
-- [x] Configure an S3 event to invoke a Lambda function that inserts records into DynamoDB.
-- [ ] Create a Lambda function that will poll the S3 bucket and then insert the records into DynamoDB.
-- [ ] Create a cron job that will run at a scheduled time and insert the records into DynamoDB.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### A company has implemented AWS CodeDeploy as part of its cloud native CI/CD stack. The company enables automatic rollbacks while deploying a new version of a popular web application from in-place to Amazon EC2. What occurs if the deployment of the new version fails due to code regression?
-
-- [ ] The last known good deployment is automatically restored using the snapshot stored in Amazon S3.
-- [ ] CodeDeploy switches the Amazon Route 53 alias records back to the known good green deployment and terminates the failed blue deployment.
-- [x] A new deployment of the last known version of the application is deployed with a new deployment ID.
-- [ ] AWS CodePipeline promotes the most recent deployment with a SUCCEEDED status to production.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### A Developer uses Amazon S3 buckets for static website hosting. The Developer creates one S3 bucket for the code and another S3 bucket for the assets, such as image and video files. Access is denied when a user attempts to access the assets bucket from the code bucket, with the website application showing a `403` error. How should the Developer solve this issue?
-
-- [ ] Create an IAM role and apply it to the assets bucket for the code bucket to be granted access.
-- [x] Edit the bucket policy of the assets bucket to allow access from the code bucket.
-- [ ] Edit the bucket policy of the assets bucket to open access to all principals.
-- [ ] Change the code bucket to use AWS Lambda functions instead of static website hosting.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### A company has implemented AWS CodePipeline to automate its release pipelines. The Development team is writing an AWS Lambda function what will send notifications for state changes of each of the actions in the stages. Which steps must be taken to associate the Lambda function with the event source?
-
-- [ ] Create a trigger that invokes the Lambda function from the Lambda console by selecting CodePipeline as the event source.
-- [x] Create an event trigger and specify the Lambda function from the CodePipeline console.
-- [ ] Create an Amazon CloudWatch alarm that monitors status changes in Code Pipeline and triggers the Lambda function.
-- [ ] Create an Amazon CloudWatch Events rule that uses CodePipeline as an event source.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### A Developer has built an application running on AWS Lambda using AWS Serverless Application Model (AWS SAM). What is the correct order of execution to successfully deploy the application?
-
-- [ ] 1. Build the SAM template in Amazon EC2. 2. Package the SAM template to Amazon EBS storage. 3. Deploy the SAM template from Amazon EBS.
-- [x] 1. Build the SAM template locally. 2. Package the SAM template onto Amazon S3. 3. Deploy the SAM template from Amazon S3.
-- [ ] 1. Build the SAM template locally. 2. Deploy the SAM template from Amazon S3. 3. Package the SAM template for use.
-- [ ] 1. Build the SAM template locally. 2. Package the SAM template from AWS CodeCommit. 3. Deploy the SAM template to CodeCommit.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### A company wants to migrate an imaging service to Amazon EC2 while following security best practices. The images are sourced and read from a non-public Amazon S3 bucket. What should a Developer do to meet these requirements?
-
-- [ ] Create an IAM user with read-only permissions for the S3 bucket. Temporarily store the user credentials in the Amazon EBS volume of the EC2 instance.
-- [ ] Create an IAM user with read-only permissions for the S3 bucket. Temporarily store the user credentials in the user data of the EC2 instance.
-- [x] Create an EC2 service role with read-only permissions for the S3 bucket. Attach the role to the EC2 instance.
-- [ ] Create an S3 service role with read-only permissions for the S3 bucket. Attach the role to the EC2 instance.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### A Development team wants to immediately build and deploy an application whenever there is a change to the source code. Which approaches could be used to trigger the deployment? (Choose TWO)
-
-- [x] Store the source code in an Amazon S3 bucket. Configure AWS CodePipeline to start whenever a file in the bucket changes.
-- [ ] Store the source code in an encrypted Amazon EBS volume. Configure AWS CodePipeline to start whenever a file in the volume changes.
-- [x] Store the source code in an AWS CodeCommit repository. Configure AWS CodePipeline to start whenever a change is committed to the repository.
-- [ ] Store the source code in an Amazon S3 bucket. Configure AWS CodePipeline to start every 15 minutes.
-- [ ] Store the source code in an Amazon EC2 instance's ephemeral storage. Configure the instance to start AWS CodePipeline whenever there are changes to the source code.
-
 **[⬆ Back to Top](#table-of-contents)**
 
-### An application ingests a large number of small messages and stores them in a database. The application uses AWS Lambda. A Development team is making changes to the application's processing logic. In testing, it is taking more than 15 minutes to process each message. The team is concerned the current backend may time out. Which changes should be made to the backend system to ensure each message is processed in the MOST scalable way?
+### A company's security policy states that connecting to Amazon EC2 instances is not permitted through `SSH` and `RDP`. If access is required, authorized staff can connect to instances by using AWS Systems Manager Session Manager. Users report that they are unable to connect to one specific Amazon EC2 instance that is running Ubuntu and has AWS Systems Manager Agent (SSM Agent) pre-installed. These users are able to use Session Manager to connect to other instances in the same subnet, and they are in an IAM group that has Session Manager permission for all instances. What should a CloudOps Engineer do to resolve this issue?
 
-- [ ] Add the messages to an Amazon SQS queue. Set up and Amazon EC2 instance to poll the queue and process messages as they arrive.
-- [x] Add the messages to an Amazon SQS queue. Set up Amazon EC2 instances in an Auto Scaling group to poll the queue and process the messages as they arrive.
-- [ ] Create a support ticket to increase the Lambda timeout to 60 minutes to allow for increased processing time.
-- [ ] Change the application to directly insert the body of the message into an Amazon RDS database.
+- [ ] Add an inbound rule for port `22` in the security group associated with the Ubuntu instance.
+- [x] Assign the `AmazonSSMManagedInstanceCore` managed policy to the EC2 instance profile for the Ubuntu instance.
+- [ ] Configure the SSM Agent to log in with a user name of `ubuntu`.
+- [ ] Generate a new key pair, configure Session Manager to use this new key pair, and provide the private key to the users.
 
 **[⬆ Back to Top](#table-of-contents)**
 
-### A Software Engineer developed an AWS Lambda function in Node.js to do some CPU-intensive data processing. With the default settings, the Lambda function takes about 5 minutes to complete. Which approach should a Developer take to increase the speed of completion?
+### A CloudOps Engineer is creating a simple, public-facing website running on Amazon EC2. The CloudOps Engineer created the EC2 instance in an existing public subnet and assigned an Elastic IP address to the instance. Next, the CloudOps Engineer created and applied a new security group to the instance to allow incoming `HTTP` traffic from `0.0.0.0/0`. Finally, the CloudOps Engineer created a new network `ACL` and applied it to the subnet to allow incoming `HTTP` traffic from `0.0.0.0/0`. However, the website cannot be reached from the internet. What is the cause of this issue?
 
-- [ ] Instead of using Node.js, rewrite the Lambda function using Python.
-- [ ] Instead of packaging the libraries in the `ZIP` file with the function, move them to a Lambda layer and use the layer with the function.
-- [ ] Allocate the maximum available CPU units to the function.
-- [x] Increase the available memory to the function.
+- [x] The CloudOps Engineer did not create an outbound rule that allows ephemeral port return traffic in the new network `ACL`.
+- [ ] The CloudOps Engineer did not create an outbound rule in the security group that allows `HTTP` traffic from port `80`.
+- [ ] The Elastic IP address assigned to the EC2 instance has changed.
+- [ ] There is an additional network `ACL` associated with the subnet that includes a rule that denies inbound `HTTP` traffic from port `80`.
 
 **[⬆ Back to Top](#table-of-contents)**
 
-### An online retail company has deployed a serverless application with AWS Lambda, Amazon API Gateway, Amazon S3, and Amazon DynamoDB using AWS CloudFormation. The company rolled out a new release with major upgrades to the Lambda function and deployed the release to production. Subsequently, the application stopped working. Which solution should bring the application back up as quickly as possible?
+### A company's application infrastructure was deployed using AWS CloudFormation and is composed of Amazon EC2 instances behind an Application Load Balancer. The instances run in an EC2 Auto Scaling group across multiple Availability Zones. When releasing a new version of the application, the update deployment must avoid `DNS` changes and allow rollback. Which solution should a CloudOps Engineer use to meet the deployment requirements for this new release?
 
-- [ ] Redeploy the application on Amazon EC2 so the Lambda function can resolve dependencies.
-- [ ] Migrate DynamoDB to Amazon RDS and redeploy the Lambda function.
-- [x] Roll back the Lambda function to the previous version.
-- [ ] Deploy the latest Lambda function in a different Region.
+- [ ] Configure the Auto Scaling group to use lifecycle hooks. Deploy new instances with the new application version. Complete the lifecycle hook action once healthy.
+- [ ] Create a new Amazon Machine Image (AMI) containing the updated code. Create a launch configuration with the AMI. Update the Auto Scaling group to use the new launch configuration.
+- [ ] Deploy a second CloudFormation stack. Wait for the application to be available. Cut over to the new Application Load Balancer.
+- [x] Modify the CloudFormation template to use an `AutoScalingReplacingUpdate` policy. Update the stack. Perform a second update with the new release.
 
 **[⬆ Back to Top](#table-of-contents)**
 
-### A Developer is writing an application that will run on Amazon EC2 instances in an Auto Scaling group. The Developer wants to externalize session state to support the application. Which services will meet these needs? (Choose TWO)
+### A company uses an Amazon S3 bucket to store data files. The S3 bucket contains hundreds of objects. The company needs to replace a tag on all the objects in the S3 bucket with another tag. What is the MOST operationally efficient way to meet this requirement?
 
-- [x] Amazon DynamoDB.
-- [ ] Amazon Cognito.
-- [x] Amazon ElastiCache.
-- [ ] Amazon EBS.
-- [ ] Amazon SQS.
+- [x] Use S3 Batch Operations. Specify the operation to replace all object tags.
+- [ ] Use the AWS CLI to get the tags for each object. Save the tags in a list. Use S3 Batch Operations. Specify the operation to delete all object tags. Use the AWS CLI and the list to retag the objects.
+- [ ] Use the AWS CLI to get the tags for each object. Save the tags in a list. Use the AWS CLI and the list to remove the object tags. Use the AWS CLI and the list to retag the objects.
+- [ ] Use the AWS CLI to copy the objects to another S3 bucket. Add the new tag to the copied objects. Delete the original objects.
 
 **[⬆ Back to Top](#table-of-contents)**
 
-### A Developer has a legacy application that is hosted on-premises. Other applications hosted on AWS depend on the on-premises application for proper functioning. In case of any application errors, the Developer wants to be able to use Amazon CloudWatch to monitor and troubleshoot all applications from one place. How can the Developer accomplish this?
+### A company has a cluster of Linux Amazon EC2 Spot Instances that read many files from and write many files to attached Amazon Elastic Block Store (Amazon EBS) volumes. The EC2 instances are frequently started and stopped. As part of the process when an EC2 instance starts, an EBS volume is restored from a snapshot. EBS volumes that are restored from snapshots are experiencing initial performance that is lower than expected. The company's workload needs almost all the provisioned IOPS on the attached EBS volumes. The EC2 instances are unable to support the workload when the performance of the EBS volumes is too low. A CloudOps Engineer must implement a solution to ensure that the EBS volumes provide the expected performance when they are restored from snapshots. Which solution will meet these requirements?
 
-- [ ] Install an AWS SDK on the on-premises server to automatically send logs to CloudWatch.
-- [x] Download the CloudWatch agent to the on-premises server. Configure the agent to use IAM user credentials with permissions for CloudWatch.
-- [ ] Upload log files from the on-premises server to Amazon S3 and have CloudWatch read the files.
-- [ ] Upload log files from the on-premises server to an Amazon EC2 instance and have the instance forward the logs to CloudWatch.
+- [x] Configure fast snapshot restore (FSR) on the snapshots that are used.
+- [ ] Restore each snapshot onto an unencrypted EBS volume. Encrypt the EBS volume when the performance stabilizes.
+- [ ] Format the EBS volumes as XFS file systems before restoring the snapshots.
+- [ ] Increase the Linux read-ahead buffer to 1 MiB.
 
 **[⬆ Back to Top](#table-of-contents)**
 
-### A company is developing an application that will be accessed through the Amazon API Gateway REST API. Registered users should be the only ones who can access certain resources of this API. The token being used should expire automatically and needs to be refreshed periodically. How can a Developer meet these requirements?
+### Website users report that an application's pages are loading slowly at the beginning of the workday. The application runs on Amazon EC2 instances, and data is stored in an Amazon RDS database. The CloudOps Engineer suspects the issue is related to high CPU usage on a component of this application. How can the Engineer find out which component is causing the performance bottleneck?
 
-- [ ] Create an Amazon Cognito identity pool, configure the Amazon Cognito Authorizer in API Gateway, and use the temporary credentials generated by the identity pool.
-- [ ] Create and maintain a database record for each user with a corresponding token and use an AWS Lambda authorizer in API Gateway.
-- [x] Create an Amazon Cognito user pool, configure the Cognito Authorizer in API Gateway, and use the identity or access token.
-- [ ] Create an IAM user for each API user, attach an invoke permissions policy to the API, and use an IAM authorizer in API Gateway.
+- [ ] Use AWS CloudTrail to review the resource usage history for each component.
+- [x] Use Amazon CloudWatch metrics to examine the resource usage of each component.
+- [ ] Use Amazon Inspector to view the resource usage details for each component.
+- [ ] Use Amazon CloudWatch Events to examine the high usage events for each component.
 
 **[⬆ Back to Top](#table-of-contents)**
 
-### A Developer is working on a serverless project based in Java. Initial testing shows a cold start takes about 8 seconds on average for AWS Lambda functions. What should the Developer do to reduce the cold start time? (Choose TWO)
+### A company has an Amazon S3 bucket that contains sensitive data. The data must be encrypted in transit and at rest. The company encrypts the data in the S3 bucket by using an AWS Key Management Service (AWS KMS) key. A developer needs to grant several other AWS accounts the permission to use the S3 `GetObject` operation to retrieve the data from the S3 bucket. How can the developer enforce that all requests to retrieve the data provide encryption in transit?
 
-- [ ] Add the Spring Framework to the project and enable dependency injection.
-- [x] Reduce the deployment package by including only needed modules from the AWS SDK for Java.
-- [x] Increase the memory allocation setting for the Lambda function.
-- [ ] Increase the timeout setting for the Lambda function.
-- [ ] Change the Lambda invocation mode from synchronous to asynchronous.
+- [x] Define a resource-based policy on the S3 bucket to deny access when a request meets the condition `aws:SecureTransport`: `false`.
+- [ ] Define a resource-based policy on the S3 bucket to allow access when a request meets the condition `aws:SecureTransport`: `false`.
+- [ ] Define a role-based policy on the other accounts' roles to deny access when a request meets the condition of `aws:SecureTransport`: `false`.
+- [ ] Define a resource-based policy on the KMS key to deny access when a request meets the condition of `aws:SecureTransport`: `false`.
 
 **[⬆ Back to Top](#table-of-contents)**
 
-### A Developer is leveraging a Border Gateway Protocol (BGP)-based AWS VPN connection to connect from on-premises to Amazon EC2 instances in the Developer's account. The Developer is able to access an EC2 instance in subnet A, but is unable to access an EC2 instance in subnet B in the same VPC. Which logs can the Developer use to verify whether the traffic is reaching subnet B?
+### A CloudOps Engineer is maintaining a web application using an Amazon CloudFront web distribution, an Application Load Balancer (ALB), Amazon RDS, and Amazon EC2 in a `VPC`. All services have logging enabled. The Engineer needs to investigate `HTTP` Layer 7 status codes from the web application. Which log sources contain the status codes? (Choose two.)
 
-- [ ] VPN logs.
-- [ ] BGP logs
-- [x] VPC Flow Logs.
+- [ ] `VPC` Flow Logs.
 - [ ] AWS CloudTrail logs.
+- [x] `ALB` access logs.
+- [x] CloudFront access logs.
+- [ ] RDS logs.
 
 **[⬆ Back to Top](#table-of-contents)**
 
-### A Developer has created a new AWS IAM user that has `s3:putObject` permission to write to a specific Amazon S3 bucket. This S3 bucket uses server-side encryption with AWS KMS managed keys (SSE-KMS) as the default encryption. Using the access key and secret key of the IAM user, the application received an access denied error when calling the `PutObject` API. How can this issue be resolved?
+### After a network change, application servers cannot connect to the corresponding Amazon RDS MySQL database. What should the CloudOps Engineer analyze?
 
-- [ ] Update the policy of the IAM user to allow the `s3:EncryptionConfiguration` action.
-- [ ] Update the bucket policy of the S3 bucket to allow the IAM user to upload objects.
-- [x] Update the policy of the IAM user to allow the `kms:GenerateDataKey` action.
-- [ ] Update the ACL of the S3 bucket to allow the IAM user to upload objects.
+- [x] `VPC` Flow Logs.
+- [ ] Elastic Load Balancing logs.
+- [ ] Amazon CloudFront logs.
+- [ ] Amazon RDS MySQL error logs.
 
 **[⬆ Back to Top](#table-of-contents)**
 
-### A company has a web application that uses an Amazon Cognito user pool for authentication. The company wants to create a login page with the company logo. What should a Developer do to meet these requirements?
+### A CloudOps Engineer configured `VPC` flow logs by using the default format. The CloudOps Engineer specified Amazon CloudWatch Logs as the destination. This solution has worked successfully for several months. However, because of additional troubleshooting requirements, the CloudOps Engineer needs to include the `tcp-flags` field on the flow logs. What should the CloudOps Engineer do to meet this requirement?
 
-- [x] Create a hosted user interface in Amazon Cognito and customize it with the company logo.
-- [ ] Create a login page with the company logo and upload it to Amazon Cognito.
-- [ ] Create a login page in Amazon API Gateway with the logo and save the link in Amazon Cognito.
-- [ ] Upload the logo to the Amazon Cognito app settings and point to the logo on a custom login page.
+- [x] Create a new flow log. Include the `tcp-flags` field in the custom log format. Delete the original flow log.
+- [ ] In the CloudWatch Logs log group, modify the filter to include the `tcp-flags` field and the type field.
+- [ ] In CloudWatch Metrics, modify the metric configuration to include the `tcp-flags` field.
+- [ ] Modify the existing flow log. Include the `tcp-flags` field and the type field in the custom log format. Save the configuration.
 
 **[⬆ Back to Top](#table-of-contents)**
 
-### A Developer is working on an AWS Lambda function that accesses Amazon DynamoDB. The Lambda function must retrieve an item and update some of its attributes, or create the item if it does not exist. The Lambda function has access to the primary key. Which IAM permissions should the Developer request for the Lambda function to achieve this functionality?
+### A company runs an application on hundreds of Amazon EC2 instances in three Availability Zones. The application calls a third-party API over the public internet. A CloudOps Engineer must provide the third party with a list of static IP addresses so that the third party can allow traffic from the application. Which solution will meet these requirements?
 
-- [ ] `dynamodb:DeleteItem dynamodb:GetItem dynamodb:PutItem`.
-- [ ] `dynamodb:UpdateItem dynamodb:GetItem dynamodb:DescribeTable`.
-- [ ] `dynamodb:GetRecords dynamodb:PutItem dynamodb:UpdateTable`.
-- [x] `dynamodb:UpdateItem dynamodb:GetItem dynamodb:PutItem`.
+- [x] Add a `NAT` gateway in the public subnet of each Availability Zone. Make the `NAT` gateway the default route of all private subnets in those Availability Zones.
+- [ ] Allocate one Elastic IP address in each Availability Zone. Associate the Elastic IP address with all the instances in the Availability Zone.
+- [ ] Place the instances behind a Network Load Balancer (NLB). Send the traffic to the internet through the private IP address of the NLB.
+- [ ] Update the main route table to send the traffic to the internet through an Elastic IP address that is assigned to each instance.
 
 **[⬆ Back to Top](#table-of-contents)**
 
-### A Developer is storing sensitive data generated by an application in Amazon S3. The Developer wants to encrypt the data at rest. A company policy requires an audit trail of when the master key was used and by whom. Which encryption option will meet these requirements?
+### A CloudOps Engineer is managing an application that runs on Amazon EC2 instances behind an Application Load Balancer. The instances run in an Auto Scaling group across multiple Availability Zones. The application stores data in an Amazon RDS MySQL DB instance. The Engineer must ensure that application stays available if the database becomes unresponsive. How can these requirements be met?
 
-- [ ] Server-side encryption with Amazon S3 managed keys (SSE-S3).
-- [x] Server-side encryption with AWS KMS managed keys (SSE-KMS).
-- [ ] Server-side encryption with customer-provided keys (SSE-C).
-- [ ] Server-side encryption with self-managed keys.
+- [ ] Create read replicas for the RDS database and use them in case of a database failure.
+- [ ] Create a new RDS instance from the snapshot of the original RDS instance if a failure occurs.
+- [ ] Keep a separate RDS database running and switch the endpoint in the web application if a failure occurs.
+- [x] Modify the RDS instance to be a Multi-AZ deployment.
 
 **[⬆ Back to Top](#table-of-contents)**
 
-### A company's website runs on an Amazon EC2 instance and uses Auto Scaling to scale the environment during peak times. Website users across the world are experiencing high latency due to static content on the EC2 instance, even during non-peak hours. Which combination of steps will resolve the latency issue? (Choose TWO)
+### Development teams are maintaining several workloads on AWS. Company management is concerned about rising costs and wants the CloudOps Engineer to configure alerts so teams are notified when spending approaches preset limits. Which AWS service will satisfy these requirements?
 
-- [ ] Double the Auto Scaling group's maximum number of servers.
-- [ ] Host the application code on AWS Lambda.
-- [ ] Scale vertically by resizing the EC2 instances.
-- [x] Create an Amazon CloudFront distribution to cache the static content.
-- [x] Store the application's static content in Amazon S3.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### A company is developing a web application that allows its employees to upload a profile picture to a private Amazon S3 bucket. There is no size limit for the profile pictures, which should be displayed every time an employee logs in. For security reasons, the pictures cannot be publicly accessible. What is a viable long-term solution for this scenario?
-
-- [ ] Generate a presigned URL when a picture is uploaded. Save the URL in an Amazon DynamoDB table. Return the URL to the browser when the employee logs in.
-- [x] Save the picture's S3 key in an Amazon DynamoDB table. Create an Amazon S3 VPC endpoint to allow the employees to download pictures once they log in.
-- [ ] Encode a picture using base64. Save the base64 string in an Amazon DB table. Allow the browser to retrieve the string and convert it to a picture.
-- [ ] Save the picture's S3 key in an Amazon DynamoDB table. Use a function to generate a presigned URL every time an employee logs in. Return the URL to the browser.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### A Developer is going to deploy an AWS Lambda function that requires significant CPU utilization. Which approach will MINIMIZE the average runtime of the function?
-
-- [ ] Deploy the function into multiple AWS Regions.
-- [ ] Deploy the function into multiple Availability Zones.
-- [ ] Deploy the function using Lambda layers.
-- [x] Deploy the function with its memory allocation set to the maximum amount.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### A company has a legacy application that was migrated to a fleet of Amazon EC2 instances. The application stores data in a MySQL database that is currently installed on a single EC2 instance. The company has decided to migrate the database from the EC2 instance to MySQL on Amazon RDS. What should the Developer do to update the application to support data storage in Amazon RDS?
-
-- [x] Update the database connection parameters in the application to point to the new RDS instance.
-- [ ] Add a script to the EC2 instance that implements an AWS SDK for requesting database credentials.
-- [ ] Create a new EC2 instance with an IAM role that allows access to the new RDS database.
-- [ ] Create an AWS Lambda function that will route traffic, from the EC2 instance to the RDS database.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### A Developer has an e-commerce API hosted on Amazon ECS. Variable and spiking demand on the application is causing order processing to take too long. The application processes Amazon SQS queues. The `ApproximateNumberOfMessagesVisible` metric spikes at very high values throughout the day, which cause Amazon CloudWatch alarm breaches. Other ECS metrics for the API containers are well within limits. What can the Developer implement to improve performance while keeping costs low?
-
-- [x] Target tracking scaling policy.
-- [ ] Docker Swarm.
-- [ ] Service scheduler.
-- [ ] Step scaling policy.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### A Developer wants to build an application that will allow new users to register and create new user accounts. The application must also allow users with social media accounts to log in using their social media credentials. Which AWS service or feature can be used to meet these requirements?
-
-- [ ] AWS IAM.
-- [ ] Amazon Cognito identity pools.
-- [x] Amazon Cognito user pools.
-- [ ] AWS Directory Service.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### A company wants to implement authentication for its new REST service using Amazon API Gateway. To authenticate the calls, each request must include HTTP headers with a client ID and user ID. These credentials must be compared to authentication data in an Amazon DynamoDB table. What MUST the company do to implement this authentication in API Gateway?
-
-- [x] Implement an AWS Lambda authorizer that references the DynamoDB authentication table.
-- [ ] Create a model that requires the credentials, then grant API Gateway access to the authentication table.
-- [ ] Modify the integration requests to require the credentials, then grant API Gateway access to the authentication table.
-- [ ] Implement an Amazon Cognito authorizer that references the DynamoDB authentication table.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### A Developer is trying to make API calls using SDK. The IAM user credentials used by the application require multi-factor authentication for all API calls. Which method the Developer use to access the multi-factor authentication protected API?
-
-- [ ] GetFederationToken.
-- [ ] GetCallerIdentity.
-- [x] GetSessionToken.
-- [ ] DecodeAutherizationMessage.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### An application is running on a cluster of Amazon EC2 instances. While trying to read objects stored within a single Amazon S3 bucket that are encrypted with server-side encryption with AWS KMS managed keys (SSE-KMS), the application receives the following error. Which combination of steps should be taken to prevent this failure? (Choose TWO)
-
-![Question 212](images/question212.jpg)
-
-- [x] Contact AWS Support to request an AWS KMS rate limit increase.
-- [x] Perform error retries with exponential backoff in the application code.
-- [ ] Contact AWS Support to request a S3 rate limit increase.
-- [ ] Import a customer master key (CMK) with a larger key size.
-- [ ] Use more than one customer master key (CMK) to encrypt S3 data.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### When developing an AWS Lambda function that processes Amazon Kinesis Data Streams, Administrators within the company must receive a notice that includes the processed data. How should the Developer write the function to send processed data to the Administrators?
-
-- [ ] Separate the Lambda handler from the core logic.
-- [ ] Use Amazon CloudWatch Events to send the processed data.
-- [x] Publish the processed data to an Amazon SNS topic.
-- [ ] Push the processed data to Amazon SQS.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### A Developer is storing sensitive documents in Amazon S3 that will require encryption at rest. The encryption keys must be rotated annually, at least. What is the easiest way to achieve this?
-
-- [ ] Encrypt the data before sending it to Amazon S3.
-- [ ] Import a custom key into AWS KMS with annual rotation enabled.
-- [x] Use AWS KMS with automatic key rotation.
-- [ ] Export a key from AWS KMS to encrypt the data.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### A company is creating a REST service using an Amazon API Gateway with AWS Lambda integration. The service must run different versions for testing purposes. What would be the BEST way to accomplish this?
-
-- [ ] Use an `x-Version` header to denote which version is being called and pass that header to the Lambda function(s).
-- [ ] Create an API Gateway Lambda authorizer to route API clients to the correct API version.
-- [ ] Create an API Gateway resource policy to isolate versions and provide context to the Lambda function(s).
-- [x] Deploy the API versions as unique stages with unique endpoints and use stage variables to provide further context.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### A Developer must encrypt a 100-GB object using AWS KMS. What is the BEST approach?
-
-- [ ] Make an `Encrypt` API call to encrypt the plaintext data as ciphertext using a customer master key (CMK).
-- [ ] Make an `Encrypt` API call to encrypt the plaintext data as ciphertext using a customer master key (CMK) with imported key material.
-- [x] Make an `GenerateDataKey` API call that returns a plaintext key and an encrypted copy of a data key. Use a plaintext key to encrypt the data.
-- [ ] Make an `GenerateDataKeyWithoutPlaintext` API call that returns an encrypted copy of a data key. Use an encrypted key to encrypt the data.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### A Development team would like to migrate their existing application code from a GitHub repository to AWS CodeCommit. What needs to be created before they can migrate a cloned repository to CodeCommit over HTTPS?
-
-- [ ] A GitHub secure authentication token.
-- [ ] A public and private SSH key file.
-- [x] A set of Git credentials generated from IAM.
-- [ ] An Amazon EC2 IAM role with CodeCommit permissions.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### What item operation allows the retrieval of multiple items from a DynamoDB table in a single API call?
-
-- [ ] `GetItem`.
-- [x] `BatchGetItem`.
-- [ ] `GetMultipleItems`.
-- [ ] `GetItemRange`.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### After launching an instance that you intend to serve as a NAT (Network Address Translation) device in a public subnet you modify your route tables to have the NAT device be the target of internet bound traffic of your private subnet. When you try and make an outbound connection to the Internet from an instance in the private subnet, you are not successful. NAT device be the target of internet bound traffic of your private subnet. Which of the following steps could resolve the issue?
-
-- [ ] Attaching a second Elastic Network interface (ENI) to the NAT instance, and placing it in the private subnet.
-- [ ] Attaching a second Elastic Network Interface (ENI) to the instance in the private subnet, and placing it in the public subnet.
-- [x] Disabling the `Source/Destination Check` attribute on the NAT instance.
-- [ ] Attaching an Elastic IP address to the instance in the private subnet.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### You attempt to store an object in the `US-STANDARD` region in Amazon S3, and receive a confirmation that it has been successfully stored. You then immediately make another API call and attempt to read this object. S3 tells you that the object does not exist. What could explain this behavior?
-
-- [x] `US-STANDARD` uses eventual consistency and it can take time for an object to be readable in a bucket.
-- [ ] Objects in Amazon S3 do not become visible until they are replicated to a second region.
-- [ ] `US-STANDARD` imposes a 1 second delay before new objects are readable.
-- [ ] ou exceeded the bucket object limit, and once this limit is raised the object will be visible.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### What is the maximum number of S3 Buckets available per AWS account?
-
-- [ ] 100 per region.
-- [ ] there is no limit.
-- [x] 1,000,000 per account.
-- [ ] 500 per account.
-- [ ] 100 per IAM user.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### Which of the following items are required to allow an application deployed on an EC2 instance to write data to a DynamoDB table? Assume that no security Keys are allowed to be stored on the EC2 instance. (Choose TWO)
-
-- [ ] Create an IAM User that allows write access to the DynamoDB table.
-- [ ] Add an IAM Role to a running EC2 instance.
-- [ ] Add an IAM User to a running EC2 Instance.
-- [x] Launch an EC2 Instance with the IAM Role included in the launch configuration.
-- [x] Create an IAM Role that allows write access to the DynamoDB table.
-- [ ] Launch an EC2 Instance with the IAM User included in the launch configuration.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### Which of the following are correct statements with policy evaluation logic in AWS Identity and Access Management? (Choose TWO)
-
-- [x] By default, all requests are denied.
-- [ ] An explicit allow overrides an explicit deny.
-- [x] An explicit allow overrides default deny.
-- [ ] An explicit deny does not override an explicit allow.
-- [ ] By default, all request are allowed.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### You have an environment that consists of a public subnet using Amazon VPC and 3 instances that are running in this subnet. These three instances can successfully communicate with other hosts on the Internet. You launch a fourth instance in the same subnet, using the same AMI and security group configuration you used for the others, but find that this instance cannot be accessed from the Internet. What should you do to enable internet access?
-
-- [ ] Deploy a NAT instance into the public subnet.
-- [ ] Modify the routing table for the public subnet.
-- [ ] Configure a publically routable IP Address In the host OS of the fourth instance.
-- [x] Assign an Elastic IP address to the fourth instance.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### If a message is retrieved from a queue in Amazon SQS, how long is the message inaccessible to other users by default?
-
-- [ ] 0 seconds.
-- [ ] 1 hour.
-- [ ] 1 day.
-- [ ] forever.
-- [x] 30 seconds.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### What is the format of structured notification messages sent by Amazon SNS?
-
-- [ ] An XML object containing Messageld, UnsubscribeURL, Subject, Message and other values.
-- [ ] An JSON object containing Messageld, DuplicateFlag, Message and other values.
-- [ ] An XML object containing Messageld, DuplicateFlag, Message and other values.
-- [x] An JSON object containing Messageld, unsubscribeURL, Subject, Message and other values.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### When uploading an object, what request header can be explicitly specified in a request to Amazon S3 to encrypt object data when saved on the server side?
-
-- [ ] `x-amz-storage-class`.
-- [ ] `Content-MD5`.
-- [ ] `x-amz-security-token`.
-- [x] `x-amz-server-side-encryption`.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### Which of the following platforms are supported by Elastic Beanstalk? (Choose TWO)
-
-- [x] Apache Tomcat.
-- [x] .NET.
-- [ ] IBM Websphere.
-- [ ] Oracle JBoss.
-- [ ] Jetty.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### Which code snippet below returns the URL of a load balanced web site created in CloudFormation with an `AWS::ElasticLoadBalancing::LoadBalancer` resource name `ElasticLoad Balancer`?
-
-- [x] `"Fn::Join":[ "".["http://", {Fn::GetAtt": [ "ElasticLoadBalancer","DNSName"]}]]`.
-- [ ] `"Fn::Join":[ "".["http://", {Fn::GetAtt": [ "ElasticLoadBalancer","Url"]}]]`.
-- [ ] `"Fn::Join":[ "".["http://", {"Ref : "ElasticLoadBalancerUrl"}]]`.
-- [ ] `"Fn::Join":[ "".["http://", {"Ref : "ElasticLoadBalancer","DNSName"}]]`.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### Which features can be used to restrict access to data in S3? (Choose TWO)
-
-- [ ] Use S3 Virtual Hosting.
-- [x] Set an S3 Bucket policy.
-- [ ] Enable IAM Identity Federation.
-- [x] Set an S3 ACL on the bucket or the object.
-- [ ] Create a CloudFront distribution for the bucket.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### What happens, by default, when one of the resources in a CloudFormation stack cannot be created?
-
-- [ ] Previously-created resources are kept but the stack creation terminates.
-- [x] Previously-created resources are deleted and the stack creation terminates.
-- [ ] The stack creation continues, and the final results indicate which steps failed.
-- [ ] CloudFormation templates are parsed in advance so stack creation is guaranteed to succeed.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### Which of the following are valid arguments for an SNS Publish request? (Choose THREE)
-
-- [x] TopicArn.
-- [x] Subject.
-- [ ] Destination.
-- [ ] Format.
-- [x] Message.
-- [ ] Language.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### How can software determine the public and private IP addresses of the Amazon EC2 instance that it is running on?
-
-- [ ] Query the appropriate Amazon CloudWatch metric.
-- [ ] Use `ipconfig` or `ifconfig` command.
-- [ ] Query the local instance userdata.
-- [x] Query the local instance metadata.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### EC2 instances are launched from Amazon Machine images (AMIs). A given public AMI can:
-
-- [ ] Be used to launch EC2 Instances in any AWS region.
-- [ ] Only be used to launch EC2 instances in the same country as the AMI is stored.
-- [x] Only be used to launch EC2 instances in the same AWS region as the AMI is stored.
-- [ ] Only be used to launch EC2 instances in the same AWS availability zone as the AMI is stored.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### Which EC2 API call would you use to retrieve a list of Amazon Machine Images (AMIs)?
-
-- [ ] `DescribeInstances`.
-- [ ] `DescribeAMIs`.
-- [x] `DescribeImages`.
-- [ ] `GetAMIs`.
-- [ ] You cannot retrieve a list of AMIs as there are over 10,000 AMIs.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### In AWS, which security aspects are the customer's responsibility? (Choose FOUR)
-
-- [x] Life-cycle management of IAM credentials.
-- [ ] Decommissioning storage devices.
-- [x] Security Group and ACL (Access Control List) settings.
-- [x] Encryption of EBS (Elastic Block Storage) volumes.
-- [ ] Controlling physical access to compute resources.
-- [x] Patch management on the EC2 instance's operating system.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### When using a large Scan operation in DynamoDB, what technique can be used to minimize the impact of a scan on a table's provisioned throughput?
-
-- [x] Set a smaller page size for the scan.
-- [ ] Use parallel scans.
-- [ ] Define a range index on the table.
-- [ ] Prewarm the table by updating all items.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### How can you secure data at rest on an EBS volume?
-
-- [ ] Attach the volume to an instance using EC2's SSL interface.
-- [ ] Write the data randomly instead of sequentially.
-- [x] Use an encrypted file system on top of the EBS volume.
-- [ ] Encrypt the volume using the S3 server-side encryption service.
-- [ ] Create an IAM policy that restricts read and write access to the volume.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### Which of the following is chosen as the default region when making an API call with an AWS SDK?
-
-- [ ] `ap-northeast-1`.
-- [ ] `us-west-2`.
-- [x] `us-east-1`.
-- [ ] `eu-west-1`.
-- [ ] `us-central-1`.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### Which of the following statements about SWF are true? (Choose THREE)
-
-- [x] SWF tasks are assigned once and never duplicated.
-- [ ] SWF requires an S3 bucket for workflow storage.
-- [x] SWF workflow executions can last up to a year.
-- [ ] SWF triggers SNS notifications on task assignment.
-- [x] SWF uses deciders and workers to complete tasks.
-- [ ] SWF requires at least 1 EC2 instance per domain.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### A startup s photo-sharing site is deployed in a VPC. An ELB distributes web traffic across two subnets. ELB session stickiness is configured to use the AWS-generated session cookie, with a session TTL of 5 minutes. The webserver Auto Scaling Group is configured as: `min-size=4`, `max-size=4`, The startups preparing for a public launch, by running load-testing software installed on a single EC2 instance running in `us-west-2`. After 60 minutes of load-testing, the webserver logs show. Which recommendations can help ensure load-testing HTTP requests are evenly distributed across the four webservers? (Choose TWO)
-
-![Question 241](images/question241.jpg)
-
-- [ ] Launch and run the load-tester EC2 instance from `us-east-1` instead.
-- [x] Re-configure the load-testing software to re-resolve DNS for each web request.
-- [x] Use a 3rd-party load-testing service which offers globally-distributed test clients.
-- [ ] Configure ELB and Auto Scaling to distribute across `us-west-2a` and `us-west-2c`.
-- [ ] Configure ELB session stickiness to use the app-specific session cookie.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### Which of the following are valid SNS delivery transports? (Choose TWO)
-
-- [x] HTTP.
-- [ ] UDP.
-- [x] SMS.
-- [ ] DynamoDB.
-- [ ] Named Pipes.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### Company C has recently launched an online commerce site for bicycles on AWS. They have a `Product` DynamoDB table that stores details for each bicycle, such as, manufacturer, color, price, quantity and size to display in the online store. Due to customer demand, they want to include an image for each bicycle along with the existing details. Which approach below provides the least impact to provisioned throughput on the `Product` table?
-
-- [ ] Serialize the image and store it in multiple DynamoDB tables.
-- [ ] Create an `Images` DynamoDB table to store the Image with a foreign key constraint to the `Product` table.
-- [ ] Add an image data type to the `Product` table to store the images in binary format.
-- [x] Store the images in Amazon S3 and add an S3 URL pointer to the `Product` table item for each image.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### Which DynamoDB limits can be raised by contacting AWS support? (Choose TWO)
-
-- [ ] The number of hash keys per account.
-- [ ] The maximum storage used per account.
-- [x] The number of tables per account.
-- [ ] The number of local secondary indexes per account.
-- [x] The number of provisioned throughput units per account.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### When a Simple Queue Service message triggers a task that takes 5 minutes to complete, which process below will result in successful processing of the message and remove it from the queue while minimizing the chances of duplicate processing?
-
-- [x] Retrieve the message with an increased visibility timeout, process the message, delete the message from the queue.
-- [ ] Retrieve the message with an increased visibility timeout, delete the message from the queue, process the message.
-- [ ] Retrieve the message with increased `DelaySeconds`, process the message, delete the message from the queue.
-- [ ] Retrieve the message with increased `DelaySeconds`, delete the message from the queue, process the message.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### Company A has an S3 bucket containing premier content that they intend to make available to only paid subscribers of their website. The S3 bucket currently has default permissions of all objects being private to prevent inadvertent exposure of the premier content to non-paying website visitors. How can Company A provide only paid subscribers the ability to download a premier content file in the S3 bucket?
-
-- [ ] Apply a bucket policy that grants anonymous users to download the content from the S3 bucket.
-- [x] Generate a pre-signed object URL for the premier content file when a paid subscriber requests a download.
-- [ ] Add a bucket policy that requires Multi-Factor Authentication for requests to access the S3 bucket objects.
-- [ ] Enable server side encryption on the S3 bucket for data protection against the non-paying website visitors.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### Which of the following is an example of a good DynamoDB hash key schema for provisioned throughput efficiency?
-
-- [x] User ID, where the application has many different users.
-- [ ] Status Code where most status codes are the same.
-- [ ] Device ID, where one is by far more popular than all the others.
-- [ ] Game Type, where there are three possible game types.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### An application stores payroll information nightly in DynamoDB for a large number of employees across hundreds of offices. Item attributes consist of individual name, office identifier, and cumulative daily hours. Managers run reports for ranges of names working in their office. One query is: `Return all Items in this office for names starting with A through E`. Which table configuration will result in the lowest impact on provisioned throughput for this query?
-
-- [ ] Configure the table to have a hash index on the name attribute, and a range index on the office identifier.
-- [x] Configure the table to have a range index on the name attribute, and a hash index on the office identifier.
-- [ ] Configure a hash index on the name attribute and no range index.
-- [ ] Configure a hash index on the office identifier attribute and no range index.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### What is one key difference between an Amazon EBS-backed and an instance-store backed instance?
-
-- [ ] Virtual Private Cloud requires EBS backed instances.
-- [x] Amazon EBS-backed instances can be stopped and restarted.
-- [ ] Auto scaling requires using Amazon EBS-backed instances.
-- [ ] Instance-store backed instances can be stopped and restarted.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### Which of the following services are included at no additional cost with the use of the AWS platform?
-
-- [ ] Simple Storage Service.
-- [ ] Elastic Compute Cloud.
-- [x] Auto Scaling.
-- [ ] Elastic Load Balancing.
-- [x] CloudFormation.
-- [ ] Simple Workflow Service.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### Your application is trying to upload a 6 GB file to Simple Storage Service and receive a `Your proposed upload exceeds the maximum allowed object size.` error message. What is a possible solution for this?
-
-- [ ] None, Simple Storage Service objects are limited to 5 GB.
-- [x] Use the multi-part upload API for this object.
-- [ ] Use the large object upload API for this object.
-- [ ] Contact support to increase your object size limit.
-- [ ] Upload to a different region.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### What AWS products and features can be deployed by Elastic Beanstalk? (Choose THREE)
-
-- [x] Auto scaling groups.
-- [ ] Route 53 hosted zones.
-- [x] Elastic Load Balancers.
-- [x] RDS Instances.
-- [ ] Elastic IP addresses.
-- [ ] SQS Queues.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### Games-R-Us is launching a new game app for mobile devices. Users will log into the game using their existing Facebook account and the game will record player data and scoring information directly to a DynamoDB table. What is the most secure approach for signing requests to the DynamoDB API?
-
-- [ ] Create an IAM user with access credentials that are distributed with the mobile app to sign the requests.
-- [ ] Distribute the AWS root account access credentials with the mobile app to sign the requests.
-- [x] Request temporary security credentials using web identity federation to sign the requests.
-- [ ] Establish cross account access between the mobile app and the DynamoDB table to sign the requests
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### Which of the following programming languages have an officially supported AWS SDK? (Choose TWO)
-
-- [ ] Perl.
-- [x] PHP.
-- [ ] Pascal.
-- [x] Java.
-- [ ] SQL.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### A meteorological system monitors 600 temperature gauges, obtaining temperature samples every minute and saving each sample to a DynamoDB table Each sample involves writing 1K of data and the writes are evenly distributed over time. How much write throughput is required for the target table?
-
-- [ ] 1 write capacity unit.
-- [x] 10 write capacity units.
-- [ ] 60 write capacity units.
-- [ ] 600 write capacity units.
-- [ ] 3600 write capacity units.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### In DynamoDB, what type of HTTP response codes indicate that a problem was found with the client request sent to the service?
-
-- [ ] 5xx HTTP response code.
-- [ ] 200 HTTP response code.
-- [ ] 306 HTTP response code.
-- [x] 4xx HTTP response code.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### Company B provides an online image recognition service and utilizes SQS to decouple system components for scalability The SQS consumers poll the imaging queue as often as possible to keep end-to-end throughput as high as possible. However, Company B is realizing that polling in tight loops is burning CPU cycles and increasing costs with empty responses. How can Company B reduce the number of empty responses?
-
-- [ ] Set the imaging queue visibility `Timeout` attribute to 20 seconds.
-- [x] Set the Imaging queue `ReceiveMessageWaitTimeSeconds` attribute to 20 seconds.
-- [ ] Set the imaging queue `MessageRetentionPeriod` attribute to 20 seconds.
-- [ ] Set the `DelaySeconds` parameter of a message to 20 seconds.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### An Amazon S3 bucket, `myawsbucket` is configured with website hosting in Tokyo region, what is the region-specific website endpoint?
-
-- [ ] `www.myawsbucket.ap-northeast-1.amazonaws.com`.
-- [x] `myawsbucket.s3-website-ap-northeast-1.amazonaws.com`.
-- [ ] `myawsbucket.amazonaws.com`.
-- [ ] `myawsbucket.tokyo.amazonaws.com`.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### You are inserting 1000 new items every second in a DynamoDB table. Once an hour these items are analyzed and then are no longer needed. You need to minimize provisioned throughput, storage, and API calls. Given these requirements, what is the most efficient way to manage these Items after the analysis?
-
-- [ ] Retain the items in a single table.
-- [ ] Delete items individually over a 24 hour period.
-- [x] Delete the table and create a new table per hour.
-- [ ] Create a new table per hour.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### You have written an application that uses the Elastic Load Balancing service to spread traffic to several web servers. Your users complain that they are sometimes forced to login again in the middle of using your application, after they have already logged in. This is not behavior you have designed. What is a possible solution to prevent this happening?
-
-- [ ] Use instance memory to save session state.
-- [ ] Use instance storage to save session state.
-- [ ] Use EBS to save session state.
-- [x] Use ElastiCache to save session state.
-- [ ] Use Glacier to save session slate.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### You run an ad-supported photo sharing website using S3 to serve photos to visitors of your site. At some point you find out that other sites have been linking to the photos on your site, causing loss to your business. What is an effective method to mitigate this?
-
-- [ ] Store photos on an EBS volume of the web server.
-- [x] Remove public read access and use signed URLs with expiry dates.
-- [ ] Use CloudFront distributions for static content.
-- [ ] Block the IPs of the offending websites in Security Groups.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### Which statements about DynamoDB are true? (Choose TWO)
-
-- [ ] DynamoDB uses a pessimistic locking model.
-- [x] DynamoDB uses optimistic concurrency control.
-- [x] DynamoDB uses conditional writes for consistency.
-- [ ] DynamoDB restricts item access during reads.
-- [ ] DynamoDB restricts item access during writes.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### You are providing AWS consulting services for a company developing a new mobile application that will be leveraging Amazon SNS Mobile Push for push notifications. In order to send direct notification messages to individual devices each device registration identifier or token needs to be registered with SNS; however the developers are not sure of the best way to do this. You advise them to:
-
-- [ ] Bulk upload the device tokens contained in a CSV file via the AWS Management Console.
-- [ ] Let the push notification service (e.g. Amazon Device Messaging) handle the registration.
-- [ ] Implement a token vending service to handle the registration.
-- [x] Call the `CreatePlatformEndPoint` API function to register multiple device tokens.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### You are writing to a DynamoDB table and receive the following exception: `ProvisionedThroughputExceededException`. though according to your Cloudwatch metrics for the table, you are not exceeding your provisioned throughput. What could be an explanation for this?
-
-- [ ] You haven't provisioned enough DynamoDB storage instances.
-- [ ] You're exceeding your capacity on a particular `Range Key`.
-- [x] You're exceeding your capacity on a particular `Hash Key`.
-- [ ] You're exceeding your capacity on a particular `Sort Key`.
-- [ ] You haven't configured DynamoDB Auto Scaling triggers.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### If an application is storing hourly log files from thousands of instances from a high traffic web site, which naming scheme would give optimal performance on S3?
-
-- [ ] Sequential.
-- [x] `instanceID_log-HH-DD-MM-YYYY`.
-- [ ] `instanceIDLog-YYYY-MM-DD-HH`.
-- [ ] `HH-DD-MM-YYYY-log_instanceID`.
-- [ ] `YYYY-MM-DD-HH-logInstanceID`.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### Which of the following statements about SQS is true?
-
-- [ ] Messages will be delivered exactly once and messages will be delivered in First in, First out order.
-- [ ] Messages will be delivered exactly once and message delivery order is indeterminate.
-- [ ] Messages will be delivered one or more times and messages will be delivered in First in, First out order.
-- [x] Messages will be delivered one or more times and message delivery order is indeterminate.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### A corporate web application is deployed within an Amazon VPC, and is connected to the corporate data center via IPSec VPN. The application must authenticate against the on-premise LDAP server. Once authenticated, logged-in users can only access an S3 keyspace specific to the user. Which two approaches can satisfy the objectives? (Choose TWO)
-
-- [ ] The application authenticates against LDAP. The application then calls the IAM Security Service to login to IAM using the LDAP credentials. The application can use the 1AM temporary credentials to access the appropriate S3 bucket.
-- [x] The application authenticates against LDAP, and retrieves the name of an IAM role associated with the user. The application then calls the IAM Security Token Service to assume that IAM Role. The application can use the temporary credentials to access the appropriate S3 bucket.
-- [ ] The application authenticates against IAM Security Token Service using the LDAP credentials. The application uses those temporary AWS security credentials to access the appropriate S3 bucket.
-- [x] Develop an identity broker which authenticates against LDAP, and then calls IAM Security Token Service to get IAM federated user credentials. The application calls the identity broker to get IAM federated user credentials with access to the appropriate S3 bucket.
-- [ ] Develop an identity broker which authenticates against IAM Security Token Service to assume an IAM Role to get temporary AWS security credentials. The application calls the identity broker to get AWS temporary security credentials with access to the appropriate S3 bucket.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### Company C is currently hosting their corporate site in an Amazon S3 bucket with Static Website Hosting enabled. Currently, when visitors go to `http://www.companyc.com` the `index.html` page is returned. Company C now would like a new page welcome.html to be returned when a visitor enters `http://www.companyc.com` in the browser. Which of the following steps will allow Company C to meet this requirement? (Choose TWO)
-
-- [x] Upload an html page named welcome.html to their S3 bucket.
-- [ ] Create a welcome subfolder in their S3 bucket.
-- [x] Set the Index Document property to welcome.html.
-- [ ] Move the `index.html` page to a welcome subfolder.
-- [ ] Set the Error Document property to welcome.html.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### What type of block cipher does Amazon S3 offer for server side encryption?
-
-- [ ] Triple DES.
-- [x] Advanced Encryption Standard.
-- [ ] Blowfish.
-- [ ] RC5.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### A Development team wants to instrument their code to provide more detailed information to AWS X-Ray than simple outgoing and incoming requests. This will generate large amounts of data, so the Development team wants to implement indexing so they can filter the data. What should the Development team do to achieve this?
-
-- [x] Add annotations to the segment document and the code.
-- [ ] Add metadata to the segment document and the code.
-- [ ] Configure the necessary X-Ray environment variables.
-- [ ] Install required plugins for the appropriate AWS SDK.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### A team of Developers must migrate an application running inside an AWS Elastic Beanstalk environment from a Classic Load Balancer to an Application Load Balancer. Which steps should be taken to accomplish the task using the AWS Management Console?
-
-- [x] 1. Update the application code in the existing deployment. 2. Select a new load balancer type before running the deployment. 3. Deploy the new version of the application code to the environment.
-- [ ] 1. Create a new environment with the same configurations except for the load balancer type. 2. Deploy the same application version as used in the original environment. 3. Run the `swap-environment-cnames` action.
-- [ ] 1. Clone the existing environment, changing the associated load balancer type. 2. Deploy the same application version as used in the original environment. 3. Run the `swap-environment-cnames` action.
-- [ ] 1. Edit the environment definitions in the existing deployment. 2. Change the associated load balancer type according to the requirements. 3. Rebuild the environment with the new load balancer type.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### A company needs a version control system for collaborative software development. Features of the system must include the following: Support for batches of changes across multiple files. Parallel branching Version tracking. Which AWS service will meet these requirements?
-
-- [ ] AWS CodePipeline.
-- [ ] Amazon S3.
-- [ ] AWS Code Build.
-- [x] AWS CodeCommit.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### A company is using continuous integration and continuous delivery systems. A Developer now needs to automate a software package deployment to both Amazon EC2 instances and virtual servers running on-premises. Which AWS service should be used to accomplish this?
-
-- [ ] AWS CodePipeline.
-- [ ] AWS CodeBuild.
-- [ ] AWS Elastic Beanstalk.
-- [x] AWS CodeDeploy.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### A Developer created a new AWS account and must create a scalable AWS Lambda function that meets the following requirements for concurrent execution: Average execution time of 100 seconds 50 requests per second. Which step must be taken prior to deployment to prevent errors?
-
-- [ ] Implement dead-letter queues to capture invocation errors.
-- [ ] Add an event source from Amazon API Gateway to the Lambda function.
-- [ ] Implement error handling within the application code.
-- [x] Contact AWS Support to increase the concurrent execution limits.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### A Developer is building a three-tier web application that should be able to handle a minimum of 5000 requests per minute. Requirements state that the web tier should be completely stateless while the application maintains session state for the users. How can session data be externalized, keeping latency at the LOWEST possible value?
-
-- [ ] Create an Amazon RDS instance, then implement session handling at the application level to leverage a database inside the RDS database instance for session data storage.
-- [ ] Implement a shared file system solution across the underlying Amazon EC2 instances, then implement session handling at the application level to leverage the shared file system for session data storage.
-- [x] Create an Amazon ElastiCache Memcached cluster, then implement session handling at the application level to leverage the cluster for session data storage.
-- [ ] Create an Amazon DynamoDB table, then implement session handling at the application level to leverage the table for session data storage.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### An Amazon DynamoDB table uses a Global Secondary Index (GSI) to support read queries. The primary table is write-heavy, whereas the GSI is used for read operations. Looking at Amazon CloudWatch metrics, the Developer notices that write operations to the primary table are throttled frequently under heavy write activity. However, write capacity units to the primary table are available and not fully consumed. Why is the table being throttled?
-
-- [x] The GSI write capacity units are underprovisioned.
-- [ ] There are not enough read capacity units on the primary table.
-- [ ] Amazon DynamoDB Streams is not enabled on the table.
-- [ ] A large write operation is being performed against another table.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### A company runs an e-commerce website that uses Amazon DynamoDB where pricing for items is dynamically updated in real time. At any given time, multiple updates may occur simultaneously for pricing information on a particular product. This is causing the original editor's changes to be overwritten without a proper review process. Which DynamoDB write option should be selected to prevent this overwriting?
-
-- [ ] Concurrent writes.
-- [x] Conditional writes.
-- [ ] Atomic writes.
-- [ ] Batch writes.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### A Developer has been asked to create an AWS Lambda function that is triggered any time updates are made to items in an Amazon DynamoDB table. The function has been created, and appropriate permissions have been added to the Lambda execution role. Amazon DynamoDB streams have been enabled for the table, but the function is still not being triggered. Which option would enable DynamoDB table updates to trigger the Lambda function?
-
-- [ ] Change the `StreamViewType` parameter value to `NEW_AND_OLD_IMAGES` for the DynamoDB table.
-- [x] Configure event source mapping for the Lambda function.
-- [ ] Map an Amazon SNS topic to the DynamoDB streams.
-- [ ] Increase the maximum execution time (timeout) setting of the Lambda function.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### A company is running a Docker application on Amazon ECS. The application must scale based on user load in the last 15 seconds. How should a Developer instrument the code so that the requirement can be met?
-
-- [ ] Create a high-resolution custom Amazon CloudWatch metric for user activity data, then publish data every 30 seconds.
-- [x] Create a high-resolution custom Amazon CloudWatch metric for user activity data, then publish data every 5 seconds.
-- [ ] Create a standard-resolution custom Amazon CloudWatch metric for user activity data, then publish data every 30 seconds.
-- [ ] Create a standard-resolution custom Amazon CloudWatch metric for user activity data, then publish data every 5 seconds.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### A company needs to ingest terabytes of data each hour from thousands of sources that are delivered almost continually throughout the day. The volume of messages generated varies over the course of the day. Messages must be delivered in real time for fraud detection and live operational dashboards. Which approach will meet these requirements?
-
-- [ ] Send the messages to an Amazon SQS queue, then process the messages by using a fleet of Amazon EC2 instances.
-- [ ] Use the Amazon S3 API to write messages to an S3 bucket, then process the messages by using Amazon Redshift.
-- [ ] Use AWS Data Pipeline to automate the movement and transformation of data.
-- [x] Use Amazon Kinesis Data Streams with Kinesis Client Library to ingest and deliver messages.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### A Developer accesses AWS CodeCommit over SSH. The SSH keys configured to access AWS CodeCommit are tied to a user with the following permissions. The Developer needs to create/delete branches. Which specific IAM permissions need to be added, based on the principle of least privilege?
-
-![Question 281](images/question281.jpg)
-
-- [x] `"codecommit:CreateBranch" "codecommit:DeleteBranch"`.
-- [ ] `"codecommit:Put*"`.
-- [ ] `"codecommit:Update*"`.
-- [ ] `"codecommit:*"`.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### An AWS Lambda function must access an external site by using a regularly rotated user name and password. These items must be kept securely and cannot be stored in the function code. What combination of AWS services can be used to accomplish this? (Choose TWO)
-
-- [ ] AWS Certificate Manager (ACM).
-- [x] AWS Systems Manager Parameter Store.
+- [x] AWS Budgets.
+- [ ] AWS Cost Explorer.
 - [ ] AWS Trusted Advisor.
-- [x] AWS KMS.
-- [ ] Amazon GuardDuty.
+- [ ] AWS Cost and Usage report.
 
 **[⬆ Back to Top](#table-of-contents)**
 
-### A Developer is trying to deploy a serverless application using AWS CodeDeploy. The application was updated and needs to be redeployed. What file does the Developer need to update to push that change through CodeDeploy?
+### A CloudOps Engineer is managing a `VPC` network consisting of public and private subnets. Instances in the private subnets access the Internet through a `NAT` gateway. A recent AWS bill shows that the `NAT` gateway charges have doubled. The Engineer wants to identify which instances are creating the most network traffic. How should this be accomplished?
 
-- [ ] `dockerrun.aws.json`.
-- [ ] `buildspec.yml`.
-- [x] `appspec.yml`.
-- [ ] `ebextensions.config`.
+- [x] Enable flow logs on the `NAT` gateway elastic network interface and use Amazon CloudWatch insights to filter data based on the source IP addresses.
+- [ ] Run an AWS Cost and Usage report and group the findings by instance ID.
+- [ ] Use the `VPC` traffic mirroring feature to send traffic to Amazon QuickSight.
+- [ ] Use Amazon CloudWatch metrics generated by the `NAT` gateway for each individual instance.
 
 **[⬆ Back to Top](#table-of-contents)**
 
-### A Developer is working on an application that handles 10MB documents that contain highly-sensitive data. The application will use AWS KMS to perform clientside encryption. What steps must be followed?
+### An Application team has asked a CloudOps Engineer to provision an additional environment for an application in four additional regions. The application is running on more than 100 instances in `us-east-1`, using fully baked AMIs. An AWS CloudFormation template has been created to deploy resources in `us-east-1`. What must the CloudOps Engineer do to provision the application quickly?
 
-- [ ] Invoke the Encrypt API passing the plaintext data that must be encrypted, then reference the customer managed key ARN in the `KeyId` parameter.
-- [ ] Invoke the `GenerateRandom` API to get a data encryption key, then use the data encryption key to encrypt the data.
-- [ ] Invoke the `GenerateDataKey` API to retrieve the encrypted version of the data encryption key to encrypt the data.
-- [x] Invoke the `GenerateDataKey` API to retrieve the plaintext version of the data encryption key to encrypt the data.
+- [x] Copy the AMI to each region using `aws ec2 copy-image`. Update the CloudFormation mapping to include mappings for the copied AMIs.
+- [ ] Create a snapshot of the running instance and copy the snapshot to the other regions. Create an AMI from the snapshots. Update the CloudFormation template for each region to use the new AMI.
+- [ ] Run the existing CloudFormation template in each additional region based on the success of the template used currently in `us-east-1`.
+- [ ] Update the CloudFormation template to include the additional regions in the Auto Scaling group. Update the existing stack in `us-east-1`.
 
 **[⬆ Back to Top](#table-of-contents)**
 
-### A Developer is building a web application that uses Amazon API Gateway to expose an AWS Lambda function to process requests from clients. During testing, the Developer notices that the API Gateway times out even though the Lambda function finishes under the set time limit. Which of the following API Gateway metrics in Amazon CloudWatch can help the Developer troubleshoot the issue? (Choose TWO)
+### A company is attempting to manage its costs in the AWS Cloud. A CloudOps Engineer needs specific company-defined tags that are assigned to resources to appear on the billing report. What should the CloudOps Engineer do to meet this requirement?
 
-- [ ] CacheHitCount.
-- [x] IntegrationLatency.
-- [ ] CacheMissCount.
-- [x] Latency.
-- [ ] Count.
+- [ ] Activate the tags as AWS generated cost allocation tags.
+- [x] Activate the tags as user-defined cost allocation tags.
+- [ ] Create a new cost category. Select the account billing dimension.
+- [ ] Create a new AWS Cost and Usage Report. Include the resource IDs.
 
 **[⬆ Back to Top](#table-of-contents)**
 
-### A company needs to distribute firmware updates to its customers around the world. Which service will allow easy and secure control of the access to the downloads at the lowest cost?
+### A company has Sales department and Marketing department. The company uses one AWS account. There is a need to determine what charges are incurred on the AWS platform by each department. There is also a need to receive notifications when a specified cost level is approached or exceeded. Which two actions must a CloudOps Engineer take to achieve both requirements with the LEAST amount of administrative overhead? (Choose two.)
 
-- [x] Use Amazon CloudFront with signed URLs for Amazon S3.
-- [ ] Create a dedicated Amazon CloudFront Distribution for each customer.
-- [ ] Use Amazon CloudFront with AWS Lambda@Edge.
-- [ ] Use Amazon API Gateway and AWS Lambda to control access to an S3 bucket.
+- [ ] Use AWS Trusted Advisor to obtain a report containing the checked items in the Cost Optimization pillar.
+- [ ] Download the detailed billing report, upload it to a database, and match the line items with a list of known resources by department.
+- [x] Create a script by using the AWS CLI to automatically apply tags to existing resources to each department. Schedule the script to run weekly.
+- [ ] Use AWS Organizations to create a department Organizational Unit and allow only authorized personnel in each department to create resources.
+- [x] Create a Budget from the Billing and Cost Management console. Specify the budget type a Cost, assign tags for each department, define notifications, and specify any other options as required.
 
 **[⬆ Back to Top](#table-of-contents)**
 
-### An application writes items to an Amazon DynamoDB table. As the application scales to thousands of instances, calls to the DynamoDB API generate occasional `ThrottlingException` errors. The application is coded in a language incompatible with the AWS SDK. How should the error be handled?
+### The chief financial officer (CFO) of an organization has seen a spike in Amazon S3 storage costs over the last few months. A CloudOps Engineer suspects that these costs are related to storage for older versions of S3 objects from one of its S3 buckets. What can the Engineer do to confirm this suspicion?
 
-- [x] Add exponential backoff to the application logic.
-- [ ] Use Amazon SQS as an API message bus.
-- [ ] Pass API calls through Amazon API Gateway.
-- [ ] Send the items to DynamoDB through Amazon Kinesis Data Firehose.
+- [x] Enable Amazon S3 inventory and then query the inventory to identify the total storage of previous object versions.
+- [ ] Use object-level cost allocation tags to identify the total storage of previous object versions.
+- [ ] Enable the Amazon S3 analytics feature for the bucket to identify the total storage of previous object versions.
+- [ ] Use Amazon CloudWatch storage metrics for the S3 bucket to identify the total storage of previous object versions.
 
 **[⬆ Back to Top](#table-of-contents)**
 
-### An e-commerce web application that shares session state on-premises is being migrated to AWS. The application must be fault tolerant, natively highly scalable, and any service interruption should not affect the user experience. What is the best option to store the session state?
+### A company is running a new promotion that will result in a massive spike in traffic for a single application. The CloudOps Engineer must prepare the application and ensure that the customers have a great experience. The application is heavy on memory and is running behind an AWS Application Load Balancer (ALB). The `ALB` has been pre-warmed, and the application is in an Auto Scaling group. What built-in metric should be used to control the Auto Scaling group's scaling policy?
 
-- [x] Store the session state in Amazon ElastiCache.
-- [ ] Store the session state in Amazon CloudFront.
-- [ ] Store the session state in Amazon S3.
-- [ ] Enable session stickiness using elastic load balancers.
+- [ ] `RejectedConnectionCount`.
+- [x] `RequestCountPerTarget`.
+- [ ] `CPUUtilization`.
+- [ ] `MemoryUtilization`.
 
 **[⬆ Back to Top](#table-of-contents)**
 
-### A Developer is creating a template that uses AWS CloudFormation to deploy an application. This application is serverless and uses Amazon API Gateway, Amazon DynamoDB, and AWS Lambda. Which tool should the Developer use to define simplified syntax for expressing serverless resources?
+### A company is planning to expand into an additional AWS Region for disaster recovery purposes. The company uses AWS CloudFormation, and its infrastructure is well-defined as code. The company would like to reuse as much of its existing code as possible when deploying resources to additional Regions. A CloudOps Engineer is reviewing how Amazon Machine Images (AMIs) are selected in AWS CloudFormation, but is having trouble making the same stack work in the new Region. Which action would make it easier to manage multiple Regions?
 
-- [ ] CloudFormation serverless intrinsic functions.
-- [ ] AWS serverless express.
-- [x] An AWS serverless application model.
-- [ ] A CloudFormation serverless plugin.
+- [ ] Name each AMI in the new Region exactly the same as the equivalent AMI in the first Region.
+- [ ] Duplicate the stack so unique AMI names can be coded into the appropriate stack.
+- [ ] Create an alias for each AMI so that an AMI can be referenced by a common name across Regions.
+- [x] Create a `Mappings` section in the stack, and define the Region to AMI associations.
 
 **[⬆ Back to Top](#table-of-contents)**
 
-### A Developer has a stateful web server on-premises that is being migrated to AWS. The Developer must have greater elasticity in the new design. How should the Developer re-factor the application to make it more elastic? (Choose TWO)
+### A CloudOps Engineer is managing an AWS account where Developers are authorized to launch Amazon EC2 instances to test new code. To limit costs, the Engineer must ensure that the EC2 instances in the account are terminated 24 hours after launch. How should the Engineer meet these requirements?
 
-- [ ] Use pessimistic concurrency on Amazon DynamoDB.
-- [ ] Use Amazon CloudFront with an Auto Scaling group.
-- [ ] Use Amazon CloudFront with an AWS Web Application Firewall.
-- [x] Store session state data in an Amazon DynamoDB table.
-- [x] Use an ELB with an Auto Scaling group.
+- [ ] Create an Amazon CloudWatch alarm based on the `CPUUtilization` metric. When the metric is `0%` for 24 hours, trigger an action to terminate the EC2 instance when the alarm is triggered.
+- [x] Create an AWS Lambda function to check all EC2 instances and terminate instances running more than 24 hours. Trigger the function with an Amazon CloudWatch Events event every 15 minutes.
+- [ ] Add an action to AWS Trusted Advisor to turn off EC2 instances based on the Low Utilization Amazon EC2 Instances check, terminating instances identified by Trusted Advisor as running for more than 24 hours.
+- [ ] Install the unified Amazon CloudWatch agent on every EC2 instance. Configure the agent to terminate instances after they have been running for 24 hours.
 
 **[⬆ Back to Top](#table-of-contents)**
 
-### A Developer must analyze performance issues with production-distributed applications written as AWS Lambda functions. These distributed Lambda applications invoke other components that make up the applications. How should the Developer identify and troubleshoot the root cause of the performance issues in production?
+### A company is storing monthly reports on Amazon S3. The company's security requirement states that traffic from the client `VPC` to Amazon S3 cannot traverse the internet. What should the CloudOps Engineer do to meet this requirement?
 
-- [ ] Add logging statements to the Lambda functions, then use Amazon CloudWatch to view the logs.
-- [ ] Use AWS Cloud Trail and then examine the logs.
-- [x] Use AWS X-Ray, then examine the segments and errors.
-- [ ] Run Amazon Inspector agents and then analyze performance.
+- [ ] Use AWS Direct Connect and a public virtual interface to connect to Amazon S3.
+- [ ] Use a managed `NAT` gateway to connect to Amazon S3.
+- [x] Deploy a `VPC` endpoint to connect to Amazon S3.
+- [ ] Deploy an internet gateway to connect to Amazon S3.
 
 **[⬆ Back to Top](#table-of-contents)**
 
-### A Developer wants to debug an application by searching and filtering log data. The application logs are stored in Amazon CloudWatch Logs. The Developer creates a new metric filter to count exceptions in the application logs. However, no results are returned from the logs. What is the reason that no filtered results are being returned?
+### A company runs an application on Amazon EC2 instances. The EC2 instances are in an Auto Scaling group and run behind an Application Load Balancer (ALB). The application experiences errors when total requests exceed 100 requests per second. A CloudOps Engineer must collect information about total requests for a 2-week period to determine when requests exceeded this threshold. What should the CloudOps Engineer do to collect this data?
 
-- [ ] A setup of the Amazon CloudWatch interface VPC endpoint is required for filtering the CloudWatch Logs in the VPC.
-- [x] CloudWatch Logs only publishes metric data for events that happen after the filter is created.
-- [ ] The log group for CloudWatch Logs should be first streamed to Amazon Elasticsearch Service before metric filtering returns the results.
-- [ ] Metric data points for logs groups can be filtered only after they are exported to an Amazon S3 bucket.
+- [x] Use the `ALB`'s `RequestCount` metric. Configure a time range of 2 weeks and a period of 1 minute. Examine the chart to determine peak traffic times and volumes.
+- [ ] Use Amazon CloudWatch metric math to generate a sum of request counts for all the EC2 instances over a 2-week period. Sort by a 1-minute interval.
+- [ ] Create Amazon CloudWatch custom metrics on the EC2 launch configuration templates to create aggregated request metrics across all the EC2 instances.
+- [ ] Create an Amazon EventBridge (Amazon CloudWatch Events) rule. Configure an EC2 event matching pattern that creates a metric that is based on EC2 requests. Display the data in a graph.
 
 **[⬆ Back to Top](#table-of-contents)**
 
-### To include objects defined by the AWS Serverless Application Model (SAM) in an AWS CloudFormation template, in addition to `Resources`, what section MUST be included in the document root?
+### A CloudOps Engineer needs to create a report that shows how many bytes are sent to and received from each target group member for an Application Load Balancer (ALB). Which combination of steps should the CloudOps Engineer take to meet these requirements? (Choose two.)
 
-- [ ] `Conditions`.
-- [ ] `Globals`.
-- [x] `Transform`.
-- [ ] `Properties`.
+- [x] Enable access logging for the `ALB`. Save the logs to an Amazon S3 bucket.
+- [ ] Install the Amazon CloudWatch agent on the instances in the target group.
+- [x] Use Amazon Athena to query the `ALB` logs. Query the table. Use the `received_bytes` and `sent_bytes` fields to calculate the total bytes grouped by the target port field.
+- [ ] Use Amazon Athena to query the `ALB` logs. Query the table. Use the `received_bytes` and `sent_bytes` fields to calculate the total bytes grouped by the client port field.
+- [ ] Create an Amazon CloudWatch dashboard that shows the Sum statistic of the ProcessedBytes metric for the `ALB`.
 
 **[⬆ Back to Top](#table-of-contents)**
 
-### A company is using Amazon RDS MySQL instances for its application database tier and Apache Tomcat servers for its web tier. Most of the database queries from web applications are repeated read requests. Use of which AWS service would increase in performance by adding in-memory store for repeated read queries?
+### A company's CloudOps Engineer manages a fleet of Windows Amazon EC2 instances that run in a single AWS account. The instances have a tag that includes a key of `OS` and a value of `Windows`. The company uses AWS Systems Manager to patch the instances. The company has installed the Amazon CloudWatch agent on the instances, but the configuration is inconsistent. The CloudOps Engineer needs to reconfigure every instance to use the same predefined CloudWatch configuration. Which combination of steps will meet these requirements? (Choose two.)
 
-- [ ] Amazon RDS Multi-AZ.
-- [ ] Amazon SQS.
-- [x] Amazon ElastiCache.
-- [ ] Amazon RDS read replica.
+- [ ] Store the CloudWatch agent configuration file in an Amazon S3 bucket.
+- [ ] Store the contents of the CloudWatch agent configuration file in Systems Manager OpsCenter.
+- [x] Store the contents of the CloudWatch agent configuration file in Systems Manager Parameter Store.
+- [x] Create a Systems Manager State Manager association to run the `AmazonCloudWatch-ManageAgent` Systems Manager Run Command document. Select Systems Manager as an optional configuration source. Target the instances based on tag values.
+- [ ] Create a Systems Manager State Manager association to run the `AmazonCloudWatch-ManageAgent` Systems Manager Run Command document. Configure the document to use the S3 bucket location as the configuration source. Target the instances based on tag value.
 
 **[⬆ Back to Top](#table-of-contents)**
 
-### A Developer is investigating an issue whereby certain requests are passing through an Amazon API Gateway endpoint /MyAPI, but the requests do not reach the AWS Lambda function backing /MyAPI. The Developer found that a second Lambda function sometimes runs at maximum concurrency allowed for the given AWS account. How can the Developer address this issue?
+### A company has an application that runs behind an Application Load Balancer (ALB) in the `us-west-2` Region. An Amazon Route 53 record set contains an alias record for `app.anycompany.com` that references the `ALB` in `us-west-2` and uses a simple routing policy. The application is experiencing an increase in users from other locations in the world. These users are experiencing high latency. Most of the new users are close to the `ap-southeast-2` Region. The company deploys a copy of the application to `ap-southeast-2`. A CloudOps Engineer must implement a solution that automatically routes requests to the lowest latency endpoint for users without changing the URL. Which solution will meet these requirements?
 
-- [ ] Manually reduce the concurrent execution limit at the account level.
-- [ ] Add another API Gateway stage for /MyAPI, and shard the requests.
-- [x] Configure the second Lambda function's concurrency execution limit.
-- [ ] Reduce the throttling limits in the API Gateway /MyAPI endpoint
+- [ ] Add a new value to the existing alias record for `app.anycompany.com` with the `DNS` name of the new `ALB` in `ap-southeast-2`.
+- [ ] Change the existing alias record to use a geolocation routing policy. Create two geolocation records, one record that references each ALSelect the location that is closest to each Region.
+- [x] Change the existing alias record to use a latency routing policy. Create two latency records, one record that references each `ALB`.
+- [ ] Change the existing alias record to use a multivalue routing policy Add the `DNS` name of each `ALB` to the record.
 
 **[⬆ Back to Top](#table-of-contents)**
 
-### A company is migrating a single-server, on-premises web application to AWS. The company intends to use multiple servers behind an Elastic Load Balancer (ELB) to balance the load, and will also store session data in memory on the web server. The company does not want to lose that session data if a server fails or goes offline, and it wants to minimize user's downtime. Where should the company move session data to MOST effectively reduce downtime and make users' session data more fault tolerant?
+### A company has two AWS accounts: development and production. All applications send logs to a specific Amazon S3 bucket for each account, and the Developers are requesting access to the production account S3 buckets to view the logs. Which is the MOST efficient way to provide the Developers with access?
 
-- [x] An Amazon ElastiCache for Redis cluster.
-- [ ] A second Amazon EBS volume.
-- [ ] The web server's primary disk.
-- [ ] An Amazon EC2 instance dedicated to session data.
+- [ ] Create an AWS Lambda function with an IAM role attached to it that has access to both accounts' S3 buckets. Pull the logs from the production S3 bucket to the development S3 bucket.
+- [ ] Create IAM users for each Developer on the production account, and add the Developers to an IAM group that provides read-only access to the S3 log bucket.
+- [ ] Create an Amazon EC2 bastion host with an IAM role attached to it that has access to the production S3 log bucket, and then provision access for the Developers on the host.
+- [x] Create a resource-based policy for the S3 bucket on the production account that grants access to the development account, and then delegate access in the development account.
 
 **[⬆ Back to Top](#table-of-contents)**
 
-### A Developer created configuration specifications for an AWS Elastic Beanstalk application in a file named healthcheckurl.yaml in the `.ebextensions/directory` of their application source bundle. The file contains the following: After the application launches, the health check is not being run on the correct path, even though it is valid. What can be done to correct this configuration file?
+### A company has a policy that all Amazon EC2 instance logs must be published to Amazon CloudWatch Logs. A CloudOps Engineer is troubleshooting an EC2 instance that is running Amazon Linux 2. The EC2 instance is not publishing logs to CloudWatch Logs. The Amazon CloudWatch agent is running on the EC2 instance, and the agent configuration file is correct. What should the CloudOps Engineer do to resolve the issue?
 
-![Question 297](images/question297.jpeg)
+- [ ] Configure the AWS CLI on the EC2 instance. Create a cron job that calls the `PutLogEvents` API operation to push the log files to CloudWatch every 5 minutes.
+- [ ] Inspect the retention period of the CloudWatch Logs log group. Ensure that the retention period is set to a value that is greater than 1 day.
+- [ ] Set up an Amazon Kinesis data stream that is running in the same AWS Region as the EC2 instance. Configure the CloudWatch agent on the EC2 instance to send CloudWatch events to the data stream.
+- [x] Ensure that the IAM role that is attached to the EC2 instance has permissions in CloudWatch Logs for the `CreateLogGroup`, `CreateLogStream`, `PutLogEvents`, and `DescribeLogStreams` actions.
 
-- [ ] Convert the file to JSON format.
-- [x] Rename the file to a `.config` extension.
-- [ ] Change the configuration section from `options_settings` to resources.
-- [ ] Change the namespace of the option settings to a custom namespace.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### A Developer has created a Lambda function and is finding that the function is taking longer to complete than expected. After some debugging, the Developer has discovered that increasing compute capacity would improve performance. How can the Developer increase the Lambda compute resources?
-
-- [ ] Run on a larger instance size with more compute capacity.
-- [ ] Increase the maximum execution time.
-- [ ] Specify a larger compute capacity when calling the Lambda function.
-- [x] Increase the allocated memory for the Lambda function.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### An e-commerce site allows returning users to log in to display customized web pages. The workflow is shown in the image below. An application is running on EC2 instances. Amazon RDS is used for the database that stores user accounts and preferences. The website freezes or is slow to load while waiting for the login step to complete. The remaining components of the site are well-optimized. Which of the following techniques will resolve this issue? (Select TWO)
-
-![Question 299](images/question299.jpeg)
-
-- [ ] Implement the user login page as an asynchronous Lambda function.
-- [x] Use Amazon ElastiCache for MemCached to cache user data.
-- [ ] Use Amazon Application Load Balancer to load balance the traffic to the website.
-- [x] Call the database asynchronously so the code can continue executing.
-- [ ] Batch login requests from hundreds of users together as a single read request to the database.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### A Developer is building a mobile application and needs any update to user profile data to be pushed to all devices accessing the specific identity. The Developer does not want to manage a back end to maintain the user profile data. What is the MOST efficient way for the Developer to achieve these requirements using Amazon Cognito?
-
-- [ ] Use Cognito federated identities.
-- [ ] Use a Cognito user pool.
-- [x] Use Cognito Sync.
-- [ ] Use Cognito events.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### A company maintains a REST service using Amazon API Gateway and the API Gateway native API key validation. The company recently launched a new registration page, which allows users to sign up for the service. The registration page creates a new API key using `CreateApiKey` and sends the new key to the user. When the user attempts to call the API using this key, the user receives a `403 Forbidden` error. Existing users are unaffected and can still call the API. What code updates will grant these new users access to the API?
-
-- [ ] The `createDeployment` method must be called so the API can be redeployed to include the newly created API key.
-- [ ] The `updateAuthorizer` method must be called to update the API's authorizer to include the newly created API key.
-- [ ] The `importApiKeys` method must be called to import all newly created API keys into the current stage of the API.
-- [x] The `createUsagePlanKey` method must be called to associate the newly created API key with the correct usage plan.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### A Developer is writing a mobile application that allows users to view images from an S3 bucket. The users must be able to log in with their Amazon login, as well as Facebook and/or Google accounts. How can the Developer provide this authentication functionality?
-
-- [x] Use Amazon Cognito with web identity federation.
-- [ ] Use Amazon Cognito with SAML-based identity federation.
-- [ ] Use AWS IAM Access/Secret keys in the application code to allow `Get*` on the S3 bucket.
-- [ ] Use AWS STS `AssumeRole` in the application code and assume a role with `Get*` permissions on the S3 bucket.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### A Developer wants access to make the log data of an application running on an EC2 instance available to systems administrators. Which of the following enables monitoring of this metric in Amazon CloudWatch?
-
-- [ ] Retrieve the log data from CloudWatch using the `GetMetricData` API call.
-- [ ] Retrieve the log data from AWS CloudTrail using the `LookupEvents` API call.
-- [ ] Launch a new EC2 instance, configure Amazon CloudWatch Events, and then install the application.
-- [x] Install the Amazon CloudWatch Logs agent on the EC2 instance that the application is running on.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### A nightly batch job loads 1 million new records into a DynamoDB table. The records are only needed for one hour, and the table needs to be empty by the next night's batch job. Which is the MOST efficient and cost-effective method to provide an empty table?
-
-- [ ] Use `DeleteItem` using a `ConditionExpression`.
-- [ ] Use `BatchWriteItem` to empty all of the rows.
-- [ ] Write a recursive function that scans and calls out `DeleteItem`.
-- [x] Create and then delete the table after the task has completed.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### A company has an application that logs all information to Amazon S3. Whenever there is a new log file, an AWS Lambda function is invoked to process the log files. The code works, gathering all of the necessary information. However, when checking the Lambda function logs, duplicate entries with the same request ID are found. What is causing the duplicate entries?
-
-- [ ] The S3 bucket name was specified incorrectly.
-- [x] The Lambda function failed, and the Lambda service retired the invocation with a delay.
-- [ ] There was an S3 outage, which caused duplicate entries of the sale log file.
-- [ ] The application stopped intermittently and then resumed.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### A company is providing services to many downstream consumers. Each consumer may connect to one or more services. This has resulted in a complex architecture that is difficult to manage and does not scale well. The company needs a single interface to manage these services to consumers. Which AWS service should be used to refactor this architecture?
-
-- [ ] AWS Lambda.
-- [ ] AWS X-Ray.
-- [ ] Amazon SQS.
-- [x] Amazon API Gateway.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### A Developer is creating a serverless website with content that includes HTML files, images, videos, and JavaScript (client-side scripts). Which combination of services should the Developer use to create the website?
-
-- [x] Amazon S3 and Amazon CloudFront.
-- [ ] Amazon EC2 and Amazon ElastiCache.
-- [ ] Amazon ECS and Redis.
-- [ ] AWS Lambda and Amazon API Gateway.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### A Development team has pushed out 10 applications running on several Amazon EC2 instances. The Operations team is asking for a graphical representation of one key performance metric for each application. These metrics should be available on one screen for easy monitoring. Which steps should the Developer take to accomplish this using Amazon CloudWatch?
-
-- [x] Create a custom namespace with a unique metric name for each application.
-- [ ] Create a custom dimension with a unique metric name for each application.
-- [ ] Create a custom event with a unique metric name for each application.
-- [ ] Create a custom alarm with a unique metric name for each application.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### A company is creating an application that will require users to access AWS services and allow them to reset their own passwords. Which of the following would allow the company to manage users and authorization while allowing users to reset their own passwords?
-
-- [ ] Amazon Cognito identify pools and AWS STS.
-- [ ] Amazon Cognito identity pools and AWS IAM.
-- [ ] Amazon Cognito user pools and AWS KMS.
-- [x] Amazon Cognito user pools and identity pools.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### A company has three different environments: Development, QA, and Production. The company wants to deploy its code first in the Development environment, then QA, and then Production. Which AWS service can be used to meet this requirement?
-
-- [ ] Use AWS CodeCommit to create multiple repositories to deploy the application.
-- [ ] Use AWS CodeBuild to create, configure, and deploy multiple build application projects.
-- [ ] Use AWS Data Pipeline to create multiple data pipeline provisions to deploy the application.
-- [x] Use AWS CodeDeploy to create multiple deployment groups.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### A company uses Amazon DynamoDB for managing and tracking orders. The DynamoDB table is partitioned based on the order date. The company receives a huge increase in orders during a sales event, causing DynamoDB writes to throttle, and the consumed throughput is far below the provisioned throughput. According to AWS best practices, how can this issue be resolved with MINIMAL costs?
-
-- [ ] Create a new DynamoDB table for every order date.
-- [ ] Increase the read and write capacity units of the DynamoDB table.
-- [x] Add a random number suffix to the partition key values.
-- [ ] Add a global secondary index to the DynamoDB table.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### A Development team currently supports an application that uses an in-memory store to save accumulated game results. Individual results are stored in a database. As part of migrating to AWS, the team needs to use automatic scaling. The team knows this will yield inconsistent results. Where should the team store these accumulated game results to BEST allow for consistent results without impacting performance?
-
-- [ ] Amazon S3.
-- [ ] Amazon RDS.
-- [x] Amazon ElastiCache.
-- [ ] Amazon Kinesis.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### In a multi-container Docker environment in AWS Elastic Beanstalk, what is required to configure container instances in the environment?
-
-- [x] An Amazon ECS task definition.
-- [ ] An Amazon ECS cluster.
-- [ ] A Dockerfile in an application package.
-- [ ] A CLI for Elastic Beanstalk.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### An application that runs on an Amazon EC2 instance needs to access and make API calls to multiple AWS services. What is the MOST secure way to provide access to the AWS services with MINIMAL management overhead?
-
-- [ ] Use AWS KMS to store and retrieve credentials.
-- [x] Use EC2 instance profiles.
-- [ ] Use AWS `root` user to make requests to the application.
-- [ ] Store and retrieve credentials from AWS CodeCommit.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### A company maintains an application responsible for processing several thousand external callbacks each day. The company's System administrators want to know how many callbacks are being received on a rolling basis, and they want this data available for 10 days. The company also wants the ability to issue automated alerts if the number of callbacks exceeds the defined thresholds. What is the MOST cost-effective way to address the need to track and alert on these statistics?
-
-- [ ] Push callback data to an Amazon RDS database that can be queried to show historical data and to alert on exceeded thresholds.
-- [ ] Push callback data to AWS X-Ray and use AWS Lambda to query, display, and alert on exceeded thresholds.
-- [ ] Push callback data to Amazon Kinesis Data Streams and invoke an AWS Lambda function that stores data in Amazon DynamoDB and sends the required alerts.
-- [x] Push callback data to Amazon CloudWatch as a custom metric and use the CloudWatch alerting mechanisms to alert System Administrators.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### A company has a website that is developed in PHP and WordPress and is launched using AWS Elastic Beanstalk. There is a new version of the website that needs to be deployed in the Elastic Beanstalk environment. The company cannot tolerate having the website offline if an update fails. Deployments must have minimal impact and rollback as soon as possible. What deployment method should be used?
-
-- [ ] All at once.
-- [ ] Rolling.
-- [ ] Snapshots.
-- [x] Immutable.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### A company has a multi-tiered web application on AWS. During a recent spike in traffic, one of the primary relational databases on Amazon RDS could not serve all the traffic. Some read queries for repeatedly accessed items failed, so users received error messages. What can be done to minimize the impact on database read queries MOST efficiently during future traffic spikes?
-
-- [ ] Use Amazon S3 to cache database query results.
-- [ ] Use Amazon RDS as a custom origin for Amazon CloudFront.
-- [ ] Use local storage and memory on Amazon EC2 instances to cache data.
-- [x] Use Amazon ElastiCache in front of the primary database to cache data.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### A Developer must build an application that uses Amazon DynamoDB. The requirements state that the items being stored in the DynamoDB table will be 7KB in size and that reads must be strongly consistent. The maximum read rate is 3 items per second, and the maximum write rate is 10 items per second. How should the Developer size the DynamoDB table to meet these requirements?
-
-- [ ] Read: 3 read capacity. `unitsWrite`: 70 write capacity units.
-- [x] Read: 6 read capacity. `unitsWrite`: 70 write capacity units.
-- [ ] Read: 6 read capacity. `unitsWrite`: 10 write capacity units.
-- [ ] Read: 3 read capacity. `unitsWrite`: 10 write capacity units.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### A Developer is creating an AWS Lambda function to process a stream of data from an Amazon Kinesis Data Stream. When the Lambda function parses the data and encounters a missing field, it exits the function with an error. The function is generating duplicate records from the Kinesis stream. When the Developer looks at the stream output without the Lambda function, there are no duplicate records. What is the reason for the duplicates?
-
-- [ ] The Lambda function did not advance the Kinesis stream pointer to the next record after the error.
-- [ ] The Lambda event source used asynchronous invocation, resulting in duplicate records.
-- [x] The Lambda function did not handle the error, and the Lambda service attempted to reprocess the data.
-- [ ] The Lambda function is not keeping up with the amount of data coming from the stream.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### A company is developing an application that will run on several Amazon EC2 instances in an Auto Scaling group and can access a database running on Amazon EC2. The application needs to store secrets required to connect to the database. The application must allow for periodic secret rotation, and there should be no changes to the application when a secret changes. What is the SAFEST way to meet these requirements?
-
-- [ ] Associate an IAM role to the EC2 instance where the application is running with permission to access the database.
-- [x] Use AWS Systems Manager Parameter Store with the SecureString data type to store secrets.
-- [ ] Configure the application to store secrets in Amazon S3 object metadata.
-- [ ] Hard code the database secrets in the application code itself.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### A Developer writes an AWS Lambda function and uploads the code in a `.ZIP` file to Amazon S3. The Developer makes changes to the code and uploads a new `.ZIP` file to Amazon S3. However, Lambda executes the earlier code. How can the Developer fix this in the LEAST disruptive way?
-
-- [ ] Create another Lambda function and specify the new `.ZIP` file.
-- [x] Call the `update-function-code` API.
-- [ ] Remove the earlier `.ZIP` file first, then add the new `.ZIP` file.
-- [ ] Call the `create-alias` API.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### An AWS Lambda function must read data from an Amazon RDS MySQL database in a VPC and also reach a public endpoint over the internet to get additional data. Which steps must be taken to allow the function to access both the RDS resource and the public endpoint? (Select TWO)
-
-- [x] Modify the default configuration for the Lambda function to associate it with an Amazon VPC private subnet.
-- [ ] Modify the default network access control list to allow outbound traffic.
-- [x] Add a NAT Gateway to the VPC.
-- [ ] Modify the default configuration of the Lambda function to associate it with a VPC public subnet.
-- [ ] Add an environmental variable to the Lambda function to allow outbound internet access.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### A Developer has been asked to make changes to the source code of an AWS Lambda function. The function is managed using an AWS CloudFormation template. The template is configured to load the source code from an Amazon S3 bucket. The Developer manually created a `.ZIP` file deployment package containing the changes and put the file into the correct location on Amazon S3. When the function is invoked, the code changes have not been applied. What step is required to update the function with the changes?
-
-- [ ] Delete the `.ZIP` file on S3, and re-upload by using a different object key name.
-- [x] Update the CloudFormation stack with the correct values for the function code properties S3Bucket, S3Key, or S3ObjectVersion.
-- [ ] Ensure that the function source code is base64-encoded before uploading the deployment package to S3.
-- [ ] Modify the execution role of the Lambda function to allow S3 access permission to the deployment package `.ZIP` file.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### A Developer wants to enable AWS X-Ray for a secure application that runs in an Amazon ECS environment. What combination of steps will enable X-Ray? (Select THREE)
-
-- [x] Create a Docker image that runs the X-Ray daemon.
-- [x] Add instrumentation to the application code for X-Ray.
-- [ ] Install the X-Ray daemon on the underlying EC2 instance.
-- [ ] Configure and use an IAM EC2 instance role.
-- [ ] Register the application with X-Ray.
-- [x] Configure and use an IAM role for tasks.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### A Developer is designing a new application that uses Amazon S3. To satisfy compliance requirements, the Developer must encrypt the data at rest. How can the Developer accomplish this?
-
-- [ ] Use `s3:x-amz-acl` as a condition in the S3 bucket policy.
-- [ ] Use Amazon RDS with default encryption.
-- [ ] Use `aws:SecureTransport` as a condition in the S3 bucket policy.
-- [x] Turn on S3 default encryption for the S3 bucket.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### An AWS Elastic Beanstalk application needs to be deployed in multiple regions and requires a different Amazon Machine Image (AMI) in each region. Which AWS CloudFormation template key can be used to specify the correct AMI for each region?
-
-- [ ] `Parameters`.
-- [ ] `Outputs`.
-- [x] `Mappings`.
-- [ ] `Resources`.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### A Developer wants to find a list of items in a global secondary index from an Amazon DynamoDB table. Which DynamoDB API call can the Developer use in order to consume the LEAST number of read capacity units?
-
-- [ ] Scan operation using `eventually-consistent` reads.
-- [ ] Query operation using `strongly-consistent` reads.
-- [x] Query operation using `eventually-consistent` reads.
-- [ ] Scan operation using `strongly-consistent` reads.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### A Developer has published an update to an application that is served to a global user base using Amazon CloudFront. After deploying the application, users are not able to see the updated changes. How can the Developer resolve this issue?
-
-- [ ] Remove the origin from the CloudFront configuration and add it again.
-- [ ] Disable forwarding of query strings and request headers from the CloudFront distribution configuration.
-- [x] Invalidate all the application objects from the edge caches.
-- [ ] Disable the CloudFront distribution and enable it again to update all the edge locations.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### A Developer must deploy a new AWS Lambda function using an AWS CloudFormation template. Which procedures will deploy a Lambda function? (Select TWO)
-
-- [ ] Upload the code to an AWS CodeCommit repository, then add a reference to it in an `AWS::Lambda::Function` resource in the template.
-- [x] Create an `AWS::Lambda::Function` resource in the template, then write the code directly inside the CloudFormation template.
-- [x] Upload a `.ZIP` file containing the function code to Amazon S3, then add a reference to it in an `AWS::Lambda::Function` resource in the template.
-- [ ] Upload a `.ZIP` file to AWS CloudFormation containing the function code, then add a reference to it in an `AWS::Lambda::Function` resource in the template.
-- [ ] Upload the function code to a private Git repository, then add a reference to it in an `AWS::Lambda::Function` resource in the template.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### How should custom libraries be utilized in AWS Lambda?
-
-- [ ] Host the library on Amazon S3 and reference to it from the Lambda function.
-- [x] Install the library locally and upload a `ZIP` file of the Lambda function.
-- [ ] Import the necessary Lambda blueprint when creating the function.
-- [ ] Modify the function runtime to include the necessary library.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### A company needs to secure its existing website running behind an Elastic Load Balancer. The website's Amazon EC2 instances are CPU-constrained. What should be done to secure the website while not increasing the CPU load on the EC2 web servers? (Select TWO)
-
-- [ ] Configure an Elastic Load Balancer with SSL pass-through.
-- [x] Configure SSL certificates on an Elastic Load Balancer.
-- [ ] Configure an Elastic Load Balancer with a Loadable Storage System.
-- [ ] Install SSL certificates on the EC2 instances.
-- [x] Configure an Elastic Load Balancer with SSL termination.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### A Developer is writing an imaging micro service on AWS Lambda. The service is dependent on several libraries that are not available in the Lambda runtime environment. Which strategy should the Developer follow to create the Lambda deployment package?
-
-- [x] Create a `ZIP` file with the source code and all dependent libraries.
-- [ ] Create a `ZIP` file with the source code and a script that installs the dependent libraries at runtime.
-- [ ] Create a `ZIP` file with the source code. Stage the dependent libraries on an Amazon S3 bucket indicated by the Lambda environment variable `LD_LIBRARY_PATH`.
-- [ ] Create a `ZIP` file with the source code and a buildspec.yaml file that installs the dependent libraries on AWS Lambda.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### A Developer is designing a fault-tolerant environment where client sessions will be saved. How can the Developer ensure that no sessions are lost if an Amazon EC2 instance fails?
-
-- [ ] Use sticky sessions with an Elastic Load Balancer target group.
-- [ ] Use Amazon SQS to save session data.
-- [x] Use Amazon DynamoDB to perform scalable session handling.
-- [ ] Use Elastic Load Balancer connection draining to stop sending requests to failing instances.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### In a move toward using microservices, a company's Management team has asked all Development teams to build their services so that API requests depend only on that service's data store. One team is building a Payments service which has its own database; the service needs data that originates in the Accounts database. Both are using Amazon DynamoDB. What approach will result in the simplest, decoupled, and reliable method to get near-real time updates from the Accounts database?
-
-- [ ] Use Amazon Glue to perform frequent ETL updates from the Accounts database to the Payments database.
-- [ ] Use Amazon ElastiCache in Payments, with the cache updated by triggers in the Accounts database.
-- [ ] Use Amazon Kinesis Data Firehose to deliver all changes from the Accounts database to the Payments database.
-- [x] Use Amazon DynamoDB Streams to deliver all changes from the Accounts database to the Payments database.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### A company needs a fully-managed source control service that will work in AWS. The service must ensure that revision control synchronizes multiple distributed repositories by exchanging sets of changes peer-to-peer. All users need to work productively even when not connected to a network. Which source control service should be used?
-
-- [ ] Subversion.
-- [ ] AWS CodeBuild.
-- [x] AWS CodeCommit.
-- [ ] AWS CodeStar.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### A Developer is writing a serverless application that requires that an AWS Lambda function be invoked every 10 minutes. What is an automated and serverless way to trigger the function?
-
-- [ ] Deploy an Amazon EC2 instance based on Linux, and edit its `/etc/crontab` file by adding a command to periodically invoke the Lambda function.
-- [ ] Configure an environment variable named PERIOD for the Lambda function. Set the value to `600`.
-- [x] Create an Amazon CloudWatch Events rule that triggers on a regular schedule to invoke the Lambda function.
-- [ ] Create an Amazon SNS topic that has a subscription to the Lambda function with a 600-second timer.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### A company is building an application to track athlete performance using an Amazon DynamoDB table. Each item in the table is identified by a partition key (`user_id`) and a sort key (`sport_name`). The table design is shown below. (Note: Not all table attributes are shown) A Developer is asked to write a leaderboard application to display the top performers (`user_id`) based on the score for each `sport_name`. What process will allow the Developer to extract results MOST efficiently from the DynamoDB table?
-
-![Question 337](images/question337.jpg)
-
-- [ ] Use a DynamoDB query operation with the key attributes of `user_id` and `sport_name` and order the results based on the score attribute.
-- [x] Create a global secondary index with a partition key of `sport_name` and a sort key of score, and get the results.
-- [ ] Use a DynamoDB scan operation to retrieve scores and `user_id` based on `sport_name`, and order the results based on the score attribute.
-- [ ] Create a local secondary index with a primary key of `sport_name` and a sort key of score and get the results based on the score attribute.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### A Developer is creating a mobile application that will not require users to log in. What is the MOST efficient method to grant users access to AWS resources?
-
-- [ ] Use an identity provider to securely authenticate with the application.
-- [ ] Create an AWS Lambda function to create an IAM user when a user accesses the application.
-- [ ] Create credentials using AWS KMS and apply these credentials to users when using the application.
-- [x] Use Amazon Cognito to associate unauthenticated users with an IAM role that has limited access to resources.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### An application running on Amazon EC2 instances must access objects within an Amazon S3 bucket that are encrypted using server-side encryption using AWS KMS encryption keys (SSE-KMS). The application must have access to the customer master key (CMK) to decrypt the objects. Which combination of steps will grant the application access? (Select TWO)
-
-- [ ] Write an S3 bucket policy that grants the bucket access to the key.
-- [x] Grant access to the key in the IAM EC2 role attached to the application's EC2 instances.
-- [x] Write a key policy that enables IAM policies to grant access to the key.
-- [ ] Grant access to the key in the S3 bucket's ACL.
-- [ ] Create a Systems Manager parameter that exposes the KMS key to the EC2 instances.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### What does an Amazon SQS delay queue accomplish?
-
-- [x] Messages are hidden for a configurable amount of time when they are first added to the queue.
-- [ ] Messages are hidden for a configurable amount of time after they are consumed from the queue.
-- [ ] The consumer can poll the queue for a configurable amount of time before retrieving a message.
-- [ ] Message cannot be deleted for a configurable amount of time after they are consumed from the queue.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### A company has multiple Developers located across the globe who are updating code incrementally for a development project. When Developers upload code concurrently, internet connectivity is slow and it is taking a long time to upload code for deployment in AWS Elastic Beanstalk. Which step will result in minimized upload and deployment time with the LEAST amount of administrative effort?
-
-- [ ] Allow the Developers to upload the code to an Amazon S3 bucket, and deploy it directly to Elastic Beanstalk.
-- [ ] Allow the Developers to upload the code to a central FTP server to deploy the application to Elastic Beanstalk.
-- [x] Create an AWS CodeCommit repository, allow the Developers to commit code to it, and then directly deploy the code to Elastic Beanstalk.
-- [ ] Create a code repository on an Amazon EC2 instance so that all Developers can update the code, and deploy the application from the instance to Elastic Beanstalk.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### A company recently migrated its web, application and NoSQL database tiers to AWS. The company is using Auto Scaling to scale the web and application tiers. More than 95 percent of the Amazon DynamoDB requests are repeated read requests. How can the DynamoDB NoSQL tier be scaled up to cache these repeated requests?
-
-- [ ] Amazon EMR.
-- [x] Amazon DynamoDB Accelerator.
-- [ ] Amazon SQS.
-- [ ] Amazon CloudFront.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### A Development team is working on a case management solution that allows medical claims to be processed and reviewed. Users log in to provide information related to their medical and financial situations. As part of the application, sensitive documents such as medical records, medical imaging, bank statements, and receipts are uploaded to Amazon S3. All documents must be securely transmitted and stored. All access to the documents must be recorded for auditing. What is the MOST secure approach?
-
-- [ ] Use S3 default encryption using Advanced Encryption Standard-256 (AES-256) on the destination bucket.
-- [ ] Use Amazon Cognito for authorization and authentication to ensure the security of the application and documents.
-- [ ] Use AWS Lambda to encrypt and decrypt objects as they are placed into the S3 bucket.
-- [x] Use client-side encryption/decryption with Amazon S3 and AWS KMS.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### A company has an internet-facing application that uses Web Identity Federation to obtain a temporary credential from AWS Security Token Service (AWS STS). The app then uses the token to access AWS services. Review the following response: Based on the response displayed what permissions are associated with the call from the application?
-
-![Question 344](images/question344.jpg)
-
-- [ ] Permissions associated with the role `AROACLKWSDQRAOEXAMPLE:app1`.
-- [ ] Permissions associated with the default role used when the AWS service was built.
-- [x] Permission associated with the IAM principal that owns the `AccessKeyID` `ASgeIAIOSFODNN7EXAMPLE`.
-- [ ] Permissions associated with the account that owns the AWS service.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### A Developer is using AWS CLI, but when running list commands on a large number of resources, it is timing out. What can be done to avoid this time-out?
-
-- [x] Use pagination.
-- [ ] Use shorthand syntax.
-- [ ] Use parameter values.
-- [ ] Use quoting strings.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### Where can PortMapping be defined when launching containers in Amazon ECS?
-
-- [ ] Security groups.
-- [ ] Amazon Elastic Container Registry (Amzon ECR).
-- [ ] Container agent.
-- [x] Task definition.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### An organization is storing large files in Amazon S3, and is writing a web application to display meta-data about the files to end-users. Based on the metadata a user selects an object to download. The organization needs a mechanism to index the files and provide single-digit millisecond latency retrieval for the metadata. What AWS service should be used to accomplish this?
-
-- [x] Amazon DynamoDB.
-- [ ] Amazon EC2.
-- [ ] AWS Lambda.
-- [ ] Amazon RDS.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### While developing an application that runs on Amazon EC2 in an Amazon VPC, a Developer identifies the need for centralized storage of application-level logs. Which AWS service can be used to securely store these logs?
-
-- [ ] Amazon EC2 VPC Flow Logs.
-- [x] Amazon CloudWatch Logs.
-- [ ] Amazon CloudSearch.
-- [ ] AWS CloudTrail
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### A stock market monitoring application uses Amazon Kinesis for data ingestion. During simulated tests of peak data rates, the Kinesis stream cannot keep up with the incoming data. What step will allow Kinesis to accommodate the traffic during peak hours?
-
-- [ ] Install the Kinesis Producer Library (KPL) for ingesting data into the stream.
-- [ ] Reduce the data retention period to allow for more data ingestion using `DecreaseStreamRetentionPeriod`.
-- [x] Increase the shard count of the stream using `UpdateShardCount`.
-- [ ] Ingest multiple records into the stream in a single call using `PutRecords`.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### A company has an AWS CloudFormation template that is stored as a single file. The template is able to launch and create a full infrastructure stack. Which best practice would increase the maintainability of the template?
-
-- [x] Use nested stacks for common template patterns.
-- [ ] Embed credentials to prevent typos.
-- [ ] Remove mappings to decrease the number of variables.
-- [ ] Use `AWS::Include` to reference publicly-hosted template files.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### An on-premises application makes repeated calls to store files to Amazon S3. As usage of the application has increased, `LimitExceeded` errors are being logged. What should be changed to fix this error?
-
-- [x] Implement exponential backoffs in the application.
-- [ ] Load balance the application to multiple servers.
-- [ ] Move the application to Amazon EC2.
-- [ ] Add a one second delay to each API call.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### A company caches session information for a web application in an Amazon DynamoDB table. The company wants an automated way to delete old items from the table. What is the simplest way to do this?
-
-- [ ] Write a script that deletes old records; schedule the scripts as a cron job on an Amazon EC2 instance.
-- [x] Add an attribute with the expiration time; enable the `Time To Live` feature based on that attribute.
-- [ ] Each day, create a new table to hold session data; delete the previous day's table.
-- [ ] Add an attribute with the expiration time; name the attribute `ItemExpiration`.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### An application is expected to process many files. Each file takes four minutes to process each AWS Lambda invocation. The Lambda function does not return any important data. What is the fastest way to process all the files?
-
-- [ ] First split the files to make them smaller, then process with synchronous RequestResponse Lambda invocations.
-- [ ] Make synchronous RequestResponse Lambda invocations and process the files one by one.
-- [x] Make asynchronous Event Lambda invocations and process the files in parallel.
-- [ ] First join all the files, then process it all at once with an asynchronous Event Lambda invocation.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### The upload of a 15 GB object to Amazon S3 fails. The error message reads: `Your proposed upload exceeds the maximum allowed object size.`. What technique will allow the Developer to upload this object?
-
-- [x] Upload the object using the multi-part upload API.
-- [ ] Upload the object over an AWS Direct Connect connection.
-- [ ] Contact AWS Support to increase the object size limit.
-- [ ] Upload the object to another AWS region.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### AWS CodeBuild builds code for an application, creates the Docker image, pushes the image to Amazon Elastic Container Registry (Amazon ECR), and tags the image with a unique identifier. If the Developers already have AWS CLI configured on their workstations, how can the Docker images be pulled to the workstations?
-
-- [ ] Run the following: `docker pull REPOSITORY URI : TAG`.
-- [x] Run the output of the following: `aws ecr get-login` and then run: `docker pull REPOSITORY URI : TAG`.
-- [ ] Run the following: `aws ecr get-login` and then run: `docker pull REPOSITORY URI : TAG`.
-- [ ] Run the output of the following: `aws ecr get-download-url-for-layer` and then run: `docker pull REPOSITORY URI : TAG`.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### A web application is designed to allow new users to create accounts using their email addresses. The application will store attributes for each user, and is expecting millions of user to sign up. What should the Developer implement to achieve the design goals?
-
-- [x] Amazon Cognito user pools.
-- [ ] AWS Mobile Hub user data storage.
-- [ ] Amazon Cognito Sync.
-- [ ] AWS Mobile Hub cloud logic.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### A company needs a new REST API that can return information about the contents of an Amazon S3 bucket, such as a count of the objects stored in it. The company has decided that the new API should be written as a microservice using AWS Lambda and Amazon API Gateway. How should the Developer ensure that the microservice has the necessary access to the Amazon S3 bucket, while adhering to security best practices?
-
-- [ ] Create an IAM user that has permissions to access the Amazon S3 bucket, and store the IAM user credentials in the Lambda function source code.
-- [x] Create an IAM role that has permissions to access the Amazon S3 bucket and assign it to the Lambda function as its execution role.
-- [ ] Create an Amazon S3 bucket policy that specifies the Lambda service as its principal and assign it to the Amazon S3 bucket.
-- [ ] Create an IAM role, attach the AmazonS3FullAccess managed policy to it, and assign the role to the Lambda function as its execution role.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### An organization is using Amazon CloudFront to ensure that its users experience low-latency access to its web application. The organization has identified a need to encrypt all traffic between users and CloudFront, and all traffic between CloudFront and the web application. How can these requirements be met? (Choose TWO)
-
-- [ ] Use AWS KMS to encrypt traffic between CloudFront and the web application.
-- [x] Set the Origin Protocol Policy to `HTTPS Only`.
-- [ ] Set the Origin's HTTP Port to `443`.
-- [x] Set the Viewer Protocol Policy to `HTTPS Only` or `Redirect HTTP to HTTPS`.
-- [ ] Enable the CloudFront option `Restrict Viewer Access`.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### An application is using Amazon DynamoDB as its data store, and should be able to read 100 items per second as strongly consistent reads. Each item is 5 KB in size. To what value should the table's provisioned read throughput be set?
-
-- [ ] 50 read capacity units.
-- [ ] 100 read capacity units.
-- [x] 200 read capacity units.
-- [ ] 500 read capacity units.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### An application uses Lambda functions to extract metadata from files uploaded to an S3 bucket; the metadata is stored in Amazon DynamoDB. The application starts behaving unexpectedly, and the Developer wants to examine the logs of the Lambda function code for errors. Based on this system configuration, where would the Developer find the logs?
-
-- [ ] Amazon S3.
-- [ ] AWS CloudTrail.
-- [x] Amazon CloudWatch.
-- [ ] Amazon DynamoDB
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### A Developer is creating a Lambda function that will generate and export a file. The function requires 100 MB of temporary storage for temporary files while executing. These files will not be needed after the function is complete. How can the Developer MOST efficiently handle the temporary files?
-
-- [ ] Store the files in EBS and delete the files at the end of the Lambda function.
-- [ ] Copy the files to EFS and delete the files at the end of the Lambda function.
-- [x] Store the files in the `/tmp` directory and delete the files at the end of the Lambda function.
-- [ ] Copy the files to an S3 bucket with a lifecycle policy to delete the files.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### A Developer has developed a web application and wants to deploy it quickly on a Tomcat server on AWS. The Developer wants to avoid having to manage the underlying infrastructure. What is the easiest way to deploy the application, based on these requirements?
-
-- [ ] AWS CloudFormation.
-- [x] AWS Elastic Beanstalk.
-- [ ] Amazon S3.
-- [ ] AWS CodePipeline
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### An application runs on multiple EC2 instances behind an ELB. Where is the session data best written so that it can be served reliably across multiple requests?
-
-- [x] Write data to Amazon ElastiCache.
-- [ ] Write data to Amazon Elastic Block Store.
-- [ ] Write data to Amazon EC2 Instance Store.
-- [ ] Write data to the `root` filesystem.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### A company is migrating from a monolithic architecture to a microservices-based architecture. The Developers need to refactor the application so that the many microservices can asynchronously communicate with each other without impacting performance. Use of which managed AWS services will enable asynchronous message passing? (Choose TWO)
-
-- [x] Amazon SQS.
-- [ ] Amazon Cognito.
-- [ ] Amazon Kinesis.
-- [x] Amazon SNS.
-- [ ] Amazon ElastiCache.
-
 **[⬆ Back to Top](#table-of-contents)**
 
-### According to best practice, how should access keys be managed in AWS? (Choose TWO)
+### A company is running a popular social media site on EC2 instances. The application stores data in an Amazon RDS for MySQL DB instance and has implemented read caching by using an ElastiCache for Redis (cluster mode enabled) cluster to improve read times. A social event is happening over the weekend, and the CloudOps Engineer expects website traffic to triple. What can a CloudOps Engineer do to ensure improved read times for users during the social event?
 
-- [ ] Use the same access key in all applications for consistency.
-- [x] Delete all access keys for the account `root` user.
-- [ ] Leave unused access keys in the account for tracking purposes.
-- [ ] Embed and encrypt access keys in code for continuous deployment.
-- [x] Use Amazon IAM roles instead of access keys where possible.
+- [ ] Use Amazon RDS Multi-AZ.
+- [x] Add shards to the existing Redis cluster.
+- [ ] Offload static data to Amazon S3.
+- [ ] Launch a second Multi-AZ Redis cluster.
 
 **[⬆ Back to Top](#table-of-contents)**
 
-### An application running on an Amazon Linux EC2 instance needs to manage the AWS infrastructure. How can the EC2 instance be configured to make AWS API calls securely?
+### A CloudOps Engineer is re-architecting an application. The CloudOps Engineer has moved the database from a public subnet, where the database used a public endpoint, into a private subnet to restrict access from the public network. After this change, an AWS Lambda function that requires read access to the database cannot connect to the database. The CloudOps Engineer must resolve this issue without compromising security. Which solution meets these requirements?
 
-- [ ] Sign the AWS CLI command using the signature version 4 process.
-- [ ] Run the `aws configure` AWS CLI command and specify the access key id and secret access key.
-- [x] Specify a role for the EC2 instance with the necessary privileges.
-- [ ] Pass the access key id and secret access key as parameters for each AWS CLI command.
+- [x] Create an AWS PrivateLink interface endpoint for the Lambda function. Connect to the database using its private endpoint.
+- [ ] Connect the Lambda function to the database `VPC`. Connect to the database using its private endpoint.
+- [ ] Attach an IAM role to the Lambda function with read permissions to the database.
+- [ ] Move the database to a public subnet. Use security groups for secure access.
 
 **[⬆ Back to Top](#table-of-contents)**
 
-### An application needs to use the IP address of the client in its processing. The application has been moved into AWS and has been placed behind an Application Load Balancer (ALB). However, all the client IP addresses now appear to be the same. The application must maintain the ability to scale horizontally. Based on this scenario, what is the MOST cost-effective solution to this problem?
+### A CloudOps Engineer has implemented a `VPC` network design with the following requirements: Two Availability Zones (`AZ`s). Two private subnets. Two public subnets. One internet gateway. One `NAT` gateway. What would potentially cause applications in the `VPC` to fail during an `AZ` outage?
 
-- [ ] Remove the application from the ALB. Delete the ALB and change Amazon Route 53 to direct traffic to the instance running the application.
-- [ ] Remove the application from the ALB. Create a Classic Load Balancer in its place. Direct traffic to the application using the HTTP protocol.
-- [x] Alter the application code to inspect the `X-Forwarded-For` header. Ensure that the code can work properly if a list of IP addresses is passed in the header.
-- [ ] Alter the application code to inspect a custom header. Alter the client code to pass the IP address in the custom header.
+- [ ] A single virtual private gateway, because it can be associated with a single `AZ` only.
+- [ ] A single internet gateway, because it is not redundant across both `AZ`s.
+- [x] A single `NAT` gateway, because it is not redundant across both `AZ`s.
+- [ ] The default `VPC` route table, because it can be associated with a single `AZ` only.
 
 **[⬆ Back to Top](#table-of-contents)**
 
-### A development team is using AWS Elastic Beanstalk to deploy a two-tier application that consists of a load-balanced web tier and an Amazon RDS database tier in production. The team would like to separate the RDS instance from the Elastic Beanstalk. How can this be accomplished?
+### An organization stores sensitive customer in S3 buckets protected by bucket policies. Recently, there have been reports that unauthorized entities within the company have been trying to access the data on those S3 buckets. The Chief Information Security Officer (CISO) would like to know which buckets are being targeted and determine who is responsible for trying to access that information. Which steps should a CloudOps Engineer take to meet the CISO's requirement? (Choose two.)
 
-- [ ] Use the Elastic Beanstalk CLI to disassociate the database.
-- [ ] Use the AWS CLI to disassociate the database.
-- [ ] Change the deployment policy to disassociate the database.
-- [x] Recreate a new Elastic Beanstalk environment without Amazon RDS.
+- [ ] Enable Amazon S3 Analytics on all affected S3 buckets to obtain a report of which buckets are being accessed without authorization.
+- [x] Enable Amazon S3 Server Access Logging on all affected S3 buckets and have the logs stored in a bucket dedicated for logs.
+- [ ] Use Amazon Athena to query S3 Analytics report for `HTTP` `403` errors, and determine the IAM user or role making the requests.
+- [x] Use Amazon Athena to query the S3 Server Access Logs for `HTTP` `403` errors, and determine the IAM user or role making the requests.
+- [ ] Use Amazon Athena to query the S3 Server Access Logs for `HTTP` `503` errors, and determine the IAM user or role making the requests.
 
 **[⬆ Back to Top](#table-of-contents)**
 
-### A company is using AWS CodePipeline to deliver one of its applications. The delivery pipeline is triggered by changes to the master branch of an AWS CodeCommit repository and uses AWS CodeBuild to implement the test and build stages of the process and AWS CodeDeploy to deploy the application. The pipeline has been operating successfully for several months and there have been no modifications. Following a recent change to the application's source code, AWS CodeDeploy has not deployed the updates application as expected. What are the possible causes? (Choose TWO)
+### A company is preparing for a marketing campaign that will increase traffic to a new web application. The application uses Amazon API Gateway and AWS Lambda for the application logic. The application stores relevant user data in an Amazon Aurora MySQL DB cluster that has one Aurora Replica. Database queries for the application are `5%` write and `95%` read. What should a CloudOps Engineer do to scale the database when traffic increases?
 
-- [x] The change was not made in the master branch of the AWS CodeCommit repository.
-- [x] One of the earlier stages in the pipeline failed and the pipeline has terminated.
-- [ ] One of the Amazon EC2 instances in the company's AWS CodePipeline cluster is inactive.
-- [ ] The AWS CodePipeline is incorrectly configured and is not executing AWS CodeDeploy.
-- [ ] AWS CodePipeline does not have permissions to access AWS CodeCommit.
+- [x] Configure Aurora Auto Scaling to add or remove Aurora Replicas in the cluster based on the average CPU utilization of the Aurora Replicas.
+- [ ] Configure Aurora Auto Scaling to increase or decrease the size of the Aurora Replicas based on the average CPU utilization of the Aurora Replicas.
+- [ ] Configure AWS Auto Scaling to monitor the Aurora cluster. Configure AWS Auto Scaling to add or remove Aurora Replicas in the cluster based on the average CPU utilization of the primary instance.
+- [ ] Configure AWS Auto Scaling to monitor the Aurora cluster. Configure AWS Auto Scaling to add or remove Aurora Replicas in the cluster based on the average CPU utilization of the existing Aurora Replica.
 
 **[⬆ Back to Top](#table-of-contents)**
 
-### A social media company is using Amazon Cognito in order to synchronize profiles across different mobile devices, to enable end users to have a seamless experience. Which of the following configurations can be used to silently notify users whenever an update is available on all other devices?
+### An Amazon EC2 instance in a private subnet needs to copy data to an Amazon S3 bucket. For security reasons, the connection from the EC2 instance to Amazon S3 must not traverse across the Internet. What action should the CloudOps Engineer take to accomplish this?
 
-- [ ] Modify the user pool to include all the devices which keep them in sync.
-- [ ] Use the SyncCallback interface to receive notifications on the application.
-- [ ] Use an Amazon Cognito stream to analyze the data and push the notifications.
-- [x] Use the push synchronization feature with the appropriate IAM role.
+- [ ] Create a `NAT` instance and route traffic destined to Amazon S3 through it.
+- [ ] Create a `VPN` connection between the EC2 instance and Amazon S3.
+- [x] Create an S3 `VPC` endpoint in the `VPC` where the EC2 instance resides.
+- [ ] Use AWS Direct Connect to maximize throughput and keep the traffic private.
 
 **[⬆ Back to Top](#table-of-contents)**
 
-### An on-premises application is implemented using a Linux, Apache, MySQL and PHP (LAMP) stack. The Developer wants to run this application in AWS. Which of the following sets of AWS services can be used to run this stack?
+### A company has an existing public web application for `www.example.com`. The Application Load Balancer (ALB) is configured with a single `HTTP` `80` listener. A CloudOps Engineer must ensure that all web requests to `www.example.com` are encrypted between the client and the `ALB`. The CloudOps Engineer already has requested and validated a public certificate for `www.example.com` in AWS Certificate Manager (ACM). Existing users of the application must not be required to change the endpoint to which they are connecting. Which additional set of steps should the CloudOps Engineer take to meet these requirements?
 
-- [ ] Amazon API Gateway, Amazon S3.
-- [ ] AWS Lambda, Amazon DynamoDB.
-- [x] Amazon EC2, Amazon Aurora.
-- [ ] Amazon Cognito, Amazon RDS.
-- [ ] Amazon ECS, Amazon EBS.
+- [ ] Create an additional `ALB` listener for `HTTPS` on port `443`. Set the default action to forward all traffic to the target group. Specify the ACM certificate that was created for `www.example.com` as the default SSL certificate.
+- [ ] Create an additional `ALB` listener for `HTTPS` on port `443`. Set the default action to forward all traffic to the target group. Specify the ACM certificate that was created for `www.example.com` as the default SSL certificate. Delete the original `HTTP` listener on port `80`.
+- [ ] Modify the `ALB` default rule for the `HTTP` port `80` listener. Create a rule in the listener to forward all traffic for the host www example.com to the target group. Specify the ACM certificate that was created for `www.example.com` as the default SSL certificate.
+- [x] Modify the `ALB` default rule for the `HTTP` port `80` listener to redirect to `HTTPS` on port `443`. Create an additional `HTTPS` listener on port `443`. Set the default action to forward all traffic to the target group. Specify the ACM certificate that was created for `www.example.com` as the default SSL certificate.
 
 **[⬆ Back to Top](#table-of-contents)**
 
-### An application displays a status dashboard. The status is updated by 1 KB messages from an SQS queue. Although the status changes infrequently, the Developer must minimize the time between the message arrival in the queue and the dashboard update. What technique provides the shortest delay in updating the dashboard?
+### A CloudOps Engineer needs to configure the Amazon Route 53 hosted zone for `example.com` and `www.example.com` to point to an Application Load Balancer (ALB). Which combination of actions should the CloudOps Engineer take to meet these requirements? (Choose two.)
 
-- [x] Retrieve the messages from the queue using long polling every 20 seconds.
-- [ ] Reduce the size of the messages by compressing them before sending.
-- [ ] Retrieve the messages from the queue using short polling every 10 seconds.
-- [ ] Reduce the size of each message payload by sending it in two parts.
+- [ ] Configure an `A` record for `example.com` to point to the IP address of the `ALB`.
+- [ ] Configure an `A` record for `www.example.com` to point to the IP address of the `ALB`.
+- [x] Configure an alias record for `example.com` to point to the `CNAME` of the `ALB`.
+- [x] Configure an alias record for `www.example.com` to point to the Route 53 `example.com` record.
+- [ ] Configure a `CNAME` record for `example.com` to point to the `CNAME` of the `ALB`.
 
 **[⬆ Back to Top](#table-of-contents)**
 
-### An on-premises legacy application is caching data files locally and writing shared images to local disks. What is necessary to allow for horizontal scaling when migrating the application to AWS?
+### A CloudOps Engineer created an AWS Lambda function within a `VPC` with no access to the Internet. The Lambda function pulls messages from an Amazon SQS queue and stores them in an Amazon RDS instance in the same `VPC`. After executing the Lambda function, the data is not showing up on the RDS instance. Which of the following are possible causes for this? (Choose two.)
 
-- [ ] Modify the application to have both shared images and caching data written to Amazon EBS.
-- [x] Modify the application to read and write cache data on Amazon S3, and also store shared images on S3.
-- [ ] Modify the application to use Amazon S3 for serving shared images; cache data can then be written to local disks.
-- [ ] Modify the application to read and write cache data on Amazon S3, while continuing to write shared images to local disks.
+- [ ] A `VPC` endpoint has not been created for Amazon RDS.
+- [x] A `VPC` endpoint has not been created for Amazon SQS.
+- [x] The RDS security group is not allowing connections from the Lambda function.
+- [ ] The subnet associated with the Lambda function does not have an internet gateway attached.
+- [ ] The subnet associated with the Lambda function has a `NAT` gateway.
 
 **[⬆ Back to Top](#table-of-contents)**
 
-### A Developer must trigger an AWS Lambda function based on the item lifecycle activity in an Amazon DynamoDB table. How can the Developer create the solution?
+### A user has created a `VPC` with public and private subnets using the `VPC` wizard. Which of the below mentioned statements is not true in this scenario?
 
-- [ ] Enable a DynamoDB stream that publishes an Amazon SNS message. Trigger the Lambda function synchronously from the SNS message.
-- [ ] Enable a DynamoDB stream that publishes an SNS message. Trigger the Lambda function asynchronously from the SNS message.
-- [ ] Enable a DynamoDB stream, and trigger the Lambda function synchronously from the stream.
-- [x] Enable a DynamoDB stream, and trigger the Lambda function asynchronously from the stream.
+- [x] The `VPC` will create a routing instance and attach it with a public subnet.
+- [ ] The `VPC` will create two subnets.
+- [ ] The `VPC` will create one internet gateway and attach it to `VPC`.
+- [ ] The `VPC` will launch one NAT instance with an elastic IP.
 
 **[⬆ Back to Top](#table-of-contents)**
 
-### After installing the AWS CLI, a Developer tries to run the command `aws configure` but receives the following error: `Error: aws: command not found`. What is the most likely cause of this error?
+### A company has an application that uses a scheduled AWS Lambda function to retrieve datasets from external sources over the internet. The function is not associated with a `VPC`. The company is modifying the application to store the information that the Lambda function retrieves on an Amazon RDS DB instance in a private subnet. The `VPC` has two public subnets and two private subnets. A CloudOps Engineer must deploy a solution that allows the Lambda function to access the new database and continue to access the internet. Which solution meets these requirements?
 
-- [x] The `aws` executable is not in the `PATH` environment variable.
-- [ ] Access to the `aws` executable has been denied to the installer.
-- [ ] Incorrect AWS credentials were provided.
-- [ ] The `aws` script does not have an executable file mode.
+- [ ] Create a new Lambda function with `VPC` access and an Elastic IP address. Attach the function to public subnets in two Availability Zones. Associate a security group with the Elastic IP address. Configure the security group outbound rules to allow Lambda to access the required resources.
+- [ ] Create a new Lambda function with `VPC` access and two public IP addresses. Attach the function to public subnets in the same Availability Zones that the database uses. Associate a security group with the function. Configure the security group inbound rules to allow Lambda to access the required resources.
+- [x] Reconfigure the Lambda function for `VPC` access. Add `NAT` gateways to the public subnets in the VPAdd route table entries in the private subnets to route through the `NAT` gateways to the internet. Attach the function to the private subnets that support the database. Associate a security group with the function. Configure the security group outbound rules to allow Lambda to access the internet.
+- [ ] Reconfigure the Lambda function for `VPC` access. Attach the function to the private subnets. Add route table entries in the private subnets to route through the internet gateway to the internet. Associate a security group with the subnets. Configure the security group inbound rules to allow Lambda to access the required resources through the internet gateway.
 
 **[⬆ Back to Top](#table-of-contents)**
 
-### The Developer for a retail company must integrate a fraud detection solution into the order processing solution. The fraud detection solution takes between ten and thirty minutes to verify an order. At peak, the web site can receive one hundred orders per minute. What is the most scalable method to add the fraud detection solution to the order processing pipeline?
+### A user has created a `VPC` with public and private subnets using the `VPC` wizard. The `VPC` has `CIDR` `20.0.0.0/16`. The private subnet uses `CIDR` `20.0.0.0/24`. The `NAT` instance ID is `i-a12345`. Which of the below mentioned entries are required in the main route table attached with the private subnet to allow instances to connect with the internet?
 
-- [ ] Add all new orders to an Amazon SQS queue. Configure a fleet of 10 EC2 instances spanning multiple AZs with the fraud detection solution installed on them to pull orders from this queue. Update the order with a pass or fails status.
-- [x] Add all new orders to an SQS queue. Configure an Auto Scaling group that uses the queue depth metric as its unit of scale to launch a dynamically-sized fleet of EC2 instances spanning multiple AZs with the fraud detection solution installed on them to pull orders from this queue. Update the order with a pass or fails status.
-- [ ] Add all new orders to an Amazon Kinesis Stream. Subscribe a Lambda function to automatically read batches of records from the Kinesis Stream. The Lambda function includes the fraud detection software and will update the order with a pass or fail status.
-- [ ] Write all new orders to Amazon DynamoDB. Configure DynamoDB Streams to include all new orders. Subscribe a Lambda function to automatically read batches of records from the Kinesis Stream. The Lambda function includes the fraud detection software and will update the order with a pass or fail status.
+- [x] Destination: `0.0.0.0/0` and Target: `i-a12345`.
+- [ ] Destination: `20.0.0.0/0` and Target: `80`.
+- [ ] Destination: `20.0.0.0/0` and Target: `i-a12345`.
+- [ ] Destination: `20.0.0.0/24` and Target: `i-a12345`.
 
 **[⬆ Back to Top](#table-of-contents)**
 
-### When a Developer tries to run an AWS CodeBuild project, it raises an error because the length of all environment variables exceeds the limit for the combined maximum of characters. What is the recommended solution?
+### A user has created a `VPC` with public and private subnets using the `VPC` wizard. Which of the below mentioned statements is true in this scenario?
 
-- [ ] Add the export `LC_ALL="en_US.utf8"` command to the `pre_build` section to ensure `POSIX` localization.
-- [ ] Use Amazon Cognito to store key-value pairs for large numbers of environment variables.
-- [ ] Update the settings for the build project to use an Amazon S3 bucket for large numbers of environment variables.
-- [x] Use AWS Systems Manager Parameter Store to store large numbers of environment variables.
+- [ ] The AWS `VPC` will automatically create a `NAT` instance with the micro size.
+- [x] `VPC` bounds the main route table with a private subnet and a custom route table with a public subnet.
+- [ ] The user has to manually create a `NAT` instance.
+- [ ] `VPC` bounds the main route table with a public subnet and a custom route table with a private subnet.
 
 **[⬆ Back to Top](#table-of-contents)**
 
-### A set of APIs are exposed to customers using the Amazon API Gateway. These APIs have caching enabled on the API Gateway. Customers have asked for an option to invalidate this cache for each of the APIs. What action can be taken to allow API customers to invalidate the API Cache?
+### A user has created a `VPC` with public and private subnets using the `VPC` Wizard. The `VPC` has `CIDR` `20.0.0.0/16`. The private subnet uses `CIDR` `20.0.0.0/24`. Which of the below mentioned entries are required in the main route table to allow the instances in `VPC` to communicate with each other?
 
-- [ ] Ask customers to use AWS credentials to call the `InvalidateCache` API.
-- [ ] Ask customers to invoke an AWS API endpoint which invalidates the cache.
-- [x] Ask customers to pass an HTTP header called `Cache-Control:max-age=0`.
-- [ ] Ask customers to add a query string parameter called `INVALIDATE_CACHE` when making an API call.
+- [ ] Destination: `20.0.0.0/24` and Target: `VPC`.
+- [x] Destination: `20.0.0.0/16` and Target: `Local`.
+- [ ] Destination: `20.0.0.0/0` and Target: `ALL`.
+- [ ] Destination: `20.0.0.0/24` and Target: `Local`.
 
 **[⬆ Back to Top](#table-of-contents)**
 
-### A Developer has been asked to build a real-time dashboard web application to visualize the key prefixes and storage size of objects in Amazon S3 buckets. Amazon DynamoDB will be used to store the Amazon S3 metadata. What is the optimal and MOST cost-effective design to ensure that the real-time dashboard is kept up to date with the state of the objects in the Amazon S3 buckets?
+### A user has created a `VPC` with public and private subnets using the `VPC` wizard. The user has not launched any instance manually and is trying to delete the `VPC`. What will happen in this scenario?
 
-- [ ] Use an Amazon CloudWatch event backed by an AWS Lambda function. Issue an Amazon S3 API call to get a list of all Amazon S3 objects and persist the metadata within DynamoDB. Have the web application poll the DynamoDB table to reflect this change.
-- [x] Use Amazon S3 Event Notification backed by a Lambda function to persist the metadata into DynamoDB. Have the web application poll the DynamoDB table to reflect this change.
-- [ ] Run a cron job within an Amazon EC2 instance to list all objects within Amazon S3 and persist the metadata into DynamoDB. Have the web application poll the DynamoDB table to reflect this change.
-- [ ] Create a new Amazon EMR cluster to get all the metadata about Amazon S3 objects; persist the metadata into DynamoDB. Have the web application poll the DynamoDB table to reflect this change.
+- [ ] It will not allow to delete the `VPC` as it has subnets with route tables.
+- [ ] It will not allow to delete the `VPC` since it has a running route instance.
+- [ ] It will terminate the `VPC` along with all the instances launched by the wizard.
+- [x] It will not allow to delete the `VPC` since it has a running `NAT` instance.
 
 **[⬆ Back to Top](#table-of-contents)**
 
-### A Developer must repeatedly and consistently deploy a serverless RESTful API on AWS. Which techniques will work? (Choose TWO)
+### A user has created a `VPC` with the public and private subnets using the `VPC` wizard. The `VPC` has `CIDR` `20.0.0.0/16`. The public subnet uses `CIDR` `20.0.1.0/24`. The user is planning to host a web server in the public subnet (port `80`) and a DB server in the private subnet (port `3306`). The user is configuring a security group for the public subnet (`WebSecGrp`) and the private subnet (`DBSecGrp`). Which of the below mentioned entries is required in the web server security group (`WebSecGrp`)?
 
-- [ ] Define a Swagger file. Use AWS Elastic Beanstalk to deploy the Swagger file.
-- [ ] Define a Swagger file. Use AWS CodeDeploy to deploy the Swagger file.
-- [x] Deploy a SAM template with an inline Swagger definition.
-- [x] Define a Swagger file. Deploy a SAM template that references the Swagger file.
-- [ ] Define an inline Swagger definition in a Lambda function. Invoke the Lambda function.
+- [ ] Configure `Destination` as DB Security group ID (`DbSecGrp`) for port `3306` outbound.
+- [ ] `80` for `Destination` `0.0.0.0/0` outbound.
+- [ ] Configure port `3306` for source `20.0.0.0/24` inbound.
+- [x] Configure port `80` inbound for source `20.0.0.0/16`.
 
 **[⬆ Back to Top](#table-of-contents)**
 
-### An existing serverless application processes uploaded image files. The process currently uses a single Lambda function that takes an image file, performs the processing, and stores the file in Amazon S3. Users of the application now require thumbnail generation of the images. Users want to avoid any impact to the time it takes to perform the image uploads. How can thumbnail generation be added to the application, meeting user requirements while minimizing changes to existing code?
+### A user has created a `VPC` with `CIDR` `20.0.0.0/16` using the wizard. The user has created a public subnet `CIDR` `20.0.0.0/24` and `VPN` only subnets `CIDR` `20.0.1.0/24` along with the `VPN` gateway `vgw-12345` to connect to the user's data center. Which of the below mentioned options is a valid entry for the main route table in this scenario?
 
-- [ ] Change the existing Lambda function handling the uploads to create thumbnails at the time of upload. Have the function store both the image and thumbnail in Amazon S3.
-- [ ] Create a second Lambda function that handles thumbnail generation and storage. Change the existing Lambda function to invoke it asynchronously.
-- [x] Create an S3 event notification with a Lambda function destination. Create a new Lambda function to generate and store thumbnails.
-- [ ] Create an S3 event notification to an SQS Queue. Create a scheduled Lambda function that processes the queue, and generates and stores thumbnails.
+- [ ] Destination: `20.0.0.0/24` and Target: `vgw-12345`.
+- [ ] Destination: `20.0.0.0/16` and Target: `ALL`.
+- [ ] Destination: `20.0.1.0/16` and Target: `vgw-12345`.
+- [x] Destination: `0.0.0.0/0` and Target: `vgw-12345`.
 
 **[⬆ Back to Top](#table-of-contents)**
 
-### A company is using Amazon API Gateway to manage access to a set of microservices implemented as AWS Lambda functions. Following a bug report, the company makes a minor breaking change to one of the APIs. In order to avoid impacting existing clients when the new API is deployed, the company wants to allow clients six months to migrate from v1 to v2. Which approach should the Developer use to handle this change?
+### A user has created a `VPC` with the public and private subnets using the `VPC` wizard. The `VPC` has `CIDR` `20.0.0.0/16`. The public subnet uses `CIDR` `20.0.1.0/24`. The user is planning to host a web server in the public subnet (port `80`) and a DB server in the private subnet (port `3306`). The user is configuring a security group for the public subnet (`WebSecGrp`) and the private subnet (`DBSecGrp`). Which of the below mentioned entries is required in the private subnet database security group (`DBSecGrp`)?
 
-- [ ] Update the underlying Lambda function and provide clients with the new Lambda invocation URL.
-- [ ] Use API Gateway to automatically propagate the change to clients, specifying 180 days in the phased deployment parameter.
-- [x] Use API Gateway to deploy a new stage named v2 to the API and provide users with its URL.
-- [ ] Update the underlying Lambda function, create an Amazon CloudFront distribution with the updated Lambda function as its origin.
+- [x] Allow inbound on port `3306` for source Web Server Security Group (`WebSecGrp`).
+- [ ] Allow inbound on port `3306` from source `20.0.0.0/16`.
+- [ ] Allow outbound on port `3306` for destination Web Server Security Group (`WebSecGrp`).
+- [ ] Allow outbound on port `80` for destination `NAT` Instance IP.
 
 **[⬆ Back to Top](#table-of-contents)**
-
-### A company developed a set of APIs that are being served through the Amazon API Gateway. The API calls need to be authenticated based on OpenID identity providers such as Amazon or Facebook. The APIs should allow access based on a custom authorization model. Which is the simplest and MOST secure design to use to build an authentication and authorization model for the APIs?
-
-- [x] Use Amazon Cognito user pools and a custom authorizer to authenticate and authorize users based on JSON Web Tokens.
-- [ ] Build a OpenID token broker with Amazon and Facebook. Users will authenticate with these identify providers and pass the JSON Web Token to the API to authenticate each API call.
-- [ ] Store user credentials in Amazon DynamoDB and have the application retrieve temporary credentials from AWS STS. Make API calls by passing user credentials to the APIs for authentication and authorization.
-- [ ] Use Amazon RDS to store user credentials and pass them to the APIs for authentications and authorization.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### Where should an Elastic Beanstalk configuration file named `healthcheckur1.config` be placed in the application source bundle?
-
-- [ ] In the `root` of the application.
-- [ ] In the `bin` folder.
-- [ ] In `healthcheckur1.config.ebextension` under `root`.
-- [x] In the `.ebextensions` folder.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-### A Developer has implemented a Lambda function that needs to add new customers to an RDS database that is expected to run hundreds of times per hour. The Lambda function is configured to use 512MB of RAM and is based on the following pseudo code. After testing the Lambda function, the Developer notices that the Lambda execution time is much longer than expected. What should the Developer do to improve performance?
 
-![Question 385](images/question385.jpg)
+### A user has created a `VPC` with `CIDR` `20.0.0.0/16` using `VPC` Wizard. The user has created a public `CIDR` `20.0.0.0/24` and a `VPN` only subnet `CIDR` `20.0.1.0/24` along with the hardware `VPN` access to connect to the user's data center. Which of the below mentioned components is not present when the `VPC` is setup with the wizard?
 
-- [ ] Increase the amount of RAM allocated to the Lambda function, which will increase the number of threads the Lambda can use.
-- [ ] Increase the size of the RDS database to allow for an increased number of database connections each hour.
-- [x] Move the database connection and close statement out of the handler. Place the connection in the global space.
-- [ ] Replace RDS wit Amazon DynamoDB to implement control over the number of writes per second.
+- [ ] Main route table attached with a `VPN` only subnet.
+- [x] A `NAT` instance configured to allow the `VPN` subnet instances to connect with the internet.
+- [ ] Custom route table attached with a public subnet.
+- [ ] An internet gateway for a public subnet.
 
 **[⬆ Back to Top](#table-of-contents)**
 
-### A static website is hosted in an Amazon S3 bucket. Several HTML pages on the site use JavaScript to download images from another Amazon S3 bucket. These images are not displayed when users browse the site. What is the possible cause for the issue?
+### A user has created a `VPC` with `CIDR` `20.0.0.0/16` using the wizard. The user has created public and `VPN` only subnets along with hardware `VPN` access to connect to the user's data center. The user has not yet launched any instance as well as modified or deleted any setup. He wants to delete this `VPC` from the console. Will the console allow the user to delete the `VPC`?
 
-- [ ] The referenced Amazon S3 bucket is in another region.
-- [ ] The images must be stored in the same Amazon S3 bucket.
-- [ ] Port 80 must be opened on the security group in which the Amazon S3 bucket is located.
-- [x] Cross Origin Resource Sharing must be enabled on the Amazon S3 bucket.
+- [ ] Yes, the console will delete all the setups and also delete the virtual private gateway.
+- [x] No, the console will ask the user to manually detach the virtual private gateway first and then allow deleting the `VPC`.
+- [ ] Yes, the console will delete all the setups and detach the virtual private gateway.
+- [ ] No, since the `NAT` instance is running.
 
 **[⬆ Back to Top](#table-of-contents)**
 
-### Amazon S3 has the following structure: `S3://BUCKET/FOLDERNAME/FILENAME.zip`. Which S3 best practice would optimize performance with thousands of PUT request each second to a single bucket?
+### A user has created a `VPC` with `CIDR` `20.0.0.0/16` using the wizard. The user has created a public subnet `CIDR` `20.0.0.0/24` and `VPN` only subnets `CIDR` `20.0.1.0/24` along with the `VPN` gateway `vgw-12345` to connect to the user's data center. The user's data center has `CIDR` `172.28.0.0/12`. The user has also setup a `NAT` instance `i-123456` to allow traffic to the internet from the `VPN` subnet. Which of the below mentioned options is not a valid entry for the main route table in this scenario?
 
-- [ ] Prefix folder names with user id; for example, `s3://BUCKET/2013-FOLDERNAME/FILENAME.zip`.
-- [ ] Prefix file names with timestamps; for example, `s3://BUCKET/FOLDERNAME/2013-26-05-15-00-00-FILENAME.zip`.
-- [ ] Prefix file names with random hex hashes; for example, `s3://BUCKET/FOLDERNAME/23a6-FILENAME.zip`.
-- [x] Prefix folder names with random hex hashes; for example, `s3://BUCKET/23a6-FOLDERNAME/FILENAME.zip`.
+- [x] Destination: `20.0.1.0/24` and Target: `i-12345`.
+- [ ] Destination: `0.0.0.0/0` and Target: `i-12345`.
+- [ ] Destination: `172.28.0.0/12` and Target: `vgw-12345`.
+- [ ] Destination: `20.0.0.0/16` and Target: `local`.
 
 **[⬆ Back to Top](#table-of-contents)**
